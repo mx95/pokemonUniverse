@@ -1,7 +1,7 @@
 gText_Birch_Welcome::
 	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to the world of POKéMON!\p"
-	.string "My name is BIRCH.\p"
+	.string "My name is AURELIA.\p"
 	.string "But everyone calls me the POKéMON\n"
 	.string "PROFESSOR.\p"
 	.string "$"
@@ -14,6 +14,9 @@ gText_Birch_Pokemon::
 gText_Birch_MainSpeech::
 	.string "This world is widely inhabited by\n"
 	.string "creatures known as POKéMON.\p"
+	.string "In the region of AURELIA, a force\n"
+	.string "called GENESIS ENERGY connects\l"
+	.string "every great battle phenomenon.\p"
 	.string "We humans live alongside POKéMON,\n"
 	.string "at times as friendly playmates, and\l"
 	.string "at times as cooperative workmates.\p"
@@ -23,9 +26,9 @@ gText_Birch_MainSpeech::
 	.string "know everything about POKéMON.\p"
 	.string "In fact, there are many, many\n"
 	.string "secrets surrounding POKéMON.\p"
-	.string "To unravel POKéMON mysteries,\n"
-	.string "I've been undertaking research.\l"
-	.string "That's what I do.\p"
+	.string "To unravel those mysteries-and the\n"
+	.string "nature of GENESIS ENERGY-\l"
+	.string "I've been undertaking research.\p"
 	.string "$"
 
 gText_Birch_AndYouAre::
@@ -45,14 +48,14 @@ gText_Birch_SoItsPlayer::
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
 	.string "You're {PLAYER}{KUN} who's moving to my\n"
-	.string "hometown of LITTLEROOT.\l"
+	.string "hometown of VERDANT TOWN.\l"
 	.string "I get it now!\p"
 	.string "$"
 
 gText_Birch_AreYouReady::
 	.string "All right, are you ready?\p"
 	.string "Your very own adventure is about\n"
-	.string "to unfold.\p"
+	.string "to unfold across AURELIA.\p"
 	.string "Take courage, and leap into the\n"
 	.string "world of POKéMON where dreams,\l"
 	.string "adventure, and friendships await!\p"
