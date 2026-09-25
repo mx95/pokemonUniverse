@@ -234,6 +234,13 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    // GENESIS: default QoL on new game
+#if GENESIS_ENABLE_EXP_SHARE
+    FlagSet(FLAG_SYS_EXP_SHARE);
+#endif
+#if GENESIS_ENABLE_DEXNAV
+    FlagSet(FLAG_SYS_DEXNAV_GET);
+#endif
 }
 
 static void ResetMiniGamesRecords(void)

@@ -664,13 +664,13 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_SYS_EXP_SHARE  0x264 // GENESIS: party Exp. Share toggle (I_EXP_SHARE_FLAG)
+#define FLAG_DEXNAV_SEARCHING  0x265 // GENESIS: DexNav searching
+#define FLAG_SYS_DEXNAV_GET  0x266 // GENESIS: DexNav unlocked in Start menu
+#define FLAG_SYS_DEXNAV_DETECTOR  0x267 // GENESIS: DexNav detector mode
+#define FLAG_SYS_DYNAMAX_BATTLE  0x268 // GENESIS: Dynamax allowed this battle
+#define FLAG_SYS_TERA_ORB_CHARGED  0x269 // GENESIS: Tera Orb charged
+#define FLAG_SYS_TERA_ORB_NO_COST  0x26A // GENESIS: Tera Orb free use
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
