@@ -15,6 +15,11 @@
 #define GENESIS_ENABLE_GYM_REMATCHES        FALSE
 #define GENESIS_ENABLE_QUEST_LOG            FALSE
 #define GENESIS_ENABLE_ACHIEVEMENTS         FALSE
+#define GENESIS_ENABLE_RANDOMIZER           FALSE   // Optional challenge mode
+#define GENESIS_ENABLE_NUZLOCKE             FALSE   // Optional challenge mode
+#define GENESIS_ENABLE_MONOTYPE_CHALLENGE   FALSE   // Optional challenge mode
+#define GENESIS_ENABLE_DAMAGE_DISPLAY       FALSE   // Competitive / simulator UI only
+#define GENESIS_ENABLE_QUEST_MARKERS        FALSE   // Optional; never forced
 
 // --- Overworld QoL (wrappers around Expansion where needed) ----------------
 #define GENESIS_ENABLE_FOLLOWERS            TRUE    // Mirrors OW_FOLLOWERS_ENABLED enablement

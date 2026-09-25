@@ -35,10 +35,20 @@ Output ROM: `pokemonGenesis.gba` (Genesis branding; Expansion default was `pokee
 | Feature flags | `include/config/genesis.h` |
 | Story / region docs | `docs/STORY.md`, `docs/REGION_AURELIA.md` |
 | Bugs | `docs/BUGS.md` |
+| Feature status board | `docs/PROJECT_STATUS.md` |
+| Ultimate wishlist (QoL/world/endgame) | Captured in `PROJECT_STATUS.md`; implement by priority groups only |
 | Genesis Form (planned) | data-driven tables under `src/data/genesis/` |
 | Comment marker | `// GENESIS:` |
 
 Prefer existing Expansion APIs under `include/config/`, battle systems, species data, DexNav, followers, and Battle Frontier.
+
+## Implementation order (Ultimate Spec §172 / §179)
+
+1. **Priority 1:** Core maps, story, 16 gyms, save, battle gates, essential QoL  
+2. **Priority 2:** DexNav polish, quests, Frontier, postgame services, customization  
+3. **Priority 3:** Achievements extras, contests, secret bases, photo, cooking, NG+  
+
+After each feature group: compile → test ROM → commit → update `PROJECT_STATUS.md` → update `BUGS.md` if needed.
 
 ## Branch map
 
