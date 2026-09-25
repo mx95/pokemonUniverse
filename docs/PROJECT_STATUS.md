@@ -28,7 +28,10 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Expansion reuse |
 |---------------|---------|--------|-----------------|
-| Pokémon / forms / moves DB | — | IMPLEMENTED (upstream) | Full Expansion species DB |
+| Pokémon / forms / moves DB | — | COMPLETE | Expansion Gen 1–9 + forms all enabled; see `docs/POKEMON_ROSTER.md` |
+| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | Placeholder graphics; concept art in `docs/art/` |
+| Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
+| Custom legendary battle sprites | — | PLANNED | Replace question-mark placeholders |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | PLANNED | Expansion save + `GENESIS_SAVE_VERSION` |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Needs in-emulator playtest checklist |
