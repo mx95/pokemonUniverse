@@ -58,7 +58,7 @@
     },
     {
       "id": "MAPSEC_PETALBURG_CITY",
-      "name": "PETALBURG CITY",
+      "name": "PORT AZURE",
       "x": 1,
       "y": 9,
       "width": 1,
@@ -138,7 +138,7 @@
     },
     {
       "id": "MAPSEC_ROUTE_102",
-      "name": "ROUTE 102",
+      "name": "ROUTE 2",
       "x": 2,
       "y": 9,
       "width": 2,
@@ -474,7 +474,7 @@
     },
     {
       "id": "MAPSEC_PETALBURG_WOODS",
-      "name": "PETALBURG WOODS",
+      "name": "LUMEN FOREST",
       "x": 0,
       "y": 8,
       "width": 1,

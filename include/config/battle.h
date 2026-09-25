@@ -339,7 +339,7 @@
 #define B_SECRET_POWER_ANIMATION    GEN_LATEST // Secret Power's animations change depending on the terrain and generation.
 #define B_NATURE_POWER_MOVES        GEN_LATEST // Nature Power calls different moves depending on the terrain and generation. See gBattleEnvironmentInfo.
 #define B_CAMOUFLAGE_TYPES          GEN_LATEST // Camouflage changes the user to different types depending on the terrain and generation. See sTerrainToType.
-#define B_NEW_TERRAIN_BACKGROUNDS   FALSE      // If set to TRUE, uses new terrain backgrounds for Electric, Misty, Grassy and Psychic Terrain.
+#define B_NEW_TERRAIN_BACKGROUNDS   TRUE       // GENESIS: modern terrain battle backgrounds
 
 // Interface settings
 #define B_FAST_INTRO_PKMN_TEXT              TRUE       // If set to TRUE, battle intro text prints at the same time as the animation of Pokémon, as opposing to waiting for the animation to end.
@@ -398,23 +398,23 @@
 #define NUM_BEEPS_OFF                   0                    // Does not play at all
 #define B_NUM_LOW_HEALTH_BEEPS          NUM_BEEPS_GEN_LATEST // This controls the number of times the "low HP" beep will loop. Setting this value to NUM_BEEPS_OFF will disable the beep, while NUM_BEEPS_GEN_3 will loop infinitely. You can set this to any number you want, the defines listed are just for ease of use.
 
-// Animation Settings
-#define B_NEW_SWORD_PARTICLE            FALSE    // If set to TRUE, it updates Swords Dance's particle.
-#define B_NEW_LEECH_SEED_PARTICLE       FALSE    // If set to TRUE, it updates Leech Seed's particle.
-#define B_NEW_HORN_ATTACK_PARTICLE      FALSE    // If set to TRUE, it updates Horn Attack's horn particle.
-#define B_NEW_ROCKS_PARTICLE            FALSE    // If set to TRUE, it updates rock particles.
-#define B_NEW_LEAF_PARTICLE             FALSE    // If set to TRUE, it updates the leaf particle.
-#define B_NEW_EMBER_PARTICLES           FALSE    // If set to TRUE, it updates Ember's fire particle.
-#define B_NEW_MEAN_LOOK_PARTICLE        FALSE    // If set to TRUE, it updates Mean Look's eye particle.
-#define B_NEW_TEETH_PARTICLE            FALSE    // If set to TRUE, it updates Bite/Crunch teeth particle.
-#define B_NEW_HANDS_FEET_PARTICLE       FALSE    // If set to TRUE, it updates chop/kick/punch particles.
-#define B_NEW_SPIKES_PARTICLE           FALSE    // If set to TRUE, it updates Spikes' particle.
-#define B_NEW_FLY_BUBBLE_PARTICLE       FALSE    // If set to TRUE, it updates Fly's 'bubble' particle.
-#define B_NEW_CURSE_NAIL_PARTICLE       FALSE    // If set to TRUE, it updates Curse's nail particle.
-#define B_NEW_BATON_PASS_BALL_PARTICLE  FALSE    // If set to TRUE, it updates Baton Pass' Poké Ball particle.
-#define B_NEW_MORNING_SUN_STAR_PARTICLE FALSE    // If set to TRUE, it updates Morning Sun's star particles.
-#define B_NEW_IMPACT_PALETTE            FALSE    // If set to TRUE, it updates the basic impact palette.
-#define B_NEW_SURF_PARTICLE_PALETTE     FALSE    // If set to TRUE, it updates Surf's wave palette.
+// Animation Settings — GENESIS: updated particles for a modern / DS-era battle look
+#define B_NEW_SWORD_PARTICLE            TRUE
+#define B_NEW_LEECH_SEED_PARTICLE       TRUE
+#define B_NEW_HORN_ATTACK_PARTICLE      TRUE
+#define B_NEW_ROCKS_PARTICLE            TRUE
+#define B_NEW_LEAF_PARTICLE             TRUE
+#define B_NEW_EMBER_PARTICLES           TRUE
+#define B_NEW_MEAN_LOOK_PARTICLE        TRUE
+#define B_NEW_TEETH_PARTICLE            TRUE
+#define B_NEW_HANDS_FEET_PARTICLE       TRUE
+#define B_NEW_SPIKES_PARTICLE           TRUE
+#define B_NEW_FLY_BUBBLE_PARTICLE       TRUE
+#define B_NEW_CURSE_NAIL_PARTICLE       TRUE
+#define B_NEW_BATON_PASS_BALL_PARTICLE  TRUE
+#define B_NEW_MORNING_SUN_STAR_PARTICLE TRUE
+#define B_NEW_IMPACT_PALETTE            TRUE
+#define B_NEW_SURF_PARTICLE_PALETTE     TRUE
 
 // Poké Ball animation and sounds
 #define B_ENEMY_THROW_BALLS          GEN_LATEST  // In Gen6+, enemy Trainers throw Poké Balls into battle instead of them just appearing on the ground and opening.

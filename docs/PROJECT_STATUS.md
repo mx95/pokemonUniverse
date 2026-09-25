@@ -21,6 +21,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Validation starter | IMPLEMENTED | `tools/genesis/validate_pokedex.py` |
 | Genesis Form framework stub | DESIGN | Tables/API exist; `GENESIS_ENABLE_GENESIS_FORM` off |
 | Verdant → Route 1 → Lumen loop | IMPLEMENTED | Temporary Hoenn map aliases + rebrand |
+| Route 2 + Lumen Forest + Port Azure | IMPLEMENTED | Map names + multi-gen encounters |
+| DS-style / “3D” presentation | IMPLEMENTED | Gen4/5 sprites, Gen5 pop-ups, shadows, modern particles |
 
 ---
 
@@ -29,9 +31,10 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Feature group | Spec §§ | Status | Expansion reuse |
 |---------------|---------|--------|-----------------|
 | Pokémon / forms / moves DB | — | COMPLETE | Expansion Gen 1–9 + forms all enabled; see `docs/POKEMON_ROSTER.md` |
-| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | Placeholder graphics; concept art in `docs/art/` |
+| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS-style Expansion stand-ins (Giratina/Reshiram/Arceus); unique art planned |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
-| Custom legendary battle sprites | — | PLANNED | Replace question-mark placeholders |
+| Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
+| Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique art |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | PLANNED | Expansion save + `GENESIS_SAVE_VERSION` |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Needs in-emulator playtest checklist |

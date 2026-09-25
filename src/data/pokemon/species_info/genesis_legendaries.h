@@ -1,6 +1,7 @@
 // GENESIS: Original Aurelia legendary Pokémon.
-// Battle/OW graphics currently reuse Expansion question-mark placeholders.
-// Replace graphics paths when custom sprites are authored (see docs/POKEMON_ROSTER.md).
+// Uses Expansion Gen 4/5 DS-style (3D-looking) sprites as stand-ins until
+// unique art ships. Battle + overworld share those assets.
+// See docs/POKEMON_ROSTER.md and docs/art/genesis_legendaries_concept.png
 
     [SPECIES_AETHERNOX] =
     {
@@ -36,40 +37,36 @@
         .pokemonOffset = 0,
         .trainerScale = 387,
         .trainerOffset = 6,
-        .frontPic = gMonFrontPic_CircledQuestionMark,
+        // Stand-in: DS-style Giratina (Altered)
+        .frontPic = gMonFrontPic_GiratinaAltered,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        .backPic = gMonBackPic_CircledQuestionMark,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 12),
+            ANIMCMD_FRAME(1, 45),
+            ANIMCMD_FRAME(0, 15),
+        ),
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .backPic = gMonBackPic_GiratinaAltered,
         .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CircledQuestionMark,
-        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
-        .iconSprite = gMonIcon_QuestionMark,
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        .palette = gMonPalette_GiratinaAltered,
+        .shinyPalette = gMonShinyPalette_GiratinaAltered,
+        .iconSprite = gMonIcon_GiratinaAltered,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        FOOTPRINT(QuestionMark)
-        SHADOW(0, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
-    #if OW_POKEMON_OBJECT_EVENTS
-        .overworldData = {
-            .tileTag = TAG_NONE,
-            .paletteTag = OBJ_EVENT_PAL_TAG_SUBSTITUTE,
-            .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-            .size = 512,
-            .width = 32,
-            .height = 32,
-            .paletteSlot = PALSLOT_NPC_1,
-            .shadowSize = SHADOW_SIZE_M,
-            .inanimate = FALSE,
-            .compressed = COMP,
-            .tracks = TRACKS_FOOT,
-            .oam = &gObjectEventBaseOam_32x32,
-            .subspriteTables = sOamTables_32x32,
-            .anims = sAnimTable_Following,
-            .images = sPicTable_Substitute,
-        },
-    #endif
+        SHADOW(3, 11, SHADOW_SIZE_L)
+        FOOTPRINT(GiratinaAltered)
+        OVERWORLD(
+            sPicTable_GiratinaAltered,
+            SIZE_64x64,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_GiratinaAltered,
+            gShinyOverworldPalette_GiratinaAltered
+        )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
@@ -110,40 +107,35 @@
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        .frontPic = gMonFrontPic_CircledQuestionMark,
+        // Stand-in: DS-style Reshiram
+        .frontPic = gMonFrontPic_Reshiram,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        .backPic = gMonBackPic_CircledQuestionMark,
+        .frontPicYOffset = 1,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(1, 40),
+            ANIMCMD_FRAME(0, 5),
+        ),
+        .frontAnimId = ANIM_V_SHAKE,
+        .backPic = gMonBackPic_Reshiram,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CircledQuestionMark,
-        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
-        .iconSprite = gMonIcon_QuestionMark,
-        .iconPalIndex = 1,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        .palette = gMonPalette_Reshiram,
+        .shinyPalette = gMonShinyPalette_Reshiram,
+        .iconSprite = gMonIcon_Reshiram,
+        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        FOOTPRINT(QuestionMark)
-        SHADOW(0, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
-    #if OW_POKEMON_OBJECT_EVENTS
-        .overworldData = {
-            .tileTag = TAG_NONE,
-            .paletteTag = OBJ_EVENT_PAL_TAG_SUBSTITUTE,
-            .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-            .size = 512,
-            .width = 32,
-            .height = 32,
-            .paletteSlot = PALSLOT_NPC_1,
-            .shadowSize = SHADOW_SIZE_M,
-            .inanimate = FALSE,
-            .compressed = COMP,
-            .tracks = TRACKS_FOOT,
-            .oam = &gObjectEventBaseOam_32x32,
-            .subspriteTables = sOamTables_32x32,
-            .anims = sAnimTable_Following,
-            .images = sPicTable_Substitute,
-        },
-    #endif
+        SHADOW(-2, 12, SHADOW_SIZE_L)
+        FOOTPRINT(Reshiram)
+        OVERWORLD(
+            sPicTable_Reshiram,
+            SIZE_64x64,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Reshiram,
+            gShinyOverworldPalette_Reshiram
+        )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
@@ -185,40 +177,32 @@
         .pokemonOffset = 0,
         .trainerScale = 455,
         .trainerOffset = 8,
-        .frontPic = gMonFrontPic_CircledQuestionMark,
+        // Stand-in: DS-style Arceus
+        .frontPic = gMonFrontPic_Arceus,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        .backPic = gMonBackPic_CircledQuestionMark,
+        .frontAnimFrames = sAnims_Arceus,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .backPic = gMonBackPic_Arceus,
         .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CircledQuestionMark,
-        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
-        .iconSprite = gMonIcon_QuestionMark,
-        .iconPalIndex = 2,
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        .palette = gMonPalette_ArceusNormal,
+        .shinyPalette = gMonShinyPalette_ArceusNormal,
+        .iconSprite = gMonIcon_ArceusNormal,
+        .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        FOOTPRINT(QuestionMark)
-        SHADOW(0, 12, SHADOW_SIZE_XL_BATTLE_ONLY)
-    #if OW_POKEMON_OBJECT_EVENTS
-        .overworldData = {
-            .tileTag = TAG_NONE,
-            .paletteTag = OBJ_EVENT_PAL_TAG_SUBSTITUTE,
-            .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-            .size = 512,
-            .width = 32,
-            .height = 32,
-            .paletteSlot = PALSLOT_NPC_1,
-            .shadowSize = SHADOW_SIZE_M,
-            .inanimate = FALSE,
-            .compressed = COMP,
-            .tracks = TRACKS_FOOT,
-            .oam = &gObjectEventBaseOam_32x32,
-            .subspriteTables = sOamTables_32x32,
-            .anims = sAnimTable_Following,
-            .images = sPicTable_Substitute,
-        },
-    #endif
+        SHADOW(-1, 13, SHADOW_SIZE_L)
+        FOOTPRINT(Arceus)
+        OVERWORLD(
+            sPicTable_ArceusNormal,
+            SIZE_64x64,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_ArceusNormal,
+            gShinyOverworldPalette_ArceusNormal
+        )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,

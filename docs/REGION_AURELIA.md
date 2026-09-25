@@ -34,6 +34,9 @@ Temporary map aliases reuse Expansion Hoenn layouts until custom Aurelia geometr
 | Verdant Town | `MAP_LITTLEROOT_*` | VERDANT TOWN | Player/rival houses, Prof. Aurelia lab |
 | Route 1 | `MAP_ROUTE101` | ROUTE 1 | Wild encounters, starter rescue |
 | Lumen City | `MAP_OLDALE_*` | LUMEN CITY | Pokémon Center, Poké Mart |
+| Route 2 | `MAP_ROUTE102` | ROUTE 2 | Multi-gen early encounters |
+| Port Azure | `MAP_PETALBURG_*` | PORT AZURE | Gym 3 stand-in (Water) |
+| Lumen Forest | `MAP_PETALBURG_WOODS` | LUMEN FOREST | Multi-gen forest encounters |
 
 Verdant's dedicated small Center/Mart will be added with custom map geometry later; early healing/shopping uses Lumen City.
 

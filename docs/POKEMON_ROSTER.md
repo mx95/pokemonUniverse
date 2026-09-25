@@ -2,26 +2,21 @@
 
 ## Official species (Gen 1–9)
 
-On `genesis/base` (pokeemerald-expansion **1.17.0**), **all** `P_GEN_1`–`P_GEN_9` families and form toggles are already `TRUE`:
+On `genesis/base` (pokeemerald-expansion **1.17.0**), **all** `P_GEN_1`–`P_GEN_9` families and form toggles are already `TRUE`.
 
-- Mega / Primal / Ultra Burst / Gigantamax / Tera forms
-- Regional forms (Alolan, Galarian, Hisuian, Paldean)
-- Cross-gen evolutions
-- Pikachu extra forms
+Battle sprites use Expansion's **Gen 4/5 DS-style** art by default (`P_GBA_STYLE_SPECIES_GFX FALSE`). That is the closest “3D” look the GBA supports—there is no real 3D renderer. Overworld map pop-ups use Gen 5 / B2W2 style (`OW_POPUP_GENERATION GEN_5`).
 
-**Do not copy sprites or data from Radical Red, Unbound, or other ROM hacks.** Expansion already ships battle, icon, overworld, and cry assets for the modern National Dex.
-
-Missing overworld art (if any) falls back to the Substitute / question-mark placeholder (`OW_SUBSTITUTE_PLACEHOLDER`).
+**Do not copy sprites or data from Radical Red, Unbound, or other ROM hacks.**
 
 ## Original Genesis legendaries
 
-| Species ID | Types | Role | Graphics status |
-|------------|-------|------|-----------------|
-| `SPECIES_AETHERNOX` | Dragon/Dark | Chaos | Placeholder (question mark) |
-| `SPECIES_SOLARA` | Psychic/Fire | Creation | Placeholder (question mark) |
-| `SPECIES_GENESIS` | Normal/Mystery | Potential / energy source | Placeholder (question mark) |
+| Species ID | Types | Interim DS-style art | Unique art |
+|------------|-------|----------------------|------------|
+| `SPECIES_AETHERNOX` | Dragon/Dark | Giratina (Altered) stand-in | Planned |
+| `SPECIES_SOLARA` | Psychic/Fire | Reshiram stand-in | Planned |
+| `SPECIES_GENESIS` | Normal/Mystery | Arceus stand-in | Planned |
 
-Data lives in `src/data/pokemon/species_info/genesis_legendaries.h`.
+Concept reference: `docs/art/genesis_legendaries_concept.png`
 
 ### Custom art pipeline (when ready)
 
@@ -38,6 +33,8 @@ Concept references (non-ROM): see generated design notes in chat / art brief —
 Database availability ≠ route availability. Encounters are being expanded per map as Aurelia is authored.
 
 - **Route 1 (Route 101):** multi-gen early birds/field mons (Gen 2–9 samples) mixed with Hoenn early species
+- **Route 2 (Route 102):** multi-gen grass/field (Shinx, elemental monkeys, Flabébé, Cutiefly, Blipbug, Nymble, …)
+- **Lumen Forest (Petalburg Woods):** multi-gen forest (Budew, Sewaddle, Foongus, Scatterbug, Fomantis, Skwovet, Shroodle, …)
 - Remaining routes: still Expansion Hoenn tables until remapped for Aurelia
 
 Long-term: every obtainable species should appear via wild, gift, trade, quest, Frontier, or postgame hunt — tracked in `docs/PROJECT_STATUS.md`.
