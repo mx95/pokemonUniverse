@@ -1,7 +1,7 @@
 GAME_VERSION ?= EMERALD
-TITLE        ?= POKEMON EMER
+TITLE        ?= POKEMON GENE
 GAME_CODE    ?= BPEE
-BUILD_NAME   ?= emerald
+BUILD_NAME   ?= monGenesis
 MAP_VERSION  ?= emerald
 
 ifeq (firered, $(or $(BUILD), $(MAKECMDGOALS)))
