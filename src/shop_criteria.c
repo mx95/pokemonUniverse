@@ -4,12 +4,12 @@
 #include "event_data.h"
 #include "malloc.h"
 #include "shop_criteria.h"
+#include "constants/flags.h"
 
 static EWRAM_DATA const u16 *sDynamicShopItemListRef = NULL;
 
-// Remove the UNUSED if you'll use the functions!
-static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count);
-static UNUSED bool32 ShopCriteriaByFlag(u32 flagId);
+static bool32 ShopCriteriaByBadgeCount(u32 count);
+static bool32 ShopCriteriaByFlag(u32 flagId);
 static UNUSED bool32 ShopCriteriaByVar(u32 varId, u32 varValue);
 
 void TryBuildDynamicShopItemList(const u16 **ogItemList, u16 *resultingTotal)
@@ -44,40 +44,44 @@ void TryFreeDynamicShopItemList(const u16 **ogItemList)
     *ogItemList = sDynamicShopItemListRef;
 }
 
-// Add new Criterias below!
-
-static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count)
+static bool32 ShopCriteriaByBadgeCount(u32 count)
 {
     u32 badgeCount = 0;
+    u32 badgeFlag;
 
-    for (u32 badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++)
+    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++)
     {
         if (FlagGet(badgeFlag))
             badgeCount++;
     }
 
-    if (badgeCount >= count)
-        return TRUE;
-
-    return FALSE;
+    return badgeCount >= count;
 }
 
-// These two below are somewhat identical to ShopCriteriaByBadgeCount
-// but uses only one specific event var/flag check. Useful if you need
-// a specific badge flag instead of just the badge total.
-
-static UNUSED bool32 ShopCriteriaByFlag(u32 flagId)
+static bool32 ShopCriteriaByFlag(u32 flagId)
 {
-    if (FlagGet(flagId))
-        return TRUE;
-
-    return FALSE;
+    return FlagGet(flagId);
 }
 
 static UNUSED bool32 ShopCriteriaByVar(u32 varId, u32 varValue)
 {
-    if (VarGet(varId) >= varValue)
-        return TRUE;
+    return VarGet(varId) >= varValue;
+}
 
-    return FALSE;
+bool32 ShopCriteria_Badge3(enum Item itemId)
+{
+    (void)itemId;
+    return ShopCriteriaByBadgeCount(3);
+}
+
+bool32 ShopCriteria_Badge6(enum Item itemId)
+{
+    (void)itemId;
+    return ShopCriteriaByBadgeCount(6);
+}
+
+bool32 ShopCriteria_GameClear(enum Item itemId)
+{
+    (void)itemId;
+    return ShopCriteriaByFlag(FLAG_SYS_GAME_CLEAR);
 }

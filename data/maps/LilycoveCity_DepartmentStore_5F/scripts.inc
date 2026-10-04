@@ -111,8 +111,25 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Mats:
 	.2byte DECOR_SPIN_MAT
 	pokemartlistend
 
+@ GENESIS: clothing boutique stub (OW outfit art not yet authored)
 LilycoveCity_DepartmentStore_5F_EventScript_PokefanF::
-	msgbox LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls, MSGBOX_NPC
+	lock
+	faceplayer
+	setflag FLAG_GENESIS_CLOTHING_STUB_SEEN
+	goto_if_set FLAG_BADGE03_GET, LilycoveCity_DepartmentStore_5F_EventScript_ClothingGym4
+	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubEarly, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_DepartmentStore_5F_EventScript_ClothingGym4::
+	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_DepartmentStore_5F_EventScript_ClothingPostgame
+	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubMid, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_DepartmentStore_5F_EventScript_ClothingPostgame::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubPost, MSGBOX_DEFAULT
+	release
 	end
 
 LilycoveCity_DepartmentStore_5F_EventScript_Woman::
@@ -141,6 +158,23 @@ LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather::
 LilycoveCity_DepartmentStore_5F_EventScript_LittleGirl::
 	msgbox LilycoveCity_DepartmentStore_5F_Text_GettingDollInsteadOfPokemon, MSGBOX_NPC
 	end
+
+LilycoveCity_DepartmentStore_5F_Text_ClothingStubEarly:
+	.string "BOUTIQUE AURELIA--opening soon!\p"
+	.string "We're stitching TRAINER outfits that\n"
+	.string "unlock with GYM BADGES.\p"
+	.string "Come back after Celestia's badge!$"
+
+LilycoveCity_DepartmentStore_5F_Text_ClothingStubMid:
+	.string "Welcome to BOUTIQUE AURELIA!\p"
+	.string "Outfit catalogs are still being fitted.\n"
+	.string "Badge perks will unlock here later.\p"
+	.string "For now, enjoy the dolls upstairs!$"
+
+LilycoveCity_DepartmentStore_5F_Text_ClothingStubPost:
+	.string "Champion couture is next on the rack!\p"
+	.string "Full clothing customization arrives\n"
+	.string "once our tailor finishes the patterns.$"
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
 	.string "This place is full of cute DOLLS.\p"

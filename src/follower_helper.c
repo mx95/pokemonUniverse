@@ -75,6 +75,11 @@ static const u8 sCondMsg45[] = _("Your POKéMON is staring spellbound\nat the ni
 static const u8 sCondMsg46[] = _("Your POKéMON is happily gazing at\nthe beautiful, starry sky!");
 static const u8* const sNightTexts[] = {sCondMsg45, sCondMsg46, NULL};
 static const u8 sCondMsg50[] = _("{STR_VAR_1} is disturbed by the\nabnormal weather!");
+static const u8 sGenesisForest[] = _("{STR_VAR_1} sniffs the crystal-laced\nair of Lumen Forest…");
+static const u8 sGenesisMauville[] = _("{STR_VAR_1} likes the buzz of\nCelestia's power lines!");
+static const u8 sGenesisRain[] = _("{STR_VAR_1} watches raindrops like\nrare encounter sparks!");
+static const u8 sGenesisLeague[] = _("{STR_VAR_1} stands taller near the\nPOKéMON LEAGUE gates.");
+static const u8 sGenesisSanctum[] = _("{STR_VAR_1} feels Genesis energy\nthrumming nearby…");
 
 // See the struct definition in follower_helper.h for more info
 const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT] =
@@ -390,6 +395,51 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
             MATCH_NOT_SPECIES(SPECIES_GROUDON),
             MATCH_NOT_SPECIES(SPECIES_RAYQUAZA),
         }
+    },
+    [COND_MSG_GENESIS_FOREST] =
+    {
+        .text = sGenesisForest,
+        .emotion = FOLLOWER_EMOTION_CURIOUS,
+        .conditions =
+        {
+            MATCH_MAP(MAP_PETALBURG_WOODS),
+        },
+    },
+    [COND_MSG_GENESIS_MAUVILLE] =
+    {
+        .text = sGenesisMauville,
+        .emotion = FOLLOWER_EMOTION_HAPPY,
+        .conditions =
+        {
+            MATCH_MAP(MAP_MAUVILLE_CITY),
+        },
+    },
+    [COND_MSG_GENESIS_RAIN] =
+    {
+        .text = sGenesisRain,
+        .emotion = FOLLOWER_EMOTION_MUSIC,
+        .conditions =
+        {
+            MATCH_WEATHER(WEATHER_RAIN, WEATHER_RAIN_THUNDERSTORM),
+        },
+    },
+    [COND_MSG_GENESIS_LEAGUE] =
+    {
+        .text = sGenesisLeague,
+        .emotion = FOLLOWER_EMOTION_PENSIVE,
+        .conditions =
+        {
+            MATCH_MAP(MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F),
+        },
+    },
+    [COND_MSG_GENESIS_SANCTUM] =
+    {
+        .text = sGenesisSanctum,
+        .emotion = FOLLOWER_EMOTION_SURPRISE,
+        .conditions =
+        {
+            MATCH_MAP(MAP_GENESIS_LEGEND_SANCTUM),
+        },
     },
 };
 

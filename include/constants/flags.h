@@ -722,16 +722,16 @@
 #define FLAG_GENESIS_ACE_DEFEATED_ONCE        0x29A // Verdant Ace early battle won
 #define FLAG_GENESIS_ACE_DOUBLES_WON          0x29B // Verdant Ace post-League doubles won
 #define FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE  0x29C // Achievement: beat Verdant Ace doubles
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
-#define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
-#define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
-#define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
-#define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
+#define FLAG_GENESIS_CHALLENGE_NUZLOCKE       0x29D // Optional Nuzlocke run
+#define FLAG_GENESIS_CHALLENGE_MONOTYPE       0x29E // Optional monotype run
+#define FLAG_GENESIS_CHALLENGE_LOCKED         0x29F // Challenge options locked after first gym
+#define FLAG_GENESIS_ACHIEVEMENT_QUEST_BOARD  0x2A0 // Achievement: opened quest board
+#define FLAG_GENESIS_ACHIEVEMENT_ECLIPSE      0x2A1 // Achievement: defeated Team Eclipse
+#define FLAG_GENESIS_ACHIEVEMENT_WT           0x2A2 // Achievement: cleared World Tournament
+#define FLAG_GENESIS_ACHIEVEMENT_LEGENDS      0x2A3 // Achievement: completed Legend Sanctum
+#define FLAG_GENESIS_ACHIEVEMENT_CHAMPION     0x2A4 // Achievement: became Champion
+#define FLAG_GENESIS_CLOTHING_STUB_SEEN       0x2A5 // Clothing boutique stub visited
+#define FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN     0x2A6 // Post-Eclipse archive wing unlocked
 #define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
 #define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
 #define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag

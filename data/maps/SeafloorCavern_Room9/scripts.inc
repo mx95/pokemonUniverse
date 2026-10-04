@@ -30,6 +30,8 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	msgbox SeafloorCavern_Room9_Text_ArchieWithThisRedOrb, MSGBOX_DEFAULT
 	setflag FLAG_GENESIS_ACT4_DONE
 	setflag FLAG_GENESIS_ECLIPSE_DEFEATED
+	setflag FLAG_GENESIS_ACHIEVEMENT_ECLIPSE
+	setflag FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN
 	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_ECLIPSE_FALLEN
 	call Genesis_Rival_EventScript_AfterSeafloor
 	setweather WEATHER_NONE

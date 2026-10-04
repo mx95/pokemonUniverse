@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                2 // +2 trainers (Verdant Ace); SYSTEM_FLAGS shifted
+#define GENESIS_SAVE_VERSION                3 // challenge/achievement flags + shop criteria batch
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
@@ -15,9 +15,9 @@
 #define GENESIS_ENABLE_GYM_REMATCHES        TRUE
 #define GENESIS_ENABLE_QUEST_LOG            TRUE    // Lightweight quest board NPC
 #define GENESIS_ENABLE_ACHIEVEMENTS         TRUE    // Flag-based unlocks (e.g. Verdant Ace)
-#define GENESIS_ENABLE_RANDOMIZER           FALSE   // Optional challenge mode
-#define GENESIS_ENABLE_NUZLOCKE             FALSE   // Optional challenge mode
-#define GENESIS_ENABLE_MONOTYPE_CHALLENGE   FALSE   // Optional challenge mode
+#define GENESIS_ENABLE_RANDOMIZER           FALSE   // Optional; wild remap not wired yet
+#define GENESIS_ENABLE_NUZLOCKE             TRUE    // Whiteout releases fainted party mons
+#define GENESIS_ENABLE_MONOTYPE_CHALLENGE   TRUE    // Flag + type var; catch filter later
 #define GENESIS_ENABLE_DAMAGE_DISPLAY       FALSE   // Competitive / simulator UI only
 #define GENESIS_ENABLE_QUEST_MARKERS        FALSE   // Optional; never forced
 

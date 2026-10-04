@@ -44,16 +44,7 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy::
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Girl::
-	lock
-	faceplayer
-	goto_if_set FLAG_SYS_POKEDEX_GET, OldaleTown_PokemonCenter_1F_EventScript_WirelessClubAvailable
-	msgbox OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable, MSGBOX_DEFAULT
-	release
-	end
-
-OldaleTown_PokemonCenter_1F_EventScript_WirelessClubAvailable::
-	msgbox OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub, MSGBOX_DEFAULT
-	release
+	goto Genesis_EventScript_AchievementBoard
 	end
 
 OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC:

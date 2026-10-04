@@ -76,6 +76,8 @@
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "config/genesis.h"
+#include "genesis_challenge.h"
 
 extern enum Item gSpecialVar_ItemId;
 
@@ -6675,6 +6677,12 @@ u32 GiveScriptedMonToPlayer(struct Pokemon *mon, u8 slot)
 {
     u32 sentToPc;
     u32 i = 0;
+
+#if GENESIS_ENABLE_MONOTYPE_CHALLENGE
+    if (!Genesis_SpeciesMatchesMonotype(GetMonData(mon, MON_DATA_SPECIES)))
+        return MON_CANT_GIVE;
+#endif
+
     if (slot < PARTY_SIZE)
     {
         CopyMon(&gParties[B_TRAINER_PLAYER][slot], mon, sizeof(struct Pokemon));

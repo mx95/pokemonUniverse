@@ -27,6 +27,8 @@
 #include "fieldmap.h"
 #include "fldeff.h"
 #include "follower_npc.h"
+#include "config/genesis.h"
+#include "genesis_challenge.h"
 #include "gpu_regs.h"
 #include "heal_location.h"
 #include "io_reg.h"
@@ -393,6 +395,9 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 void DoWhiteOut(void)
 {
     RunScriptImmediately(EventScript_WhiteOut);
+#if GENESIS_ENABLE_NUZLOCKE
+    Genesis_NuzlockeOnWhiteOut();
+#endif
     HealPlayerParty();
     Overworld_ResetStateAfterWhiteOut();
     SetWarpDestinationToLastHealLocation();

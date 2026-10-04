@@ -31,6 +31,9 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "config/genesis.h"
+#include "genesis_challenge.h"
+#include "field_weather.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -569,6 +572,23 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
     default:
     case WILD_AREA_FISHING:
     case WILD_AREA_HIDDEN:
+        break;
+    }
+
+    // GENESIS: weather-biased rare slots + monotype encounter filter
+    Genesis_TryWeatherRareSlot(&wildMonIndex, area);
+    switch (area)
+    {
+    case WILD_AREA_LAND:
+        Genesis_TryBiasWildMonIndex(wildMonInfo->wildPokemon, &wildMonIndex, NUM_LAND_MONS_ENCOUNTER_SLOTS);
+        break;
+    case WILD_AREA_WATER:
+        Genesis_TryBiasWildMonIndex(wildMonInfo->wildPokemon, &wildMonIndex, NUM_WATER_MONS_ENCOUNTER_SLOTS);
+        break;
+    case WILD_AREA_ROCKS:
+        Genesis_TryBiasWildMonIndex(wildMonInfo->wildPokemon, &wildMonIndex, NUM_ROCK_SMASH_MONS_ENCOUNTER_SLOTS);
+        break;
+    default:
         break;
     }
 

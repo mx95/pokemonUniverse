@@ -96,6 +96,7 @@ const struct ItemInfo gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
         .secondaryId = BALL_ULTRA,
+        .shopCriteriaFunc = ShopCriteria_Badge3, // GENESIS: Celestia stock after Gym 4
         .iconPic = gItemIcon_UltraBall,
         .iconPalette = gItemIconPalette_UltraBall,
     },
@@ -559,6 +560,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
         .effect = gItemEffect_HyperPotion,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_Badge3, // GENESIS: after Gym 4
         .iconPic = gItemIcon_Potion,
         .iconPalette = gItemIconPalette_HyperPotion,
     },
@@ -578,6 +580,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
         .effect = gItemEffect_MaxPotion,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_Badge6, // GENESIS: late-game Mart stock
         .iconPic = gItemIcon_LargePotion,
         .iconPalette = gItemIconPalette_MaxPotion,
     },
@@ -598,6 +601,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
         .effect = gItemEffect_FullRestore,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_GameClear, // GENESIS: postgame Mart stock
         .iconPic = gItemIcon_LargePotion,
         .iconPalette = gItemIconPalette_FullRestore,
     },
@@ -617,6 +621,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_REVIVE,
         .effect = gItemEffect_Revive,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_Badge3, // GENESIS: after Gym 4
         .iconPic = gItemIcon_Revive,
         .iconPalette = gItemIconPalette_Revive,
     },
@@ -944,6 +949,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .effect = gItemEffect_FullHeal,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_Badge3, // GENESIS: after Gym 4
         .iconPic = gItemIcon_FullHeal,
         .iconPalette = gItemIconPalette_FullHeal,
     },
@@ -964,6 +970,7 @@ const struct ItemInfo gItemsInfo[] =
         .battleUsage = EFFECT_ITEM_RESTORE_PP,
         .effect = gItemEffect_Ether,
         .flingPower = 30,
+        .shopCriteriaFunc = ShopCriteria_Badge3, // GENESIS: after Gym 4
         .iconPic = gItemIcon_Ether,
         .iconPalette = gItemIconPalette_Ether,
     },

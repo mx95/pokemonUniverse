@@ -282,7 +282,37 @@ LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter::
+	goto_if_set FLAG_GENESIS_CHALLENGE_LOCKED, LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeLocked
+	goto_if_set FLAG_GENESIS_CHALLENGE_NUZLOCKE, LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeStatus
+	goto_if_set FLAG_GENESIS_CHALLENGE_MONOTYPE, LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeStatus
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeDecline
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeNuzlocke, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_AideAskMonotype
+	setflag FLAG_GENESIS_CHALLENGE_NUZLOCKE
+LittlerootTown_ProfessorBirchsLab_EventScript_AideAskMonotype::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotype, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeDone
+	setflag FLAG_GENESIS_CHALLENGE_MONOTYPE
+	callnative Genesis_SetMonotypeFromLead
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotypeSet, MSGBOX_DEFAULT
+LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeDone::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeConfirm, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeDecline::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeStatus::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeActive, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_AideChallengeLocked::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChallengeLocked, MSGBOX_DEFAULT
 	release
 	end
 
@@ -693,6 +723,38 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 	.string "and distribution of POKéMON.\p"
 	.string "The PROF enjoys {RIVAL}'s help, too.\n"
 	.string "There's a lot of love there.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeOffer:
+	.string "Before you leave… want optional\n"
+	.string "challenge rules for this run?\p"
+	.string "You can only set them before your\n"
+	.string "first GYM BADGE.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeNuzlocke:
+	.string "NUZLOCKE: fainted party POKéMON are\n"
+	.string "released on white-out.\p"
+	.string "Enable NUZLOCKE?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotype:
+	.string "MONOTYPE: wild encounters favor the\n"
+	.string "type of your lead POKéMON.\p"
+	.string "Enable MONOTYPE?$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotypeSet:
+	.string "Your lead's primary type is locked\n"
+	.string "as the MONOTYPE focus.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeConfirm:
+	.string "Challenge rules saved. Good luck out\n"
+	.string "there, TRAINER!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeActive:
+	.string "Your challenge rules are active.\n"
+	.string "Stay sharp!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ChallengeLocked:
+	.string "Challenge options lock after your\n"
+	.string "first GYM BADGE. Focus on the road!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "PROF. AURELIA: So, {PLAYER}{KUN}.\p"

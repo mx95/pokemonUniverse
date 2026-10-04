@@ -275,7 +275,8 @@
 #define VAR_GENESIS_SAVE_VERSION                         0x40FC // GENESIS: persisted GENESIS_SAVE_VERSION
 #define VAR_GENESIS_PUZZLE_STATE                         0x40FD // GENESIS: multi-step puzzle progress
 #define VAR_GENESIS_QUEST_BITS                           0x40FE // GENESIS: lightweight quest bitfield
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_GENESIS_MONOTYPE_TYPE                        0x40FF // GENESIS: TYPE_* for monotype challenge (0 = unset)
+#define VAR_UNUSED_0x40FF                                VAR_GENESIS_MONOTYPE_TYPE // alias
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

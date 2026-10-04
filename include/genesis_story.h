@@ -9,5 +9,6 @@ void Genesis_OnGameClear(void);
 void Genesis_InitSave(void);
 void Genesis_UpdateLevelCap(void);
 void Genesis_TryUnlockGenesisForm(void);
+void Genesis_GetWTRuleIndex(void);
 
 #endif // GUARD_GENESIS_STORY_H

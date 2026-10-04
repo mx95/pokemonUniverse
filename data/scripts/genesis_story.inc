@@ -16,6 +16,7 @@ Genesis_EventScript_QuestBoard::
 	lock
 	faceplayer
 	setflag FLAG_GENESIS_QUEST_BOARD_SEEN
+	setflag FLAG_GENESIS_ACHIEVEMENT_QUEST_BOARD
 	msgbox Genesis_Text_QuestBoardHeader, MSGBOX_DEFAULT
 	call Genesis_EventScript_QuestBoard_PrintActs
 	call Genesis_EventScript_QuestBoard_PrintPuzzles
@@ -23,6 +24,71 @@ Genesis_EventScript_QuestBoard::
 	msgbox Genesis_Text_QuestBoardFooter, MSGBOX_DEFAULT
 	release
 	end
+
+Genesis_EventScript_AchievementBoard::
+	lock
+	faceplayer
+	call Genesis_EventScript_SyncAchievements
+	msgbox Genesis_Text_AchievementHeader, MSGBOX_DEFAULT
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_QUEST_BOARD, Genesis_EventScript_Ach_QuestDone
+	msgbox Genesis_Text_Ach_QuestOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Ace
+Genesis_EventScript_Ach_QuestDone::
+	msgbox Genesis_Text_Ach_QuestDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Ace::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE, Genesis_EventScript_Ach_AceDone
+	msgbox Genesis_Text_Ach_AceOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Eclipse
+Genesis_EventScript_Ach_AceDone::
+	msgbox Genesis_Text_Ach_AceDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Eclipse::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_ECLIPSE, Genesis_EventScript_Ach_EclipseDone
+	msgbox Genesis_Text_Ach_EclipseOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Champion
+Genesis_EventScript_Ach_EclipseDone::
+	msgbox Genesis_Text_Ach_EclipseDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Champion::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_CHAMPION, Genesis_EventScript_Ach_ChampionDone
+	msgbox Genesis_Text_Ach_ChampionOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_WT
+Genesis_EventScript_Ach_ChampionDone::
+	msgbox Genesis_Text_Ach_ChampionDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_WT::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_WT, Genesis_EventScript_Ach_WTDone
+	msgbox Genesis_Text_Ach_WTOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Legends
+Genesis_EventScript_Ach_WTDone::
+	msgbox Genesis_Text_Ach_WTDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Legends::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_LEGENDS, Genesis_EventScript_Ach_LegendsDone
+	msgbox Genesis_Text_Ach_LegendsOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Footer
+Genesis_EventScript_Ach_LegendsDone::
+	msgbox Genesis_Text_Ach_LegendsDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Footer::
+	msgbox Genesis_Text_AchievementFooter, MSGBOX_DEFAULT
+	release
+	end
+
+Genesis_EventScript_SyncAchievements::
+	goto_if_set FLAG_GENESIS_QUEST_BOARD_SEEN, Genesis_EventScript_SyncAch_Quest
+	goto Genesis_EventScript_SyncAch_Eclipse
+Genesis_EventScript_SyncAch_Quest::
+	setflag FLAG_GENESIS_ACHIEVEMENT_QUEST_BOARD
+Genesis_EventScript_SyncAch_Eclipse::
+	goto_if_unset FLAG_GENESIS_ECLIPSE_DEFEATED, Genesis_EventScript_SyncAch_Champion
+	setflag FLAG_GENESIS_ACHIEVEMENT_ECLIPSE
+Genesis_EventScript_SyncAch_Champion::
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Genesis_EventScript_SyncAch_WT
+	setflag FLAG_GENESIS_ACHIEVEMENT_CHAMPION
+Genesis_EventScript_SyncAch_WT::
+	goto_if_unset FLAG_GENESIS_WT_CLEARED, Genesis_EventScript_SyncAch_Legends
+	setflag FLAG_GENESIS_ACHIEVEMENT_WT
+Genesis_EventScript_SyncAch_Legends::
+	goto_if_unset FLAG_GENESIS_FORM_UNLOCKED, Genesis_EventScript_SyncAch_Return
+	setflag FLAG_GENESIS_ACHIEVEMENT_LEGENDS
+Genesis_EventScript_SyncAch_Return::
+	return
 
 Genesis_EventScript_QuestBoard_PrintActs::
 	goto_if_set FLAG_GENESIS_ACT1_FOREST_DONE, Genesis_EventScript_QuestBoard_Act1Done
@@ -243,3 +309,47 @@ Genesis_Text_Quest_WTDone:
 
 Genesis_Text_QuestBoardFooter:
 	.string "Check back as your journey continues.$"
+
+Genesis_Text_AchievementHeader:
+	.string "AURELIA ACHIEVEMENT BOARD\n"
+	.string "Titles unlocked:$"
+
+Genesis_Text_Ach_QuestOpen:
+	.string "- Quest Seeker: check the Quest Board.$"
+
+Genesis_Text_Ach_QuestDone:
+	.string "- Quest Seeker: unlocked.$"
+
+Genesis_Text_Ach_AceOpen:
+	.string "- Verdant Ace: win Ace doubles post-League.$"
+
+Genesis_Text_Ach_AceDone:
+	.string "- Verdant Ace: unlocked.$"
+
+Genesis_Text_Ach_EclipseOpen:
+	.string "- Eclipse Breaker: defeat TEAM ECLIPSE.$"
+
+Genesis_Text_Ach_EclipseDone:
+	.string "- Eclipse Breaker: unlocked.$"
+
+Genesis_Text_Ach_ChampionOpen:
+	.string "- Champion: clear the POKéMON LEAGUE.$"
+
+Genesis_Text_Ach_ChampionDone:
+	.string "- Champion: unlocked.$"
+
+Genesis_Text_Ach_WTOpen:
+	.string "- Tournament Victor: clear WORLD TOURNAMENT.$"
+
+Genesis_Text_Ach_WTDone:
+	.string "- Tournament Victor: unlocked.$"
+
+Genesis_Text_Ach_LegendsOpen:
+	.string "- Legend Keeper: finish Legend Sanctum.$"
+
+Genesis_Text_Ach_LegendsDone:
+	.string "- Legend Keeper: unlocked.$"
+
+Genesis_Text_AchievementFooter:
+	.string "More titles will appear as AURELIA\n"
+	.string "opens its sealed roads.$"

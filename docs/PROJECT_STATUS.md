@@ -62,8 +62,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 |---------------|---------|--------|-------|
 | Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT |
 | DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; search levels still off (saveblock) |
-| Character customization | 57–58 | PLANNED | Clothing shops; badge unlocks |
-| Followers interactions | 52–53 | PLANNED | Mood cosmetic-only |
+| Character customization | 57–58 | IMPLEMENTED (stub) | Lilycove Boutique Aurelia dialogue; needs OW outfit art |
+| Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
 | World Tournament | 135 | IMPLEMENTED (lobby v2) | 3-round Tower lobby bracket + rematch BP |
@@ -78,12 +78,12 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
-| Achievements + titles | 60–61 | IMPLEMENTED (v1) | Verdant Ace doubles unlock (`FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE`) |
+| Achievements + titles | 60–61 | IMPLEMENTED (v2) | Lumen PC Achievement Board + flags (Ace/Eclipse/Champion/WT/Legends) |
 | Cooking / picnic / camping | 54–56 | DEFERRED | GBA budget; lightweight if ever |
 | Contests | 150 | DEFERRED | Expansion contest base exists |
 | Secret bases | 152–153 | DEFERRED | Expansion secret bases exist; customize later |
 | Photo system | 157–158 | DEFERRED | Memory-heavy |
-| Randomizer / Nuzlocke / Monotype | 141–145 | PLANNED | Optional challenge modes; story-safe |
+| Randomizer / Nuzlocke / Monotype | 141–145 | IMPLEMENTED (v1) | Aide challenge menu; Nuzlocke whiteout; monotype wild bias |
 | New Game+ | 140 | DEFERRED | After save versioning solid |
 | Seasons | 89 | DEFERRED | Palette + encounter hooks only |
 | Music player | 154 | DEFERRED | Postgame |
@@ -95,12 +95,12 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 Track as maps/story land:
 
-- [ ] Gym 4 → new shops
+- [x] Gym 4 → new shops (Mauville Mart + shopCriteria badge gates)
 - [x] Gym 8 → eastern Aurelia opens (post-Champion Reception Gate → Eastern Hall)
-- [ ] Eclipse defeated → blocked areas open
+- [x] Eclipse defeated → Legend Sanctum + archive flag open
 - [x] Champion → Frontier + Eastern Hall + WT stub
 - [x] Legendary quests → Eastern Hall seeker (Aethernox/Solara/Genesis)
-- [ ] Weather events → rare encounters
+- [x] Weather events → rare encounters (Route 119/120 rain/sun bias)
 
 ---
 

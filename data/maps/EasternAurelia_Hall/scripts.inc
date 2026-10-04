@@ -225,7 +225,9 @@ EasternAurelia_Hall_EventScript_LegendSeeker::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, EasternAurelia_Hall_EventScript_LegendSeekerEarly
+	goto_if_unset FLAG_GENESIS_ECLIPSE_DEFEATED, EasternAurelia_Hall_EventScript_LegendSeekerEclipseGate
 	setflag FLAG_GENESIS_LEGEND_QUEST_HINT
+	setflag FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN
 	msgbox EasternAurelia_Hall_Text_SanctumOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
 	msgbox EasternAurelia_Hall_Text_SanctumWarp, MSGBOX_DEFAULT
@@ -236,6 +238,11 @@ EasternAurelia_Hall_EventScript_LegendSeeker::
 
 EasternAurelia_Hall_EventScript_LegendSeekerEarly::
 	msgbox EasternAurelia_Hall_Text_LegendEarly, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_LegendSeekerEclipseGate::
+	msgbox EasternAurelia_Hall_Text_EclipseGate, MSGBOX_DEFAULT
 	release
 	end
 
@@ -502,6 +509,11 @@ EasternAurelia_Hall_Text_MentorDone:
 EasternAurelia_Hall_Text_LegendEarly:
 	.string "Return when you are CHAMPION.\n"
 	.string "The legends will answer then.$"
+
+EasternAurelia_Hall_Text_EclipseGate:
+	.string "The LEGEND SANCTUM stays sealed while\n"
+	.string "TEAM ECLIPSE's residue lingers.\p"
+	.string "Defeat them completely, then return.$"
 
 EasternAurelia_Hall_Text_SanctumOffer:
 	.string "The LEGEND SANCTUM is open to you.\n"
