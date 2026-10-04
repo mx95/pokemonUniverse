@@ -518,6 +518,13 @@ void SwapRegisteredBike(void)
     case ITEM_ACRO_BIKE:
         gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
         break;
+    default:
+        // GENESIS: if neither registered yet but Mach is owned, prefer Mach
+        if (CheckBagHasItem(ITEM_MACH_BIKE, 1))
+            gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
+        else if (CheckBagHasItem(ITEM_ACRO_BIKE, 1))
+            gSaveBlock1Ptr->registeredItem = ITEM_ACRO_BIKE;
+        break;
     }
 }
 

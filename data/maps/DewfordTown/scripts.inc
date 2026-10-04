@@ -633,12 +633,12 @@ DewfordTown_Text_TinyIslandCommunity:
 	.string "everyone picks up on it right away.$"
 
 DewfordTown_Text_TownSign:
-	.string "DEWFORD TOWN\n"
+	.string "IRONRIDGE CITY\n"
 	.string "“A tiny island in the blue sea.”$"
 
 DewfordTown_Text_GymSign:
-	.string "DEWFORD TOWN POKéMON GYM\n"
-	.string "LEADER: BRAWLY\l"
+	.string "IRONRIDGE CITY POKéMON GYM\n"
+	.string "LEADER: BRAN\l"
 	.string "“A big wave in fighting!”$"
 
 DewfordTown_Text_HallSign:

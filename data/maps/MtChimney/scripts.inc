@@ -67,6 +67,8 @@ MtChimney_EventScript_Maxie::
 	removeobject LOCALID_MT_CHIMNEY_ARCHIE
 	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
 	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
+	@ GENESIS: Mt. Chimney closes Act 3 ancient beat (Act 4 is Seafloor)
+	setflag FLAG_GENESIS_ACT3_DONE
 	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
 	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
 	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
@@ -551,22 +553,22 @@ MtChimney_Text_MeteoriteWillActivateVolcano:
 	.string "Fufufu…$"
 
 MtChimney_Text_MaxieIntro:
-	.string "MAXIE: Hm?\n"
+	.string "NOVA: Hm?\n"
 	.string "Who are you?\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "I'd heard ARCHIE bemoaning a child\n"
-	.string "who's been meddling in TEAM AQUA's\l"
+	.string "who's been meddling in TEAM ECLIPSE's\l"
 	.string "affairs.\p"
 	.string "It must be you he meant.\p"
 	.string "Humph! So you're thinking of\n"
-	.string "interfering with us, TEAM MAGMA?\p"
+	.string "interfering with us, TEAM ECLIPSE?\p"
 	.string "Now you listen.\n"
 	.string "Long ago, living things used the\l"
 	.string "land to live and grow.\p"
 	.string "That is why land is all important!\n"
 	.string "It is the cradle of all!\p"
-	.string "That is why TEAM MAGMA is dedicated\n"
+	.string "That is why TEAM ECLIPSE is dedicated\n"
 	.string "to the expansion of the land mass.\p"
 	.string "It is for further advancement of\n"
 	.string "humankind and POKéMON!\p"
@@ -583,10 +585,10 @@ MtChimney_Text_MaxieDefeat:
 	.string "I, MAXIE, was caught off guard?!$"
 
 MtChimney_Text_MaxieYouHaventSeenLastOfMagma:
-	.string "MAXIE: But, enough.\n"
+	.string "NOVA: But, enough.\n"
 	.string "I will back off this time.\p"
 	.string "But don't think that this is the last\n"
-	.string "you've seen of TEAM MAGMA.\p"
+	.string "you've seen of TEAM ECLIPSE.\p"
 	.string "Fufufu…\p"
 	.string "Even without the METEORITE, if we\n"
 	.string "obtain that ORB… Fufufu…$"
@@ -609,7 +611,7 @@ MtChimney_Text_TabithaPostBattle:
 	.string "Hehehe…$"
 
 MtChimney_Text_Grunt2Intro:
-	.string "We of TEAM MAGMA are working hard for\n"
+	.string "We of TEAM ECLIPSE are working hard for\n"
 	.string "everyone's sake.\p"
 	.string "Like, if that thing's power made more\n"
 	.string "land, there'd be more places to live.\p"
@@ -638,7 +640,7 @@ MtChimney_Text_Grunt1PostBattle:
 	.string "splashing about in the waves!$"
 
 MtChimney_Text_TeamAquaAlwaysMessingWithPlans:
-	.string "That annoying TEAM AQUA…\n"
+	.string "That annoying TEAM ECLIPSE…\n"
 	.string "They always mess with our plans!$"
 
 MtChimney_Text_MeteoritesPackAmazingPower:
@@ -650,8 +652,8 @@ MtChimney_Text_YouBetterNotMessWithUs:
 	.string "for the benefit of everyone!$"
 
 MtChimney_Text_AquasNameSimilar:
-	.string "We're TEAM MAGMA!\p"
-	.string "They're TEAM AQUA!\p"
+	.string "We're TEAM ECLIPSE!\p"
+	.string "They're TEAM ECLIPSE!\p"
 	.string "It totally annoys me that they'd\n"
 	.string "use a name like ours!$"
 
@@ -666,24 +668,24 @@ MtChimney_Text_Bufoh:
 	.string "Bufoh!$"
 
 MtChimney_Text_ArchieGoStopTeamMagma:
-	.string "ARCHIE: Grr, {PLAYER}!\n"
+	.string "CAELUM: Grr, {PLAYER}!\n"
 	.string "I should've guessed you'd show up!\p"
 	.string "See for yourself what the fanatics\n"
-	.string "of TEAM MAGMA are up to!\p"
+	.string "of TEAM ECLIPSE are up to!\p"
 	.string "They're trying to inject the stolen\n"
 	.string "METEORITE's power into the volcano!\p"
 	.string "Doing something like that will cause\n"
 	.string "the volcano's eruption!$"
 
 MtChimney_Text_ArchieIHaveMyHandsFull:
-	.string "ARCHIE: Grrr…\p"
+	.string "CAELUM: Grrr…\p"
 	.string "I want to stop that MAXIE,\n"
 	.string "but I can't!\p"
 	.string "Not when I have my hands full battling\n"
 	.string "three opponents at once!$"
 
 MtChimney_Text_ArchieThankYou:
-	.string "ARCHIE: {PLAYER}!\n"
+	.string "CAELUM: {PLAYER}!\n"
 	.string "Thank you!\p"
 	.string "With your help, we thwarted TEAM\n"
 	.string "MAGMA's destructive plan!\p"
@@ -691,11 +693,11 @@ MtChimney_Text_ArchieThankYou:
 	.string "Whose side are you on?\p"
 	.string "Ah, it doesn't matter.\p"
 	.string "We will remain vigilant and keep up\n"
-	.string "our pursuit of TEAM MAGMA.\p"
+	.string "our pursuit of TEAM ECLIPSE.\p"
 	.string "{PLAYER}, we shall meet again!$"
 
 MtChimney_Text_MagmaOutnumbersUs:
-	.string "Darn… TEAM MAGMA outnumbers us!\n"
+	.string "Darn… TEAM ECLIPSE outnumbers us!\n"
 	.string "We can't keep up with them!$"
 
 MtChimney_Text_LessHabitatForWaterPokemon:
@@ -703,8 +705,8 @@ MtChimney_Text_LessHabitatForWaterPokemon:
 	.string "less habitats for WATER POKéMON!$"
 
 MtChimney_Text_MagmasNameSimilar:
-	.string "We're TEAM AQUA!\p"
-	.string "They're TEAM MAGMA!\p"
+	.string "We're TEAM ECLIPSE!\p"
+	.string "They're TEAM ECLIPSE!\p"
 	.string "It burns me up that they'd use such\n"
 	.string "a confusing name!$"
 

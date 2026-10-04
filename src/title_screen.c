@@ -69,7 +69,7 @@ static const u32 sTitleScreenCloudsGfx[] = INCGFX_U32("graphics/title_screen/clo
 
 
 
-// Used to blend "Emerald Version" as it passes over over the Pokémon banner.
+// Used to blend "Genesis Version" as it passes over the Pokémon banner.
 // Also used by the intro to blend the Game Freak name/logo in and out as they appear and disappear
 const u16 gTitleScreenAlphaBlend[64] =
 {
@@ -849,12 +849,13 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
+        // GENESIS: pulse teal/cyan instead of Emerald green-gold
         s32 intensity = Cos(frameNum, Q_8_8(0.5)) + Q_8_8(0.5);
-        u32 r = 31 - Q_8_8_TO_INT(intensity * 31);
-        u32 g = 31 - Q_8_8_TO_INT(intensity * 22);
-        u32 b = 12;
+        u32 r = 8 + Q_8_8_TO_INT(intensity * 10);
+        u32 g = 20 + Q_8_8_TO_INT(intensity * 11);
+        u32 b = 24 + Q_8_8_TO_INT(intensity * 7);
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));
-   }
+    }
 }

@@ -52,6 +52,7 @@ CaveOfOrigin_B1F_EventScript_AtSkyPillar::
 	playse SE_EXIT
 	fadescreenspeed FADE_TO_BLACK, 4
 	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
+	setflag FLAG_GENESIS_ACT4_DONE
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 3
 	removeobject LOCALID_CAVE_OF_ORIGIN_WALLACE
 	clearflag FLAG_HIDE_SKY_PILLAR_WALLACE
@@ -63,17 +64,14 @@ CaveOfOrigin_B1F_Text_WallaceStory:
 	.string "Ah, so you are {PLAYER}{KUN}?\n"
 	.string "I've heard tales of your exploits.\p"
 	.string "My name is WALLACE.\p"
-	.string "I was once the GYM LEADER of\n"
-	.string "SOOTOPOLIS, but something came up.\p"
-	.string "So now, I've entrusted my mentor JUAN\n"
-	.string "with the GYM's operation.\p"
+	.string "I once led TITANIA's GYM, but TEAM\n"
+	.string "ECLIPSE forced my hand.\p"
+	.string "CAELUM and NOVA tore at GENESIS ENERGY\n"
+	.string "until GROUDON and KYOGRE awoke.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "GROUDON and KYOGRE, the two POKéMON\n"
-	.string "wreaking havoc here, are considered\l"
-	.string "to be super-ancient POKéMON.\p"
-	.string "But there aren't just two super-\n"
-	.string "ancient POKéMON.\p"
+	.string "Those two ancient POKéMON are not the\n"
+	.string "only ones bound to this land.\p"
 	.string "There is one more somewhere.\p"
 	.string "Somewhere, there is a super-\n"
 	.string "ancient POKéMON named RAYQUAZA.\p"
@@ -114,5 +112,5 @@ CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
 	.string "That's it!\n"
 	.string "It must be the SKY PILLAR!\p"
 	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
-	.string "We'll head to the SKY PILLAR right away!$"
+	.string "We'll calm this eclipse at once!$"
 

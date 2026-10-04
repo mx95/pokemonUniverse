@@ -65,6 +65,7 @@ EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	waitmessage
 	waitfanfare
 	closemessage
+	call Genesis_Rival_EventScript_BeforeLeague
 	copyobjectxytoperm LOCALID_LEAGUE_GUARD_1
 	copyobjectxytoperm LOCALID_LEAGUE_GUARD_2
 	setflag FLAG_ENTERED_ELITE_FOUR
@@ -134,4 +135,5 @@ EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
+
 

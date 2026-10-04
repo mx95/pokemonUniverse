@@ -463,11 +463,17 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter::
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	lock
 	faceplayer
+	goto_if_set FLAG_SYS_GAME_CLEAR, LittlerootTown_ProfessorBirchsLab_EventScript_PostgameAurelia
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PostgameAurelia::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_PostgameAurelia, MSGBOX_DEFAULT
+	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon::
@@ -507,6 +513,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex, MSGBOX_DEFAULT
 	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GiveDexNav, MSGBOX_DEFAULT
+	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DEXNAV_DETECTOR
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedDexNav
+	waitfanfare
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainDexNav, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_BIRCHS_LAB_RIVAL, LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer
 	waitmovement 0
@@ -753,6 +766,23 @@ LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex:
 	.string "why, {RIVAL} looks for me while I'm out\l"
 	.string "doing fieldwork, and shows me.$"
 
+LittlerootTown_ProfessorBirchsLab_Text_GiveDexNav:
+	.string "PROF. AURELIA: One more thing.\p"
+	.string "This DEXNAV helps track wild POKéMON\n"
+	.string "by species--perfect for studying\l"
+	.string "GENESIS ENERGY in the field.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ReceivedDexNav:
+	.string "{PLAYER} received the DEXNAV!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_ExplainDexNav:
+	.string "PROF. AURELIA: Open the Start Menu to\n"
+	.string "search for a species you've seen.\p"
+	.string "I've also enabled the detector--hidden\n"
+	.string "POKéMON near you will ping as you walk.\p"
+	.string "It will make surveying AURELIA much\n"
+	.string "easier!$"
+
 LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
 	.string "PROF. AURELIA: Countless POKéMON\n"
 	.string "await you!\p"
@@ -992,3 +1022,11 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_PostgameAurelia:
+	.string "PROF. AURELIA: Champion {PLAYER}!\p"
+	.string "GENESIS ENERGY is calm for now, but\n"
+	.string "AETHERNOX, SOLARA, and GENESIS still\l"
+	.string "answer those who seek them.\p"
+	.string "Visit SCOTT at the BATTLE FRONTIER--\n"
+	.string "and keep growing. AURELIA is watching!$"

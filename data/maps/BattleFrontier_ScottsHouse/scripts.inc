@@ -66,10 +66,17 @@ BattleFrontier_ScottsHouse_EventScript_GivenBerry::
 	end
 
 BattleFrontier_ScottsHouse_EventScript_RandomComment::
+	goto_if_unset FLAG_GENESIS_LEGEND_QUEST_HINT, BattleFrontier_ScottsHouse_EventScript_LegendQuestHint
 	random 3
 	goto_if_eq VAR_RESULT, 1, BattleFrontier_ScottsHouse_EventScript_FrontierBrainComment
 	goto_if_eq VAR_RESULT, 2, BattleFrontier_ScottsHouse_EventScript_ArtisanCaveComment
 	msgbox BattleFrontier_ScottsHouse_Text_WhyIGoSeekingTrainers, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_ScottsHouse_EventScript_LegendQuestHint::
+	msgbox BattleFrontier_ScottsHouse_Text_LegendQuestHint, MSGBOX_DEFAULT
+	setflag FLAG_GENESIS_LEGEND_QUEST_HINT
 	release
 	end
 
@@ -213,10 +220,11 @@ BattleFrontier_ScottsHouse_Text_WelcomeToBattleFrontier:
 	.string "SCOTT: Well, hello and welcome!\n"
 	.string "Heheh… Sorry about the cramped space.\p"
 	.string "Anyway, {PLAYER}{KUN}, let me formally\n"
-	.string "welcome you to the BATTLE FRONTIER.\p"
-	.string "This is my dream come true.\n"
-	.string "It took me years and years, but I've\l"
-	.string "finally given shape to my dream.$"
+	.string "welcome you to AURELIA's BATTLE FRONTIER.\p"
+	.string "This is my dream come true--and the\n"
+	.string "stage for the coming WORLD TOURNAMENT.\p"
+	.string "It took years, but GENESIS ENERGY\n"
+	.string "and strong TRAINERS made it real.$"
 
 BattleFrontier_ScottsHouse_Text_HowMuchEffortItTookToMakeReal:
 	.string "On reflection, it was a terribly long\n"
@@ -344,4 +352,13 @@ BattleFrontier_ScottsHouse_Text_ExpectingToHearEvenGreaterThings:
 BattleFrontier_ScottsHouse_Text_ComeBackForThisLater:
 	.string "Oops, well, if you have too much\n"
 	.string "stuff, come back for this later.$"
+
+BattleFrontier_ScottsHouse_Text_LegendQuestHint:
+	.string "SCOTT: Oh--one more thing, Champion.\p"
+	.string "PROF. AURELIA says GENESIS ENERGY is\n"
+	.string "stirring again across AURELIA.\p"
+	.string "Seek AETHERNOX, SOLARA, and GENESIS\n"
+	.string "when you're ready for true legends.\p"
+	.string "And keep an eye on the BATTLE TOWER--\n"
+	.string "the WORLD TOURNAMENT will open there!$"
 

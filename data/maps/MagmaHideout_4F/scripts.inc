@@ -55,12 +55,15 @@ MagmaHideout_4F_EventScript_Maxie::
 	closemessage
 	trainerbattle_no_intro TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat
 	msgbox MagmaHideout_4F_Text_MaxieImGoingAfterGroudon, MSGBOX_DEFAULT
+	msgbox MagmaHideout_4F_Text_GenesisAct7, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN
 	clearflag FLAG_HIDE_SLATEPORT_CITY_GABBY_AND_TY
 	setvar VAR_SLATEPORT_CITY_STATE, 1
 	setflag FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT
 	setvar VAR_SLATEPORT_HARBOR_STATE, 1
+	setflag FLAG_GENESIS_ACT7_DONE
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_ACT7_DONE
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_MAXIE
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_GRUNT_1
@@ -221,3 +224,9 @@ MagmaHideout_4F_Text_MaxieImGoingAfterGroudon:
 	.string "any need for this blasted volcano.\p"
 	.string "I am going after GROUDON, so this\n"
 	.string "is where we part!$"
+
+MagmaHideout_4F_Text_GenesisAct7:
+	.string "NOVA: Prism and Forge already failed…\n"
+	.string "CAELUM will still force the Engine!\p"
+	.string "Chase him to the depths if you dare--\n"
+	.string "AURELIA's potential will be rewritten!$"

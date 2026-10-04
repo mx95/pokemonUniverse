@@ -20,10 +20,17 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Docs skeleton | IMPLEMENTED | `docs/GENESIS.md`, `REGION_AURELIA.md`, `STORY.md`, `BUGS.md` |
 | Validation / smoke tests | IMPLEMENTED | `make genesis-check` (`tools/genesis/run_smoke_tests.py`) |
 | Early-game Aurelia branding | IMPLEMENTED | Verdant/Lumen/Port Azure NPC + sign text |
-| Genesis Form framework stub | DESIGN | Tables/API exist; `GENESIS_ENABLE_GENESIS_FORM` off |
+| Genesis Form framework stub | IMPLEMENTED | Switch-in overlay enabled; unlock after all three legends |
 | Verdant → Route 1 → Lumen loop | IMPLEMENTED | Temporary Hoenn map aliases + rebrand |
 | Route 2 + Lumen Forest + Port Azure | IMPLEMENTED | Map names + multi-gen encounters |
+| Act 1 Lumen Forest (Crystal / Eclipse) | IMPLEMENTED | Flags + Petalburg Woods rewrite; DexNav post-lab |
+| Gym 1 Flora (Lumen) | IMPLEMENTED | `OldaleTown_Gym` from Rustboro pattern; Verdant Badge |
+| Gym 3 Marina (Port Azure stand-in) | IMPLEMENTED | Petalburg Gym Water rebrand; Tidal Badge |
+| Gyms 2/4–8 stand-in path | IMPLEMENTED | Bran/Volt/Glacia/Ra/Skye/Titan on Hoenn gyms; Mega/Z/Dynamax items |
+| Elite Four + Champion | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Champion Astra; Tera on clear |
+| Postgame Frontier hooks | IMPLEMENTED | Aurelia Frontier branding; Eastern Hall city desks + clerk QoL; WT Tower bout; legend seeker |
 | DS-style / “3D” presentation | IMPLEMENTED | Gen4/5 sprites, Gen5 pop-ups, shadows, modern particles |
+| Title / opening branding | IMPLEMENTED | GENESIS VERSION banner, teal title grade, no RHH splash / GF copyright; Birch speech skipped to gender+name |
 
 ---
 
@@ -37,15 +44,15 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
 | Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique art |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
-| Save system / versioning | 103 | PLANNED | Expansion save + `GENESIS_SAVE_VERSION` |
+| Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | PLANNED | Replace aliases; see `MAP_STUBS.md` |
-| 16 Gyms + badges | 5–7 | PLANNED | Thematic teams; rematches post-Champion |
-| Main story (8 acts) | 65–66, 131–132 | PLANNED | Team Eclipse arc; Kai rival |
-| Elite Four + Champion | 8–9 | PLANNED | Strategy-based E4; Champion rematch |
+| Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Hall city-desk polish started; full geometry still planned — see `MAP_STUBS.md` |
+| 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–16 Eastern Hall desks (unique city dialogue + plaques) |
+| Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 flags/dialogue + 4 puzzle setpieces + Kai beats |
+| Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
 | Core QoL (already toggled) | 15, 22, 25–26, 52 | IMPLEMENTED | Reusable TMs, Exp Share, followers, DexNav, auto-repel menu, type indicators |
-| Level scaling / caps | 11–12 | PLANNED | Expansion `caps.h` + Genesis policy layer |
-| Difficulty modes | 10 | DESIGN | Map Ultimate names → Expansion: Story→Easy, Standard→Normal, Hard→Hard; Expert/Champion = Genesis extensions |
+| Level scaling / caps | 11–12 | IMPLEMENTED | Soft EXP cap via `VAR_GENESIS_LEVEL_CAP`; badge-driven |
+| Difficulty modes | 10 | IMPLEMENTED | `VAR_GENESIS_DIFFICULTY` / `B_VAR_DIFFICULTY`; New Game → Normal |
 
 ---
 
@@ -53,17 +60,17 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
-| Quest system + tracker | 62–64, 120–122 | PLANNED | Main/side/legendary categories |
-| DexNav polish + encounter search | 47–48 | IN DEVELOPMENT | Enabled; need UI unlock scripting + search locations |
+| Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT |
+| DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; search levels still off (saveblock) |
 | Character customization | 57–58 | PLANNED | Clothing shops; badge unlocks |
 | Followers interactions | 52–53 | PLANNED | Mood cosmetic-only |
-| Battle Frontier facilities | 73–82 | PLANNED | Prefer Expansion facilities first (Tower→Factory→Dome→Arena) |
-| Postgame competitive services | 37–46, 139 | PLANNED | IV/EV/nature/ability/egg-move tutors |
-| World Tournament | 135 | PLANNED | Postgame only |
-| Genesis Form (full) | 85 | DESIGN | Must differ from Mega; late unlock |
-| Fast travel / Smart Fly | 23–24 | PLANNED | Progressive unlocks |
-| HM field-move rework | 19–20 | PLANNED | Prefer Expansion field-move configs first |
-| Universal bike Mach/Acro | 21 | PLANNED | Search Expansion bike toggle |
+| Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
+| Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
+| World Tournament | 135 | IMPLEMENTED (lobby v2) | 3-round Tower lobby bracket + rematch BP |
+| Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
+| Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
+| HM field-move rework | 19–20 | IN DEVELOPMENT | `OW_DEFOG_FIELD_MOVE` + `OW_ROCK_CLIMB_FIELD_MOVE` enabled; more HM QoL later |
+| Universal bike Mach/Acro | 21 | IMPLEMENTED | Rydel gives both; R+SELECT toggles while riding |
 
 ---
 
@@ -89,10 +96,10 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 Track as maps/story land:
 
 - [ ] Gym 4 → new shops
-- [ ] Gym 8 → eastern Aurelia opens
+- [x] Gym 8 → eastern Aurelia opens (post-Champion Reception Gate → Eastern Hall)
 - [ ] Eclipse defeated → blocked areas open
-- [ ] Champion → new NPCs / rematches
-- [ ] Legendary quests → dialogue updates
+- [x] Champion → Frontier + Eastern Hall + WT stub
+- [x] Legendary quests → Eastern Hall seeker (Aethernox/Solara/Genesis)
 - [ ] Weather events → rare encounters
 
 ---
@@ -113,10 +120,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of Verdant → Route 1 → Lumen (starter, lab, Center, Mart).
-2. **`genesis/maps`:** Port Azure stub + Route connections (first custom/new map work beyond aliases).
-3. **`genesis/story`:** story flag block + Act 1 scripts (Genesis Crystal / first Eclipse contact).
-4. Keep updating this file after each group.
+1. **In-emulator playtest** of Acts 1–8 + puzzles + Eastern Hall desks + Legend Sanctum + WT bracket + Smart Fly / dual bike / Defog / Rock Climb.
+2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
+3. Unique legendary battle sprites (replace DS stand-ins).
+4. Full World Tournament facility map (beyond Tower lobby bracket).
 
 ---
 

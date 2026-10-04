@@ -35,8 +35,18 @@ Temporary map aliases reuse Expansion Hoenn layouts until custom Aurelia geometr
 | Route 1 | `MAP_ROUTE101` | ROUTE 1 | Wild encounters, starter rescue |
 | Lumen City | `MAP_OLDALE_*` | LUMEN CITY | Pokémon Center, Poké Mart |
 | Route 2 | `MAP_ROUTE102` | ROUTE 2 | Multi-gen early encounters |
-| Port Azure | `MAP_PETALBURG_*` | PORT AZURE | Gym 3 stand-in (Water) |
-| Lumen Forest | `MAP_PETALBURG_WOODS` | LUMEN FOREST | Multi-gen forest encounters |
+| Port Azure | `MAP_PETALBURG_*` | PORT AZURE | Gym 3 stand-in (Water / Marina) |
+| Lumen Forest | `MAP_PETALBURG_WOODS` | LUMEN FOREST | Act 1 Crystal / Eclipse |
+| Ironridge | `MAP_DEWFORD_*` | IRONRIDGE CITY | Gym 2 Bran (Rock) |
+| Celestia | `MAP_MAUVILLE_*` | CELESTIA CITY | Gym 4 Volt + Mega unlock |
+| Frostveil | `MAP_LAVARIDGE_*` | FROSTVEIL CITY | Gym 5 Glacia (Ice) |
+| Solaris | `MAP_FORTREE_*` | SOLARIS CITY | Gym 6 Ra (Ground) |
+| Stormbreak | `MAP_MOSSDEEP_*` | STORMBREAK CITY | Gym 7 Skye + Z unlock |
+| Titania | `MAP_SOOTOPOLIS_*` | TITANIA CITY | Gym 8 Titan + Dynamax unlock |
+| Aurelia Summit | `MAP_EVER_GRANDE_*` | AURELIA SUMMIT | Elite Four + Champion Astra |
+| Eastern Aurelia Hall | `MAP_EASTERN_AURELIA_HALL` | BATTLE FRONTIER | Postgame gyms 9–16 + legend seeker |
+
+**Stand-in note:** Hoenn badge order covers gyms 1–8. Gyms 9–16 are sequential challenges in Eastern Aurelia Hall (warp from Frontier Reception Gate after Champion). Custom city geometry replaces the Hall later.
 
 Verdant's dedicated small Center/Mart will be added with custom map geometry later; early healing/shopping uses Lumen City.
 

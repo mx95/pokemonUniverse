@@ -732,8 +732,8 @@ PetalburgCity_Text_FullPartyExplanation:
 
 PetalburgCity_Text_GymSign:
 	.string "PORT AZURE POKéMON GYM\n"
-	.string "LEADER: NORMAN\l"
-	.string "“A man in pursuit of power!”$"
+	.string "LEADER: MARINA\l"
+	.string "“Ride the tide of battle!”$"
 
 PetalburgCity_Text_CitySign:
 	.string "PORT AZURE\n"

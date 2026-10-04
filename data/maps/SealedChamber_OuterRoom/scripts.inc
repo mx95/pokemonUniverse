@@ -95,7 +95,7 @@ SealedChamber_OuterRoom_EventScript_InnerRoomEntranceWall::
 
 SealedChamber_OuterRoom_EventScript_HoleInWall::
 	msgbox gText_BigHoleInTheWall, MSGBOX_DEFAULT
-	releaseall
+	goto Genesis_Puzzle_EchoSealed
 	end
 
 SealedChamber_OuterRoom_EventScript_BrailleDigHere::

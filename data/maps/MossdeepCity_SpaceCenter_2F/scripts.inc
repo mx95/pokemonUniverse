@@ -286,6 +286,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha::
 	call MossdeepCity_SpaceCenter_2F_EventScript_StevenFacePlayer
 	fadescreen FADE_FROM_BLACK
 	msgbox MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome, MSGBOX_DEFAULT
+	msgbox MossdeepCity_SpaceCenter_2F_Text_GenesisTeraForeshadow, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_DEFEATED_MAGMA_SPACE_CENTER
@@ -295,6 +296,8 @@ MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha::
 	clearflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_STEVEN
 	setvar VAR_STEVENS_HOUSE_STATE, 1
 	setflag FLAG_HIDE_MOSSDEEP_CITY_SCOTT
+	setflag FLAG_GENESIS_ACT5_DONE
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_ACT5_DONE
 	removeobject LOCALID_SPACE_CENTER_2F_SCIENTIST
 	setobjectxyperm LOCALID_SPACE_CENTER_2F_SCIENTIST, 5, 6
 	setobjectmovementtype LOCALID_SPACE_CENTER_2F_SCIENTIST, MOVEMENT_TYPE_WANDER_AROUND
@@ -488,3 +491,11 @@ MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome:
 	.string "after this.\p"
 	.string "Oh, yes, I don't live in RUSTBORO CITY.\n"
 	.string "I live right here on this island.$"
+
+MossdeepCity_SpaceCenter_2F_Text_GenesisTeraForeshadow:
+	.string "STEVEN: One more thing…\p"
+	.string "Our sensors caught crystal lattice\n"
+	.string "patterns--TERASTALLIZATION signatures.\p"
+	.string "TEAM ECLIPSE is forcing GENESIS ENERGY\n"
+	.string "into new shapes. Seek Astral's LEADER\l"
+	.string "in the east when you are CHAMPION.$"

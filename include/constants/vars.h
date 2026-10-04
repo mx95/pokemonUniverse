@@ -238,7 +238,8 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_UNUSED_0x40DB                                0x40DB // GENESIS: used by B_VAR_DIFFICULTY
+#define VAR_GENESIS_DIFFICULTY                           0x40DB // GENESIS: Easy/Normal/Hard (B_VAR_DIFFICULTY)
+#define VAR_UNUSED_0x40DB                                VAR_GENESIS_DIFFICULTY // alias
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
@@ -270,10 +271,10 @@
 #define VAR_DEXNAV_SPECIES                               0x40F8 // GENESIS: registered DexNav species
 #define VAR_DEXNAV_STEP_COUNTER                          0x40F9 // GENESIS: DexNav hidden encounter steps
 #define VAR_GENESIS_LEVEL_CAP                            0x40FA // GENESIS: optional level cap value
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_GENESIS_STORY_STATE                          0x40FB // GENESIS: act / storybeat progress
+#define VAR_GENESIS_SAVE_VERSION                         0x40FC // GENESIS: persisted GENESIS_SAVE_VERSION
+#define VAR_GENESIS_PUZZLE_STATE                         0x40FD // GENESIS: multi-step puzzle progress
+#define VAR_GENESIS_QUEST_BITS                           0x40FE // GENESIS: lightweight quest bitfield
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF

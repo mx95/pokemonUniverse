@@ -16,9 +16,12 @@ EARLY_SCRIPT_FILES = [
     "data/maps/LittlerootTown_MaysHouse_1F/scripts.inc",
     "data/maps/LittlerootTown_ProfessorBirchsLab/scripts.inc",
     "data/maps/OldaleTown/scripts.inc",
+    "data/maps/OldaleTown_Gym/scripts.inc",
     "data/maps/Route101/scripts.inc",
     "data/maps/Route102/scripts.inc",
     "data/maps/PetalburgCity/scripts.inc",
+    "data/maps/PetalburgCity_Gym/scripts.inc",
+    "data/maps/PetalburgWoods/scripts.inc",
     "data/text/birch_speech.inc",
     "data/text/pokedex_rating.inc",
 ]
@@ -33,6 +36,19 @@ BANNED = [
     re.compile(r"\bOLDALE\b"),
     re.compile(r"^.*\.string.*\bMAY:\s"),
     re.compile(r"^.*\.string.*\bBRENDAN:\s"),
+    re.compile(r"TEAM AQUA"),
+]
+
+GYM_SCRIPT_FILES = [
+    "data/maps/OldaleTown_Gym/scripts.inc",
+    "data/maps/PetalburgCity_Gym/scripts.inc",
+]
+
+GYM_BANNED = [
+    re.compile(r"^.*\.string.*\bDAD:\s"),
+    re.compile(r"^.*\.string.*\bNORMAN\b"),
+    re.compile(r"^.*\.string.*\bROXANNE\b"),
+    re.compile(r"BALANCE BADGE"),
 ]
 
 REQUIRED_MAP_NAMES = {
@@ -42,6 +58,13 @@ REQUIRED_MAP_NAMES = {
     "MAPSEC_ROUTE_102": "ROUTE 2",
     "MAPSEC_PETALBURG_CITY": "PORT AZURE",
     "MAPSEC_PETALBURG_WOODS": "LUMEN FOREST",
+    "MAPSEC_DEWFORD_TOWN": "IRONRIDGE CITY",
+    "MAPSEC_MAUVILLE_CITY": "CELESTIA CITY",
+    "MAPSEC_LAVARIDGE_TOWN": "FROSTVEIL CITY",
+    "MAPSEC_FORTREE_CITY": "SOLARIS CITY",
+    "MAPSEC_MOSSDEEP_CITY": "STORMBREAK CITY",
+    "MAPSEC_SOOTOPOLIS_CITY": "TITANIA CITY",
+    "MAPSEC_EVER_GRANDE_CITY": "AURELIA SUMMIT",
 }
 
 
@@ -65,6 +88,16 @@ def check_banned_strings() -> list[str]:
             for pat in BANNED:
                 if pat.search(line):
                     issues.append(f"{rel}:{lineno}: banned branding -> {line.strip()[:100]}")
+                    break
+    for rel in GYM_SCRIPT_FILES:
+        path = ROOT / rel
+        if not path.exists():
+            issues.append(f"missing {rel}")
+            continue
+        for lineno, line in dialogue_lines(path):
+            for pat in GYM_BANNED:
+                if pat.search(line):
+                    issues.append(f"{rel}:{lineno}: gym branding -> {line.strip()[:100]}")
                     break
     return issues
 

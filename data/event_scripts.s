@@ -73,6 +73,7 @@
 #include "constants/tv.h"
 #include "constants/union_room.h"
 #include "constants/vars.h"
+#include "constants/genesis.h"
 #include "constants/weather.h"
 #include "constants/speaker_names.h"
 	.include "asm/macros.inc"
@@ -197,6 +198,7 @@ gStdScripts_End::
 	.include "data/maps/OldaleTown_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/OldaleTown_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/OldaleTown_Mart/scripts.inc"
+	.include "data/maps/OldaleTown_Gym/scripts.inc"
 	.include "data/maps/DewfordTown_House1/scripts.inc"
 	.include "data/maps/DewfordTown_PokemonCenter_1F/scripts.inc"
 	.include "data/maps/DewfordTown_PokemonCenter_2F/scripts.inc"
@@ -539,6 +541,8 @@ gStdScripts_End::
 	.include "data/maps/BattleFrontier_Lounge6/scripts.inc"
 	.include "data/maps/BattleFrontier_Lounge7/scripts.inc"
 	.include "data/maps/BattleFrontier_ReceptionGate/scripts.inc"
+	.include "data/maps/EasternAurelia_Hall/scripts.inc"
+	.include "data/maps/Genesis_LegendSanctum/scripts.inc"
 	.include "data/maps/BattleFrontier_Lounge8/scripts.inc"
 	.include "data/maps/BattleFrontier_Lounge9/scripts.inc"
 	.include "data/maps/BattleFrontier_PokemonCenter_1F/scripts.inc"
@@ -1240,6 +1244,45 @@ Common_EventScript_PlayGymBadgeFanfare::
 	waitfanfare
 	return
 
+@ GENESIS: Gimmick unlock rewards (bag items gate Mega/Z/Dynamax)
+Common_EventScript_GenesisGiveMegaRing::
+	goto_if_set FLAG_GENESIS_MEGA_UNLOCKED, Common_EventScript_NopReturn
+	giveitem ITEM_MEGA_RING
+	setflag FLAG_GENESIS_MEGA_UNLOCKED
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_GYM4_DONE
+	msgbox Common_Text_GenesisMegaUnlock, MSGBOX_DEFAULT
+	return
+
+Common_EventScript_GenesisGiveZRing::
+	goto_if_set FLAG_GENESIS_Z_UNLOCKED, Common_EventScript_NopReturn
+	giveitem ITEM_Z_POWER_RING
+	setflag FLAG_GENESIS_Z_UNLOCKED
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_GYM7_DONE
+	msgbox Common_Text_GenesisZUnlock, MSGBOX_DEFAULT
+	return
+
+Common_EventScript_GenesisGiveDynamaxBand::
+	goto_if_set FLAG_GENESIS_DYNAMAX_UNLOCKED, Common_EventScript_NopReturn
+	giveitem ITEM_DYNAMAX_BAND
+	setflag FLAG_GENESIS_DYNAMAX_UNLOCKED
+	setflag FLAG_SYS_DYNAMAX_BATTLE
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_GYM8_DONE
+	msgbox Common_Text_GenesisDynamaxUnlock, MSGBOX_DEFAULT
+	return
+
+Common_Text_GenesisMegaUnlock:
+	.string "You can feel GENESIS ENERGY stir…\n"
+	.string "MEGA EVOLUTION is now yours to command!$"
+
+Common_Text_GenesisZUnlock:
+	.string "A surge of GENESIS ENERGY answers you!\n"
+	.string "Z-MOVES are unlocked!$"
+
+Common_Text_GenesisDynamaxUnlock:
+	.string "The air itself expands with power!\n"
+	.string "DYNAMAX is now unlocked!$"
+
+
 Common_EventScript_OutOfCenterPartyHeal::
 	fadescreenswapbuffers FADE_TO_BLACK
 	playfanfare MUS_HEAL
@@ -1332,6 +1375,9 @@ Common_EventScript_FerryDepartIsland::
 
 	.include "data/scripts/cave_of_origin.inc"
 	.include "data/scripts/kecleon.inc"
+	.include "data/scripts/genesis_story.inc"
+	.include "data/scripts/genesis_puzzles.inc"
+	.include "data/scripts/genesis_rival.inc"
 
 Common_EventScript_NameReceivedPartyMon::
 	fadescreen FADE_TO_BLACK

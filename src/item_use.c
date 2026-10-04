@@ -297,12 +297,38 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
-    if (GetItemSecondaryId(gSpecialVar_ItemId) == STANDARD_BIKE)
+    // GENESIS: R+SELECT while riding with both bikes toggles Mach ↔ Acro; SELECT alone mounts/dismounts
+    if ((gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+     && (gMain.heldKeys & R_BUTTON)
+     && CheckBagHasItem(ITEM_MACH_BIKE, 1)
+     && CheckBagHasItem(ITEM_ACRO_BIKE, 1))
+    {
+        u8 nextFlags;
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        {
+            nextFlags = PLAYER_AVATAR_FLAG_ACRO_BIKE;
+            gSaveBlock1Ptr->registeredItem = ITEM_ACRO_BIKE;
+        }
+        else
+        {
+            nextFlags = PLAYER_AVATAR_FLAG_MACH_BIKE;
+            gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
+        }
+        GetOnOffBike(PLAYER_AVATAR_FLAG_ON_FOOT); // dismount
+        GetOnOffBike(nextFlags);                  // remount other mode
+    }
+    else if (GetItemSecondaryId(gSpecialVar_ItemId) == STANDARD_BIKE)
+    {
         GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
+    }
     else if (GetItemSecondaryId(gSpecialVar_ItemId) == MACH_BIKE)
+    {
         GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE);
+    }
     else // ACRO_BIKE
+    {
         GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+    }
 
     FollowerNPC_HandleBike();
     ScriptUnfreezeObjectEvents();

@@ -17,11 +17,30 @@ OldaleTown_PokemonCenter_1F_EventScript_Nurse::
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Gentleman::
-	msgbox OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_GENESIS_TUTOR_INTRO, OldaleTown_PokemonCenter_1F_EventScript_TutorDone
+	msgbox OldaleTown_PokemonCenter_1F_Text_TutorOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, OldaleTown_PokemonCenter_1F_EventScript_TutorNo
+	giveitem ITEM_BOTTLE_CAP
+	giveitem ITEM_ABILITY_CAPSULE
+	setflag FLAG_GENESIS_TUTOR_INTRO
+	msgbox OldaleTown_PokemonCenter_1F_Text_TutorAfter, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_PokemonCenter_1F_EventScript_TutorDone::
+	msgbox OldaleTown_PokemonCenter_1F_Text_TutorDone, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_PokemonCenter_1F_EventScript_TutorNo::
+	msgbox OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC, MSGBOX_DEFAULT
+	release
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Boy::
-	msgbox OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat, MSGBOX_NPC
+	goto Genesis_EventScript_QuestBoard
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Girl::
@@ -42,6 +61,19 @@ OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC:
 	.string "for any POKéMON TRAINER to use.\p"
 	.string "Naturally, that means you're welcome\n"
 	.string "to use it, too.$"
+
+OldaleTown_PokemonCenter_1F_Text_TutorOffer:
+	.string "I help CHAMPIONS polish their teams.\n"
+	.string "Take a BOTTLE CAP and ABILITY CAPSULE?$"
+
+OldaleTown_PokemonCenter_1F_Text_TutorAfter:
+	.string "Hyper Train and tweak Abilities at\n"
+	.string "the facilities that support them.\p"
+	.string "The Frontier has more for veterans.$"
+
+OldaleTown_PokemonCenter_1F_Text_TutorDone:
+	.string "Train smart. GENESIS ENERGY favors\n"
+	.string "prepared TRAINERS.$"
 
 OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat:
 	.string "POKéMON CENTERS are great!\p"

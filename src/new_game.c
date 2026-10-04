@@ -38,6 +38,8 @@
 #include "main.h"
 #include "contest.h"
 #include "item_menu.h"
+#include "config/genesis.h"
+#include "genesis_story.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
 #include "decoration_inventory.h"
@@ -238,9 +240,8 @@ void NewGameInitData(void)
 #if GENESIS_ENABLE_EXP_SHARE
     FlagSet(FLAG_SYS_EXP_SHARE);
 #endif
-#if GENESIS_ENABLE_DEXNAV
-    FlagSet(FLAG_SYS_DEXNAV_GET);
-#endif
+    // GENESIS: DexNav unlock is granted by Prof. Aurelia with the Pokédex
+    Genesis_InitSave();
 }
 
 static void ResetMiniGamesRecords(void)

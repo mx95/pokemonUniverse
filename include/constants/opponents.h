@@ -859,12 +859,20 @@
 #define TRAINER_LEAF                        852
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
+// GENESIS: Eastern Aurelia postgame gym leaders + World Tournament stub
+#define TRAINER_GENESIS_IRIS                855
+#define TRAINER_GENESIS_CELIA               856
+#define TRAINER_GENESIS_NOCTIS              857
+#define TRAINER_GENESIS_DRAKE_GYM           858
+#define TRAINER_GENESIS_LUNA                859
+#define TRAINER_GENESIS_MORRIGAN            860
+#define TRAINER_GENESIS_COLLEAGUE           861
+#define TRAINER_GENESIS_MENTOR              862
+#define TRAINER_GENESIS_WT_CHAMP            863
 
-// NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
-//       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
-//       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
+// NOTE: Trainer flag space is at the Emerald max (864). Do not add more without expanding flags/save.
 
-#define TRAINERS_COUNT_EMERALD     855
+#define TRAINERS_COUNT_EMERALD     864
 #define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG

@@ -48,6 +48,7 @@
 #include "overworld.h"
 #include "vs_seeker.h"
 #include "wild_encounter_ow.h"
+#include "genesis_story.h"
 #include "window.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_special.h"
@@ -275,6 +276,7 @@ static void CreateBattleStartTask(enum BattleTransition transition, u16 song)
 {
     u8 taskId = CreateTask(Task_BattleStart, 1);
 
+    Genesis_ApplyBattleGimmickFlags();
     gTasks[taskId].tTransition = transition;
     PlayMapChosenOrBattleBGM(song);
 }

@@ -292,7 +292,7 @@
                                           // This var should never remain non-zero long enough for the player to save.
                                           // For better wild AI handling, edit GetWildAiFlags() in src/battle_ai_main.c
 
-#define B_VAR_DIFFICULTY            VAR_UNUSED_0x40DB // GENESIS: Expansion difficulty level (Easy/Normal/Hard)
+#define B_VAR_DIFFICULTY            VAR_GENESIS_DIFFICULTY // GENESIS: Expansion difficulty level (Easy/Normal/Hard)
 
 // No Bag settings
 #define NO_BAG_RESTRICTION       0

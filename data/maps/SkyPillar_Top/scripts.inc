@@ -126,6 +126,9 @@ SkyPillar_Top_EventScript_AwakenRayquaza::
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
 	setvar VAR_SKY_PILLAR_STATE, 1
 	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
+	setflag FLAG_GENESIS_ACT6_DONE
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_ACT6_DONE
+	msgbox SkyPillar_Top_Text_GenesisPhenomena, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -179,4 +182,10 @@ SkyPillar_Top_Movement_CameraPanDown:
 
 SkyPillar_Top_Text_RayquazaFlewOff:
 	.string "The awakened RAYQUAZA flew off…$"
+
+SkyPillar_Top_Text_GenesisPhenomena:
+	.string "GENESIS ENERGY settles as RAYQUAZA\n"
+	.string "departs… The phenomena cascade slows.\p"
+	.string "Yet TEAM ECLIPSE's Engine still turns\n"
+	.string "somewhere below…$"
 

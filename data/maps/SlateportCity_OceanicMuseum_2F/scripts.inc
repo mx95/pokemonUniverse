@@ -82,6 +82,9 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	clearflag FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE
 	setflag FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE
 	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 1
+	@ GENESIS: Act 2 crystal-hunt beat (Eclipse at museum)
+	setflag FLAG_GENESIS_ECLIPSE_CONTACT
+	msgbox SlateportCity_OceanicMuseum_2F_Text_GenesisAct2Hint, MSGBOX_DEFAULT
 	fadescreen FADE_FROM_BLACK
 	release
 	end
@@ -285,7 +288,7 @@ SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou:
 	.string "Who are you people?$"
 
 SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua:
-	.string "We're TEAM AQUA!\p"
+	.string "We're TEAM ECLIPSE!\p"
 	.string "Our BOSS wants those parts!\n"
 	.string "Shut your yap and fork them over!$"
 
@@ -317,20 +320,20 @@ SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong:
 	.string "simps are held up by a mere child?$"
 
 SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
-	.string "We are TEAM AQUA,\n"
+	.string "We are TEAM ECLIPSE,\n"
 	.string "and we love the sea!\p"
-	.string "And I am TEAM AQUA's leader,\n"
+	.string "And I am TEAM ECLIPSE's leader,\n"
 	.string "ARCHIE!\p"
 	.string "What makes you interfere with us?\p"
 	.string "…No! You can't be!\n"
-	.string "You're not one of TEAM MAGMA?\p"
+	.string "You're not one of TEAM ECLIPSE?\p"
 	.string "Wait, that can't be right.\n"
 	.string "You're not dressed for the part.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
 	.string "POKéMON, people… All life depends on\n"
 	.string "the sea.\p"
-	.string "So, TEAM AQUA is dedicated to\n"
+	.string "So, TEAM ECLIPSE is dedicated to\n"
 	.string "the expansion of the sea.\p"
 	.string "Don't you agree? What we are doing\n"
 	.string "is a magnificent undertaking.\p"
@@ -360,6 +363,13 @@ SlateportCity_OceanicMuseum_2F_Text_SternIveGotToGo:
 	.string "to go!\p"
 	.string "Feel free to wander around and check\n"
 	.string "out our facilities, though.$"
+
+SlateportCity_OceanicMuseum_2F_Text_GenesisAct2Hint:
+	.string "TEAM ECLIPSE was after more than a\n"
+	.string "submarine--they're hunting GENESIS\l"
+	.string "CRYSTAL shards across AURELIA.\p"
+	.string "If you recovered one in Lumen Forest,\n"
+	.string "try the Crystal Relay in NEW MAUVILLE.$"
 
 SlateportCity_OceanicMuseum_2F_Text_RemindsMeOfAbandonedShip:
 	.string "I saw a model of a ship here.\p"

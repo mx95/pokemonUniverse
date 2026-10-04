@@ -17,6 +17,7 @@ CHECKS: list[tuple[str, str, str]] = [
     ("include/config/pokemon.h", r"#define\s+P_SHOW_TERA_TYPE\s+GEN_9", "Tera on summary"),
     ("include/config/overworld.h", r"#define\s+OW_POPUP_GENERATION\s+GEN_5", "Gen5 map pop-ups"),
     ("include/config/overworld.h", r"#define\s+OW_FOLLOWERS_ENABLED\s+TRUE", "followers"),
+    ("include/config/overworld.h", r"#define\s+OW_FLAG_POKE_RIDER\s+FLAG_RECEIVED_HM_FLY", "Smart Fly"),
     ("include/config/battle.h", r"#define\s+B_SHOW_TYPES\s+SHOW_TYPES_ALWAYS", "type indicators"),
     ("include/config/battle.h", r"#define\s+B_SHOW_EFFECTIVENESS\s+SHOW_EFFECTIVENESS_ALWAYS", "effectiveness"),
     ("include/config/battle.h", r"#define\s+B_NEW_TERRAIN_BACKGROUNDS\s+TRUE", "terrain BGs"),

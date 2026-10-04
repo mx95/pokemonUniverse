@@ -676,48 +676,49 @@
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
-#define FLAG_UNUSED_0x288  0x288 // Unused Flag
-#define FLAG_UNUSED_0x289  0x289 // Unused Flag
-#define FLAG_UNUSED_0x28A  0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
-#define FLAG_UNUSED_0x28F  0x28F // Unused Flag
-#define FLAG_UNUSED_0x290  0x290 // Unused Flag
-#define FLAG_UNUSED_0x291  0x291 // Unused Flag
-#define FLAG_UNUSED_0x292  0x292 // Unused Flag
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
-#define FLAG_UNUSED_0x298  0x298 // Unused Flag
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
+// GENESIS: Story / gimmick unlock flags
+#define FLAG_GENESIS_CRYSTAL_GOT              0x270 // Player recovered a Genesis Crystal shard
+#define FLAG_GENESIS_ECLIPSE_CONTACT          0x271 // First Team Eclipse contact completed
+#define FLAG_GENESIS_ACT1_FOREST_DONE         0x272 // Lumen Forest story beat finished
+#define FLAG_GENESIS_MEGA_UNLOCKED            0x273 // Mega Evolution unlocked (badge 4 / Volt)
+#define FLAG_GENESIS_Z_UNLOCKED               0x274 // Z-Moves unlocked (badge 7 / Skye)
+#define FLAG_GENESIS_DYNAMAX_UNLOCKED         0x275 // Dynamax unlocked (badge 8 / Titan)
+#define FLAG_GENESIS_TERA_UNLOCKED            0x276 // Terastallization unlocked (postgame)
+#define FLAG_GENESIS_ACT2_DONE                0x277 // Badges 1-3 / early Eclipse crystal hunt
+#define FLAG_GENESIS_ACT3_DONE                0x278 // Ancient / midgame Eclipse beat
+#define FLAG_GENESIS_ACT4_DONE                0x279 // Z / Dynamax incident beat
+#define FLAG_GENESIS_ECLIPSE_DEFEATED         0x27A // Team Eclipse story defeated
+#define FLAG_GENESIS_CHAMPION_DONE            0x27B // Became Champion / Hall of Fame
+#define FLAG_GENESIS_LEGEND_QUEST_HINT        0x27C // Postgame legendary quest hook given
+#define FLAG_GENESIS_BADGE_09_GET             0x27D // Iris / Mirage
+#define FLAG_GENESIS_BADGE_10_GET             0x27E // Celia / Verdantis
+#define FLAG_GENESIS_BADGE_11_GET             0x27F // Noctis / Obsidian
+#define FLAG_GENESIS_BADGE_12_GET             0x280 // Drake / Astral (Tera story beat)
+#define FLAG_GENESIS_BADGE_13_GET             0x281 // Luna / Tidymoon
+#define FLAG_GENESIS_BADGE_14_GET             0x282 // Morrigan / Eon
+#define FLAG_GENESIS_BADGE_15_GET             0x283 // Colleague / Genesis City
+#define FLAG_GENESIS_BADGE_16_GET             0x284 // Mentor / Ascension
+#define FLAG_GENESIS_DEFEATED_AETHERNOX       0x285
+#define FLAG_GENESIS_DEFEATED_SOLARA          0x286
+#define FLAG_GENESIS_DEFEATED_GENESIS_MON     0x287
+#define FLAG_GENESIS_WT_INTRO                 0x288 // World Tournament intro heard
+#define FLAG_GENESIS_EASTERN_OPEN             0x289 // Eastern Aurelia Hall unlocked
+#define FLAG_GENESIS_ACT5_DONE                0x28A // Space Center / Tera foreshadow
+#define FLAG_GENESIS_ACT6_DONE                0x28B // Sky Pillar / phenomena cascade
+#define FLAG_GENESIS_ACT7_DONE                0x28C // Hideout climax / commanders
+#define FLAG_GENESIS_ACT8_DONE                0x28D // League / resolution (Champion)
+#define FLAG_GENESIS_PUZZLE_CRYSTAL_RELAY     0x28E // Act 2 New Mauville order puzzle
+#define FLAG_GENESIS_PUZZLE_ECHO_SEALED       0x28F // Act 3 Sealed Chamber riddle
+#define FLAG_GENESIS_PUZZLE_PHENOMENA         0x290 // Act 6 Sky Pillar pylon order
+#define FLAG_GENESIS_PUZZLE_ECLIPSE_CIPHER    0x291 // Act 7 Magma Hideout cipher
+#define FLAG_GENESIS_FORM_UNLOCKED            0x292 // Genesis Form story unlock (content gated)
+#define FLAG_GENESIS_WT_CLEARED               0x293 // World Tournament bout won
+#define FLAG_GENESIS_QUEST_BOARD_SEEN         0x294 // Quest board NPC interacted
+#define FLAG_GENESIS_RIVAL_BEAT_ACT2          0x295 // Kai post-Act 2 beat
+#define FLAG_GENESIS_RIVAL_BEAT_SEAFLOOR      0x296 // Kai post-Seafloor beat
+#define FLAG_GENESIS_RIVAL_BEAT_LEAGUE        0x297 // Kai pre-E4 beat
+#define FLAG_GENESIS_SAVE_INIT                0x298 // Save version initialized
+#define FLAG_GENESIS_TUTOR_INTRO              0x299 // Competitive tutor kit received
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
 #define FLAG_UNUSED_0x29B  0x29B // Unused Flag
 #define FLAG_UNUSED_0x29C  0x29C // Unused Flag

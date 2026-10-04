@@ -9,6 +9,7 @@
 #include "config_changes.h"
 #include "constants/battle.h"
 #include "constants/moves.h"
+#include "genesis_form.h"
 
 static bool32 FirstEventBlockEvents(struct BattleCalcValues *calcValues);
 static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability, enum HoldEffect holdEffect, enum Hazards hazardType);
@@ -274,6 +275,7 @@ static bool32 FirstEventBlockEvents(struct BattleCalcValues *calcValues)
         break;
     case FIRST_EVENT_BLOCK_GENERAL_ABILITIES:
         if (TryPrimalReversion(battler)
+         || TryGenesisFormActivation(battler)
          || AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, battler, calcValues->abilities[battler], MOVE_NONE, gBattleStruct->battlerState[battler].switchIn)
          || TryClearIllusion(battler, calcValues->abilities[battler]))
             effect = TRUE;

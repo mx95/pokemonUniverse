@@ -1,21 +1,33 @@
 #!/usr/bin/env python3
-"""Generate Genesis title-screen graphics (version banner + animated BG)."""
+"""Build polished Genesis title-screen graphics from Expansion originals."""
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "graphics" / "title_screen"
+BASE = "e8bd1cd7b0"  # expansion/1.17.0
 
 
-def _font(size: int) -> ImageFont.ImageFont:
+def _git_bytes(path: str) -> bytes:
+    return subprocess.check_output(["git", "show", f"{BASE}:{path}"], cwd=ROOT)
+
+
+def _restore(path: str) -> Path:
+    dest = ROOT / path
+    dest.write_bytes(_git_bytes(path))
+    return dest
+
+
+def _font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     for name in (
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
         "C:/Windows/Fonts/arialbd.ttf",
-        "C:/Windows/Fonts/segoeui.ttf",
+        "C:/Windows/Fonts/segoeuib.ttf",
     ):
         p = Path(name)
         if p.exists():
@@ -24,100 +36,112 @@ def _font(size: int) -> ImageFont.ImageFont:
 
 
 def make_genesis_version() -> None:
-    """Two 64x32 halves → 128x32 8bpp sheet matching emerald_version.png."""
+    """128x32 8bpp banner: GENESIS VERSION (two 64x32 halves)."""
     w, h = 128, 32
     img = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    font = _font(14)
+    font = _font(13)
     text = "GENESIS VERSION"
-    # Measure and center
     bbox = draw.textbbox((0, 0), text, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
     x = (w - tw) // 2
-    y = (h - th) // 2 - 1
-    # Black outline
-    for ox in (-1, 0, 1):
-        for oy in (-1, 0, 1):
+    y = max(0, (h - th) // 2 - 1)
+
+    # Deep navy outline for readability over the logo
+    for ox in (-2, -1, 0, 1, 2):
+        for oy in (-2, -1, 0, 1, 2):
             if ox or oy:
-                draw.text((x + ox, y + oy), text, font=font, fill=(0, 0, 0, 255))
-    # Silver-white fill with slight teal tint for Genesis
-    draw.text((x, y), text, font=font, fill=(220, 245, 255, 255))
-    # Convert to palette (keep index 0 transparent-ish black for GBA tools)
-    pal = Image.new("P", (1, 1))
-    palette = [0, 0, 0] + [220, 245, 255] * 3 + [0, 0, 0] * 252
-    # Build a small unique palette from image
+                draw.text((x + ox, y + oy), text, font=font, fill=(8, 24, 48, 255))
+    # Soft teal top highlight
+    draw.text((x, y - 1), text, font=font, fill=(120, 220, 230, 255))
+    # Silver body
+    draw.text((x, y), text, font=font, fill=(235, 248, 255, 255))
+
     q = img.convert("RGB").quantize(colors=16, method=Image.Quantize.MEDIANCUT)
+    # Force index 0 to black for GBA transparency conventions
+    pal = q.getpalette() or []
+    if len(pal) >= 3:
+        pal[0:3] = [0, 0, 0]
+        q.putpalette(pal)
     q.save(OUT / "emerald_version.png")
     print("wrote emerald_version.png", q.size)
 
 
-def make_clouds() -> None:
-    """Soft aurora / genesis-energy wisps — same size as clouds.png."""
-    src = Image.open(OUT / "clouds.png")
-    w, h = src.size
-    img = Image.new("RGB", (w, h), (8, 28, 48))
-    draw = ImageDraw.Draw(img)
-    # Horizontal energy bands
-    bands = [
-        ((0, h // 5), (w, h // 5 + 3), (40, 180, 200)),
-        ((0, h // 3), (w, h // 3 + 2), (80, 220, 180)),
-        ((0, 2 * h // 5), (w, 2 * h // 5 + 4), (120, 160, 255)),
-        ((0, 3 * h // 5), (w, 3 * h // 5 + 2), (60, 200, 160)),
-        ((0, 4 * h // 5), (w, 4 * h // 5 + 3), (100, 140, 230)),
-    ]
-    for (x0, y0), (x1, y1), color in bands:
-        for i in range(-2, 3):
-            c = tuple(max(0, min(255, ch + i * 12)) for ch in color)
-            draw.line([(0, y0 + i), (w - 1, y1 + i)], fill=c, width=1)
-        # Soft blobs
-        for bx in range(0, w, max(8, w // 6)):
-            draw.ellipse([bx, y0 - 3, bx + 14, y1 + 4], fill=color)
-    q = img.quantize(colors=16, method=Image.Quantize.MEDIANCUT)
-    q.save(OUT / "clouds.png")
-    print("wrote clouds.png", q.size)
+def _rgb555(r: int, g: int, b: int) -> int:
+    return ((r >> 3) & 31) | (((g >> 3) & 31) << 5) | (((b >> 3) & 31) << 10)
 
 
-def make_silhouette() -> None:
-    """Replace Rayquaza with a Genesis Energy serpent / aura silhouette."""
-    src = Image.open(OUT / "rayquaza.png")
-    w, h = src.size
-    # Deep teal field (index colors for 4bpp BG)
-    img = Image.new("RGB", (w, h), (6, 22, 36))
-    draw = ImageDraw.Draw(img)
-    # Vertical coiled energy form (center)
-    cx = w // 2
-    # Body coils
-    points = []
-    for i in range(0, h, 2):
-        wave = int(18 * __import__("math").sin(i / 14.0))
-        points.append((cx + wave - 10, i))
-    for i in range(h - 1, -1, -2):
-        wave = int(18 * __import__("math").sin(i / 14.0))
-        points.append((cx + wave + 10, i))
-    if len(points) >= 3:
-        draw.polygon(points, fill=(12, 70, 58))
-    # Glowing orbs along the body (legendary marking color pulses on palette index)
-    import math
+def _rgb555_to_rgb(c: int) -> tuple[int, int, int]:
+    r = (c & 31) * 255 // 31
+    g = ((c >> 5) & 31) * 255 // 31
+    b = ((c >> 10) & 31) * 255 // 31
+    return r, g, b
 
-    for i, t in enumerate(range(12, h - 12, h // 7)):
-        ox = int(18 * math.sin(t / 14.0))
-        r = 4 + (i % 2)
-        draw.ellipse(
-            [cx + ox - r, t - r, cx + ox + r, t + r],
-            fill=(240, 220, 60),
+
+def _shift_teal(r: int, g: int, b: int) -> tuple[int, int, int]:
+    import colorsys
+
+    if r > 240 and g > 240 and b > 240:
+        return r, g, b
+    h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+    if s < 0.08:
+        return (
+            max(0, min(255, int(r * 0.85))),
+            max(0, min(255, int(g * 0.95))),
+            max(0, min(255, int(b * 1.15 + 10))),
         )
-    # Crown / crest at top
-    draw.polygon([(cx, 4), (cx - 16, 28), (cx + 16, 28)], fill=(18, 90, 72))
-    draw.ellipse([cx - 5, 8, cx + 5, 18], fill=(255, 230, 80))
-    q = img.quantize(colors=16, method=Image.Quantize.MEDIANCUT)
-    q.save(OUT / "rayquaza.png")
-    print("wrote rayquaza.png", q.size)
+    if 0.05 < h < 0.25:  # yellow/orange markings stay warm
+        h = 0.12
+        s = min(1.0, s * 1.05)
+        v = min(1.0, v * 1.05)
+    else:
+        h = (h + 0.14) % 1.0  # greens → teal/blue
+        s = min(1.0, s * 1.08)
+        v = min(1.0, v * 0.95)
+    rr, gg, bb = colorsys.hsv_to_rgb(h, s, v)
+    return int(rr * 255), int(gg * 255), int(bb * 255)
+
+
+def write_genesis_palette() -> None:
+    """Hue-shift Expansion's Rayquaza/clouds palette toward teal while keeping indices."""
+    import struct
+
+    # Prefer checked-in JASC .pal from Expansion (gbapal is a build artifact).
+    pal_text = _git_bytes("graphics/title_screen/rayquaza_and_clouds.pal").decode("ascii")
+    colors = []
+    for line in pal_text.splitlines()[3:]:
+        parts = line.split()
+        if len(parts) == 3:
+            colors.append(_shift_teal(*(int(x) for x in parts)))
+
+    lines = ["JASC-PAL", "0100", str(len(colors))]
+    out_raw = bytearray()
+    for r, g, b in colors:
+        lines.append(f"{r} {g} {b}")
+        out_raw += struct.pack("<H", _rgb555(r, g, b))
+    (OUT / "rayquaza_and_clouds.pal").write_text("\n".join(lines) + "\n", encoding="ascii")
+    (OUT / "rayquaza_and_clouds.gbapal").write_bytes(out_raw)
+    print("wrote rayquaza_and_clouds.pal/.gbapal", len(colors), "colors")
+
+
+def restore_geometry() -> None:
+    """Bring back Expansion tile sheets + tilemaps so the title layout is correct."""
+    for rel in (
+        "graphics/title_screen/rayquaza.png",
+        "graphics/title_screen/clouds.png",
+        "graphics/title_screen/rayquaza.bin",
+        "graphics/title_screen/clouds.bin",
+    ):
+        _restore(rel)
+        print("restored", rel)
 
 
 def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    restore_geometry()
+    write_genesis_palette()
     make_genesis_version()
-    make_clouds()
-    make_silhouette()
+    print("title assets ready")
 
 
 if __name__ == "__main__":

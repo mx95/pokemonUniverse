@@ -395,3 +395,12 @@ OldaleTown_Text_TownSign:
 	.string "LUMEN CITY\n"
 	.string "“Nature and research in harmony.”$"
 
+OldaleTown_EventScript_GymSign::
+	msgbox OldaleTown_Text_GymSign, MSGBOX_SIGN
+	end
+
+OldaleTown_Text_GymSign:
+	.string "LUMEN CITY POKéMON GYM\n"
+	.string "LEADER: FLORA\l"
+	.string "“Let your bonds bloom!”$"
+

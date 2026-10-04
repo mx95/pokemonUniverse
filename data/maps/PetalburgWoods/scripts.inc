@@ -8,7 +8,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaEntrance
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
@@ -45,7 +45,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	waitmovement 0
 	msgbox PetalburgWoods_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
+	playbgm MUS_ENCOUNTER_MAGMA, FALSE
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaEntrance
 	waitmovement 0
 	msgbox PetalburgWoods_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
@@ -109,6 +109,10 @@ PetalburgWoods_EventScript_DevonResearcherFinish::
 PetalburgWoods_EventScript_RemoveDevonResearcher::
 	removeobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE
 	setvar VAR_PETALBURG_WOODS_STATE, 1
+	setflag FLAG_GENESIS_CRYSTAL_GOT
+	setflag FLAG_GENESIS_ECLIPSE_CONTACT
+	setflag FLAG_GENESIS_ACT1_FOREST_DONE
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_FOREST_COMPLETE
 	releaseall
 	end
 
@@ -317,64 +321,67 @@ PetalburgWoods_EventScript_JamesRematch::
 
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
-	.string "Not a one to be found…$"
+	.string "The Genesis Energy readings spiked\l"
+	.string "right here, but…$"
 
 PetalburgWoods_Text_HaveYouSeenShroomish:
-	.string "Hello, have you seen any POKéMON\n"
-	.string "called SHROOMISH around here?\p"
-	.string "I really love that POKéMON.$"
+	.string "Oh! A TRAINER!\p"
+	.string "I'm surveying LUMEN FOREST for\n"
+	.string "PROF. AURELIA.\p"
+	.string "Have you felt that strange pulse?\n"
+	.string "It may be a GENESIS CRYSTAL shard!$"
 
 PetalburgWoods_Text_IWasGoingToAmbushYou:
-	.string "I was going to ambush you, but you\n"
-	.string "had to dawdle in PETALBURG WOODS\l"
-	.string "forever, didn't you?\p"
-	.string "I got sick of waiting, so here I am!$"
+	.string "Finally!\n"
+	.string "I was waiting for you to stop poking\l"
+	.string "around LUMEN FOREST.\p"
+	.string "That crystal belongs to TEAM ECLIPSE!$"
 
 PetalburgWoods_Text_HandOverThosePapers:
-	.string "You! DEVON RESEARCHER!\p"
-	.string "Hand over those papers!$"
+	.string "You! AURELIA's little helper!\p"
+	.string "Hand over the GENESIS CRYSTAL!$"
 
 PetalburgWoods_Text_YouHaveToHelpMe:
 	.string "Aiyeeeh!\p"
 	.string "You're a POKéMON TRAINER, aren't you?\n"
-	.string "You've got to help me, please!$"
+	.string "Please--don't let them take it!$"
 
 PetalburgWoods_Text_NoOneCrossesTeamAqua:
-	.string "Hunh? What do you think you're doing?\n"
-	.string "What, you're going to protect him?\p"
-	.string "No one who crosses TEAM AQUA\n"
-	.string "gets any mercy, not even a kid!\p"
-	.string "Come on and battle me!$"
+	.string "Hunh? Protecting them?\p"
+	.string "Nobody gets in TEAM ECLIPSE's way.\n"
+	.string "Not even a kid!\p"
+	.string "I'll show you our new world order!$"
 
 PetalburgWoods_Text_YoureKiddingMe:
 	.string "You're kidding me! You're tough!$"
 
 PetalburgWoods_Text_YouveGotSomeNerve:
-	.string "Grrr… You've got some nerve\n"
-	.string "meddling with TEAM AQUA!\l"
-	.string "Come on and battle me again!\p"
+	.string "Grrr… Meddling with TEAM ECLIPSE?\n"
+	.string "You'll regret this…\p"
 	.string "I wish I could say that, but I'm out of\n"
 	.string "POKéMON…\p"
-	.string "And, hey, we of TEAM AQUA are also\n"
-	.string "after something in RUSTBORO.\p"
-	.string "I'll let you go today!$"
+	.string "Keep the shard for now.\n"
+	.string "Dr. CAELUM will take it soon enough.\p"
+	.string "TEAM ECLIPSE never forgets!$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
 	.string "Whew…\n"
 	.string "That was awfully close!\p"
-	.string "Thanks to you, he didn't rob me of\n"
-	.string "these important papers.\p"
-	.string "I know, I'll give you a GREAT BALL as\n"
-	.string "my thanks!$"
+	.string "Thanks to you, the GENESIS CRYSTAL\n"
+	.string "shard is safe.\p"
+	.string "Take this GREAT BALL--and keep that\n"
+	.string "shard close. PROF. AURELIA must hear\l"
+	.string "about TEAM ECLIPSE!$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
-	.string "Didn't that TEAM AQUA thug say\n"
-	.string "they were after something in\l"
-	.string "RUSTBORO, too?$"
+	.string "TEAM ECLIPSE… chasing GENESIS ENERGY\n"
+	.string "already?\p"
+	.string "If they're this bold in LUMEN FOREST,\n"
+	.string "AURELIA is in for trouble.$"
 
 PetalburgWoods_Text_ICantBeWastingTime:
-	.string "Uh-oh! It's a crisis!\n"
-	.string "I can't be wasting time!$"
+	.string "I have to report to PROF. AURELIA!\n"
+	.string "I can't waste another second!$"
 
 PetalburgWoods_Text_YoureLoadedWithItems:
 	.string "You're loaded with items.\n"
@@ -441,9 +448,8 @@ PetalburgWoods_Text_HiddenItemsExplanation:
 
 PetalburgWoods_Text_TryUsingThisItem:
 	.string "Oh, neat!\n"
-	.string "That's the BADGE from RUSTBORO GYM!\p"
-	.string "You must be a TRAINER.\n"
-	.string "You should try using this item.$"
+	.string "You look like a real TRAINER!\p"
+	.string "Try using this item with a GRASS-type.$"
 
 PetalburgWoods_Text_MiracleSeedExplanation:
 	.string "It's a MIRACLE SEED.\n"

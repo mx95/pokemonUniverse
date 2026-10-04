@@ -47,6 +47,7 @@ NewMauville_Inside_EventScript_BlueButton::
 	playse SE_PIN
 	call NewMauville_Inside_EventScript_SetBarrierStateBlueButton
 	special DrawWholeMapView
+	call Genesis_Puzzle_CrystalRelay_OnBlue
 	releaseall
 	end
 
@@ -57,6 +58,7 @@ NewMauville_Inside_EventScript_GreenButton::
 	playse SE_PIN
 	call NewMauville_Inside_EventScript_SetBarrierStateGreenButton
 	special DrawWholeMapView
+	call Genesis_Puzzle_CrystalRelay_OnGreen
 	releaseall
 	end
 
@@ -145,6 +147,7 @@ NewMauville_Inside_EventScript_RedButton::
 	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
 	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	setvar VAR_NEW_MAUVILLE_STATE, 2
+	call Genesis_Puzzle_CrystalRelay_OnRed
 	releaseall
 	end
 

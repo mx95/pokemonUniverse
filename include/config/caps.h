@@ -11,12 +11,12 @@
 #define LEVEL_CAP_VARIABLE              2 // Level cap is chosen according to the contents of the event variable specified by B_LEVEL_CAP_VARIABLE
 
 // Level Cap Configs
-#define B_EXP_CAP_TYPE                  EXP_CAP_NONE   // [EXP_CAP_NONE, EXP_CAP_HARD, EXP_CAP_SOFT] choose the type of level cap to apply
-#define B_LEVEL_CAP_TYPE                LEVEL_CAP_NONE // [LEVEL_CAP_NONE, LEVEL_CAP_FLAG_LIST, LEVEL_CAP_VARIABLE] choose the method to derive the level cap
-#define B_LEVEL_CAP_VARIABLE            0 // event variable used to derive level cap if B_LEVEL_CAP_TYPE is set to LEVEL_CAP_VARIABLE
+#define B_EXP_CAP_TYPE                  EXP_CAP_SOFT   // GENESIS: soft cap via VAR_GENESIS_LEVEL_CAP
+#define B_LEVEL_CAP_TYPE                LEVEL_CAP_VARIABLE
+#define B_LEVEL_CAP_VARIABLE            0x40FA // VAR_GENESIS_LEVEL_CAP
 
-#define B_RARE_CANDY_CAP                FALSE // If set to true, Rare Candies can't be used to go over the level cap
-#define B_LEVEL_CAP_EXP_UP              FALSE // If set to true, mons under level cap will receive more experience
+#define B_RARE_CANDY_CAP                TRUE  // GENESIS: Rare Candies respect level cap
+#define B_LEVEL_CAP_EXP_UP              TRUE  // GENESIS: slight exp boost under cap
 
 // EV Cap Constants
 #define EV_CAP_NONE                     0 // Regular behavior, no EV caps are applied

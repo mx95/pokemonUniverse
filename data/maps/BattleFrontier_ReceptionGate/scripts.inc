@@ -123,7 +123,24 @@ BattleFrontier_ReceptionGate_EventScript_Greeter::
 	lock
 	faceplayer
 	msgbox BattleFrontier_ReceptionGate_Text_WelcomeToBattleFrontier, MSGBOX_DEFAULT
+	goto_if_set FLAG_SYS_GAME_CLEAR, BattleFrontier_ReceptionGate_EventScript_OfferEasternHall
 	msgbox BattleFrontier_ReceptionGate_Text_EnjoyBattleFrontier, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_ReceptionGate_EventScript_OfferEasternHall::
+	msgbox BattleFrontier_ReceptionGate_Text_EasternHallOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ReceptionGate_EventScript_EnjoyOnly
+	setflag FLAG_GENESIS_EASTERN_OPEN
+	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_EASTERN_OPEN
+	msgbox BattleFrontier_ReceptionGate_Text_EasternHallWarp, MSGBOX_DEFAULT
+	warpsilent MAP_EASTERN_AURELIA_HALL, 2, 6
+	waitstate
+	release
+	end
+
+BattleFrontier_ReceptionGate_EventScript_EnjoyOnly::
+	msgbox BattleFrontier_ReceptionGate_Text_EasternHallFlyHint, MSGBOX_DEFAULT
 	release
 	end
 
@@ -299,7 +316,8 @@ BattleFrontier_ReceptionGate_Text_FirstTimeHereThisWay:
 
 BattleFrontier_ReceptionGate_Text_WelcomeToBattleFrontier:
 	.string "The front lines of POKéMON battling!\n"
-	.string "Welcome to the BATTLE FRONTIER!$"
+	.string "Welcome to AURELIA's BATTLE FRONTIER!\p"
+	.string "CHAMPIONS test their limits here!$"
 
 BattleFrontier_ReceptionGate_Text_IssueFrontierPass:
 	.string "For a first-time visitor, we issue\n"
@@ -319,6 +337,24 @@ BattleFrontier_ReceptionGate_Text_PlacedTrainerCardInFrontierPass:
 BattleFrontier_ReceptionGate_Text_EnjoyBattleFrontier:
 	.string "We hope you enjoy all that the BATTLE\n"
 	.string "FRONTIER has to offer!$"
+
+BattleFrontier_ReceptionGate_Text_EasternHallOffer:
+	.string "Champion! Fly here anytime, then talk\n"
+	.string "to me for EASTERN AURELIA HALL.\p"
+	.string "City desks inside: Mirage, Verdantis,\n"
+	.string "Obsidian, Astral, Tidymoon, Eon,\l"
+	.string "Genesis City, and Summit East.\p"
+	.string "Badges 9-16, plus the Legend Sanctum.\n"
+	.string "Shall I warp you to the Hall now?$"
+
+BattleFrontier_ReceptionGate_Text_EasternHallWarp:
+	.string "Right this way--desk plaques name each\n"
+	.string "city. The clerk can send you back!$"
+
+BattleFrontier_ReceptionGate_Text_EasternHallFlyHint:
+	.string "When you want Eastern AURELIA HALL,\n"
+	.string "Fly to the BATTLE FRONTIER and ask me.\p"
+	.string "Enjoy the Frontier facilities too!$"
 
 BattleFrontier_ReceptionGate_Text_IfItIsntPlayerYouCame:
 	.string "???: Well, if it isn't {PLAYER}{KUN}!\n"
