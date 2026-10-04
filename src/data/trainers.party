@@ -17208,3 +17208,105 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Dragon Dance
 
+=== TRAINER_GENESIS_ACE_ROOKIE ===
+Name: REX
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Double Battle: No
+AI: Basic Trainer
+
+Zigzagoon
+Level: 5
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tackle
+- Growl
+- Sand Attack
+- Headbutt
+
+Ralts
+Level: 5
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Growl
+- Confusion
+- Double Team
+- Teleport
+
+=== TRAINER_GENESIS_ACE_MASTER ===
+Name: REX
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Cool
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Omniscient / Smart Switching / Smart Mon Choices
+
+Kyogre @ Blue Orb
+Ability: Drizzle
+Level: 80
+Modest Nature
+EVs: 4 HP / 252 SpA / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Water Spout
+- Origin Pulse
+- Ice Beam
+- Thunder
+
+Urshifu-Rapid-Strike @ Choice Scarf
+Ability: Unseen Fist
+Level: 80
+Jolly Nature
+EVs: 4 HP / 252 Atk / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Surging Strikes
+- Close Combat
+- Aqua Jet
+- U-turn
+
+Metagross @ Weakness Policy
+Ability: Clear Body
+Level: 80
+Careful Nature
+Shiny: Yes
+EVs: 252 HP / 4 Atk / 252 SpD
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Meteor Mash
+- Earthquake
+- Zen Headbutt
+- Bullet Punch
+
+Gallade @ Assault Vest
+Ability: Sharpness
+Level: 80
+Jolly Nature
+EVs: 4 HP / 252 Atk / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sacred Sword
+- Psycho Cut
+- Leaf Blade
+- Night Slash
+
+Charizard @ Charizardite X
+Ability: Blaze
+Level: 80
+Adamant Nature
+EVs: 4 HP / 252 Atk / 252 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Dance
+- Flare Blitz
+- Dragon Claw
+- Earthquake
+
+Scizor @ Life Orb
+Ability: Technician
+Level: 80
+Adamant Nature
+EVs: 252 HP / 252 Atk / 4 Spe
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Bullet Punch
+- X-Scissor
+- Dual Wingbeat
+

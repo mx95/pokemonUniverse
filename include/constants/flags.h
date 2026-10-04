@@ -719,9 +719,9 @@
 #define FLAG_GENESIS_RIVAL_BEAT_LEAGUE        0x297 // Kai pre-E4 beat
 #define FLAG_GENESIS_SAVE_INIT                0x298 // Save version initialized
 #define FLAG_GENESIS_TUTOR_INTRO              0x299 // Competitive tutor kit received
-#define FLAG_UNUSED_0x29A  0x29A // Unused Flag
-#define FLAG_UNUSED_0x29B  0x29B // Unused Flag
-#define FLAG_UNUSED_0x29C  0x29C // Unused Flag
+#define FLAG_GENESIS_ACE_DEFEATED_ONCE        0x29A // Verdant Ace early battle won
+#define FLAG_GENESIS_ACE_DOUBLES_WON          0x29B // Verdant Ace post-League doubles won
+#define FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE  0x29C // Achievement: beat Verdant Ace doubles
 #define FLAG_UNUSED_0x29D  0x29D // Unused Flag
 #define FLAG_UNUSED_0x29E  0x29E // Unused Flag
 #define FLAG_UNUSED_0x29F  0x29F // Unused Flag
@@ -1338,17 +1338,17 @@
 #define FLAG_UNUSED_0x4FF                                           0x4FF // Unused Flag
 
 // Trainer Flags
-// Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused
+// GENESIS: 866 trainers → 0x500 - 0x861 (was Emerald 0x500 - 0x85F)
 // See constants/opponents.h. The values there + FLAG_TRAINER_FLAG_START are the flag IDs
 
 #define TRAINER_FLAGS_START                                         0x500
-#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x85F
+#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x861
 
 // System Flags
 
-#define SYSTEM_FLAGS                                   (TRAINER_FLAGS_END + 1) // 0x860
+#define SYSTEM_FLAGS                                   (TRAINER_FLAGS_END + 1) // 0x862
 
-#define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
+#define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x862
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
 #define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // Unused Flag

@@ -78,7 +78,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
-| Achievements + titles | 60–61 | PLANNED | Trainer Card display |
+| Achievements + titles | 60–61 | IMPLEMENTED (v1) | Verdant Ace doubles unlock (`FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE`) |
 | Cooking / picnic / camping | 54–56 | DEFERRED | GBA budget; lightweight if ever |
 | Contests | 150 | DEFERRED | Expansion contest base exists |
 | Secret bases | 152–153 | DEFERRED | Expansion secret bases exist; customize later |

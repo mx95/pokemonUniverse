@@ -7,14 +7,14 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                1
+#define GENESIS_SAVE_VERSION                2 // +2 trainers (Verdant Ace); SYSTEM_FLAGS shifted
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
 #define GENESIS_ENABLE_LEVEL_CAP            TRUE    // Uses Expansion caps.h + VAR_GENESIS_LEVEL_CAP
 #define GENESIS_ENABLE_GYM_REMATCHES        TRUE
 #define GENESIS_ENABLE_QUEST_LOG            TRUE    // Lightweight quest board NPC
-#define GENESIS_ENABLE_ACHIEVEMENTS         FALSE
+#define GENESIS_ENABLE_ACHIEVEMENTS         TRUE    // Flag-based unlocks (e.g. Verdant Ace)
 #define GENESIS_ENABLE_RANDOMIZER           FALSE   // Optional challenge mode
 #define GENESIS_ENABLE_NUZLOCKE             FALSE   // Optional challenge mode
 #define GENESIS_ENABLE_MONOTYPE_CHALLENGE   FALSE   // Optional challenge mode

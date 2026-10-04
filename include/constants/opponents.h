@@ -869,11 +869,13 @@
 #define TRAINER_GENESIS_COLLEAGUE           861
 #define TRAINER_GENESIS_MENTOR              862
 #define TRAINER_GENESIS_WT_CHAMP            863
+#define TRAINER_GENESIS_ACE_ROOKIE          864 // Verdant Town early singles
+#define TRAINER_GENESIS_ACE_MASTER          865 // Post-League competitive doubles
 
-// NOTE: Trainer flag space is at the Emerald max (864). Do not add more without expanding flags/save.
+// GENESIS: expanded past Emerald 864 for Verdant Ace (+2). Shifts SYSTEM_FLAGS; bump save version.
 
-#define TRAINERS_COUNT_EMERALD     864
-#define MAX_TRAINERS_COUNT_EMERALD 864
+#define TRAINERS_COUNT_EMERALD     866
+#define MAX_TRAINERS_COUNT_EMERALD 866
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

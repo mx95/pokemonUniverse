@@ -249,6 +249,62 @@ LittlerootTown_EventScript_Boy::
 	msgbox LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC
 	end
 
+@ GENESIS: Verdant Ace — early singles once, post-League competitive doubles
+LittlerootTown_EventScript_AceTrainer::
+	lock
+	faceplayer
+	goto_if_set FLAG_GENESIS_ACE_DOUBLES_WON, LittlerootTown_EventScript_AceTrainer_Done
+	goto_if_set FLAG_SYS_GAME_CLEAR, LittlerootTown_EventScript_AceTrainer_OfferDoubles
+	goto_if_set FLAG_GENESIS_ACE_DEFEATED_ONCE, LittlerootTown_EventScript_AceTrainer_Waiting
+	goto_if_unset FLAG_SYS_POKEMON_GET, LittlerootTown_EventScript_AceTrainer_NoPokemon
+	msgbox LittlerootTown_Text_AceIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_EventScript_AceTrainer_Decline
+	trainerbattle_no_intro TRAINER_GENESIS_ACE_ROOKIE, LittlerootTown_Text_AceRookieDefeat
+	setflag FLAG_GENESIS_ACE_DEFEATED_ONCE
+	msgbox LittlerootTown_Text_AceAfterRookie, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_NoPokemon::
+	msgbox LittlerootTown_Text_AceNoPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_Decline::
+	msgbox LittlerootTown_Text_AceDecline, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_Waiting::
+	msgbox LittlerootTown_Text_AceWaiting, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_OfferDoubles::
+	msgbox LittlerootTown_Text_AceDoublesOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_EventScript_AceTrainer_Decline
+	getpartysize
+	goto_if_lt VAR_RESULT, 2, LittlerootTown_EventScript_AceTrainer_NeedTwo
+	trainerbattle_no_intro TRAINER_GENESIS_ACE_MASTER, LittlerootTown_Text_AceMasterDefeat
+	setflag FLAG_GENESIS_ACE_DOUBLES_WON
+	setflag FLAG_GENESIS_ACHIEVEMENT_VERDANT_ACE
+	msgbox LittlerootTown_Text_AceAchievement, MSGBOX_DEFAULT
+	giveitem ITEM_BIG_NUGGET, 10
+	giveitem ITEM_RARE_CANDY, 99
+	msgbox LittlerootTown_Text_AceRewardAfter, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_NeedTwo::
+	msgbox LittlerootTown_Text_AceNeedTwo, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_EventScript_AceTrainer_Done::
+	msgbox LittlerootTown_Text_AceDone, MSGBOX_DEFAULT
+	release
+	end
+
 LittlerootTown_EventScript_Twin::
 	lock
 	faceplayer
@@ -1013,4 +1069,62 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+
+LittlerootTown_Text_AceIntro:
+	.string "REX: Name's REX--the VERDANT ACE.\p"
+	.string "I scout new TRAINERS right here in town.\n"
+	.string "Got a POKéMON? Want a quick match?$"
+
+LittlerootTown_Text_AceNoPokemon:
+	.string "REX: Come back when you've got your\n"
+	.string "own POKéMON. I don't battle empty belts.$"
+
+LittlerootTown_Text_AceDecline:
+	.string "REX: Heh. Find me when you're ready.$"
+
+LittlerootTown_Text_AceRookieDefeat:
+	.string "Not bad for a hometown start…$"
+
+LittlerootTown_Text_AceAfterRookie:
+	.string "REX: You've got spark.\p"
+	.string "Beat the LEAGUE, then come back.\n"
+	.string "I'll be waiting with a real DOUBLE\l"
+	.string "BATTLE team--no holding back.$"
+
+LittlerootTown_Text_AceWaiting:
+	.string "REX: Still climbing?\p"
+	.string "Clear the POKéMON LEAGUE, then we'll\n"
+	.string "run a proper competitive DOUBLE BATTLE.$"
+
+LittlerootTown_Text_AceDoublesOffer:
+	.string "REX: Champion of AURELIA… perfect.\p"
+	.string "This is a competitive DOUBLE BATTLE.\n"
+	.string "Kyogre, Urshifu, Metagross, Gallade,\l"
+	.string "Mega Charizard X, Scizor--max IVs.\p"
+	.string "Ready to prove yourself?$"
+
+LittlerootTown_Text_AceNeedTwo:
+	.string "REX: Doubles needs at least two\n"
+	.string "POKéMON. Come back with a real squad.$"
+
+LittlerootTown_Text_AceMasterDefeat:
+	.string "I… lost with that team?!$"
+
+LittlerootTown_Text_AceAchievement:
+	.string "ACHIEVEMENT UNLOCKED!\n"
+	.string "VERDANT ACE!\p"
+	.string "REX: You earned every bit of this.\n"
+	.string "Take the purse--don't spend it all\l"
+	.string "in one Mart.$"
+
+LittlerootTown_Text_AceRewardAfter:
+	.string "REX: Ten BIG NUGGETS and ninety-nine\n"
+	.string "RARE CANDIES. Train hard, Champion.\p"
+	.string "I'll be here if you ever want to talk\n"
+	.string "sets--but that title's yours.$"
+
+LittlerootTown_Text_AceDone:
+	.string "REX: VERDANT ACE still looks good on\n"
+	.string "you. Go show the region what sharpness\l"
+	.string "and planning can do.$"
 
