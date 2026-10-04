@@ -364,6 +364,16 @@ check: $(TESTELF)
 	$(PATCHELF) $(HEADLESSELF) gTestRunnerHeadless '\x01' gTestRunnerSkipIsFail "$(TEST_SKIP_IS_FAIL)"
 	$(ROMTESTHYDRA) $(ROMTEST) $(OBJCOPY) $(HEADLESSELF)
 
+# GENESIS: static validators (+ optional filtered Expansion ROM tests)
+#   make genesis-check
+#   make genesis-check-rom   # also runs `make check TESTS=Spikes`
+PYTHON ?= python3
+genesis-check:
+	$(PYTHON) tools/genesis/run_smoke_tests.py
+
+genesis-check-rom:
+	$(PYTHON) tools/genesis/run_smoke_tests.py --with-rom-tests
+
 # Other rules
 rom: $(ROM)
 ifeq ($(COMPARE),1)

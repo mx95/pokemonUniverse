@@ -1317,14 +1317,23 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     ResetAllPicSprites();
     AddBirchSpeechObjects(taskId);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-    gTasks[taskId].tBG1HOFS = 0;
-    gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowBirch;
+    gTasks[taskId].tBG1HOFS = -60; // GENESIS: platform already slid for gender/name
+    SetGpuReg(REG_OFFSET_BG1HOFS, gTasks[taskId].tBG1HOFS);
     gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
     gTasks[taskId].data[3] = 0xFF;
-    gTasks[taskId].tTimer = 0xD8;
+    gTasks[taskId].tTimer = 24; // short fade-in before gender select
+    gTasks[taskId].tIsDoneFadingSprites = TRUE;
     PlayBGM(MUS_ROUTE122);
     ShowBg(0);
     ShowBg(1);
+    // GENESIS: prepare dialogue windows, skip professor speech → gender + name
+    InitWindows(sNewGameBirchSpeechTextWindows);
+    LoadMainMenuWindowFrameTiles(0, 0xF3);
+    LoadMessageBoxGfx(0, BIRCH_DLG_BASE_TILE_NUM, BG_PLTT_ID(15));
+    DrawDialogFrameWithCustomTile(0, TRUE, BIRCH_DLG_BASE_TILE_NUM);
+    PutWindowTilemap(0);
+    CopyWindowToVram(0, COPYWIN_GFX);
+    gTasks[taskId].func = Task_NewGameBirchSpeech_StartPlayerFadeIn;
 }
 
 static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
@@ -1663,10 +1672,27 @@ static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8 taskId)
     {
     case 0:
         PlaySE(SE_SELECT);
-        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-        NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
-        NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway2;
+        // GENESIS: skip professor "Are you ready?" dialogue; shrink into the game
+        {
+            u8 spriteId;
+
+            gSprites[gTasks[taskId].tBirchSpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tLotadSpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tBrendanSpriteId].invisible = TRUE;
+            gSprites[gTasks[taskId].tMaySpriteId].invisible = TRUE;
+            if (gSaveBlock2Ptr->playerGender != MALE)
+                spriteId = gTasks[taskId].tMaySpriteId;
+            else
+                spriteId = gTasks[taskId].tBrendanSpriteId;
+            gSprites[spriteId].x = 120;
+            gSprites[spriteId].y = 60;
+            gSprites[spriteId].invisible = FALSE;
+            gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+            gTasks[taskId].tPlayerSpriteId = spriteId;
+            gTasks[taskId].tIsDoneFadingSprites = TRUE;
+            NewGameBirchSpeech_ClearWindow(0);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
+        }
         break;
     case MENU_B_PRESSED:
     case 1:

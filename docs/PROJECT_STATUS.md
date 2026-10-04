@@ -18,7 +18,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | ROM build `pokemonGenesis.gba` | COMPLETE | Verified WSL2 build (~32 MB) |
 | Genesis config flags | IMPLEMENTED | `include/config/genesis.h` |
 | Docs skeleton | IMPLEMENTED | `docs/GENESIS.md`, `REGION_AURELIA.md`, `STORY.md`, `BUGS.md` |
-| Validation starter | IMPLEMENTED | `tools/genesis/validate_pokedex.py` |
+| Validation / smoke tests | IMPLEMENTED | `make genesis-check` (`tools/genesis/run_smoke_tests.py`) |
+| Early-game Aurelia branding | IMPLEMENTED | Verdant/Lumen/Port Azure NPC + sign text |
 | Genesis Form framework stub | DESIGN | Tables/API exist; `GENESIS_ENABLE_GENESIS_FORM` off |
 | Verdant → Route 1 → Lumen loop | IMPLEMENTED | Temporary Hoenn map aliases + rebrand |
 | Route 2 + Lumen Forest + Port Azure | IMPLEMENTED | Map names + multi-gen encounters |
@@ -37,7 +38,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique art |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | PLANNED | Expansion save + `GENESIS_SAVE_VERSION` |
-| Verdant / Lumen playable polish | 2–4 | TESTING | Needs in-emulator playtest checklist |
+| Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
 | Aurelia maps (custom geometry) | 3–4 | PLANNED | Replace aliases; see `MAP_STUBS.md` |
 | 16 Gyms + badges | 5–7 | PLANNED | Thematic teams; rematches post-Champion |
 | Main story (8 acts) | 65–66, 131–132 | PLANNED | Team Eclipse arc; Kai rival |
