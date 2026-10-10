@@ -1945,6 +1945,8 @@ void CB2_NewGame(void)
     UnlockPlayerFieldControls();
     if (IS_FRLG)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+    else if (GENESIS_PROJECT)
+        gFieldCallback = FieldCB_WarpExitFadeFromBlack; // Corviknight taxi; no truck bounce
     else
         gFieldCallback = ExecuteTruckSequence;
     gFieldCallback2 = NULL;

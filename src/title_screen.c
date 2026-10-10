@@ -644,7 +644,7 @@ void CB2_InitTitleScreen(void)
                                     | DISPCNT_OBJ_ON
                                     | DISPCNT_WIN0_ON
                                     | DISPCNT_OBJWIN_ON);
-        m4aSongNumStart(MUS_TITLE);
+        m4aSongNumStart(MUS_RG_TITLE); // GENESIS: distinct from Emerald title theme
         gMain.state = 5;
         break;
     case 5:

@@ -30,7 +30,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Elite Four + Champion | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Champion Astra; Tera on clear |
 | Postgame Frontier hooks | IMPLEMENTED | Aurelia Frontier branding; Eastern Hall city desks + clerk QoL; WT Tower bout; legend seeker |
 | DS-style / “3D” presentation | IMPLEMENTED | Gen4/5 sprites, Gen5 pop-ups, shadows, modern particles |
-| Title / opening branding | IMPLEMENTED | GENESIS VERSION banner, teal title grade, no RHH splash / GF copyright; Birch speech skipped to gender+name |
+| Title / opening branding | IMPLEMENTED | GENESIS VERSION banner, teal title grade, RG title theme; Birch speech skipped; Corviknight taxi intro (no truck) |
 
 ---
 
@@ -47,7 +47,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
 | Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Hall city-desk polish started; full geometry still planned — see `MAP_STUBS.md` |
-| 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–16 Eastern Hall desks (unique city dialogue + plaques) |
+| 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 flags/dialogue + 4 puzzle setpieces + Kai beats |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
 | Core QoL (already toggled) | 15, 22, 25–26, 52 | IMPLEMENTED | Reusable TMs, Exp Share, followers, DexNav, auto-repel menu, type indicators |
@@ -66,7 +66,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
-| World Tournament | 135 | IMPLEMENTED (lobby v3) | 4-round bracket + day-rotating rematch opponents + attendant rules |
+| World Tournament | 135 | IMPLEMENTED (facility) | Dedicated WT lobby map + Reception Gate / Tower warps; 4-round bracket + heals |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
@@ -122,10 +122,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of mega starters, Metagross quest, Gym 4 mega stone gift, WT 4-round bracket.
+1. **In-emulator playtest** of Corviknight intro, mega starters, town totems, WT facility, 18-type gyms.
 2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
 3. Unique legendary battle sprites (replace DS stand-ins).
-4. Dedicated World Tournament facility map (beyond Tower lobby bracket).
+4. Puzzle rewards / Nuzlocke catch filter / Genesis Form battle UX polish.
 
 ---
 

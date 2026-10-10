@@ -11,8 +11,8 @@ LittlerootTown_MapScripts::
 	@ 4: Received Running Shoes
 
 	@ State descriptions for VAR_LITTLEROOT_INTRO_STATE
-	@ 1: In truck male
-	@ 2: In truck female
+	@ 1: Corviknight taxi arrive (male house)
+	@ 2: Corviknight taxi arrive (female house)
 	@ 3: Entered house
 	@ 4: Told to go set clock
 	@ 5: Entered 2F to set clock
@@ -21,7 +21,7 @@ LittlerootTown_MapScripts::
 
 	@ State descriptions for VAR_LITTLEROOT_HOUSES_STATE_MAY
 	@                    and VAR_LITTLEROOT_HOUSES_STATE_BRENDAN
-	@ 1: On Truck (and is corresponding gender)
+	@ 1: Just stepped off Corviknight taxi
 	@ 2: Met Rival's Mom (and is corresponding gender)
 	@ 3: Entered Hall of Fame
 	@ 4: Completed Lati TV / SS Ticket event
@@ -134,6 +134,8 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	playse SE_LEDGE
 	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
 	waitmovement 0
+	playse SE_M_FLY
+	delay 20
 	opendoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	addobject LOCALID_LITTLEROOT_MOM
@@ -162,6 +164,10 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	return
+
+LittlerootTown_EventScript_CorviknightTaxi::
+	msgbox LittlerootTown_Text_CorviknightTaxi, MSGBOX_NPC
+	end
 
 LittlerootTown_Movement_MomExitHouse:
 	walk_down
@@ -962,8 +968,8 @@ LittlerootTown_EventScript_GiveRunningShoes::
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "MOM: {PLAYER}, we're here, honey!\p"
-	.string "It must be tiring riding with our things\n"
-	.string "in the moving truck.\p"
+	.string "That CORVIKNIGHT taxi was smoother than\n"
+	.string "any moving truck--what a way to arrive!\p"
 	.string "Well, this is VERDANT TOWN.\p"
 	.string "How do you like it?\n"
 	.string "This is our new home!\p"
@@ -971,6 +977,11 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "an easy place to live, don't you think?\p"
 	.string "And, you get your own room, {PLAYER}!\n"
 	.string "Let's go inside.$"
+
+LittlerootTown_Text_CorviknightTaxi:
+	.string "AURELIA AIR TAXI's CORVIKNIGHT.\n"
+	.string "It already has the next pickup queued.\p"
+	.string "“Fly safe. Nest warm.”$"
 
 LittlerootTown_Text_WaitPlayer:
 	.string "MOM: Wait, {PLAYER}!$"
