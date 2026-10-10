@@ -2,7 +2,7 @@
   "id": "MAP_GENESIS_WORLD_TOURNAMENT",
   "name": "Genesis_WorldTournament",
   "layout": "LAYOUT_BATTLE_FRONTIER_BATTLE_PALACE_LOBBY",
-  "music": "MUS_B_TOWER",
+  "music": "MUS_RG_VICTORY_ROAD",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_BATTLE_FRONTIER",
   "requires_flash": false,

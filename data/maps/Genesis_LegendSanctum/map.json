@@ -2,7 +2,7 @@
   "id": "MAP_GENESIS_LEGEND_SANCTUM",
   "name": "Genesis_LegendSanctum",
   "layout": "LAYOUT_BATTLE_FRONTIER_LOUNGE2",
-  "music": "MUS_NONE",
+  "music": "MUS_RG_LAVENDER",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_BATTLE_FRONTIER",
   "requires_flash": false,

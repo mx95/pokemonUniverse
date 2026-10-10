@@ -50,12 +50,14 @@ Rival Kai beats: after Act 2, after Seafloor, before Elite Four (`FLAG_GENESIS_R
 
 ## Story puzzles (QA solutions — not shown in-game)
 
-| Puzzle | Flag | Location | Solution |
-|--------|------|----------|----------|
-| Crystal Relay | `FLAG_GENESIS_PUZZLE_CRYSTAL_RELAY` | New Mauville Inside | Need Genesis Crystal; press **Blue → Green → Red** |
-| Echo Sealed | `FLAG_GENESIS_PUZZLE_ECHO_SEALED` | Sealed Chamber (after Dig + Act 3) | Riddle answers: **No**, then **Yes**; Strength-style press |
-| Phenomena Lock | `FLAG_GENESIS_PUZZLE_PHENOMENA` | Sky Pillar 1F pylons | Order **Grass → Water → Fire**; scientist resets |
-| Eclipse Cipher | `FLAG_GENESIS_PUZZLE_ECLIPSE_CIPHER` | Magma Hideout 1F | Console: **Yes**, then **No**; Switch **A** then **B** |
+| Puzzle | Flag | Location | Solution | Reward |
+|--------|------|----------|----------|--------|
+| Crystal Relay | `FLAG_GENESIS_PUZZLE_CRYSTAL_RELAY` | New Mauville Inside | Need Genesis Crystal; press **Blue → Green → Red** | Ability Capsule |
+| Echo Sealed | `FLAG_GENESIS_PUZZLE_ECHO_SEALED` | Sealed Chamber (after Dig + Act 3) | Riddle answers: **No**, then **Yes**; Strength-style press | Life Orb |
+| Phenomena Lock | `FLAG_GENESIS_PUZZLE_PHENOMENA` | Sky Pillar 1F pylons | Order **Grass → Water → Fire**; scientist resets | Expert Belt |
+| Eclipse Cipher | `FLAG_GENESIS_PUZZLE_ECLIPSE_CIPHER` | Magma Hideout 1F | Console: **Yes**, then **No**; Switch **A** then **B** | Scope Lens |
+
+Clearing all four also grants Puzzle Master + 2× Bottle Cap.
 
 ## Postgame chapters
 

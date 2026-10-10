@@ -2,7 +2,7 @@
   "id": "MAP_EASTERN_AURELIA_HALL",
   "name": "EasternAurelia_Hall",
   "layout": "LAYOUT_BATTLE_FRONTIER_LOUNGE1",
-  "music": "MUS_GYM",
+  "music": "MUS_B_TOWER_RS",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_BATTLE_FRONTIER",
   "requires_flash": false,

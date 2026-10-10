@@ -19,7 +19,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Genesis config flags | IMPLEMENTED | `include/config/genesis.h` |
 | Docs skeleton | IMPLEMENTED | `docs/GENESIS.md`, `REGION_AURELIA.md`, `STORY.md`, `BUGS.md` |
 | Validation / smoke tests | IMPLEMENTED | `make genesis-check` (`tools/genesis/run_smoke_tests.py`) |
-| Early-game Aurelia branding | IMPLEMENTED | Verdant/Lumen/Port Azure NPC + sign text |
+| Early-game Aurelia branding | IMPLEMENTED | Verdant/Lumen/Port Azure NPC + sign text; RG/alt BGM remap |
 | Genesis Form framework stub | IMPLEMENTED | Switch-in overlay enabled; unlock after all three legends |
 | Verdant → Route 1 → Lumen loop | IMPLEMENTED | Temporary Hoenn map aliases + rebrand |
 | Route 2 + Lumen Forest + Port Azure | IMPLEMENTED | Map names + multi-gen encounters |
