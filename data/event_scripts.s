@@ -543,6 +543,7 @@ gStdScripts_End::
 	.include "data/maps/BattleFrontier_ReceptionGate/scripts.inc"
 	.include "data/maps/EasternAurelia_Hall/scripts.inc"
 	.include "data/maps/Genesis_LegendSanctum/scripts.inc"
+	.include "data/maps/Genesis_WorldTournament/scripts.inc"
 	.include "data/maps/BattleFrontier_Lounge8/scripts.inc"
 	.include "data/maps/BattleFrontier_Lounge9/scripts.inc"
 	.include "data/maps/BattleFrontier_PokemonCenter_1F/scripts.inc"
@@ -1390,6 +1391,7 @@ Common_EventScript_FerryDepartIsland::
 	.include "data/scripts/genesis_puzzles.inc"
 	.include "data/scripts/genesis_rival.inc"
 	.include "data/scripts/genesis_metagross.inc"
+	.include "data/scripts/genesis_wt.inc"
 
 Common_EventScript_NameReceivedPartyMon::
 	fadescreen FADE_TO_BLACK

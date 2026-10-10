@@ -27,12 +27,25 @@ Genesis_EventScript_QuestBoard::
 	end
 
 Genesis_EventScript_QuestBoard_PrintSide::
-	goto_if_unset FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_SideSkip
-	msgbox Genesis_Text_Quest_SideHeader, MSGBOX_DEFAULT
-	goto_if_set FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_QuestBoard_MetagrossDone
-	msgbox Genesis_Text_Quest_MetagrossOpen, MSGBOX_DEFAULT
+	goto_if_set FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_SideShow
+	goto_if_set FLAG_GENESIS_WEATHER_GUIDE_SEEN, Genesis_EventScript_QuestBoard_SideShow
 	return
-Genesis_EventScript_QuestBoard_SideSkip::
+Genesis_EventScript_QuestBoard_SideShow::
+	msgbox Genesis_Text_Quest_SideHeader, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_WeatherLine
+	goto_if_set FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_QuestBoard_MetagrossDoneLine
+	msgbox Genesis_Text_Quest_MetagrossOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_WeatherLine
+Genesis_EventScript_QuestBoard_MetagrossDoneLine::
+	msgbox Genesis_Text_Quest_MetagrossDone, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_WeatherLine::
+	goto_if_unset FLAG_GENESIS_WEATHER_GUIDE_SEEN, Genesis_EventScript_QuestBoard_SideReturn
+	goto_if_set FLAG_GENESIS_WEATHER_RARE_DONE, Genesis_EventScript_QuestBoard_WeatherDone
+	msgbox Genesis_Text_Quest_WeatherOpen, MSGBOX_DEFAULT
+	return
+Genesis_EventScript_QuestBoard_WeatherDone::
+	msgbox Genesis_Text_Quest_WeatherDone, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_SideReturn::
 	return
 
 Genesis_EventScript_AchievementBoard::
@@ -216,9 +229,6 @@ Genesis_EventScript_QuestBoard_WT::
 Genesis_EventScript_QuestBoard_WTDone::
 	msgbox Genesis_Text_Quest_WTDone, MSGBOX_DEFAULT
 	return
-Genesis_EventScript_QuestBoard_MetagrossDone::
-	msgbox Genesis_Text_Quest_MetagrossDone, MSGBOX_DEFAULT
-	return
 Genesis_EventScript_QuestBoard_PostSkip::
 	return
 
@@ -324,7 +334,7 @@ Genesis_Text_Quest_LegendsDone:
 	.string "- Legend Sanctum + Genesis Form: done.$"
 
 Genesis_Text_Quest_WTOpen:
-	.string "- WORLD TOURNAMENT (Battle Tower lobby).$"
+	.string "- WORLD TOURNAMENT facility (Reception Gate).$"
 
 Genesis_Text_Quest_WTDone:
 	.string "- WORLD TOURNAMENT bracket: cleared.$"
@@ -337,6 +347,12 @@ Genesis_Text_Quest_MetagrossOpen:
 
 Genesis_Text_Quest_MetagrossDone:
 	.string "- AI Mega METAGROSS rampage: resolved.$"
+
+Genesis_Text_Quest_WeatherOpen:
+	.string "- Weather Institute: learn weather-rare tips.$"
+
+Genesis_Text_Quest_WeatherDone:
+	.string "- Weather Institute rare tips: collected.$"
 
 Genesis_Text_QuestBoardFooter:
 	.string "Check back as your journey continues.$"

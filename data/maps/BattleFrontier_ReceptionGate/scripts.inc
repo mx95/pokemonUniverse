@@ -129,12 +129,26 @@ BattleFrontier_ReceptionGate_EventScript_Greeter::
 	end
 
 BattleFrontier_ReceptionGate_EventScript_OfferEasternHall::
+	msgbox BattleFrontier_ReceptionGate_Text_ChampionDestinations, MSGBOX_DEFAULT
 	msgbox BattleFrontier_ReceptionGate_Text_EasternHallOffer, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, BattleFrontier_ReceptionGate_EventScript_EnjoyOnly
+	goto_if_eq VAR_RESULT, YES, BattleFrontier_ReceptionGate_EventScript_WarpEasternHall
+	msgbox BattleFrontier_ReceptionGate_Text_WorldTournamentOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BattleFrontier_ReceptionGate_EventScript_WarpWorldTournament
+	goto BattleFrontier_ReceptionGate_EventScript_EnjoyOnly
+
+BattleFrontier_ReceptionGate_EventScript_WarpEasternHall::
 	setflag FLAG_GENESIS_EASTERN_OPEN
 	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_EASTERN_OPEN
 	msgbox BattleFrontier_ReceptionGate_Text_EasternHallWarp, MSGBOX_DEFAULT
 	warpsilent MAP_EASTERN_AURELIA_HALL, 2, 6
+	waitstate
+	release
+	end
+
+BattleFrontier_ReceptionGate_EventScript_WarpWorldTournament::
+	setflag FLAG_GENESIS_WT_FACILITY_OPEN
+	msgbox BattleFrontier_ReceptionGate_Text_WorldTournamentWarp, MSGBOX_DEFAULT
+	warpsilent MAP_GENESIS_WORLD_TOURNAMENT, 12, 10
 	waitstate
 	release
 	end
@@ -338,22 +352,34 @@ BattleFrontier_ReceptionGate_Text_EnjoyBattleFrontier:
 	.string "We hope you enjoy all that the BATTLE\n"
 	.string "FRONTIER has to offer!$"
 
+BattleFrontier_ReceptionGate_Text_ChampionDestinations:
+	.string "Champion! From this gate I can send you\n"
+	.string "to EASTERN AURELIA HALL or the\l"
+	.string "WORLD TOURNAMENT facility.$"
+
 BattleFrontier_ReceptionGate_Text_EasternHallOffer:
-	.string "Champion! Fly here anytime, then talk\n"
-	.string "to me for EASTERN AURELIA HALL.\p"
-	.string "City desks inside: Mirage, Verdantis,\n"
-	.string "Obsidian, Astral, Tidymoon, Eon,\l"
-	.string "Genesis City, and Summit East.\p"
+	.string "EASTERN AURELIA HALL--city desks for\n"
+	.string "Mirage through Summit East.\p"
 	.string "Badges 9-16, plus the Legend Sanctum.\n"
-	.string "Shall I warp you to the Hall now?$"
+	.string "Warp to the Hall now?$"
+
+BattleFrontier_ReceptionGate_Text_WorldTournamentOffer:
+	.string "WORLD TOURNAMENT facility--four-round\n"
+	.string "Champions bracket and daily rematches.\p"
+	.string "Warp there now?$"
 
 BattleFrontier_ReceptionGate_Text_EasternHallWarp:
 	.string "Right this way--desk plaques name each\n"
 	.string "city. The clerk can send you back!$"
 
+BattleFrontier_ReceptionGate_Text_WorldTournamentWarp:
+	.string "The WORLD TOURNAMENT lobby awaits.\n"
+	.string "Register at the front desk!$"
+
 BattleFrontier_ReceptionGate_Text_EasternHallFlyHint:
-	.string "When you want Eastern AURELIA HALL,\n"
-	.string "Fly to the BATTLE FRONTIER and ask me.\p"
+	.string "Fly to the BATTLE FRONTIER and ask me\n"
+	.string "for EASTERN AURELIA HALL or the\l"
+	.string "WORLD TOURNAMENT anytime.\p"
 	.string "Enjoy the Frontier facilities too!$"
 
 BattleFrontier_ReceptionGate_Text_IfItIsntPlayerYouCame:

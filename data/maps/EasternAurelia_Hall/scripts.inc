@@ -499,12 +499,13 @@ EasternAurelia_Hall_Text_GotAscensionBadge:
 
 EasternAurelia_Hall_Text_MentorAfter:
 	.string "MENTOR: Eastern AURELIA recognizes you.\n"
-	.string "Seek the legendaries with our researcher,\l"
-	.string "and the WORLD TOURNAMENT at the Tower.$"
+	.string "Seek the legends with our researcher,\l"
+	.string "then the WORLD TOURNAMENT facility\l"
+	.string "via the Reception Gate greeter.$"
 
 EasternAurelia_Hall_Text_MentorDone:
 	.string "MENTOR: The Summit watches your path.\n"
-	.string "Legends, Frontier, Tournament--choose.$"
+	.string "Sanctum, Frontier, Tournament--choose.$"
 
 EasternAurelia_Hall_Text_LegendEarly:
 	.string "Return when you are CHAMPION.\n"
@@ -545,6 +546,8 @@ EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "Front row: TIDYMOON · EON ·\n"
 	.string "GENESIS CITY · SUMMIT EAST.\p"
 	.string "Researcher (center): Legend Sanctum.\n"
+	.string "Reception Gate also warps to the\l"
+	.string "WORLD TOURNAMENT facility.\p"
 	.string "Exit warps return to Reception Gate.$"
 
 EasternAurelia_Hall_Text_DeskMirage:
@@ -583,4 +586,5 @@ EasternAurelia_Hall_Text_HallDirectory:
 	.string "EASTERN AURELIA HALL\n"
 	.string "City desks 9-16 · Legend Sanctum warp\p"
 	.string "Access: Fly to BATTLE FRONTIER, then\n"
-	.string "ask the Reception Gate greeter.$"
+	.string "ask the Reception Gate greeter.\p"
+	.string "Same greeter warps to WORLD TOURNAMENT.$"

@@ -739,9 +739,9 @@
 #define FLAG_GENESIS_STARTER_MEGA_STONE       0x2AB // Received matching starter Mega Stone
 #define FLAG_GENESIS_HM_GUIDE_SEEN            0x2AC // Defog/Rock Climb field-move guide seen
 #define FLAG_GENESIS_ACHIEVEMENT_METAGROSS    0x2AD // Achievement: resolved AI Metagross
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
+#define FLAG_GENESIS_WT_FACILITY_OPEN         0x2AE // Visited / unlocked WT facility warp
+#define FLAG_GENESIS_WEATHER_GUIDE_SEEN       0x2AF // Route weather-rare guide spoken to
+#define FLAG_GENESIS_WEATHER_RARE_DONE        0x2B0 // Weather Institute rare-tip quest done
 #define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
 #define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
 #define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag

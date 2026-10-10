@@ -493,8 +493,7 @@ BattleFrontier_BattleTowerLobby_EventScript_Woman::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_WomanNormal
-	msgbox BattleFrontier_BattleTowerLobby_Text_WTAttendantIntro, MSGBOX_DEFAULT
-	call BattleFrontier_BattleTowerLobby_EventScript_AnnounceWTRules
+	msgbox BattleFrontier_BattleTowerLobby_Text_WTFacilityHint, MSGBOX_DEFAULT
 	release
 	end
 
@@ -507,66 +506,12 @@ BattleFrontier_BattleTowerLobby_EventScript_Boy::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
-	goto_if_set FLAG_GENESIS_WT_CLEARED, BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer, MSGBOX_YESNO
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRedirect, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
-	setflag FLAG_GENESIS_WT_INTRO
-	call BattleFrontier_BattleTowerLobby_EventScript_AnnounceWTRules
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound1, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GENESIS_MENTOR, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_STEVEN, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_WALLACE, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GENESIS_WT_CHAMP, BattleFrontier_BattleTowerLobby_Text_WorldTournamentDefeat
-	setflag FLAG_GENESIS_WT_CLEARED
-	setflag FLAG_GENESIS_ACHIEVEMENT_WT
-	setvar VAR_0x8004, 30
-	special GiveFrontierBattlePoints
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentBP, MSGBOX_DEFAULT
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentAfter, MSGBOX_DEFAULT
-	release
-	end
-
-BattleFrontier_BattleTowerLobby_EventScript_AnnounceWTRules::
-	callnative Genesis_GetWTRuleIndex
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_AnnounceMorning
-	goto_if_eq VAR_RESULT, 1, BattleFrontier_BattleTowerLobby_EventScript_AnnounceDay
-	msgbox BattleFrontier_BattleTowerLobby_Text_WTRuleNight, MSGBOX_DEFAULT
-	return
-BattleFrontier_BattleTowerLobby_EventScript_AnnounceMorning::
-	msgbox BattleFrontier_BattleTowerLobby_Text_WTRuleMorning, MSGBOX_DEFAULT
-	return
-BattleFrontier_BattleTowerLobby_EventScript_AnnounceDay::
-	msgbox BattleFrontier_BattleTowerLobby_Text_WTRuleDay, MSGBOX_DEFAULT
-	return
-
-BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch::
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRematch, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
-	call BattleFrontier_BattleTowerLobby_EventScript_AnnounceWTRules
-	callnative Genesis_GetWTRuleIndex
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_RematchMentor
-	goto_if_eq VAR_RESULT, 1, BattleFrontier_BattleTowerLobby_EventScript_RematchSteven
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GENESIS_WT_CHAMP, BattleFrontier_BattleTowerLobby_Text_WorldTournamentDefeat
-	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
-
-BattleFrontier_BattleTowerLobby_EventScript_RematchMentor::
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound1, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GENESIS_MENTOR, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
-	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
-
-BattleFrontier_BattleTowerLobby_EventScript_RematchSteven::
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_STEVEN, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
-	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
-
-BattleFrontier_BattleTowerLobby_EventScript_RematchReward::
-	setvar VAR_0x8004, 12
-	special GiveFrontierBattlePoints
-	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentBP, MSGBOX_DEFAULT
+	setflag FLAG_GENESIS_WT_FACILITY_OPEN
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentWarp, MSGBOX_DEFAULT
+	warpsilent MAP_GENESIS_WORLD_TOURNAMENT, 12, 10
+	waitstate
 	release
 	end
 
@@ -1114,56 +1059,19 @@ BattleFrontier_BattleTowerLobby_Text_CanLeaveUntilLossOrSevenWins:
 	.string "You'd best be certain that you're up\n"
 	.string "to the challenge.$"
 
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer:
-	.string "WORLD TOURNAMENT desk--three rounds:\n"
-	.string "Mentor trial, ASTRA, then VICTOR.\p"
-	.string "Clear the bracket for Battle Points.\n"
-	.string "Enter the WORLD TOURNAMENT?$"
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentRedirect:
+	.string "WORLD TOURNAMENT moved to its own\n"
+	.string "facility off the Reception Gate.\p"
+	.string "Want me to warp you there?$"
 
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound1:
-	.string "Round 1--the Mentor's trial!$"
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentWarp:
+	.string "Good luck in the brackets!$"
 
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2:
-	.string "Round 2--CHAMPION ASTRA steps in!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis:
-	.string "Semifinal--WALLACE of the waves!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal:
-	.string "Final--VICTOR claims the Tower crown!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose:
-	.string "The bracket ends here… Try again!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentDefeat:
-	.string "Incredible… The Tower crowns you again!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentAfter:
-	.string "Bracket cleared! Come back anytime--\n"
-	.string "the WORLD TOURNAMENT never sleeps!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentRematch:
-	.string "WORLD TOURNAMENT exhibition?\n"
-	.string "VICTOR awaits another final!$"
-
-BattleFrontier_BattleTowerLobby_Text_WorldTournamentBP:
-	.string "{PLAYER} obtained Battle Points!$"
-
-BattleFrontier_BattleTowerLobby_Text_WTAttendantIntro:
-	.string "WORLD TOURNAMENT desk.\n"
-	.string "Today's exhibition rule:$"
-
-BattleFrontier_BattleTowerLobby_Text_WTRuleMorning:
-	.string "Rule--Dawn Bracket: open with your\n"
-	.string "first slot. Mentors watch closely.$"
-
-BattleFrontier_BattleTowerLobby_Text_WTRuleDay:
-	.string "Rule--Solar Bracket: expect aggressive\n"
-	.string "leads and mid-round switches.$"
-
-BattleFrontier_BattleTowerLobby_Text_WTRuleNight:
-	.string "Rule--Eclipse Bracket: pressure from\n"
-	.string "status and late-game finishers.$"
+BattleFrontier_BattleTowerLobby_Text_WTFacilityHint:
+	.string "WORLD TOURNAMENT registration is in\n"
+	.string "the dedicated facility now.\p"
+	.string "Ask the Reception Gate greeter, or\n"
+	.string "talk to the boy for a warp.$"
 
 @ Unused
 BattleFrontier_BattleTowerLobby_Text_DoubleBattleRoomConstruction:

@@ -125,8 +125,22 @@ Route119_WeatherInstitute_2F_EventScript_ExplainCastform::
 	end
 
 Route119_WeatherInstitute_2F_EventScript_ScientistMentionWeather::
-	goto_if_set FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Route119_WeatherInstitute_2F_EventScript_ScientistPreChampion
+	goto_if_unset FLAG_GENESIS_WEATHER_RARE_DONE, Route119_WeatherInstitute_2F_EventScript_WeatherRareQuest
+	goto Route119_WeatherInstitute_2F_EventScript_TryStartAbnormalWeather
+
+Route119_WeatherInstitute_2F_EventScript_ScientistPreChampion::
 	msgbox Route119_WeatherInstitute_2F_Text_ChangingWeatherRidiculous, MSGBOX_DEFAULT
+	release
+	end
+
+Route119_WeatherInstitute_2F_EventScript_WeatherRareQuest::
+	setflag FLAG_GENESIS_WEATHER_GUIDE_SEEN
+	msgbox Route119_WeatherInstitute_2F_Text_WeatherRareTip, MSGBOX_DEFAULT
+	giveitem ITEM_SUPER_REPEL, 5
+	giveitem ITEM_ABILITY_CAPSULE
+	setflag FLAG_GENESIS_WEATHER_RARE_DONE
+	msgbox Route119_WeatherInstitute_2F_Text_WeatherRareDone, MSGBOX_DEFAULT
 	release
 	end
 
@@ -323,4 +337,17 @@ Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
 	.string "no longer being reported.\p"
 	.string "The occasional rainfall is a blessing,\n"
 	.string "really.$"
+
+Route119_WeatherInstitute_2F_Text_WeatherRareTip:
+	.string "Champion! Our sensors pick rarer\n"
+	.string "spawns when weather turns harsh.\p"
+	.string "Rain favors WATER and BUG finds.\n"
+	.string "Sun wakes FIRE and GRASS.\p"
+	.string "Sandstorm and hail hide tougher\n"
+	.string "ROCK, GROUND, and ICE stock.\p"
+	.string "Take these--survey the routes!$"
+
+Route119_WeatherInstitute_2F_Text_WeatherRareDone:
+	.string "Come back anytime. I'll still call out\n"
+	.string "abnormal weather when it spikes.$"
 
