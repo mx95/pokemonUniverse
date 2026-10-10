@@ -80,13 +80,7 @@ PetalburgCity_EventScript_WalkToWallyHouse::
 	end
 
 PetalburgCity_EventScript_Boy::
-	lock
-	faceplayer
-	msgbox PetalburgCity_Text_WaterReflection, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_PETALBURG_BOY, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+	goto Genesis_EventScript_TownMon_PortAzure
 	end
 
 PetalburgCity_EventScript_WallysMom::

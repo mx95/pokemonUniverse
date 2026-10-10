@@ -30,7 +30,7 @@ OldaleTown_EventScript_TownSign::
 	end
 
 OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+	goto Genesis_EventScript_TownMon_Lumen
 	end
 
 OldaleTown_EventScript_MartEmployee::

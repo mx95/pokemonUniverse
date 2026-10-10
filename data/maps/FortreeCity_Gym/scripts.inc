@@ -236,17 +236,17 @@ FortreeCity_Gym_Text_DariusPostBattle:
 
 FortreeCity_Gym_Text_WinonaIntro:
 	.string "I am RA. I am the LEADER of\n"
-	.string "the FORTREE POKéMON GYM.\p"
-	.string "I have become one with BIRD POKéMON\n"
-	.string "and have soared the skies…\p"
-	.string "However grueling the battle, we have\n"
-	.string "triumphed with grace…\p"
-	.string "Witness the elegant choreography\n"
-	.string "of BIRD POKéMON and I!$"
+	.string "the SOLARIS POKéMON GYM.\p"
+	.string "FIRE is the sun's will made flesh.\n"
+	.string "My team burns with solar fury!\p"
+	.string "However grueling the battle, flames\n"
+	.string "rise again…\p"
+	.string "Witness the blazing choreography\n"
+	.string "of FIRE POKéMON and I!$"
 
 FortreeCity_Gym_Text_WinonaDefeat:
 	.string "Never before have I seen a TRAINER\n"
-	.string "command POKéMON with more grace\l"
+	.string "command POKéMON with brighter fire\l"
 	.string "than I…\p"
 	.string "In recognition of your prowess,\n"
 	.string "I present to you this GYM BADGE.$"
@@ -276,7 +276,7 @@ FortreeCity_Gym_Text_RegisteredWinona:
 
 FortreeCity_Gym_Text_WinonaPostBattle:
 	.string "Though I fell to you, I will remain\n"
-	.string "devoted to BIRD POKéMON.$"
+	.string "devoted to FIRE POKéMON.$"
 
 FortreeCity_Gym_Text_GymStatue:
 	.string "SOLARIS CITY POKéMON GYM$"

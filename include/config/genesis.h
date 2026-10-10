@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                5 // Kai rival trainers (+3) shift SYSTEM_FLAGS
+#define GENESIS_SAVE_VERSION                6 // +Poison/Ground gyms; town-mon bitfields; type coverage
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed

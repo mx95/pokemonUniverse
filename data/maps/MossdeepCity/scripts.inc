@@ -45,7 +45,7 @@ MossdeepCity_EventScript_ExpertM::
 	end
 
 MossdeepCity_EventScript_Girl::
-	msgbox MossdeepCity_Text_NiceIfWorldCoveredByFlowers, MSGBOX_NPC
+	goto Genesis_EventScript_TownMon_Stormbreak
 	end
 
 MossdeepCity_EventScript_Woman::

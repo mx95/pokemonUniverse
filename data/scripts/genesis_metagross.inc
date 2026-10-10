@@ -93,6 +93,8 @@ Genesis_EventScript_RampageMetagrossCaughtInBattle::
 	setflag FLAG_GENESIS_METAGROSS_CAUGHT
 	setflag FLAG_GENESIS_ACHIEVEMENT_METAGROSS
 	setflag FLAG_HIDE_GENESIS_RAMPAGE_METAGROSS
+	setvar VAR_0x8004, 3
+	callnative Genesis_TownMonSetDone
 	msgbox Genesis_Text_RampageMetagrossCaught, MSGBOX_DEFAULT
 	giveitem ITEM_METAGROSSITE
 	call Genesis_EventScript_TryUnlockGenesisForm

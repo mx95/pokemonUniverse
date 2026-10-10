@@ -29,7 +29,7 @@ FortreeCity_EventScript_WomanGymAccessible::
 	end
 
 FortreeCity_EventScript_Girl::
-	msgbox FortreeCity_Text_TreesGrowByDrinkingRainwater, MSGBOX_NPC
+	goto Genesis_EventScript_TownMon_Solaris
 	end
 
 FortreeCity_EventScript_OldMan::

@@ -240,7 +240,8 @@
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
 #define VAR_GENESIS_DIFFICULTY                           0x40DB // GENESIS: Easy/Normal/Hard (B_VAR_DIFFICULTY)
 #define VAR_UNUSED_0x40DB                                VAR_GENESIS_DIFFICULTY // alias
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
+#define VAR_GENESIS_TOWNMON_HI                           0x40DC // GENESIS: town-mon done bits 16-31
+#define VAR_UNUSED_0x40DC                                VAR_GENESIS_TOWNMON_HI // alias
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
@@ -274,7 +275,7 @@
 #define VAR_GENESIS_STORY_STATE                          0x40FB // GENESIS: act / storybeat progress
 #define VAR_GENESIS_SAVE_VERSION                         0x40FC // GENESIS: persisted GENESIS_SAVE_VERSION
 #define VAR_GENESIS_PUZZLE_STATE                         0x40FD // GENESIS: multi-step puzzle progress
-#define VAR_GENESIS_QUEST_BITS                           0x40FE // GENESIS: lightweight quest bitfield
+#define VAR_GENESIS_QUEST_BITS                           0x40FE // GENESIS: town-mon done bits 0-15
 #define VAR_GENESIS_MONOTYPE_TYPE                        0x40FF // GENESIS: TYPE_* for monotype challenge (0 = unset)
 #define VAR_UNUSED_0x40FF                                VAR_GENESIS_MONOTYPE_TYPE // alias
 

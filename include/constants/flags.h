@@ -696,8 +696,8 @@
 #define FLAG_GENESIS_BADGE_12_GET             0x280 // Drake / Astral (Tera story beat)
 #define FLAG_GENESIS_BADGE_13_GET             0x281 // Luna / Tidymoon
 #define FLAG_GENESIS_BADGE_14_GET             0x282 // Morrigan / Eon
-#define FLAG_GENESIS_BADGE_15_GET             0x283 // Colleague / Genesis City
-#define FLAG_GENESIS_BADGE_16_GET             0x284 // Mentor / Ascension
+#define FLAG_GENESIS_BADGE_15_GET             0x283 // Colleague / Genesis City (Normal)
+#define FLAG_GENESIS_BADGE_16_GET             0x284 // Mentor / Ascension (Rock)
 #define FLAG_GENESIS_DEFEATED_AETHERNOX       0x285
 #define FLAG_GENESIS_DEFEATED_SOLARA          0x286
 #define FLAG_GENESIS_DEFEATED_GENESIS_MON     0x287
@@ -743,8 +743,8 @@
 #define FLAG_GENESIS_WEATHER_GUIDE_SEEN       0x2AF // Route weather-rare guide spoken to
 #define FLAG_GENESIS_WEATHER_RARE_DONE        0x2B0 // Weather Institute rare-tip quest done
 #define FLAG_GENESIS_ECLIPSE_ARCHIVE_READ     0x2B1 // Read Eclipse Archive at Oceanic Museum
-#define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
-#define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
+#define FLAG_GENESIS_BADGE_17_GET             0x2B2 // Vesper / Venom Hollow (Poison)
+#define FLAG_GENESIS_BADGE_18_GET             0x2B3 // Terra / Terracotta Mesa (Ground)
 #define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
 #define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
 #define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag

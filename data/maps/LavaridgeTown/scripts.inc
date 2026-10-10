@@ -206,7 +206,7 @@ LavaridgeTown_EventScript_EnteredHotSprings::
 	end
 
 LavaridgeTown_EventScript_ExpertM::
-	msgbox LavaridgeTown_Text_HotSpringsNeverRunDry, MSGBOX_NPC
+	goto Genesis_EventScript_TownMon_Frostveil
 	end
 
 LavaridgeTown_EventScript_OldMan::

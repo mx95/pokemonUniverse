@@ -4841,29 +4841,29 @@ Items: Super Potion / Super Potion
 Double Battle: No
 AI: Basic Trainer
 
-Geodude
+Machop
 Level: 16
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Defense Curl
-- Rock Throw
-- Magnitude
+- Low Kick
+- Leer
+- Focus Energy
+- Karate Chop
 
-Aron
+Makuhita
 Level: 16
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- Tackle
-- Harden
-- Mud Slap
-- Headbutt
+- Arm Thrust
+- Sand Attack
+- Knock Off
+- Bulk Up
 
-Nosepass @ Sitrus Berry
+Meditite @ Sitrus Berry
 Level: 19
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Rock Throw
-- Harden
-- Block
-- Thunder Wave
+- Confusion
+- Force Palm
+- Detect
+- Bulk Up
 
 === TRAINER_WATTSON_1 ===
 Name: VOLT
@@ -5004,42 +5004,42 @@ AI: Basic Trainer / Risky
 Numel
 Level: 29
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Magnitude
 - Ember
+- Magnitude
 - Focus Energy
 - Take Down
 
-Baltoy
+Slugma
 Level: 29
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Mud Slap
-- Psybeam
-- Rock Tomb
-- Sandstorm
+- Ember
+- Rock Throw
+- Harden
+- Recover
 
-Donphan
+Torkoal
 Level: 30
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
-- Rollout
-- Magnitude
-- Slam
-- Defense Curl
+- Flamethrower
+- Body Slam
+- Smokescreen
+- Protect
 
-Flygon
+Camerupt
 Level: 31
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
-- Dig
-- Dragon Breath
-- Sand Tomb
-- Crunch
+- Eruption
+- Earth Power
+- Rock Slide
+- Amnesia
 
-Rhydon @ Sitrus Berry
+Blaziken @ Sitrus Berry
 Level: 33
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Rock Blast
-- Megahorn
-- Scary Face
+- Blaze Kick
+- Sky Uppercut
+- Quick Attack
+- Bulk Up
 
 === TRAINER_TATE_AND_LIZA_1 ===
 Name: SKYE
@@ -17100,29 +17100,29 @@ Items: Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Swampert
+Staraptor
 Level: 61
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Earthquake
-- Waterfall
-- Ice Punch
-- Protect
+- Brave Bird
+- Close Combat
+- U-turn
+- Quick Attack
 
-Blaziken
+Porygon-Z
 Level: 61
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Blaze Kick
-- Sky Uppercut
-- Thunder Punch
-- Swords Dance
+- Tri Attack
+- Thunderbolt
+- Ice Beam
+- Nasty Plot
 
-Sceptile
+Slaking
 Level: 62
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Leaf Blade
-- Dragon Claw
+- Giga Impact
 - Earthquake
-- Detect
+- Shadow Ball
+- Slack Off
 
 === TRAINER_GENESIS_MENTOR ===
 Name: MENTOR
@@ -17134,37 +17134,121 @@ Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Basic Trainer
 
-Metagross
+Tyranitar
 Level: 63
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Meteor Mash
+- Stone Edge
+- Crunch
 - Earthquake
-- Psychic
-- Agility
+- Dragon Dance
 
-Salamence
+Aerodactyl
 Level: 63
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Dragon Claw
+- Rock Slide
 - Aerial Ace
 - Earthquake
-- Flamethrower
+- Iron Head
 
-Garchomp
+Cradily
 Level: 64
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ancient Power
+- Giga Drain
+- Recover
+- Stockpile
+
+Rampardos
+Level: 65
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Head Smash
+- Earthquake
+- Zen Headbutt
+- Fire Punch
+
+=== TRAINER_GENESIS_VESPER ===
+Name: VESPER
+Class: Leader
+Pic: Elite Four Sidney
+Gender: Female
+Music: Elite Four
+Items: Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+
+Toxicroak
+Level: 66
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Poison Jab
+- Drain Punch
+- Sucker Punch
+- Swords Dance
+
+Salazzle
+Level: 66
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sludge Bomb
+- Flamethrower
+- Dragon Pulse
+- Nasty Plot
+
+Overqwil
+Level: 67
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Barb Barrage
+- Crunch
+- Destiny Bond
+- Toxic Spikes
+
+Gengar @ Sitrus Berry
+Level: 68
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sludge Bomb
+- Shadow Ball
+- Focus Blast
+- Destiny Bond
+
+=== TRAINER_GENESIS_TERRA ===
+Name: TERRA
+Class: Leader
+Pic: Leader Roxanne
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Basic Trainer
+
+Hippowdon
+Level: 68
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Slack Off
+- Stone Edge
+- Whirlwind
+
+Excadrill
+Level: 68
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earthquake
+- Iron Head
+- Rock Slide
+- Swords Dance
+
+Seismitoad
+Level: 69
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Muddy Water
+- Sludge Wave
+- Stealth Rock
+
+Garchomp @ Sitrus Berry
+Level: 70
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Earthquake
 - Dragon Claw
 - Stone Edge
 - Swords Dance
-
-Slaking
-Level: 65
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Return
-- Earthquake
-- Shadow Ball
-- Aerial Ace
 
 === TRAINER_GENESIS_WT_CHAMP ===
 Name: VICTOR

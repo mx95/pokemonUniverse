@@ -61,6 +61,8 @@ static u32 Genesis_CountBadges(void)
     if (FlagGet(FLAG_GENESIS_BADGE_14_GET)) count++;
     if (FlagGet(FLAG_GENESIS_BADGE_15_GET)) count++;
     if (FlagGet(FLAG_GENESIS_BADGE_16_GET)) count++;
+    if (FlagGet(FLAG_GENESIS_BADGE_17_GET)) count++;
+    if (FlagGet(FLAG_GENESIS_BADGE_18_GET)) count++;
     return count;
 }
 
@@ -69,7 +71,8 @@ void Genesis_UpdateLevelCap(void)
 #if GENESIS_ENABLE_LEVEL_CAP
     static const u8 sCaps[] = {
         15, 18, 22, 26, 32, 36, 42, 48, 55, // 0-8 Hoenn badges
-        58, 60, 62, 65, 68, 70, 72, 75      // 9-16 eastern
+        58, 60, 62, 65, 68, 70, 72, 75,     // 9-16 eastern
+        78, 80                              // 17-18 Poison / Ground
     };
     u32 badges = Genesis_CountBadges();
     u32 cap;
@@ -113,6 +116,37 @@ void Genesis_TryUnlockGenesisForm(void)
 void Genesis_GetWTRuleIndex(void)
 {
     gSpecialVar_Result = VarGet(VAR_DAYS) % 3;
+}
+
+// VAR_0x8004 = town-mon quest index (0-31). Done bits live in QUEST_BITS / TOWNMON_HI.
+void Genesis_TownMonIsDone(void)
+{
+    u32 index = gSpecialVar_0x8004;
+    u16 bits;
+
+    if (index < 16)
+        bits = VarGet(VAR_GENESIS_QUEST_BITS);
+    else
+        bits = VarGet(VAR_GENESIS_TOWNMON_HI);
+
+    gSpecialVar_Result = (bits & (1u << (index & 15))) != 0;
+}
+
+void Genesis_TownMonSetDone(void)
+{
+    u32 index = gSpecialVar_0x8004;
+    u16 bits;
+    u16 var;
+
+    if (index < 16)
+        var = VAR_GENESIS_QUEST_BITS;
+    else
+        var = VAR_GENESIS_TOWNMON_HI;
+
+    bits = VarGet(var);
+    bits |= (u16)(1u << (index & 15));
+    VarSet(var, bits);
+    gSpecialVar_Result = TRUE;
 }
 
 void Genesis_GiveStarterMegaStone(void)

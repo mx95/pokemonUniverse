@@ -849,13 +849,20 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
-        // GENESIS: pulse teal/cyan instead of Emerald green-gold
+        // GENESIS: aurora pulse — teal core with warm gold highlights
         s32 intensity = Cos(frameNum, Q_8_8(0.5)) + Q_8_8(0.5);
-        u32 r = 8 + Q_8_8_TO_INT(intensity * 10);
-        u32 g = 20 + Q_8_8_TO_INT(intensity * 11);
-        u32 b = 24 + Q_8_8_TO_INT(intensity * 7);
+        u32 r = 10 + Q_8_8_TO_INT(intensity * 14);
+        u32 g = 18 + Q_8_8_TO_INT(intensity * 10);
+        u32 b = 22 + Q_8_8_TO_INT(intensity * 8);
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, BG_PLTT_ID(14) + 15, sizeof(color));
+        // Soft gold companion mark on adjacent index when present
+        {
+            u16 gold = RGB(24 + Q_8_8_TO_INT(intensity * 7),
+                           18 + Q_8_8_TO_INT(intensity * 5),
+                           6 + Q_8_8_TO_INT(intensity * 2));
+            LoadPalette(&gold, BG_PLTT_ID(14) + 14, sizeof(gold));
+        }
     }
 }

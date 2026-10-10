@@ -1248,9 +1248,7 @@ SootopolisCity_EventScript_Girl::
 	end
 
 SootopolisCity_EventScript_GirlRayquaza::
-	msgbox SootopolisCity_Text_SootopolisDidntGetWrecked, MSGBOX_DEFAULT
-	closemessage
-	releaseall
+	goto Genesis_EventScript_TownMon_Titania
 	end
 
 SootopolisCity_EventScript_Maniac::

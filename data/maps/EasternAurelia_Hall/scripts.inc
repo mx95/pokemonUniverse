@@ -181,6 +181,50 @@ EasternAurelia_Hall_EventScript_MentorDone::
 	release
 	end
 
+EasternAurelia_Hall_EventScript_Vesper::
+	lock
+	faceplayer
+	goto_if_unset FLAG_GENESIS_BADGE_16_GET, EasternAurelia_Hall_EventScript_NeedMentor
+	goto_if_set FLAG_GENESIS_BADGE_17_GET, EasternAurelia_Hall_EventScript_VesperDone
+	msgbox EasternAurelia_Hall_Text_VesperIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
+	trainerbattle_no_intro TRAINER_GENESIS_VESPER, EasternAurelia_Hall_Text_VesperDefeat
+	message EasternAurelia_Hall_Text_GotVenomBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	setflag FLAG_GENESIS_BADGE_17_GET
+	call Genesis_EventScript_UpdateLevelCap
+	msgbox EasternAurelia_Hall_Text_VesperAfter, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_VesperDone::
+	msgbox EasternAurelia_Hall_Text_VesperDone, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_Terra::
+	lock
+	faceplayer
+	goto_if_unset FLAG_GENESIS_BADGE_17_GET, EasternAurelia_Hall_EventScript_NeedVesper
+	goto_if_set FLAG_GENESIS_BADGE_18_GET, EasternAurelia_Hall_EventScript_TerraDone
+	msgbox EasternAurelia_Hall_Text_TerraIntro, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
+	trainerbattle_no_intro TRAINER_GENESIS_TERRA, EasternAurelia_Hall_Text_TerraDefeat
+	message EasternAurelia_Hall_Text_GotTerraBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	setflag FLAG_GENESIS_BADGE_18_GET
+	call Genesis_EventScript_UpdateLevelCap
+	msgbox EasternAurelia_Hall_Text_TerraAfter, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_TerraDone::
+	msgbox EasternAurelia_Hall_Text_TerraDone, MSGBOX_DEFAULT
+	release
+	end
+
 EasternAurelia_Hall_EventScript_NeedIris::
 	msgbox EasternAurelia_Hall_Text_NeedIris, MSGBOX_DEFAULT
 	release
@@ -213,6 +257,16 @@ EasternAurelia_Hall_EventScript_NeedMorrigan::
 
 EasternAurelia_Hall_EventScript_NeedColleague::
 	msgbox EasternAurelia_Hall_Text_NeedColleague, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_NeedMentor::
+	msgbox EasternAurelia_Hall_Text_NeedMentor, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_NeedVesper::
+	msgbox EasternAurelia_Hall_Text_NeedVesper, MSGBOX_DEFAULT
 	release
 	end
 
@@ -280,35 +334,53 @@ EasternAurelia_Hall_EventScript_ClerkDirectory::
 
 @ Desk plaques (bg signs) — stand-in city labels until full maps exist
 EasternAurelia_Hall_EventScript_DeskMirage::
+	goto_if_set FLAG_GENESIS_BADGE_09_GET, Genesis_EventScript_TownMon_Mirage
 	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskVerdantis::
+	goto_if_set FLAG_GENESIS_BADGE_10_GET, Genesis_EventScript_TownMon_Verdantis
 	msgbox EasternAurelia_Hall_Text_DeskVerdantis, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskObsidian::
+	goto_if_set FLAG_GENESIS_BADGE_11_GET, Genesis_EventScript_TownMon_Obsidian
 	msgbox EasternAurelia_Hall_Text_DeskObsidian, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskAstral::
+	goto_if_set FLAG_GENESIS_BADGE_12_GET, Genesis_EventScript_TownMon_Astral
 	msgbox EasternAurelia_Hall_Text_DeskAstral, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskTidymoon::
+	goto_if_set FLAG_GENESIS_BADGE_13_GET, Genesis_EventScript_TownMon_Tidymoon
 	msgbox EasternAurelia_Hall_Text_DeskTidymoon, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskEon::
+	goto_if_set FLAG_GENESIS_BADGE_14_GET, Genesis_EventScript_TownMon_Eon
 	msgbox EasternAurelia_Hall_Text_DeskEon, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskGenesis::
+	goto_if_set FLAG_GENESIS_BADGE_15_GET, Genesis_EventScript_TownMon_GenesisCity
 	msgbox EasternAurelia_Hall_Text_DeskGenesis, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_DeskSummit::
+	goto_if_set FLAG_GENESIS_BADGE_16_GET, Genesis_EventScript_TownMon_Summit
 	msgbox EasternAurelia_Hall_Text_DeskSummit, MSGBOX_SIGN
+	end
+
+EasternAurelia_Hall_EventScript_DeskVenom::
+	goto_if_set FLAG_GENESIS_BADGE_17_GET, Genesis_EventScript_TownMon_Venom
+	msgbox EasternAurelia_Hall_Text_DeskVenom, MSGBOX_SIGN
+	end
+
+EasternAurelia_Hall_EventScript_DeskTerracotta::
+	goto_if_set FLAG_GENESIS_BADGE_18_GET, Genesis_EventScript_TownMon_Terracotta
+	msgbox EasternAurelia_Hall_Text_DeskTerracotta, MSGBOX_SIGN
 	end
 
 EasternAurelia_Hall_EventScript_HallDirectory::
@@ -467,8 +539,8 @@ EasternAurelia_Hall_Text_MorriganDone:
 
 EasternAurelia_Hall_Text_ColleagueIntro:
 	.string "COLLEAGUE: GENESIS CITY desk--\n"
-	.string "hub of prep, tutors, and mixed teams.\p"
-	.string "No single type owns this city.\n"
+	.string "NORMAL-type specialist of the hub.\p"
+	.string "Adaptability is our creed.\n"
 	.string "Show me a Champion's toolkit!$"
 
 EasternAurelia_Hall_Text_ColleagueDefeat:
@@ -479,17 +551,17 @@ EasternAurelia_Hall_Text_GotGenesisBadge:
 
 EasternAurelia_Hall_Text_ColleagueAfter:
 	.string "COLLEAGUE: Genesis City clears you.\n"
-	.string "Final desk: AURELIA SUMMIT--Mentor.$"
+	.string "Next: AURELIA SUMMIT--Mentor's ROCK.$"
 
 EasternAurelia_Hall_Text_ColleagueDone:
-	.string "COLLEAGUE: Genesis City stays open.\n"
-	.string "Use every tool you've collected.$"
+	.string "COLLEAGUE: Ask our plaque about\n"
+	.string "MELOETTA--the city's melody legend.$"
 
 EasternAurelia_Hall_Text_MentorIntro:
-	.string "MENTOR: AURELIA SUMMIT--east desk.\n"
-	.string "Not a throne. A threshold.\p"
+	.string "MENTOR: AURELIA SUMMIT--ROCK desk.\n"
+	.string "Not a throne. A threshold of stone.\p"
 	.string "Ascension is the bond you forged.\n"
-	.string "Show me everything!$"
+	.string "Show me your bedrock!$"
 
 EasternAurelia_Hall_Text_MentorDefeat:
 	.string "You have ascended…$"
@@ -498,14 +570,62 @@ EasternAurelia_Hall_Text_GotAscensionBadge:
 	.string "{PLAYER} received the ASCENSION BADGE!$"
 
 EasternAurelia_Hall_Text_MentorAfter:
-	.string "MENTOR: Eastern AURELIA recognizes you.\n"
-	.string "Seek the legends with our researcher,\l"
-	.string "then the WORLD TOURNAMENT facility\l"
-	.string "via the Reception Gate greeter.$"
+	.string "MENTOR: Stone yields to you.\n"
+	.string "Two desks remain--VESPER's POISON\l"
+	.string "in Venom Hollow, then TERRA's GROUND.$"
 
 EasternAurelia_Hall_Text_MentorDone:
 	.string "MENTOR: The Summit watches your path.\n"
-	.string "Sanctum, Frontier, Tournament--choose.$"
+	.string "VENOM HOLLOW and TERRACOTTA await.\p"
+	.string "Also seek REGIROCK at our plaque.$"
+
+EasternAurelia_Hall_Text_VesperIntro:
+	.string "VESPER: VENOM HOLLOW desk.\n"
+	.string "POISON is honesty--it shows the wound.\p"
+	.string "Can you endure my toxins?$"
+
+EasternAurelia_Hall_Text_VesperDefeat:
+	.string "Your immunity… impressive.$"
+
+EasternAurelia_Hall_Text_GotVenomBadge:
+	.string "{PLAYER} received the VENOM BADGE!$"
+
+EasternAurelia_Hall_Text_VesperAfter:
+	.string "VESPER: Hollow clears you.\n"
+	.string "Final desk--TERRA of Terracotta Mesa.\p"
+	.string "And PECHARUNT still binds myths here.$"
+
+EasternAurelia_Hall_Text_VesperDone:
+	.string "VESPER: Read the Venom plaque for\n"
+	.string "PECHARUNT's story, Champion.$"
+
+EasternAurelia_Hall_Text_TerraIntro:
+	.string "TERRA: TERRACOTTA MESA desk.\n"
+	.string "GROUND endures when empires fall.\p"
+	.string "Stand firm--or be buried!$"
+
+EasternAurelia_Hall_Text_TerraDefeat:
+	.string "The land… accepts you.$"
+
+EasternAurelia_Hall_Text_GotTerraBadge:
+	.string "{PLAYER} received the TERRA BADGE!$"
+
+EasternAurelia_Hall_Text_TerraAfter:
+	.string "TERRA: All eighteen types answered.\n"
+	.string "AURELIA's gym circuit is complete!\p"
+	.string "LANDORUS still tests the mesa soil.$"
+
+EasternAurelia_Hall_Text_TerraDone:
+	.string "TERRA: Eighteen badges. Full spectrum.\n"
+	.string "Ask the mesa plaque of LANDORUS.$"
+
+EasternAurelia_Hall_Text_NeedMentor:
+	.string "VESPER: Clear MENTOR's ROCK desk\n"
+	.string "before Venom Hollow opens.$"
+
+EasternAurelia_Hall_Text_NeedVesper:
+	.string "TERRA: Earn VESPER's VENOM BADGE\n"
+	.string "before the mesa will shift for you.$"
 
 EasternAurelia_Hall_Text_LegendEarly:
 	.string "Return when you are CHAMPION.\n"
@@ -541,14 +661,14 @@ EasternAurelia_Hall_Text_ClerkStay:
 	.string "Plaques name each Eastern city.$"
 
 EasternAurelia_Hall_Text_ClerkDirectory:
-	.string "Back row: MIRAGE · VERDANTIS ·\n"
-	.string "OBSIDIAN · ASTRAL.\p"
-	.string "Front row: TIDYMOON · EON ·\n"
-	.string "GENESIS CITY · SUMMIT EAST.\p"
-	.string "Researcher (center): Legend Sanctum.\n"
-	.string "Reception Gate also warps to the\l"
-	.string "WORLD TOURNAMENT facility.\p"
-	.string "Exit warps return to Reception Gate.$"
+	.string "Back: MIRAGE · VERDANTIS · OBSIDIAN ·\n"
+	.string "ASTRAL · VENOM HOLLOW.\p"
+	.string "Front: TIDYMOON · EON · GENESIS CITY ·\n"
+	.string "SUMMIT · TERRACOTTA MESA.\p"
+	.string "Types 9-18: Psychic Bug Dark Dragon\n"
+	.string "Fairy Ghost Normal Rock Poison Ground.\p"
+	.string "Plaques also start town legend quests.\n"
+	.string "Reception Gate warps to WORLD TOURNAMENT.$"
 
 EasternAurelia_Hall_Text_DeskMirage:
 	.string "MIRAGE CITY desk -- Badge 9\n"
@@ -576,15 +696,23 @@ EasternAurelia_Hall_Text_DeskEon:
 
 EasternAurelia_Hall_Text_DeskGenesis:
 	.string "GENESIS CITY desk -- Badge 15\n"
-	.string "COLLEAGUE · MIXED · Genesis Badge$"
+	.string "COLLEAGUE · NORMAL · Genesis Badge$"
 
 EasternAurelia_Hall_Text_DeskSummit:
 	.string "AURELIA SUMMIT (east) -- Badge 16\n"
-	.string "MENTOR · MIXED · Ascension Badge$"
+	.string "MENTOR · ROCK · Ascension Badge$"
+
+EasternAurelia_Hall_Text_DeskVenom:
+	.string "VENOM HOLLOW desk -- Badge 17\n"
+	.string "VESPER · POISON · Venom Badge$"
+
+EasternAurelia_Hall_Text_DeskTerracotta:
+	.string "TERRACOTTA MESA desk -- Badge 18\n"
+	.string "TERRA · GROUND · Terra Badge$"
 
 EasternAurelia_Hall_Text_HallDirectory:
 	.string "EASTERN AURELIA HALL\n"
-	.string "City desks 9-16 · Legend Sanctum warp\p"
+	.string "City desks 9-18 · all remaining types\p"
 	.string "Access: Fly to BATTLE FRONTIER, then\n"
 	.string "ask the Reception Gate greeter.\p"
 	.string "Same greeter warps to WORLD TOURNAMENT.$"

@@ -874,11 +874,13 @@
 #define TRAINER_GENESIS_KAI_ACT2            866 // Rival Kai after Act 2
 #define TRAINER_GENESIS_KAI_SEAFLOOR        867 // Rival Kai after Seafloor
 #define TRAINER_GENESIS_KAI_LEAGUE          868 // Rival Kai before Elite Four
+#define TRAINER_GENESIS_VESPER              869 // Poison gym (Venom Hollow)
+#define TRAINER_GENESIS_TERRA               870 // Ground gym (Terracotta Mesa)
 
-// GENESIS: expanded past Emerald 864 for Ace + Kai rivals. Shifts SYSTEM_FLAGS; bump save version.
+// GENESIS: Ace + Kai + Poison/Ground leaders. Shifts SYSTEM_FLAGS; bump save version.
 
-#define TRAINERS_COUNT_EMERALD     869
-#define MAX_TRAINERS_COUNT_EMERALD 869
+#define TRAINERS_COUNT_EMERALD     871
+#define MAX_TRAINERS_COUNT_EMERALD 871
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

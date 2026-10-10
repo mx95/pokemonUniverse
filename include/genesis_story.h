@@ -11,5 +11,7 @@ void Genesis_UpdateLevelCap(void);
 void Genesis_TryUnlockGenesisForm(void);
 void Genesis_GetWTRuleIndex(void);
 void Genesis_GiveStarterMegaStone(void);
+void Genesis_TownMonIsDone(void);
+void Genesis_TownMonSetDone(void);
 
 #endif // GUARD_GENESIS_STORY_H

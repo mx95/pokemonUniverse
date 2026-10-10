@@ -383,12 +383,11 @@ DewfordTown_Gym_Text_CristianPostBattle:
 
 DewfordTown_Gym_Text_BrawlyIntro:
 	.string "I'm BRAN!\n"
-	.string "DEWFORD's GYM LEADER!\p"
-	.string "I've been churned in the rough waves\n"
-	.string "of these parts, and I've grown tough\l"
-	.string "in the pitch-black cave!\p"
+	.string "IRONRIDGE's FIGHTING-type LEADER!\p"
+	.string "The caves here temper body and will.\n"
+	.string "My FIGHTING POKéMON never flinch!\p"
 	.string "So you wanted to challenge me?\n"
-	.string "Let me see what you're made of!$"
+	.string "Show me your resolve!$"
 
 DewfordTown_Gym_Text_BrawlyDefeat:
 	.string "Whoah, wow! You made a much bigger\n"
@@ -398,11 +397,11 @@ DewfordTown_Gym_Text_BrawlyDefeat:
 	.string "Take this GYM BADGE!$"
 
 DewfordTown_Gym_Text_ReceivedKnuckleBadge:
-	.string "{PLAYER} received the ORE BADGE\n"
+	.string "{PLAYER} received the FIST BADGE\n"
 	.string "from BRAN.$"
 
 DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
-	.string "The ORE BADGE makes all POKéMON\n"
+	.string "The FIST BADGE makes all POKéMON\n"
 	.string "up to Level 30, even those you get in\l"
 	.string "trades, obey without question.\p"
 	.string "And, you'll be able to use the HM move\n"

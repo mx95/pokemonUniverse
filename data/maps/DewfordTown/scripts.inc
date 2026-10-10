@@ -54,7 +54,7 @@ DewfordTown_EventScript_SailBackToPetalburg::
 	end
 
 DewfordTown_EventScript_Woman::
-	msgbox DewfordTown_Text_TinyIslandCommunity, MSGBOX_NPC
+	goto Genesis_EventScript_TownMon_Ironridge
 	end
 
 DewfordTown_EventScript_TownSign::
