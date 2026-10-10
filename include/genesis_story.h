@@ -5,6 +5,8 @@
 
 u32 Genesis_GetGimmickUnlockBadge(u32 gimmickId);
 void Genesis_ApplyBattleGimmickFlags(void);
+bool32 Genesis_AreChaosBattlesActive(void);
+bool32 Genesis_IsOneGimmickRuleActive(void);
 void Genesis_OnGameClear(void);
 void Genesis_InitSave(void);
 void Genesis_UpdateLevelCap(void);

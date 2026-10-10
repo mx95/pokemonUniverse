@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                7 // +puzzle rewards; Nuzlocke/monotype catch filters; Genesis Form UX
+#define GENESIS_SAVE_VERSION                8 // +Chaos Battles; mid/late BGM; sanctum/Hall depth
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
@@ -34,7 +34,7 @@
 #define GENESIS_ENABLE_EXP_SHARE            TRUE    // Prefer Expansion I_EXP_SHARE_FLAG
 #define GENESIS_ENABLE_GENESIS_FORM         TRUE    // Switch-in overlay when FLAG_GENESIS_FORM_UNLOCKED
 #define GENESIS_ONE_GIMMICK_PER_STORY_BATTLE TRUE  // Story rule; Chaos Battles override postgame
-#define GENESIS_ENABLE_CHAOS_BATTLES        FALSE
+#define GENESIS_ENABLE_CHAOS_BATTLES        TRUE    // Postgame toggle (Eastern Hall clerk) lifts one-gimmick rule via FLAG_GENESIS_CHAOS_BATTLES
 
 // --- Endgame ---------------------------------------------------------------
 #define GENESIS_ENABLE_BATTLE_FRONTIER      TRUE    // Use Expansion Frontier facilities

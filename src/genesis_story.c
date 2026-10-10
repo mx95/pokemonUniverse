@@ -42,6 +42,28 @@ void Genesis_ApplyBattleGimmickFlags(void)
     }
 }
 
+// Chaos Battles: postgame opt-in (Eastern Hall clerk) that lets the player use
+// several gimmick types (Mega/Z/Dynamax/Tera) in one battle.
+bool32 Genesis_AreChaosBattlesActive(void)
+{
+#if GENESIS_ENABLE_CHAOS_BATTLES
+    return FlagGet(FLAG_GENESIS_CHAOS_BATTLES)
+        && (FlagGet(FLAG_SYS_GAME_CLEAR) || FlagGet(FLAG_GENESIS_CHAMPION_DONE));
+#else
+    return FALSE;
+#endif
+}
+
+// Story rule: one gimmick type per battle, unless Chaos Battles are active.
+bool32 Genesis_IsOneGimmickRuleActive(void)
+{
+#if GENESIS_ONE_GIMMICK_PER_STORY_BATTLE
+    return !Genesis_AreChaosBattlesActive();
+#else
+    return FALSE;
+#endif
+}
+
 static u32 Genesis_CountBadges(void)
 {
     u32 count = 0;

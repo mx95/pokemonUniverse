@@ -751,7 +751,8 @@
 #define FLAG_UNUSED_0x2B4  FLAG_GENESIS_ACHIEVEMENT_PUZZLES // alias
 #define FLAG_UNUSED_0x2B5  FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER // alias
 #define FLAG_UNUSED_0x2B6  FLAG_GENESIS_TYPE_MASTER_REWARD // alias
-#define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
+#define FLAG_GENESIS_CHAOS_BATTLES            0x2B7 // Postgame: Chaos Battles ON (multi-gimmick per battle)
+#define FLAG_UNUSED_0x2B7  FLAG_GENESIS_CHAOS_BATTLES // alias
 #define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag

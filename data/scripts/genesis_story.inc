@@ -271,9 +271,15 @@ Genesis_EventScript_QuestBoard_LegendsDone::
 Genesis_EventScript_QuestBoard_WT::
 	goto_if_set FLAG_GENESIS_WT_CLEARED, Genesis_EventScript_QuestBoard_WTDone
 	msgbox Genesis_Text_Quest_WTOpen, MSGBOX_DEFAULT
-	return
+	goto Genesis_EventScript_QuestBoard_Chaos
 Genesis_EventScript_QuestBoard_WTDone::
 	msgbox Genesis_Text_Quest_WTDone, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_Chaos::
+	goto_if_set FLAG_GENESIS_CHAOS_BATTLES, Genesis_EventScript_QuestBoard_ChaosOn
+	msgbox Genesis_Text_Quest_ChaosOff, MSGBOX_DEFAULT
+	return
+Genesis_EventScript_QuestBoard_ChaosOn::
+	msgbox Genesis_Text_Quest_ChaosOn, MSGBOX_DEFAULT
 	return
 Genesis_EventScript_QuestBoard_PostSkip::
 	return
@@ -384,6 +390,12 @@ Genesis_Text_Quest_WTOpen:
 
 Genesis_Text_Quest_WTDone:
 	.string "- WORLD TOURNAMENT bracket: cleared.$"
+
+Genesis_Text_Quest_ChaosOff:
+	.string "- CHAOS BATTLES: ask Eastern Hall clerk (INFO).$"
+
+Genesis_Text_Quest_ChaosOn:
+	.string "- CHAOS BATTLES: ON (multi-gimmick).$"
 
 Genesis_Text_Quest_SideHeader:
 	.string "Side missions:$"

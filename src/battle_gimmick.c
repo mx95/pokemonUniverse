@@ -13,6 +13,8 @@
 #include "sprite.h"
 #include "util.h"
 #include "test_runner.h"
+#include "config/genesis.h"
+#include "genesis_story.h"
 
 #include "data/gimmicks.h"
 
@@ -33,9 +35,30 @@ void AssignUsableGimmicks(void)
     }
 }
 
+// GENESIS: Story one-gimmick rule. The player may use only one gimmick type per battle
+// unless Chaos Battles (postgame) are active. Link/Frontier/test battles are exempt.
+static bool32 Genesis_IsOneGimmickBlocked(enum BattlerId battler, enum Gimmick gimmick)
+{
+#if GENESIS_ONE_GIMMICK_PER_STORY_BATTLE && !TESTING
+    if (!Genesis_IsOneGimmickRuleActive()
+     || !IsOnPlayerSide(battler)
+     || (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_RECORDED_LINK)))
+        return FALSE;
+
+    for (enum Gimmick other = GIMMICK_NONE + 1; other < GIMMICKS_COUNT; ++other)
+    {
+        if (other != gimmick && HasTrainerUsedGimmick(battler, other))
+            return TRUE;
+    }
+#endif
+    return FALSE;
+}
+
 // Returns whether a battler is able to use a gimmick. Checks consumption and gimmick specific functions.
 bool32 CanActivateGimmick(enum BattlerId battler, enum Gimmick gimmick)
 {
+    if (Genesis_IsOneGimmickBlocked(battler, gimmick))
+        return FALSE;
     return gGimmicksInfo[gimmick].CanActivate != NULL && gGimmicksInfo[gimmick].CanActivate(battler);
 }
 

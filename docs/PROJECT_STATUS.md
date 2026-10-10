@@ -20,6 +20,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Docs skeleton | IMPLEMENTED | `docs/GENESIS.md`, `REGION_AURELIA.md`, `STORY.md`, `BUGS.md` |
 | Validation / smoke tests | IMPLEMENTED | `make genesis-check` (`tools/genesis/run_smoke_tests.py`) |
 | Early-game Aurelia branding | IMPLEMENTED | Verdant/Lumen/Port Azure NPC + sign text; RG/alt BGM remap |
+| Mid/late Aurelia BGM remap | IMPLEMENTED | Ironridge/Celestia/Frostveil/Solaris/Stormbreak/Titania/League off Emerald town themes; `tools/genesis/remap_early_music.py` |
+| Chaos Battles (postgame) | IMPLEMENTED | Eastern Hall clerk toggle (`FLAG_GENESIS_CHAOS_BATTLES`); lifts one-gimmick rule via `Genesis_AreChaosBattlesActive()` |
 | Genesis Form framework stub | IMPLEMENTED | Switch-in overlay enabled; unlock after all three legends |
 | Verdant → Route 1 → Lumen loop | IMPLEMENTED | Temporary Hoenn map aliases + rebrand |
 | Route 2 + Lumen Forest + Port Azure | IMPLEMENTED | Map names + multi-gen encounters |
@@ -39,14 +41,14 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Feature group | Spec §§ | Status | Expansion reuse |
 |---------------|---------|--------|-----------------|
 | Pokémon / forms / moves DB | — | COMPLETE | Expansion Gen 1–9 + forms all enabled; see `docs/POKEMON_ROSTER.md` |
-| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins (Giratina Origin / Reshiram / Arceus); Sanctum lore polish |
+| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins; Sanctum heal + held items + completion gifts; Form announce |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
-| Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique authored art |
+| Custom legendary battle sprites | — | DEFERRED | Needs authored GBA sprite pipeline; DS stand-ins remain |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Hall city-desk polish started; full geometry still planned — see `MAP_STUBS.md` |
+| Aurelia maps (custom geometry) | 3–4 | DEFERRED (stand-in) | Eastern Hall desks + city lore plaques; full geometry needs Porymap — `MAP_STUBS.md` |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 + 4 puzzles with item rewards + master Bottle Caps + Kai |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
@@ -60,7 +62,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
-| Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT |
+| Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT, Chaos |
 | DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; search levels still off (saveblock) |
 | Character customization | 57–58 | IMPLEMENTED (stub) | Lilycove Boutique Aurelia dialogue; needs OW outfit art |
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
@@ -116,16 +118,21 @@ Track as maps/story land:
 | Tera | Badge 12 | `FLAG_SYS_TERA_ORB_*` |
 | Primal / Ultra / Genesis Form | Postgame | Genesis Form config |
 
-Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
+Story battles: one gimmick type per battle for the player (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`, enforced in `CanActivateGimmick`).
+
+**Chaos Battles** (postgame, `GENESIS_ENABLE_CHAOS_BATTLES`): after Champion, ask the Eastern Hall clerk (INFO option) to toggle `FLAG_GENESIS_CHAOS_BATTLES`; while ON, the player may use Mega, Z, Dynamax and Tera in the same battle. Link and Frontier battles are exempt from the rule.
 
 ---
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of Corviknight intro, puzzle rewards, Nuzlocke/monotype catch filters, Genesis Form announce.
-2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
-3. Unique legendary battle sprites (replace DS stand-ins).
-4. Outfit OW art / DexNav search levels / Chaos Battles toggle polish.
+Discussed systems polish for this phase is **complete** (Corviknight intro, puzzles/rewards, catch filters, Genesis Form UX, Chaos Battles, Aurelia BGM remap, Hall/Sanctum depth).
+
+Art/map backlog (needs external tools, not code-only):
+1. **In-emulator playtest** checklist of the above.
+2. **`genesis/maps`:** real eastern city geometry (Porymap).
+3. Unique legendary GBA sprites (replace DS stand-ins).
+4. Outfit OW art; optional DexNav search levels if saveblock budget allows.
 
 ---
 

@@ -349,6 +349,29 @@ EasternAurelia_Hall_EventScript_ClerkStay::
 
 EasternAurelia_Hall_EventScript_ClerkDirectory::
 	msgbox EasternAurelia_Hall_Text_ClerkDirectory, MSGBOX_DEFAULT
+	goto_if_unset FLAG_SYS_GAME_CLEAR, EasternAurelia_Hall_EventScript_ClerkStayQuiet
+	goto_if_set FLAG_GENESIS_CHAOS_BATTLES, EasternAurelia_Hall_EventScript_ChaosIsOn
+	msgbox EasternAurelia_Hall_Text_ChaosOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_ChaosDeclined
+	setflag FLAG_GENESIS_CHAOS_BATTLES
+	msgbox EasternAurelia_Hall_Text_ChaosEnabled, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_ChaosIsOn::
+	msgbox EasternAurelia_Hall_Text_ChaosDisableAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_ChaosDeclined
+	clearflag FLAG_GENESIS_CHAOS_BATTLES
+	msgbox EasternAurelia_Hall_Text_ChaosDisabled, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_ChaosDeclined::
+	msgbox EasternAurelia_Hall_Text_ChaosKept, MSGBOX_DEFAULT
+	release
+	end
+
+EasternAurelia_Hall_EventScript_ClerkStayQuiet::
 	release
 	end
 
@@ -675,7 +698,7 @@ EasternAurelia_Hall_Text_ClerkWelcome:
 
 EasternAurelia_Hall_Text_ClerkAsk:
 	.string "Return to the Reception Gate?\n"
-	.string "(YES / NO / desk directory)$"
+	.string "(YES / NO / INFO: desks, CHAOS)$"
 
 EasternAurelia_Hall_Text_ClerkWarpOut:
 	.string "Fly back to the BATTLE FRONTIER any\n"
@@ -693,49 +716,93 @@ EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "SUMMIT · TERRACOTTA MESA.\p"
 	.string "Types 9-18: Psychic Bug Dark Dragon\n"
 	.string "Fairy Ghost Normal Rock Poison Ground.\p"
+	.string "After the League, ask about CHAOS\n"
+	.string "BATTLES (multi-gimmick rule).\p"
 	.string "Plaques also start town legend quests.\n"
 	.string "Reception Gate warps to WORLD TOURNAMENT.$"
 
+EasternAurelia_Hall_Text_ChaosOffer:
+	.string "CHAMPION-only rule: CHAOS BATTLES.\p"
+	.string "Story battles allow one gimmick type\n"
+	.string "per battle: MEGA, Z-MOVE, DYNAMAX\l"
+	.string "or TERA. With CHAOS on, mix them all!\p"
+	.string "Turn on CHAOS BATTLES?$"
+
+EasternAurelia_Hall_Text_ChaosEnabled:
+	.string "CHAOS BATTLES are ON.\n"
+	.string "Every gimmick is yours in one battle.\p"
+	.string "Ask me again to switch it off.$"
+
+EasternAurelia_Hall_Text_ChaosDisableAsk:
+	.string "CHAOS BATTLES are ON.\n"
+	.string "Restore the one-gimmick story rule?$"
+
+EasternAurelia_Hall_Text_ChaosDisabled:
+	.string "CHAOS BATTLES are OFF.\n"
+	.string "One gimmick type per battle again.$"
+
+EasternAurelia_Hall_Text_ChaosKept:
+	.string "Very well. Settings unchanged.$"
+
 EasternAurelia_Hall_Text_DeskMirage:
 	.string "MIRAGE CITY desk -- Badge 9\n"
-	.string "LEADER IRIS · PSYCHIC · Mirage Badge$"
+	.string "LEADER IRIS · PSYCHIC · Mirage Badge\p"
+	.string "Mirage floats on heat-haze plains.\n"
+	.string "Thought itself bends like glass.$"
 
 EasternAurelia_Hall_Text_DeskVerdantis:
 	.string "VERDANTIS CITY desk -- Badge 10\n"
-	.string "LEADER CELIA · BUG · Jungle Badge$"
+	.string "LEADER CELIA · BUG · Jungle Badge\p"
+	.string "Canopy cities of living wood.\n"
+	.string "Buzzing markets never sleep.$"
 
 EasternAurelia_Hall_Text_DeskObsidian:
 	.string "OBSIDIAN CITY desk -- Badge 11\n"
-	.string "LEADER NOCTIS · DARK · Obsidian Badge$"
+	.string "LEADER NOCTIS · DARK · Obsidian Badge\p"
+	.string "Night markets carved in black glass.\n"
+	.string "Honest deals prefer the dark.$"
 
 EasternAurelia_Hall_Text_DeskAstral:
 	.string "ASTRAL CITY desk -- Badge 12\n"
-	.string "LEADER DRAKE · DRAGON · Astral / Tera$"
+	.string "LEADER DRAKE · DRAGON · Astral / Tera\p"
+	.string "Cliff spires under aurora fire.\n"
+	.string "Tera crystal first sang here.$"
 
 EasternAurelia_Hall_Text_DeskTidymoon:
 	.string "TIDYMOON CITY desk -- Badge 13\n"
-	.string "LEADER LUNA · FAIRY · Moon Badge$"
+	.string "LEADER LUNA · FAIRY · Moon Badge\p"
+	.string "Tide gardens lit by pale moons.\n"
+	.string "Wish-makers leave ribbons at dusk.$"
 
 EasternAurelia_Hall_Text_DeskEon:
 	.string "EON CITY desk -- Badge 14\n"
-	.string "LEADER MORRIGAN · GHOST · Eon Badge$"
+	.string "LEADER MORRIGAN · GHOST · Eon Badge\p"
+	.string "Clocktower streets between eras.\n"
+	.string "Echoes train as partners here.$"
 
 EasternAurelia_Hall_Text_DeskGenesis:
 	.string "GENESIS CITY desk -- Badge 15\n"
-	.string "COLLEAGUE · NORMAL · Genesis Badge$"
+	.string "COLLEAGUE · NORMAL · Genesis Badge\p"
+	.string "The Colleague's lab-city hub.\n"
+	.string "Potential is measured in battle.$"
 
 EasternAurelia_Hall_Text_DeskSummit:
 	.string "AURELIA SUMMIT (east) -- Badge 16\n"
-	.string "MENTOR · ROCK · Ascension Badge$"
+	.string "MENTOR · ROCK · Ascension Badge\p"
+	.string "Eastern peak of the old road.\n"
+	.string "Stone remembers every ascent.$"
 
 EasternAurelia_Hall_Text_DeskVenom:
 	.string "VENOM HOLLOW desk -- Badge 17\n"
-	.string "VESPER · POISON · Venom Badge$"
+	.string "VESPER · POISON · Venom Badge\p"
+	.string "Marsh lanterns over toxic bloom.\n"
+	.string "Antidotes sell better than gold.$"
 
 EasternAurelia_Hall_Text_DeskTerracotta:
 	.string "TERRACOTTA MESA desk -- Badge 18\n"
-	.string "TERRA · GROUND · Terra Badge$"
-
+	.string "TERRA · GROUND · Terra Badge\p"
+	.string "Red clay mesas and buried ruins.\n"
+	.string "The last type closes the circle.$"
 EasternAurelia_Hall_Text_HallDirectory:
 	.string "EASTERN AURELIA HALL\n"
 	.string "City desks 9-18 · all remaining types\p"

@@ -173,8 +173,9 @@ LilycoveCity_DepartmentStore_5F_Text_ClothingStubMid:
 
 LilycoveCity_DepartmentStore_5F_Text_ClothingStubPost:
 	.string "Champion couture is next on the rack!\p"
-	.string "Full clothing customization arrives\n"
-	.string "once our tailor finishes the patterns.$"
+	.string "Overworld outfit sprites are still on\n"
+	.string "the tailor's desk--dialogue only for now.\p"
+	.string "Until then, battle fashion is your team!$"
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
 	.string "This place is full of cute DOLLS.\p"
