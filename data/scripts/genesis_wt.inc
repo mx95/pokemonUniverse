@@ -24,10 +24,13 @@ Genesis_EventScript_WorldTournament::
 	call Genesis_EventScript_AnnounceWTRules
 	msgbox Genesis_Text_WTRound1, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GENESIS_MENTOR, Genesis_Text_WTRoundLose
+	special HealPlayerParty
 	msgbox Genesis_Text_WTRound2, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_STEVEN, Genesis_Text_WTRoundLose
+	special HealPlayerParty
 	msgbox Genesis_Text_WTSemis, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_WALLACE, Genesis_Text_WTRoundLose
+	special HealPlayerParty
 	msgbox Genesis_Text_WTFinal, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GENESIS_WT_CHAMP, Genesis_Text_WTDefeat
 	setflag FLAG_GENESIS_WT_CLEARED

@@ -742,7 +742,7 @@
 #define FLAG_GENESIS_WT_FACILITY_OPEN         0x2AE // Visited / unlocked WT facility warp
 #define FLAG_GENESIS_WEATHER_GUIDE_SEEN       0x2AF // Route weather-rare guide spoken to
 #define FLAG_GENESIS_WEATHER_RARE_DONE        0x2B0 // Weather Institute rare-tip quest done
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
+#define FLAG_GENESIS_ECLIPSE_ARCHIVE_READ     0x2B1 // Read Eclipse Archive at Oceanic Museum
 #define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
 #define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
 #define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag

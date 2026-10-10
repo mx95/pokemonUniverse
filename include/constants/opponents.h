@@ -871,11 +871,14 @@
 #define TRAINER_GENESIS_WT_CHAMP            863
 #define TRAINER_GENESIS_ACE_ROOKIE          864 // Verdant Town early singles
 #define TRAINER_GENESIS_ACE_MASTER          865 // Post-League competitive doubles
+#define TRAINER_GENESIS_KAI_ACT2            866 // Rival Kai after Act 2
+#define TRAINER_GENESIS_KAI_SEAFLOOR        867 // Rival Kai after Seafloor
+#define TRAINER_GENESIS_KAI_LEAGUE          868 // Rival Kai before Elite Four
 
-// GENESIS: expanded past Emerald 864 for Verdant Ace (+2). Shifts SYSTEM_FLAGS; bump save version.
+// GENESIS: expanded past Emerald 864 for Ace + Kai rivals. Shifts SYSTEM_FLAGS; bump save version.
 
-#define TRAINERS_COUNT_EMERALD     866
-#define MAX_TRAINERS_COUNT_EMERALD 866
+#define TRAINERS_COUNT_EMERALD     869
+#define MAX_TRAINERS_COUNT_EMERALD 869
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

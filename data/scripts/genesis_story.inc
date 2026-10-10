@@ -29,22 +29,38 @@ Genesis_EventScript_QuestBoard::
 Genesis_EventScript_QuestBoard_PrintSide::
 	goto_if_set FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_SideShow
 	goto_if_set FLAG_GENESIS_WEATHER_GUIDE_SEEN, Genesis_EventScript_QuestBoard_SideShow
+	goto_if_set FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN, Genesis_EventScript_QuestBoard_SideShow
+	goto_if_set FLAG_GENESIS_RIVAL_BEAT_ACT2, Genesis_EventScript_QuestBoard_SideShow
 	return
 Genesis_EventScript_QuestBoard_SideShow::
 	msgbox Genesis_Text_Quest_SideHeader, MSGBOX_DEFAULT
-	goto_if_unset FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_WeatherLine
+	goto_if_unset FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_KaiLine
 	goto_if_set FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_QuestBoard_MetagrossDoneLine
 	msgbox Genesis_Text_Quest_MetagrossOpen, MSGBOX_DEFAULT
-	goto Genesis_EventScript_QuestBoard_WeatherLine
+	goto Genesis_EventScript_QuestBoard_KaiLine
 Genesis_EventScript_QuestBoard_MetagrossDoneLine::
 	msgbox Genesis_Text_Quest_MetagrossDone, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_KaiLine::
+	goto_if_unset FLAG_GENESIS_RIVAL_BEAT_ACT2, Genesis_EventScript_QuestBoard_WeatherLine
+	goto_if_set FLAG_GENESIS_RIVAL_BEAT_LEAGUE, Genesis_EventScript_QuestBoard_KaiDone
+	msgbox Genesis_Text_Quest_KaiOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_WeatherLine
+Genesis_EventScript_QuestBoard_KaiDone::
+	msgbox Genesis_Text_Quest_KaiDone, MSGBOX_DEFAULT
 Genesis_EventScript_QuestBoard_WeatherLine::
-	goto_if_unset FLAG_GENESIS_WEATHER_GUIDE_SEEN, Genesis_EventScript_QuestBoard_SideReturn
+	goto_if_unset FLAG_GENESIS_WEATHER_GUIDE_SEEN, Genesis_EventScript_QuestBoard_ArchiveLine
 	goto_if_set FLAG_GENESIS_WEATHER_RARE_DONE, Genesis_EventScript_QuestBoard_WeatherDone
 	msgbox Genesis_Text_Quest_WeatherOpen, MSGBOX_DEFAULT
-	return
+	goto Genesis_EventScript_QuestBoard_ArchiveLine
 Genesis_EventScript_QuestBoard_WeatherDone::
 	msgbox Genesis_Text_Quest_WeatherDone, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_ArchiveLine::
+	goto_if_unset FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN, Genesis_EventScript_QuestBoard_SideReturn
+	goto_if_set FLAG_GENESIS_ECLIPSE_ARCHIVE_READ, Genesis_EventScript_QuestBoard_ArchiveDone
+	msgbox Genesis_Text_Quest_ArchiveOpen, MSGBOX_DEFAULT
+	return
+Genesis_EventScript_QuestBoard_ArchiveDone::
+	msgbox Genesis_Text_Quest_ArchiveDone, MSGBOX_DEFAULT
 Genesis_EventScript_QuestBoard_SideReturn::
 	return
 
@@ -353,6 +369,18 @@ Genesis_Text_Quest_WeatherOpen:
 
 Genesis_Text_Quest_WeatherDone:
 	.string "- Weather Institute rare tips: collected.$"
+
+Genesis_Text_Quest_KaiOpen:
+	.string "- Rival KAI: finish your three story battles.$"
+
+Genesis_Text_Quest_KaiDone:
+	.string "- Rival KAI story battles: complete.$"
+
+Genesis_Text_Quest_ArchiveOpen:
+	.string "- Oceanic Museum: open the Eclipse Archive.$"
+
+Genesis_Text_Quest_ArchiveDone:
+	.string "- Eclipse Archive: read and sealed.$"
 
 Genesis_Text_QuestBoardFooter:
 	.string "Check back as your journey continues.$"

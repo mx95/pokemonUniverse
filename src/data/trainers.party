@@ -17310,3 +17310,152 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - X-Scissor
 - Dual Wingbeat
 
+=== TRAINER_GENESIS_KAI_ACT2 ===
+Name: KAI
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Kirlia
+Level: 31
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Confusion
+- Magical Leaf
+- Calm Mind
+- Teleport
+
+Swellow
+Level: 32
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Wing Attack
+- Quick Attack
+- Endeavor
+- Aerial Ace
+
+Marshtomp
+Level: 32
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Mud Shot
+- Water Gun
+- Rock Throw
+- Take Down
+
+Grovyle
+Level: 34
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Leaf Blade
+- Fury Cutter
+- Pursuit
+- Quick Attack
+
+=== TRAINER_GENESIS_KAI_SEAFLOOR ===
+Name: KAI
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Items: Super Potion / Super Potion
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
+
+Gardevoir
+Level: 48
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Psychic
+- Magical Leaf
+- Calm Mind
+- Shadow Ball
+
+Swellow
+Level: 48
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Aerial Ace
+- Facade
+- Endeavor
+- Quick Attack
+
+Swampert
+Level: 49
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Muddy Water
+- Earthquake
+- Ice Beam
+- Rock Slide
+
+Manectric
+Level: 49
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- Thunderbolt
+- Flamethrower
+- Quick Attack
+- Thunder Wave
+
+Sceptile
+Level: 51
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Leaf Blade
+- Dragon Claw
+- Earthquake
+- X-Scissor
+
+=== TRAINER_GENESIS_KAI_LEAGUE ===
+Name: KAI
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Items: Full Restore / Full Restore
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Smart Mon Choices
+
+Gardevoir
+Level: 55
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Psychic
+- Moonblast
+- Thunderbolt
+- Calm Mind
+
+Swellow
+Level: 55
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Brave Bird
+- Facade
+- U-turn
+- Quick Attack
+
+Swampert
+Level: 56
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Earthquake
+- Waterfall
+- Ice Punch
+- Stone Edge
+
+Manectric
+Level: 56
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Thunderbolt
+- Flamethrower
+- Volt Switch
+- Thunder Wave
+
+Metagross
+Level: 57
+IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Meteor Mash
+- Earthquake
+- Zen Headbutt
+- Bullet Punch
+
+Sceptile
+Level: 58
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Leaf Blade
+- Dragon Claw
+- Earthquake
+- Swords Dance
+

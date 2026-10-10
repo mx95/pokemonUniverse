@@ -226,7 +226,24 @@ SlateportCity_OceanicMuseum_2F_EventScript_PressureExperiment::
 	end
 
 SlateportCity_OceanicMuseum_2F_EventScript_HoennModel::
+	goto_if_set FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN, SlateportCity_OceanicMuseum_2F_EventScript_EclipseArchive
 	msgbox SlateportCity_OceanicMuseum_2F_Text_HoennModel, MSGBOX_SIGN
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_EclipseArchive::
+	lockall
+	msgbox SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveIntro, MSGBOX_DEFAULT
+	msgbox SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveCaptains, MSGBOX_DEFAULT
+	goto_if_set FLAG_GENESIS_ECLIPSE_ARCHIVE_READ, SlateportCity_OceanicMuseum_2F_EventScript_EclipseArchiveDone
+	giveitem ITEM_ABILITY_CAPSULE
+	setflag FLAG_GENESIS_ECLIPSE_ARCHIVE_READ
+	msgbox SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveReward, MSGBOX_DEFAULT
+	releaseall
+	end
+
+SlateportCity_OceanicMuseum_2F_EventScript_EclipseArchiveDone::
+	msgbox SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveDone, MSGBOX_DEFAULT
+	releaseall
 	end
 
 SlateportCity_OceanicMuseum_2F_EventScript_DeepSeawaterDisplay::
@@ -412,6 +429,28 @@ SlateportCity_OceanicMuseum_2F_Text_HoennModel:
 	.string "It's a miniature diorama of the\n"
 	.string "HOENN region.\p"
 	.string "Where is LITTLEROOT TOWN on this?$"
+
+SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveIntro:
+	.string "A hidden panel slides open beneath\n"
+	.string "the region model…\p"
+	.string "ECLIPSE ARCHIVE -- sealed after the\n"
+	.string "Genesis Engine plot collapsed.$"
+
+SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveCaptains:
+	.string "Captains named in the files:\n"
+	.string "NOVA · ARC · FORGE · PRISM · ORIGIN.\p"
+	.string "Their crystal routes cross AURELIA--\n"
+	.string "museum, falls, cavern, hideout.\p"
+	.string "CAELUM's last note: “Potential unbound\n"
+	.string "is not a weapon. It is a choice.”$"
+
+SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveReward:
+	.string "A research capsule was left for the\n"
+	.string "one who closed the case.$"
+
+SlateportCity_OceanicMuseum_2F_Text_EclipseArchiveDone:
+	.string "The Eclipse Archive stays open to you.\n"
+	.string "Remember: choice over conquest.$"
 
 SlateportCity_OceanicMuseum_2F_Text_DeepSeawaterDisplay:
 	.string "It's a display on the flow of seawater.\p"
