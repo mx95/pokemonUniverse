@@ -1,4 +1,4 @@
-@ GENESIS: Per-gym-town lore Pokémon (Metagross-style catch quests)
+@ GENESIS: Per-gym-town lore Pokémon (non-legendary / pseudo-tier)
 
 Genesis_EventScript_TownMon_Decline::
 	msgbox Genesis_Text_TownMon_GenericDecline, MSGBOX_DEFAULT
@@ -25,8 +25,8 @@ Genesis_EventScript_TownMon_Lumen::
 	msgbox Genesis_Text_TownMon_Lumen_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_SHAYMIN_LAND, 30, ITEM_LUM_BERRY
-	createmon B_SIDE_OPPONENT, 0, SPECIES_SHAYMIN_LAND, 30, item=ITEM_LUM_BERRY, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_RILLABOOM, 30, ITEM_MIRACLE_SEED
+	createmon B_SIDE_OPPONENT, 0, SPECIES_RILLABOOM, 30, item=ITEM_MIRACLE_SEED, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -46,8 +46,8 @@ Genesis_EventScript_TownMon_Lumen_OfferCatch::
 	msgbox Genesis_Text_TownMon_Lumen_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Lumen_CatchLater
 	closemessage
-	setwildbattle SPECIES_SHAYMIN_LAND, 30, ITEM_LUM_BERRY
-	createmon B_SIDE_OPPONENT, 0, SPECIES_SHAYMIN_LAND, 30, item=ITEM_LUM_BERRY, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_RILLABOOM, 30, ITEM_MIRACLE_SEED
+	createmon B_SIDE_OPPONENT, 0, SPECIES_RILLABOOM, 30, item=ITEM_MIRACLE_SEED, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -75,22 +75,22 @@ Genesis_EventScript_TownMon_Lumen_Done::
 	end
 
 Genesis_Text_TownMon_Lumen_Lore:
-	.string "They say a Gratitude Pokémon sleeps in\nthe flower beds when LUMEN is kind.\pSHAYMIN blooms where pure hearts gather.\nWill you greet it?$"
+	.string "LUMEN's drum circle woke a wild RILLABOOM--\nthe Drummer Pokémon of the forests.\pIts grassy beat keeps the meadow healthy.\nWill you face its rhythm?$"
 
 Genesis_Text_TownMon_Lumen_Challenge:
-	.string "SHAYMIN's flowers stir… Challenge it?$"
+	.string "Challenge the grove's RILLABOOM?$"
 
 Genesis_Text_TownMon_Lumen_Defeat:
-	.string "The petals settle…$"
+	.string "The drums fall quiet…$"
 
 Genesis_Text_TownMon_Lumen_CatchOffer:
-	.string "Offer a home to the Gratitude Pokémon?$"
+	.string "Invite RILLABOOM to your party?$"
 
 Genesis_Text_TownMon_Lumen_Caught:
-	.string "SHAYMIN trusts you now.$"
+	.string "RILLABOOM taps a welcoming beat.$"
 
 Genesis_Text_TownMon_Lumen_Done:
-	.string "SHAYMIN's meadow remembers your kindness.$"
+	.string "LUMEN's grove still echoes its drum.$"
 
 Genesis_EventScript_TownMon_Ironridge::
 	lock
@@ -103,8 +103,8 @@ Genesis_EventScript_TownMon_Ironridge::
 	msgbox Genesis_Text_TownMon_Ironridge_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_KELDEO, 28, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_KELDEO, 28, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_KOMMO_O, 28, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_KOMMO_O, 28, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -124,8 +124,8 @@ Genesis_EventScript_TownMon_Ironridge_OfferCatch::
 	msgbox Genesis_Text_TownMon_Ironridge_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Ironridge_CatchLater
 	closemessage
-	setwildbattle SPECIES_KELDEO, 28, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_KELDEO, 28, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_KOMMO_O, 28, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_KOMMO_O, 28, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -153,22 +153,22 @@ Genesis_EventScript_TownMon_Ironridge_Done::
 	end
 
 Genesis_Text_TownMon_Ironridge_Lore:
-	.string "Ironridge forges more than steel--\nit forges will.\pA Colt Pokémon trains at the shore,\nseeking the Secret Sword of resolve.$"
+	.string "Ironridge caves temper more than ore.\nA KOMMO-O--Clangorous Pokémon--trains\pthere, scales ringing like iron fists.\nFIGHTING spirit in dragon armor.$"
 
 Genesis_Text_TownMon_Ironridge_Challenge:
-	.string "Face KELDEO's trial?$"
+	.string "Spar with KOMMO-O?$"
 
 Genesis_Text_TownMon_Ironridge_Defeat:
-	.string "Its blade of water stills…$"
+	.string "The clanging ceases…$"
 
 Genesis_Text_TownMon_Ironridge_CatchOffer:
-	.string "Invite KELDEO to travel with you?$"
+	.string "Travel with KOMMO-O?$"
 
 Genesis_Text_TownMon_Ironridge_Caught:
-	.string "KELDEO nods--your paths align.$"
+	.string "KOMMO-O bows--scales still humming.$"
 
 Genesis_Text_TownMon_Ironridge_Done:
-	.string "KELDEO still drills at dawn.$"
+	.string "Cave walls still ring at dawn.$"
 
 Genesis_EventScript_TownMon_PortAzure::
 	lock
@@ -181,8 +181,8 @@ Genesis_EventScript_TownMon_PortAzure::
 	msgbox Genesis_Text_TownMon_PortAzure_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_MANAPHY, 35, ITEM_MYSTIC_WATER
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MANAPHY, 35, item=ITEM_MYSTIC_WATER, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_MILOTIC, 35, ITEM_MYSTIC_WATER
+	createmon B_SIDE_OPPONENT, 0, SPECIES_MILOTIC, 35, item=ITEM_MYSTIC_WATER, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -202,8 +202,8 @@ Genesis_EventScript_TownMon_PortAzure_OfferCatch::
 	msgbox Genesis_Text_TownMon_PortAzure_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_PortAzure_CatchLater
 	closemessage
-	setwildbattle SPECIES_MANAPHY, 35, ITEM_MYSTIC_WATER
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MANAPHY, 35, item=ITEM_MYSTIC_WATER, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_MILOTIC, 35, ITEM_MYSTIC_WATER
+	createmon B_SIDE_OPPONENT, 0, SPECIES_MILOTIC, 35, item=ITEM_MYSTIC_WATER, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -231,22 +231,22 @@ Genesis_EventScript_TownMon_PortAzure_Done::
 	end
 
 Genesis_Text_TownMon_PortAzure_Lore:
-	.string "Port Azure tides once cradled a Seafaring\nPokémon--prince of the ocean.\pMANAPHY washes ashore when trainers\nprotect the bay.$"
+	.string "Port Azure fishers speak of a Tender\nPokémon born from an ugly FEEBAS.\pMILOTIC calms furious seas with beauty\nand stubborn grace.$"
 
 Genesis_Text_TownMon_PortAzure_Challenge:
-	.string "Answer MANAPHY's call?$"
+	.string "Face MILOTIC on the pier?$"
 
 Genesis_Text_TownMon_PortAzure_Defeat:
-	.string "The sea grows calm…$"
+	.string "The tide goes glass-smooth…$"
 
 Genesis_Text_TownMon_PortAzure_CatchOffer:
-	.string "Take MANAPHY under your care?$"
+	.string "Ask MILOTIC to sail with you?$"
 
 Genesis_Text_TownMon_PortAzure_Caught:
-	.string "MANAPHY sparkles with joy.$"
+	.string "MILOTIC coils beside you, serene.$"
 
 Genesis_Text_TownMon_PortAzure_Done:
-	.string "The bay still sings for MANAPHY.$"
+	.string "Harbor waters stay kinder now.$"
 
 Genesis_EventScript_TownMon_Frostveil::
 	lock
@@ -259,8 +259,8 @@ Genesis_EventScript_TownMon_Frostveil::
 	msgbox Genesis_Text_TownMon_Frostveil_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_REGICE, 40, ITEM_NEVER_MELT_ICE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_REGICE, 40, item=ITEM_NEVER_MELT_ICE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_BAXCALIBUR, 40, ITEM_NEVER_MELT_ICE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_BAXCALIBUR, 40, item=ITEM_NEVER_MELT_ICE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -280,8 +280,8 @@ Genesis_EventScript_TownMon_Frostveil_OfferCatch::
 	msgbox Genesis_Text_TownMon_Frostveil_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Frostveil_CatchLater
 	closemessage
-	setwildbattle SPECIES_REGICE, 40, ITEM_NEVER_MELT_ICE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_REGICE, 40, item=ITEM_NEVER_MELT_ICE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_BAXCALIBUR, 40, ITEM_NEVER_MELT_ICE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_BAXCALIBUR, 40, item=ITEM_NEVER_MELT_ICE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -309,22 +309,22 @@ Genesis_EventScript_TownMon_Frostveil_Done::
 	end
 
 Genesis_Text_TownMon_Frostveil_Lore:
-	.string "Frostveil's springs hide a paradox--\nice sealed beneath heat.\pREGICE, the Iceberg Pokémon, waits in\na cold vault under the spa rocks.$"
+	.string "Frostveil's paradox springs hid a nest.\nBAXCALIBUR--Ice Dragon Pokémon--guards\pthe cold vault under the hot rocks,\na true pseudo-legend of ice and fang.$"
 
 Genesis_Text_TownMon_Frostveil_Challenge:
-	.string "Wake REGICE?$"
+	.string "Challenge BAXCALIBUR?$"
 
 Genesis_Text_TownMon_Frostveil_Defeat:
-	.string "Ancient ice cracks… then stills.$"
+	.string "Frost settles on the stone…$"
 
 Genesis_Text_TownMon_Frostveil_CatchOffer:
-	.string "Bind REGICE to your team?$"
+	.string "Partner with BAXCALIBUR?$"
 
 Genesis_Text_TownMon_Frostveil_Caught:
-	.string "REGICE's frost accepts you.$"
+	.string "BAXCALIBUR sheaths its blade-crest.$"
 
 Genesis_Text_TownMon_Frostveil_Done:
-	.string "The ice vault stays quiet.$"
+	.string "The vault ice stays unbroken.$"
 
 Genesis_EventScript_TownMon_Solaris::
 	lock
@@ -337,8 +337,8 @@ Genesis_EventScript_TownMon_Solaris::
 	msgbox Genesis_Text_TownMon_Solaris_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_ENTEI, 42, ITEM_CHARCOAL
-	createmon B_SIDE_OPPONENT, 0, SPECIES_ENTEI, 42, item=ITEM_CHARCOAL, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_BLAZIKEN, 42, ITEM_CHARCOAL
+	createmon B_SIDE_OPPONENT, 0, SPECIES_BLAZIKEN, 42, item=ITEM_CHARCOAL, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -358,8 +358,8 @@ Genesis_EventScript_TownMon_Solaris_OfferCatch::
 	msgbox Genesis_Text_TownMon_Solaris_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Solaris_CatchLater
 	closemessage
-	setwildbattle SPECIES_ENTEI, 42, ITEM_CHARCOAL
-	createmon B_SIDE_OPPONENT, 0, SPECIES_ENTEI, 42, item=ITEM_CHARCOAL, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_BLAZIKEN, 42, ITEM_CHARCOAL
+	createmon B_SIDE_OPPONENT, 0, SPECIES_BLAZIKEN, 42, item=ITEM_CHARCOAL, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -387,22 +387,22 @@ Genesis_EventScript_TownMon_Solaris_Done::
 	end
 
 Genesis_Text_TownMon_Solaris_Lore:
-	.string "Solaris worships the sun.\nWhen volcanoes birthed legends,\pENTEI--Volcano Pokémon--raced the\nridges, leaving ash-flowers in its wake.$"
+	.string "Solaris sun-dojos raised a BLAZIKEN\nwhose kicks scorch training posts.\pThe Blaze Pokémon of this city fights\nwith solar heat in every strike.$"
 
 Genesis_Text_TownMon_Solaris_Challenge:
-	.string "Race ENTEI's flame?$"
+	.string "Trade blows with BLAZIKEN?$"
 
 Genesis_Text_TownMon_Solaris_Defeat:
-	.string "The ridge cools…$"
+	.string "Embers cool on the wood…$"
 
 Genesis_Text_TownMon_Solaris_CatchOffer:
-	.string "Walk beside ENTEI?$"
+	.string "Train under BLAZIKEN's wing?$"
 
 Genesis_Text_TownMon_Solaris_Caught:
-	.string "ENTEI's roar becomes your beacon.$"
+	.string "BLAZIKEN nods through the haze.$"
 
 Genesis_Text_TownMon_Solaris_Done:
-	.string "Ash-flowers still mark its path.$"
+	.string "Dojo ash still marks its stance.$"
 
 Genesis_EventScript_TownMon_Stormbreak::
 	lock
@@ -415,8 +415,8 @@ Genesis_EventScript_TownMon_Stormbreak::
 	msgbox Genesis_Text_TownMon_Stormbreak_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_TORNADUS, 48, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_TORNADUS, 48, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_SALAMENCE, 48, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SALAMENCE, 48, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -436,8 +436,8 @@ Genesis_EventScript_TownMon_Stormbreak_OfferCatch::
 	msgbox Genesis_Text_TownMon_Stormbreak_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Stormbreak_CatchLater
 	closemessage
-	setwildbattle SPECIES_TORNADUS, 48, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_TORNADUS, 48, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_SALAMENCE, 48, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SALAMENCE, 48, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -465,22 +465,22 @@ Genesis_EventScript_TownMon_Stormbreak_Done::
 	end
 
 Genesis_Text_TownMon_Stormbreak_Lore:
-	.string "Stormbreak cliffs call the Gale Pokémon.\nTORNADUS whips sea and sky into fury\pwhen respect for the wind is forgotten.$"
+	.string "Stormbreak cliffs hatch dreamers.\nSALAMENCE--Dragon Pokémon--finally\pearned its wings here. Wind and fang\nrival any gale legend.$"
 
 Genesis_Text_TownMon_Stormbreak_Challenge:
-	.string "Stand against TORNADUS?$"
+	.string "Race SALAMENCE in the sky?$"
 
 Genesis_Text_TownMon_Stormbreak_Defeat:
-	.string "The gale softens…$"
+	.string "Wingtips fold at last…$"
 
 Genesis_Text_TownMon_Stormbreak_CatchOffer:
-	.string "Partner with TORNADUS?$"
+	.string "Fly with SALAMENCE?$"
 
 Genesis_Text_TownMon_Stormbreak_Caught:
-	.string "TORNADUS circles you once--accepted.$"
+	.string "SALAMENCE opens a wing for you.$"
 
 Genesis_Text_TownMon_Stormbreak_Done:
-	.string "Winds still bow at Stormbreak.$"
+	.string "Clifftop nests stay watched.$"
 
 Genesis_EventScript_TownMon_Titania::
 	lock
@@ -493,8 +493,8 @@ Genesis_EventScript_TownMon_Titania::
 	msgbox Genesis_Text_TownMon_Titania_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_JIRACHI, 50, ITEM_STAR_PIECE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_JIRACHI, 50, item=ITEM_STAR_PIECE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_ARCHALUDON, 50, ITEM_METAL_COAT
+	createmon B_SIDE_OPPONENT, 0, SPECIES_ARCHALUDON, 50, item=ITEM_METAL_COAT, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -514,8 +514,8 @@ Genesis_EventScript_TownMon_Titania_OfferCatch::
 	msgbox Genesis_Text_TownMon_Titania_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Titania_CatchLater
 	closemessage
-	setwildbattle SPECIES_JIRACHI, 50, ITEM_STAR_PIECE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_JIRACHI, 50, item=ITEM_STAR_PIECE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_ARCHALUDON, 50, ITEM_METAL_COAT
+	createmon B_SIDE_OPPONENT, 0, SPECIES_ARCHALUDON, 50, item=ITEM_METAL_COAT, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -543,22 +543,22 @@ Genesis_EventScript_TownMon_Titania_Done::
 	end
 
 Genesis_Text_TownMon_Titania_Lore:
-	.string "Titania's steel mirrors catch falling\nstars. Myths say JIRACHI--Wish Pokémon--\psleeps a thousand years, waking for a\nweek of wishes in a meteor cradle.$"
+	.string "Titania's bridgeworks woke an ARCHALUDON--\nAlloy Pokémon of living steel.\pIt braces the city like a walking\nfortress. Pseudo-tier bulk, pure STEEL.$"
 
 Genesis_Text_TownMon_Titania_Challenge:
-	.string "Wake JIRACHI's dream?$"
+	.string "Test ARCHALUDON's girders?$"
 
 Genesis_Text_TownMon_Titania_Defeat:
-	.string "Starlight fades gently…$"
+	.string "Metal stress-lines ease…$"
 
 Genesis_Text_TownMon_Titania_CatchOffer:
-	.string "Will you grant JIRACHI a journey?$"
+	.string "Command ARCHALUDON?$"
 
 Genesis_Text_TownMon_Titania_Caught:
-	.string "JIRACHI's tags flutter--wish shared.$"
+	.string "ARCHALUDON locks in beside you.$"
 
 Genesis_Text_TownMon_Titania_Done:
-	.string "The meteor cradle glimmers softly.$"
+	.string "Bridge cables hum softer now.$"
 
 Genesis_EventScript_TownMon_Mirage::
 	lock
@@ -571,8 +571,8 @@ Genesis_EventScript_TownMon_Mirage::
 	msgbox Genesis_Text_TownMon_Mirage_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_CRESSELIA, 55, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_CRESSELIA, 55, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_GARDEVOIR, 55, ITEM_TWISTED_SPOON
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GARDEVOIR, 55, item=ITEM_TWISTED_SPOON, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -592,8 +592,8 @@ Genesis_EventScript_TownMon_Mirage_OfferCatch::
 	msgbox Genesis_Text_TownMon_Mirage_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Mirage_CatchLater
 	closemessage
-	setwildbattle SPECIES_CRESSELIA, 55, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_CRESSELIA, 55, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_GARDEVOIR, 55, ITEM_TWISTED_SPOON
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GARDEVOIR, 55, item=ITEM_TWISTED_SPOON, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -621,22 +621,22 @@ Genesis_EventScript_TownMon_Mirage_Done::
 	end
 
 Genesis_Text_TownMon_Mirage_Lore:
-	.string "Mirage City bends light and dream.\nCRESSELIA, the Lunar Pokémon, soothes\pnightmares--its crescent veil steadies\nminds lost in illusion.$"
+	.string "Mirage psychics bond with GARDEVOIR--\nthe Embrace Pokémon that protects\ptrainers with its life. Illusion and\nempathy are its battlefield.$"
 
 Genesis_Text_TownMon_Mirage_Challenge:
-	.string "Call CRESSELIA?$"
+	.string "Duel MIRAGE's GARDEVOIR?$"
 
 Genesis_Text_TownMon_Mirage_Defeat:
-	.string "Moonlight settles…$"
+	.string "The mind-fog lifts…$"
 
 Genesis_Text_TownMon_Mirage_CatchOffer:
-	.string "Travel with CRESSELIA?$"
+	.string "Bond with GARDEVOIR?$"
 
 Genesis_Text_TownMon_Mirage_Caught:
-	.string "CRESSELIA's veil wraps your team.$"
+	.string "GARDEVOIR's aura steadies yours.$"
 
 Genesis_Text_TownMon_Mirage_Done:
-	.string "Dreams in Mirage stay gentle.$"
+	.string "Mirage minds sleep easier.$"
 
 Genesis_EventScript_TownMon_Verdantis::
 	lock
@@ -649,8 +649,8 @@ Genesis_EventScript_TownMon_Verdantis::
 	msgbox Genesis_Text_TownMon_Verdantis_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_GENESECT, 56, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_GENESECT, 56, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_VOLCARONA, 56, ITEM_SILVER_POWDER
+	createmon B_SIDE_OPPONENT, 0, SPECIES_VOLCARONA, 56, item=ITEM_SILVER_POWDER, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -670,8 +670,8 @@ Genesis_EventScript_TownMon_Verdantis_OfferCatch::
 	msgbox Genesis_Text_TownMon_Verdantis_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Verdantis_CatchLater
 	closemessage
-	setwildbattle SPECIES_GENESECT, 56, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_GENESECT, 56, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_VOLCARONA, 56, ITEM_SILVER_POWDER
+	createmon B_SIDE_OPPONENT, 0, SPECIES_VOLCARONA, 56, item=ITEM_SILVER_POWDER, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -699,22 +699,22 @@ Genesis_EventScript_TownMon_Verdantis_Done::
 	end
 
 Genesis_Text_TownMon_Verdantis_Lore:
-	.string "Verdantis insect labs restored an ancient\nUltra weapon--GENESECT, the Paleozoic\pPokémon, cannon and all. It seeks a\ntrainer, not a cage.$"
+	.string "Verdantis bug labs reared a VOLCARONA\nfrom a LARVESTA cocoon--Sun Pokémon\pwhose scales once warmed continents.\nBug power at near-pseudo strength.$"
 
 Genesis_Text_TownMon_Verdantis_Challenge:
-	.string "Challenge GENESECT?$"
+	.string "Face VOLCARONA's heat?$"
 
 Genesis_Text_TownMon_Verdantis_Defeat:
-	.string "The cannon powers down…$"
+	.string "Solar dust drifts down…$"
 
 Genesis_Text_TownMon_Verdantis_CatchOffer:
-	.string "Free GENESECT as a partner?$"
+	.string "Raise VOLCARONA yourself?$"
 
 Genesis_Text_TownMon_Verdantis_Caught:
-	.string "GENESECT's drive hums in sync.$"
+	.string "VOLCARONA's wings shield you.$"
 
 Genesis_Text_TownMon_Verdantis_Done:
-	.string "The lab monitors stay green.$"
+	.string "Lab lamps glow amber since then.$"
 
 Genesis_EventScript_TownMon_Obsidian::
 	lock
@@ -727,8 +727,8 @@ Genesis_EventScript_TownMon_Obsidian::
 	msgbox Genesis_Text_TownMon_Obsidian_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_DARKRAI, 58, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_DARKRAI, 58, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_HYDREIGON, 58, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_HYDREIGON, 58, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -748,8 +748,8 @@ Genesis_EventScript_TownMon_Obsidian_OfferCatch::
 	msgbox Genesis_Text_TownMon_Obsidian_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Obsidian_CatchLater
 	closemessage
-	setwildbattle SPECIES_DARKRAI, 58, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_DARKRAI, 58, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_HYDREIGON, 58, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_HYDREIGON, 58, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -777,22 +777,22 @@ Genesis_EventScript_TownMon_Obsidian_Done::
 	end
 
 Genesis_Text_TownMon_Obsidian_Lore:
-	.string "Obsidian's vents birth bad dreams.\nDARKRAI, the Pitch-Black Pokémon, was\pblamed for every nightmare--yet it only\nseeks a place without fear.$"
+	.string "Obsidian vents raised a brutal HYDREIGON--\nBrutal Pokémon, three heads of DARK.\pA classic pseudo-legend that learned\nto hunt in volcanic night.$"
 
 Genesis_Text_TownMon_Obsidian_Challenge:
-	.string "Confront DARKRAI?$"
+	.string "Stare down HYDREIGON?$"
 
 Genesis_Text_TownMon_Obsidian_Defeat:
-	.string "The nightmares thin…$"
+	.string "All three heads lower…$"
 
 Genesis_Text_TownMon_Obsidian_CatchOffer:
-	.string "Offer DARKRAI sanctuary?$"
+	.string "Claim HYDREIGON as an ally?$"
 
 Genesis_Text_TownMon_Obsidian_Caught:
-	.string "DARKRAI fades into your shadow--ally.$"
+	.string "HYDREIGON's rage focuses for you.$"
 
 Genesis_Text_TownMon_Obsidian_Done:
-	.string "Night in Obsidian grows quieter.$"
+	.string "Vent shadows feel less hungry.$"
 
 Genesis_EventScript_TownMon_Astral::
 	lock
@@ -805,8 +805,8 @@ Genesis_EventScript_TownMon_Astral::
 	msgbox Genesis_Text_TownMon_Astral_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_LATIOS, 60, ITEM_SOUL_DEW
-	createmon B_SIDE_OPPONENT, 0, SPECIES_LATIOS, 60, item=ITEM_SOUL_DEW, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_DRAGONITE, 60, ITEM_DRAGON_FANG
+	createmon B_SIDE_OPPONENT, 0, SPECIES_DRAGONITE, 60, item=ITEM_DRAGON_FANG, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -826,8 +826,8 @@ Genesis_EventScript_TownMon_Astral_OfferCatch::
 	msgbox Genesis_Text_TownMon_Astral_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Astral_CatchLater
 	closemessage
-	setwildbattle SPECIES_LATIOS, 60, ITEM_SOUL_DEW
-	createmon B_SIDE_OPPONENT, 0, SPECIES_LATIOS, 60, item=ITEM_SOUL_DEW, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_DRAGONITE, 60, ITEM_DRAGON_FANG
+	createmon B_SIDE_OPPONENT, 0, SPECIES_DRAGONITE, 60, item=ITEM_DRAGON_FANG, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -855,22 +855,22 @@ Genesis_EventScript_TownMon_Astral_Done::
 	end
 
 Genesis_Text_TownMon_Astral_Lore:
-	.string "Astral's observatory tracks Eon Pokémon.\nLATIOS shares compassion across distance,\pguiding those who chart the sky with\ncare, not conquest.$"
+	.string "Astral scopes track a DRAGONITE ferrying\nstorm-lost ships--the Dragon Pokémon\pevery trainer names as the first\npseudo-legend of the skies.$"
 
 Genesis_Text_TownMon_Astral_Challenge:
-	.string "Meet LATIOS in battle?$"
+	.string "Challenge DRAGONITE?$"
 
 Genesis_Text_TownMon_Astral_Defeat:
-	.string "The sky-blue aura dims…$"
+	.string "Gale and wingbeat still…$"
 
 Genesis_Text_TownMon_Astral_CatchOffer:
-	.string "Fly with LATIOS?$"
+	.string "Journey with DRAGONITE?$"
 
 Genesis_Text_TownMon_Astral_Caught:
-	.string "LATIOS opens a telepathic bond.$"
+	.string "DRAGONITE rumbles warmly.$"
 
 Genesis_Text_TownMon_Astral_Done:
-	.string "Astral scopes still track your friend.$"
+	.string "Astral logs keep its flight path.$"
 
 Genesis_EventScript_TownMon_Tidymoon::
 	lock
@@ -883,8 +883,8 @@ Genesis_EventScript_TownMon_Tidymoon::
 	msgbox Genesis_Text_TownMon_Tidymoon_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_ENAMORUS, 62, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_ENAMORUS, 62, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_TOGEKISS, 62, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_TOGEKISS, 62, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -904,8 +904,8 @@ Genesis_EventScript_TownMon_Tidymoon_OfferCatch::
 	msgbox Genesis_Text_TownMon_Tidymoon_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Tidymoon_CatchLater
 	closemessage
-	setwildbattle SPECIES_ENAMORUS, 62, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_ENAMORUS, 62, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_TOGEKISS, 62, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_TOGEKISS, 62, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -933,22 +933,22 @@ Genesis_EventScript_TownMon_Tidymoon_Done::
 	end
 
 Genesis_Text_TownMon_Tidymoon_Lore:
-	.string "Tidymoon tides swell with Love-Hate\nenergy. ENAMORUS arrives when hearts\pand seasons turn--fairy force of spring\noff the moonlit coast.$"
+	.string "Tidymoon tides bless kind hearts.\nTOGEKISS--Jubilee Pokémon--appears\pwhere peace is kept. Fairy grace\nwithout needing a mythical seal.$"
 
 Genesis_Text_TownMon_Tidymoon_Challenge:
-	.string "Dance with ENAMORUS?$"
+	.string "Dance against TOGEKISS?$"
 
 Genesis_Text_TownMon_Tidymoon_Defeat:
-	.string "Petals of foam settle…$"
+	.string "Moonlit feathers settle…$"
 
 Genesis_Text_TownMon_Tidymoon_CatchOffer:
-	.string "Journey with ENAMORUS?$"
+	.string "Travel with TOGEKISS?$"
 
 Genesis_Text_TownMon_Tidymoon_Caught:
-	.string "ENAMORUS smiles--spring follows you.$"
+	.string "TOGEKISS circles you once, joyful.$"
 
 Genesis_Text_TownMon_Tidymoon_Done:
-	.string "Tide pools still glow at night.$"
+	.string "Tide shrines stay flowered.$"
 
 Genesis_EventScript_TownMon_Eon::
 	lock
@@ -961,8 +961,8 @@ Genesis_EventScript_TownMon_Eon::
 	msgbox Genesis_Text_TownMon_Eon_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_MARSHADOW, 63, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MARSHADOW, 63, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_DRAGAPULT, 63, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_DRAGAPULT, 63, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -982,8 +982,8 @@ Genesis_EventScript_TownMon_Eon_OfferCatch::
 	msgbox Genesis_Text_TownMon_Eon_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Eon_CatchLater
 	closemessage
-	setwildbattle SPECIES_MARSHADOW, 63, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MARSHADOW, 63, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_DRAGAPULT, 63, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_DRAGAPULT, 63, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1011,22 +1011,22 @@ Genesis_EventScript_TownMon_Eon_Done::
 	end
 
 Genesis_Text_TownMon_Eon_Lore:
-	.string "Eon City's bells hide a Gloomdweller.\nMARSHADOW lives in shadows, copying the\pmoves of warriors it respects.$"
+	.string "Eon City's bells hid a DRAGAPULT nest--\nStealth Pokémon that launches DREEPY\plike living missiles. Ghost-dragon\npseudo power in the belfry dark.$"
 
 Genesis_Text_TownMon_Eon_Challenge:
-	.string "Draw MARSHADOW out?$"
+	.string "Intercept DRAGAPULT?$"
 
 Genesis_Text_TownMon_Eon_Defeat:
-	.string "The shadow stills…$"
+	.string "The belfry goes still…$"
 
 Genesis_Text_TownMon_Eon_CatchOffer:
-	.string "Let MARSHADOW walk in your shade?$"
+	.string "Crew up with DRAGAPULT?$"
 
 Genesis_Text_TownMon_Eon_Caught:
-	.string "MARSHADOW bows--student of your style.$"
+	.string "DRAGAPULT stows its DREEPY for you.$"
 
 Genesis_Text_TownMon_Eon_Done:
-	.string "Bells toll softer now.$"
+	.string "Bells toll cleaner at dusk.$"
 
 Genesis_EventScript_TownMon_GenesisCity::
 	lock
@@ -1039,8 +1039,8 @@ Genesis_EventScript_TownMon_GenesisCity::
 	msgbox Genesis_Text_TownMon_GenesisCity_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_MELOETTA, 64, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MELOETTA, 64, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_SLAKING, 64, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SLAKING, 64, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1060,8 +1060,8 @@ Genesis_EventScript_TownMon_GenesisCity_OfferCatch::
 	msgbox Genesis_Text_TownMon_GenesisCity_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_GenesisCity_CatchLater
 	closemessage
-	setwildbattle SPECIES_MELOETTA, 64, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_MELOETTA, 64, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_SLAKING, 64, ITEM_NONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_SLAKING, 64, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1089,22 +1089,22 @@ Genesis_EventScript_TownMon_GenesisCity_Done::
 	end
 
 Genesis_Text_TownMon_GenesisCity_Lore:
-	.string "Genesis City is AURELIA's hub of arts\nand prep. MELOETTA--Melody Pokémon--\panswers when many voices train as one.$"
+	.string "Genesis City's training yards host a\nSLAKING--Lazy Pokémon with monstrous\pNORMAL power that outclasses most\nlegends… when it bothers to move.$"
 
 Genesis_Text_TownMon_GenesisCity_Challenge:
-	.string "Perform against MELOETTA?$"
+	.string "Rouse SLAKING to battle?$"
 
 Genesis_Text_TownMon_GenesisCity_Defeat:
-	.string "The song resolves…$"
+	.string "It yawns… then yields.$"
 
 Genesis_Text_TownMon_GenesisCity_CatchOffer:
-	.string "Invite MELOETTA on tour?$"
+	.string "Can you keep SLAKING motivated?$"
 
 Genesis_Text_TownMon_GenesisCity_Caught:
-	.string "MELOETTA's aria becomes your theme.$"
+	.string "SLAKING shuffles into your care.$"
 
 Genesis_Text_TownMon_GenesisCity_Done:
-	.string "Street musicians still hum its tune.$"
+	.string "Yard trainers still tip-toe past it.$"
 
 Genesis_EventScript_TownMon_Summit::
 	lock
@@ -1117,8 +1117,8 @@ Genesis_EventScript_TownMon_Summit::
 	msgbox Genesis_Text_TownMon_Summit_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_REGIROCK, 65, ITEM_HARD_STONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_REGIROCK, 65, item=ITEM_HARD_STONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_TYRANITAR, 65, ITEM_HARD_STONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_TYRANITAR, 65, item=ITEM_HARD_STONE, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1138,8 +1138,8 @@ Genesis_EventScript_TownMon_Summit_OfferCatch::
 	msgbox Genesis_Text_TownMon_Summit_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Summit_CatchLater
 	closemessage
-	setwildbattle SPECIES_REGIROCK, 65, ITEM_HARD_STONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_REGIROCK, 65, item=ITEM_HARD_STONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_TYRANITAR, 65, ITEM_HARD_STONE
+	createmon B_SIDE_OPPONENT, 0, SPECIES_TYRANITAR, 65, item=ITEM_HARD_STONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1167,22 +1167,22 @@ Genesis_EventScript_TownMon_Summit_Done::
 	end
 
 Genesis_Text_TownMon_Summit_Lore:
-	.string "The eastern Summit keeps a Rock Peak\ngolem. REGIROCK's body is pure stone\pfrom every era--Mentor's trial beyond\nthe stone badges.$"
+	.string "The Summit's fault line woke a TYRANITAR--\nArmor Pokémon, ROCK and DARK pseudo.\pSandstorms answer its roar. Mentor\ncalls it the mountain's true trial.$"
 
 Genesis_Text_TownMon_Summit_Challenge:
-	.string "Strike REGIROCK?$"
+	.string "Stand against TYRANITAR?$"
 
 Genesis_Text_TownMon_Summit_Defeat:
-	.string "Pebbles cease falling…$"
+	.string "The sandstorm breaks…$"
 
 Genesis_Text_TownMon_Summit_CatchOffer:
-	.string "Command REGIROCK?$"
+	.string "Command TYRANITAR?$"
 
 Genesis_Text_TownMon_Summit_Caught:
-	.string "REGIROCK's eyes glow acceptance.$"
+	.string "TYRANITAR's armor accepts you.$"
 
 Genesis_Text_TownMon_Summit_Done:
-	.string "The peak stones remember you.$"
+	.string "Summit stone still bears its claw.$"
 
 Genesis_EventScript_TownMon_Venom::
 	lock
@@ -1195,8 +1195,8 @@ Genesis_EventScript_TownMon_Venom::
 	msgbox Genesis_Text_TownMon_Venom_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_PECHARUNT, 66, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_PECHARUNT, 66, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_GENGAR, 66, ITEM_POISON_BARB
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GENGAR, 66, item=ITEM_POISON_BARB, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1216,8 +1216,8 @@ Genesis_EventScript_TownMon_Venom_OfferCatch::
 	msgbox Genesis_Text_TownMon_Venom_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Venom_CatchLater
 	closemessage
-	setwildbattle SPECIES_PECHARUNT, 66, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_PECHARUNT, 66, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_GENGAR, 66, ITEM_POISON_BARB
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GENGAR, 66, item=ITEM_POISON_BARB, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1245,22 +1245,22 @@ Genesis_EventScript_TownMon_Venom_Done::
 	end
 
 Genesis_Text_TownMon_Venom_Lore:
-	.string "Venom Hollow's mochi myths were true.\nPECHARUNT binds with toxic hospitality--\pyet it can learn trust instead of chains.$"
+	.string "Venom Hollow's mist hides a GENGAR--\nShadow Pokémon steeped in toxins.\pNot a mythic binder, just a cunning\nPOISON trickster of the vapor vents.$"
 
 Genesis_Text_TownMon_Venom_Challenge:
-	.string "Break PECHARUNT's binding bout?$"
+	.string "Outwit GENGAR?$"
 
 Genesis_Text_TownMon_Venom_Defeat:
-	.string "The sweet scent fades…$"
+	.string "The grin fades into mist…$"
 
 Genesis_Text_TownMon_Venom_CatchOffer:
-	.string "Reform PECHARUNT as an ally?$"
+	.string "Let GENGAR haunt your shadow?$"
 
 Genesis_Text_TownMon_Venom_Caught:
-	.string "PECHARUNT offers a toxin-free pact.$"
+	.string "GENGAR chuckles--deal struck.$"
 
 Genesis_Text_TownMon_Venom_Done:
-	.string "Hollow vapors smell cleaner.$"
+	.string "Hollow vapors feel less biting.$"
 
 Genesis_EventScript_TownMon_Terracotta::
 	lock
@@ -1273,8 +1273,8 @@ Genesis_EventScript_TownMon_Terracotta::
 	msgbox Genesis_Text_TownMon_Terracotta_Challenge, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Decline
 	closemessage
-	setwildbattle SPECIES_LANDORUS, 70, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_LANDORUS, 70, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS
+	setwildbattle SPECIES_GARCHOMP, 70, ITEM_SOFT_SAND
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GARCHOMP, 70, item=ITEM_SOFT_SAND, shinyMode=SHINY_MODE_ALWAYS
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 1
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1294,8 +1294,8 @@ Genesis_EventScript_TownMon_Terracotta_OfferCatch::
 	msgbox Genesis_Text_TownMon_Terracotta_CatchOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_EventScript_TownMon_Terracotta_CatchLater
 	closemessage
-	setwildbattle SPECIES_LANDORUS, 70, ITEM_NONE
-	createmon B_SIDE_OPPONENT, 0, SPECIES_LANDORUS, 70, item=ITEM_NONE, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
+	setwildbattle SPECIES_GARCHOMP, 70, ITEM_SOFT_SAND
+	createmon B_SIDE_OPPONENT, 0, SPECIES_GARCHOMP, 70, item=ITEM_SOFT_SAND, shinyMode=SHINY_MODE_ALWAYS, hpEv=0, atkEv=0, defEv=0, speedEv=0, spAtkEv=0, spDefEv=0
 	settotemboost B_POSITION_OPPONENT_LEFT, 0, 0, 0, 0, 0
 	special BattleSetup_StartLegendaryBattle
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -1323,20 +1323,20 @@ Genesis_EventScript_TownMon_Terracotta_Done::
 	end
 
 Genesis_Text_TownMon_Terracotta_Lore:
-	.string "Terracotta Mesa thrives when LANDORUS--\nAbundance Pokémon--blesses the soil.\pIt tests those who would till ground\nwithout greed.$"
+	.string "Terracotta Mesa's dunes birthed a\nGARCHOMP--Mach Pokémon, land shark\pand GROUND-type pseudo-legend. Soil\nremembers every stride it takes.$"
 
 Genesis_Text_TownMon_Terracotta_Challenge:
-	.string "Earn LANDORUS's blessing?$"
+	.string "Race GARCHOMP across the mesa?$"
 
 Genesis_Text_TownMon_Terracotta_Defeat:
-	.string "Dust settles into fertile quiet…$"
+	.string "Dust settles in its wake…$"
 
 Genesis_Text_TownMon_Terracotta_CatchOffer:
-	.string "Travel with LANDORUS?$"
+	.string "Hunt alongside GARCHOMP?$"
 
 Genesis_Text_TownMon_Terracotta_Caught:
-	.string "LANDORUS crowns your journey.$"
+	.string "GARCHOMP fins the air--accepted.$"
 
 Genesis_Text_TownMon_Terracotta_Done:
-	.string "Mesa crops grow taller since then.$"
+	.string "Mesa crops root deeper since then.$"
 

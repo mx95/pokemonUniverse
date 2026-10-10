@@ -555,7 +555,7 @@ EasternAurelia_Hall_Text_ColleagueAfter:
 
 EasternAurelia_Hall_Text_ColleagueDone:
 	.string "COLLEAGUE: Ask our plaque about\n"
-	.string "MELOETTA--the city's melody legend.$"
+	.string "SLAKING--lazy power, NORMAL force.$"
 
 EasternAurelia_Hall_Text_MentorIntro:
 	.string "MENTOR: AURELIA SUMMIT--ROCK desk.\n"
@@ -577,7 +577,7 @@ EasternAurelia_Hall_Text_MentorAfter:
 EasternAurelia_Hall_Text_MentorDone:
 	.string "MENTOR: The Summit watches your path.\n"
 	.string "VENOM HOLLOW and TERRACOTTA await.\p"
-	.string "Also seek REGIROCK at our plaque.$"
+	.string "Also seek TYRANITAR at our plaque.$"
 
 EasternAurelia_Hall_Text_VesperIntro:
 	.string "VESPER: VENOM HOLLOW desk.\n"
@@ -593,11 +593,11 @@ EasternAurelia_Hall_Text_GotVenomBadge:
 EasternAurelia_Hall_Text_VesperAfter:
 	.string "VESPER: Hollow clears you.\n"
 	.string "Final desk--TERRA of Terracotta Mesa.\p"
-	.string "And PECHARUNT still binds myths here.$"
+	.string "A cunning GENGAR still haunts the mist.$"
 
 EasternAurelia_Hall_Text_VesperDone:
 	.string "VESPER: Read the Venom plaque for\n"
-	.string "PECHARUNT's story, Champion.$"
+	.string "GENGAR's story, Champion.$"
 
 EasternAurelia_Hall_Text_TerraIntro:
 	.string "TERRA: TERRACOTTA MESA desk.\n"
@@ -613,11 +613,11 @@ EasternAurelia_Hall_Text_GotTerraBadge:
 EasternAurelia_Hall_Text_TerraAfter:
 	.string "TERRA: All eighteen types answered.\n"
 	.string "AURELIA's gym circuit is complete!\p"
-	.string "LANDORUS still tests the mesa soil.$"
+	.string "GARCHOMP still patrols the mesa dunes.$"
 
 EasternAurelia_Hall_Text_TerraDone:
 	.string "TERRA: Eighteen badges. Full spectrum.\n"
-	.string "Ask the mesa plaque of LANDORUS.$"
+	.string "Ask the mesa plaque of GARCHOMP.$"
 
 EasternAurelia_Hall_Text_NeedMentor:
 	.string "VESPER: Clear MENTOR's ROCK desk\n"
