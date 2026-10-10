@@ -304,6 +304,7 @@ EasternAurelia_Hall_EventScript_LegendSeekerEclipseGate::
 EasternAurelia_Hall_EventScript_HallClerk::
 	lock
 	faceplayer
+	call EasternAurelia_Hall_EventScript_TryTypeMasterGift
 	msgbox EasternAurelia_Hall_Text_ClerkWelcome, MSGBOX_DEFAULT
 	message EasternAurelia_Hall_Text_ClerkAsk
 	waitmessage
@@ -314,6 +315,25 @@ EasternAurelia_Hall_EventScript_HallClerk::
 	case 2, EasternAurelia_Hall_EventScript_ClerkDirectory
 	case MULTI_B_PRESSED, EasternAurelia_Hall_EventScript_ClerkStay
 	end
+
+EasternAurelia_Hall_EventScript_TryTypeMasterGift::
+	goto_if_set FLAG_GENESIS_TYPE_MASTER_REWARD, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_09_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_10_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_11_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_12_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_13_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_14_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_15_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_16_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_17_GET, Common_EventScript_NopReturn
+	goto_if_unset FLAG_GENESIS_BADGE_18_GET, Common_EventScript_NopReturn
+	setflag FLAG_GENESIS_TYPE_MASTER_REWARD
+	setflag FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER
+	msgbox EasternAurelia_Hall_Text_TypeMaster, MSGBOX_DEFAULT
+	giveitem ITEM_GOLD_BOTTLE_CAP
+	giveitem ITEM_ABILITY_CAPSULE
+	return
 
 EasternAurelia_Hall_EventScript_ClerkReturn::
 	msgbox EasternAurelia_Hall_Text_ClerkWarpOut, MSGBOX_DEFAULT
@@ -643,9 +663,15 @@ EasternAurelia_Hall_Text_SanctumOffer:
 EasternAurelia_Hall_Text_SanctumWarp:
 	.string "This way--tread carefully.$"
 
+EasternAurelia_Hall_Text_TypeMaster:
+	.string "Every Eastern desk answered you.\n"
+	.string "Eighteen types… a TYPE MASTER!\p"
+	.string "Take this Gold Bottle Cap and capsule\n"
+	.string "from the Hall's competitive vault.$"
+
 EasternAurelia_Hall_Text_ClerkWelcome:
 	.string "Eastern AURELIA HALL clerk.\n"
-	.string "Eight city desks, one hall--for now.$"
+	.string "City desks for every type--for now.$"
 
 EasternAurelia_Hall_Text_ClerkAsk:
 	.string "Return to the Reception Gate?\n"

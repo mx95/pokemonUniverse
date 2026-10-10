@@ -3890,6 +3890,13 @@ BattleScript_FocusPunchSetUpEncored::
 	waitmessage B_WAIT_TIME_LONG
 	end
 
+BattleScript_GenesisFormActivation::
+	flushtextbox
+	printstring STRINGID_GENESISFORMACTIVATED
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_AbilityPopUp
+	return
+
 BattleScript_MegaEvolution::
 	flushtextbox
 	printstring STRINGID_MEGAEVOREACTING

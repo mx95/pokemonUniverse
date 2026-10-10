@@ -6,12 +6,16 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "constants/wild_encounter.h"
+#include "constants/battle.h"
 #include "event_data.h"
 #include "field_weather.h"
 #include "battle.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "wild_encounter.h"
+#include "overworld.h"
+#include "battle_script_commands.h"
 
 bool32 Genesis_IsNuzlockeActive(void)
 {
@@ -48,6 +52,70 @@ bool32 Genesis_SpeciesMatchesMonotype(enum Species species)
     (void)species;
     return TRUE;
 #endif
+}
+
+static bool32 Genesis_HasCaughtInMapSec(u32 mapsec)
+{
+    u32 i, box, pos;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+         && GetMonData(&gPlayerParty[i], MON_DATA_MET_LOCATION) == mapsec)
+            return TRUE;
+    }
+
+    for (box = 0; box < TOTAL_BOXES_COUNT; box++)
+    {
+        for (pos = 0; pos < IN_BOX_COUNT; pos++)
+        {
+            if (GetBoxMonDataAt(box, pos, MON_DATA_SPECIES) != SPECIES_NONE
+             && GetBoxMonDataAt(box, pos, MON_DATA_MET_LOCATION) == mapsec)
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+bool32 Genesis_CanCatchWildMonNuzlocke(void)
+{
+#if GENESIS_ENABLE_NUZLOCKE
+    if (!Genesis_IsNuzlockeActive())
+        return TRUE;
+
+    // Static / legend / totem / roamers are exempt (shared mapsecs + quest design).
+    if (gBattleTypeFlags & (BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_ROAMER | BATTLE_TYPE_TRAINER))
+        return TRUE;
+
+    return !Genesis_HasCaughtInMapSec(GetCurrentRegionMapSectionId());
+#else
+    return TRUE;
+#endif
+}
+
+bool32 Genesis_CanCatchWildMonMonotype(void)
+{
+#if GENESIS_ENABLE_MONOTYPE_CHALLENGE
+    enum Species species;
+    u32 battler;
+
+    if (!Genesis_IsMonotypeActive())
+        return TRUE;
+
+    if (gBattleTypeFlags & (BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_ROAMER | BATTLE_TYPE_TRAINER))
+        return TRUE;
+
+    battler = GetCatchingBattler();
+    species = gBattleMons[battler].species;
+    return Genesis_SpeciesMatchesMonotype(species);
+#else
+    return TRUE;
+#endif
+}
+
+bool32 Genesis_CanCatchWildMon(void)
+{
+    return Genesis_CanCatchWildMonNuzlocke() && Genesis_CanCatchWildMonMonotype();
 }
 
 static void Genesis_CompactPartySlots(void)

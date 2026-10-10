@@ -733,11 +733,14 @@ LittlerootTown_ProfessorBirchsLab_Text_ChallengeOffer:
 LittlerootTown_ProfessorBirchsLab_Text_ChallengeNuzlocke:
 	.string "NUZLOCKE: fainted party POKéMON are\n"
 	.string "released on white-out.\p"
+	.string "Also, only one wild catch per area\n"
+	.string "(legends and totems exempt).\p"
 	.string "Enable NUZLOCKE?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotype:
 	.string "MONOTYPE: wild encounters favor the\n"
 	.string "type of your lead POKéMON.\p"
+	.string "Balls refuse off-type wilds too.\p"
 	.string "Enable MONOTYPE?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ChallengeMonotypeSet:

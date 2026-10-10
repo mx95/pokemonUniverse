@@ -48,7 +48,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
 | Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Hall city-desk polish started; full geometry still planned — see `MAP_STUBS.md` |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
-| Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 flags/dialogue + 4 puzzle setpieces + Kai beats |
+| Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 + 4 puzzles with item rewards + master Bottle Caps + Kai |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
 | Core QoL (already toggled) | 15, 22, 25–26, 52 | IMPLEMENTED | Reusable TMs, Exp Share, followers, DexNav, auto-repel menu, type indicators |
 | Level scaling / caps | 11–12 | IMPLEMENTED | Soft EXP cap via `VAR_GENESIS_LEVEL_CAP`; badge-driven |
@@ -67,7 +67,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
 | World Tournament | 135 | IMPLEMENTED (facility) | Dedicated WT lobby map + Reception Gate / Tower warps; 4-round bracket + heals |
-| Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
+| Genesis Form (full) | 85 | IMPLEMENTED (v2) | Switch-in overlay + dedicated battle announce string |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
 | Universal bike Mach/Acro | 21 | IMPLEMENTED | Rydel gives both; R+SELECT toggles while riding |
@@ -80,12 +80,12 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
-| Achievements + titles | 60–61 | IMPLEMENTED (v2) | Lumen PC Achievement Board + flags (Ace/Eclipse/Champion/WT/Legends) |
+| Achievements + titles | 60–61 | IMPLEMENTED (v3) | Board + Puzzle Master / Type Master (Hall Gold Cap gift) |
 | Cooking / picnic / camping | 54–56 | DEFERRED | GBA budget; lightweight if ever |
 | Contests | 150 | DEFERRED | Expansion contest base exists |
 | Secret bases | 152–153 | DEFERRED | Expansion secret bases exist; customize later |
 | Photo system | 157–158 | DEFERRED | Memory-heavy |
-| Randomizer / Nuzlocke / Monotype | 141–145 | IMPLEMENTED (v1) | Aide challenge menu; Nuzlocke whiteout; monotype wild bias |
+| Randomizer / Nuzlocke / Monotype | 141–145 | IMPLEMENTED (v2) | Aide menu; Nuzlocke whiteout + 1 catch/mapsec; monotype bias + catch filter |
 | New Game+ | 140 | DEFERRED | After save versioning solid |
 | Seasons | 89 | DEFERRED | Palette + encounter hooks only |
 | Music player | 154 | DEFERRED | Postgame |
@@ -122,10 +122,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of Corviknight intro, mega starters, town totems, WT facility, 18-type gyms.
+1. **In-emulator playtest** of Corviknight intro, puzzle rewards, Nuzlocke/monotype catch filters, Genesis Form announce.
 2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
 3. Unique legendary battle sprites (replace DS stand-ins).
-4. Puzzle rewards / Nuzlocke catch filter / Genesis Form battle UX polish.
+4. Outfit OW art / DexNav search levels / Chaos Battles toggle polish.
 
 ---
 

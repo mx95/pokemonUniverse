@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                6 // +Poison/Ground gyms; town-mon bitfields; type coverage
+#define GENESIS_SAVE_VERSION                7 // +puzzle rewards; Nuzlocke/monotype catch filters; Genesis Form UX
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
@@ -16,8 +16,8 @@
 #define GENESIS_ENABLE_QUEST_LOG            TRUE    // Lightweight quest board NPC
 #define GENESIS_ENABLE_ACHIEVEMENTS         TRUE    // Flag-based unlocks (e.g. Verdant Ace)
 #define GENESIS_ENABLE_RANDOMIZER           FALSE   // Optional; wild remap not wired yet
-#define GENESIS_ENABLE_NUZLOCKE             TRUE    // Whiteout releases fainted party mons
-#define GENESIS_ENABLE_MONOTYPE_CHALLENGE   TRUE    // Flag + type var; catch filter later
+#define GENESIS_ENABLE_NUZLOCKE             TRUE    // Whiteout releases; one catch per mapsec
+#define GENESIS_ENABLE_MONOTYPE_CHALLENGE   TRUE    // Wild bias + catch filter vs lead type
 #define GENESIS_ENABLE_DAMAGE_DISPLAY       FALSE   // Competitive / simulator UI only
 #define GENESIS_ENABLE_QUEST_MARKERS        FALSE   // Optional; never forced
 

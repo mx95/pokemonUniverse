@@ -38,6 +38,9 @@
 #include "pokemon.h"
 #include "script.h"
 #include "sound.h"
+#include "genesis_challenge.h"
+#include "config/genesis.h"
+#include "battle_script_commands.h"
 #include "strings.h"
 #include "string_util.h"
 #include "task.h"
@@ -1156,6 +1159,10 @@ static u32 GetBallThrowableState(void)
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
     else if (FlagGet(WE_FLAG_NO_CATCHING) || !IsAllowedToUseBag())
         return BALL_THROW_UNABLE_DISABLED_FLAG;
+    else if (!Genesis_CanCatchWildMonNuzlocke())
+        return BALL_THROW_UNABLE_NUZLOCKE;
+    else if (!Genesis_CanCatchWildMonMonotype())
+        return BALL_THROW_UNABLE_MONOTYPE;
 
     return BALL_THROW_ABLE;
 }
@@ -1168,6 +1175,8 @@ bool32 CanThrowBall(void)
 static const u8 sText_CantThrowPokeBall_TwoMons[] = _("Cannot throw a ball!\nThere are two Pokémon out there!\p");
 static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Pokémon in sight!\p");
 static const u8 sText_CantThrowPokeBall_Disabled[] = _("POKé BALLS cannot be used\nright now!\p");
+static const u8 sText_CantThrowPokeBall_Nuzlocke[] = _("NUZLOCKE: you already caught a\nPOKéMON in this area!\p");
+static const u8 sText_CantThrowPokeBall_Monotype[] = _("MONOTYPE: that POKéMON's type\ndoesn't match your challenge!\p");
 
 static void ItemUseInBattle_ShowPartyMenu(u8 taskId)
 {
@@ -1280,6 +1289,14 @@ bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
             break;
         case BALL_THROW_UNABLE_DISABLED_FLAG:
             failStr = sText_CantThrowPokeBall_Disabled;
+            cannotUse = TRUE;
+            break;
+        case BALL_THROW_UNABLE_NUZLOCKE:
+            failStr = sText_CantThrowPokeBall_Nuzlocke;
+            cannotUse = TRUE;
+            break;
+        case BALL_THROW_UNABLE_MONOTYPE:
+            failStr = sText_CantThrowPokeBall_Monotype;
             cannotUse = TRUE;
             break;
         }

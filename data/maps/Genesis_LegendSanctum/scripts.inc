@@ -129,5 +129,6 @@ Genesis_LegendSanctum_Text_Decline:
 Genesis_LegendSanctum_Text_AllDone:
 	.string "All three legends answered.\n"
 	.string "GENESIS FORM stirs in your partnership!\p"
-	.string "When the bonded mon enters battle,\n"
-	.string "potential itself may reshape it.$"
+	.string "Send GENESIS into battle and watch:\n"
+	.string "types, ability, and stats rewrite on entry.\p"
+	.string "Potential unbound--fight wisely.$"

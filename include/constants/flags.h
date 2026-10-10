@@ -745,9 +745,12 @@
 #define FLAG_GENESIS_ECLIPSE_ARCHIVE_READ     0x2B1 // Read Eclipse Archive at Oceanic Museum
 #define FLAG_GENESIS_BADGE_17_GET             0x2B2 // Vesper / Venom Hollow (Poison)
 #define FLAG_GENESIS_BADGE_18_GET             0x2B3 // Terra / Terracotta Mesa (Ground)
-#define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
-#define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
-#define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
+#define FLAG_GENESIS_ACHIEVEMENT_PUZZLES      0x2B4 // Achievement: cleared all 4 story puzzles
+#define FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER  0x2B5 // Achievement: badges 9-18 (all types)
+#define FLAG_GENESIS_TYPE_MASTER_REWARD       0x2B6 // Claimed Eastern Hall Type Master gift
+#define FLAG_UNUSED_0x2B4  FLAG_GENESIS_ACHIEVEMENT_PUZZLES // alias
+#define FLAG_UNUSED_0x2B5  FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER // alias
+#define FLAG_UNUSED_0x2B6  FLAG_GENESIS_TYPE_MASTER_REWARD // alias
 #define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
 #define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag

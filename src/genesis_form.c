@@ -12,6 +12,7 @@
 #include "battle_util.h"
 #include "pokemon.h"
 #include "constants/pokemon.h"
+#include "config/genesis.h"
 
 // GENESIS: Data-driven Genesis Form — switch-in overlay (types/ability/stats).
 
@@ -90,7 +91,7 @@ bool32 TryGenesisFormActivation(u32 battler)
     gBattleScripting.battler = battler;
     gBattlerAbility = battler;
     gLastUsedAbility = entry->ability;
-    BattleScriptCall(BattleScript_AbilityPopUp);
+    BattleScriptCall(BattleScript_GenesisFormActivation);
     return TRUE;
 }
 

@@ -107,9 +107,21 @@ Genesis_EventScript_Ach_LegendsDone::
 Genesis_EventScript_Ach_Metagross::
 	goto_if_set FLAG_GENESIS_ACHIEVEMENT_METAGROSS, Genesis_EventScript_Ach_MetagrossDone
 	msgbox Genesis_Text_Ach_MetagrossOpen, MSGBOX_DEFAULT
-	goto Genesis_EventScript_Ach_Footer
+	goto Genesis_EventScript_Ach_Puzzles
 Genesis_EventScript_Ach_MetagrossDone::
 	msgbox Genesis_Text_Ach_MetagrossDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Puzzles::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_PUZZLES, Genesis_EventScript_Ach_PuzzlesDone
+	msgbox Genesis_Text_Ach_PuzzlesOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_TypeMaster
+Genesis_EventScript_Ach_PuzzlesDone::
+	msgbox Genesis_Text_Ach_PuzzlesDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_TypeMaster::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER, Genesis_EventScript_Ach_TypeMasterDone
+	msgbox Genesis_Text_Ach_TypeMasterOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Footer
+Genesis_EventScript_Ach_TypeMasterDone::
+	msgbox Genesis_Text_Ach_TypeMasterDone, MSGBOX_DEFAULT
 Genesis_EventScript_Ach_Footer::
 	msgbox Genesis_Text_AchievementFooter, MSGBOX_DEFAULT
 	release
@@ -133,8 +145,26 @@ Genesis_EventScript_SyncAch_Legends::
 	goto_if_unset FLAG_GENESIS_FORM_UNLOCKED, Genesis_EventScript_SyncAch_Metagross
 	setflag FLAG_GENESIS_ACHIEVEMENT_LEGENDS
 Genesis_EventScript_SyncAch_Metagross::
-	goto_if_unset FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_SyncAch_Puzzles
 	setflag FLAG_GENESIS_ACHIEVEMENT_METAGROSS
+Genesis_EventScript_SyncAch_Puzzles::
+	goto_if_unset FLAG_GENESIS_PUZZLE_CRYSTAL_RELAY, Genesis_EventScript_SyncAch_TypeMaster
+	goto_if_unset FLAG_GENESIS_PUZZLE_ECHO_SEALED, Genesis_EventScript_SyncAch_TypeMaster
+	goto_if_unset FLAG_GENESIS_PUZZLE_PHENOMENA, Genesis_EventScript_SyncAch_TypeMaster
+	goto_if_unset FLAG_GENESIS_PUZZLE_ECLIPSE_CIPHER, Genesis_EventScript_SyncAch_TypeMaster
+	setflag FLAG_GENESIS_ACHIEVEMENT_PUZZLES
+Genesis_EventScript_SyncAch_TypeMaster::
+	goto_if_unset FLAG_GENESIS_BADGE_18_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_17_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_16_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_15_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_14_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_13_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_12_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_11_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_10_GET, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_BADGE_09_GET, Genesis_EventScript_SyncAch_Return
+	setflag FLAG_GENESIS_ACHIEVEMENT_TYPE_MASTER
 Genesis_EventScript_SyncAch_Return::
 	return
 
@@ -430,6 +460,18 @@ Genesis_Text_Ach_MetagrossOpen:
 
 Genesis_Text_Ach_MetagrossDone:
 	.string "- AI Breaker: unlocked.$"
+
+Genesis_Text_Ach_PuzzlesOpen:
+	.string "- Puzzle Master: clear all four story locks.$"
+
+Genesis_Text_Ach_PuzzlesDone:
+	.string "- Puzzle Master: unlocked.$"
+
+Genesis_Text_Ach_TypeMasterOpen:
+	.string "- Type Master: claim every Eastern badge.$"
+
+Genesis_Text_Ach_TypeMasterDone:
+	.string "- Type Master: unlocked.$"
 
 Genesis_Text_AchievementFooter:
 	.string "More titles will appear as AURELIA\n"
