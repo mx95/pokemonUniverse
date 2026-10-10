@@ -1,0 +1,25 @@
+GenesisCity_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GenesisCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+GenesisCity_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_GENESIS_CITY
+	call Common_EventScript_UpdateBrineyLocation
+	end
+
+GenesisCity_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_GENESIS_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+GenesisCity_PokemonCenter_1F_EventScript_Boy::
+	goto Genesis_EventScript_QuestBoard
+	end
+
+GenesisCity_PokemonCenter_1F_EventScript_Girl::
+	goto Genesis_EventScript_AchievementBoard
+	end

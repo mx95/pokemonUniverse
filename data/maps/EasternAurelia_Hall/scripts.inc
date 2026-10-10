@@ -3,20 +3,27 @@ EasternAurelia_Hall_MapScripts::
 
 @ City desks (stand-in for Mirage→Summit east). Leaders unlock in badge order 9-16.
 
+@ Badge 9 battle lives in MirageCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Iris::
 	lock
 	faceplayer
 	goto_if_set FLAG_GENESIS_BADGE_09_GET, EasternAurelia_Hall_EventScript_IrisDone
-	msgbox EasternAurelia_Hall_Text_IrisIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_IRIS, EasternAurelia_Hall_Text_IrisDefeat
-	message EasternAurelia_Hall_Text_GotMirageBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_09_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_IrisAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_IrisRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_MirageWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_MirageWarpAsk::
+	msgbox EasternAurelia_Hall_Text_MirageWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_MirageStay
+	msgbox EasternAurelia_Hall_Text_MirageWarp, MSGBOX_DEFAULT
+	warpsilent MAP_MIRAGE_CITY, 6, 17
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_MirageStay::
+	msgbox EasternAurelia_Hall_Text_MirageStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_IrisDone::
@@ -24,21 +31,28 @@ EasternAurelia_Hall_EventScript_IrisDone::
 	release
 	end
 
+@ Badge 10 battle lives in VerdantisCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Celia::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_09_GET, EasternAurelia_Hall_EventScript_NeedIris
 	goto_if_set FLAG_GENESIS_BADGE_10_GET, EasternAurelia_Hall_EventScript_CeliaDone
-	msgbox EasternAurelia_Hall_Text_CeliaIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_CELIA, EasternAurelia_Hall_Text_CeliaDefeat
-	message EasternAurelia_Hall_Text_GotJungleBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_10_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_CeliaAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_CeliaRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_VerdantisWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_VerdantisWarpAsk::
+	msgbox EasternAurelia_Hall_Text_VerdantisWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_VerdantisStay
+	msgbox EasternAurelia_Hall_Text_VerdantisWarp, MSGBOX_DEFAULT
+	warpsilent MAP_VERDANTIS_CITY, 5, 7
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_VerdantisStay::
+	msgbox EasternAurelia_Hall_Text_VerdantisStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_CeliaDone::
@@ -46,21 +60,28 @@ EasternAurelia_Hall_EventScript_CeliaDone::
 	release
 	end
 
+@ Badge 11 battle lives in ObsidianCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Noctis::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_10_GET, EasternAurelia_Hall_EventScript_NeedCelia
 	goto_if_set FLAG_GENESIS_BADGE_11_GET, EasternAurelia_Hall_EventScript_NoctisDone
-	msgbox EasternAurelia_Hall_Text_NoctisIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_NOCTIS, EasternAurelia_Hall_Text_NoctisDefeat
-	message EasternAurelia_Hall_Text_GotObsidianBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_11_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_NoctisAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_NoctisRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ObsidianWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_ObsidianWarpAsk::
+	msgbox EasternAurelia_Hall_Text_ObsidianWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_ObsidianStay
+	msgbox EasternAurelia_Hall_Text_ObsidianWarp, MSGBOX_DEFAULT
+	warpsilent MAP_OBSIDIAN_CITY, 9, 7
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_ObsidianStay::
+	msgbox EasternAurelia_Hall_Text_ObsidianStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_NoctisDone::
@@ -68,23 +89,28 @@ EasternAurelia_Hall_EventScript_NoctisDone::
 	release
 	end
 
+@ Badge 12 battle lives in AstralCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Drake::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_11_GET, EasternAurelia_Hall_EventScript_NeedNoctis
 	goto_if_set FLAG_GENESIS_BADGE_12_GET, EasternAurelia_Hall_EventScript_DrakeDone
-	msgbox EasternAurelia_Hall_Text_DrakeIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_DRAKE_GYM, EasternAurelia_Hall_Text_DrakeDefeat
-	message EasternAurelia_Hall_Text_GotAstralBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_12_GET
-	setflag FLAG_GENESIS_TERA_UNLOCKED
-	setflag FLAG_SYS_TERA_ORB_CHARGED
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_DrakeAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_DrakeRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_AstralWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_AstralWarpAsk::
+	msgbox EasternAurelia_Hall_Text_AstralWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_AstralStay
+	msgbox EasternAurelia_Hall_Text_AstralWarp, MSGBOX_DEFAULT
+	warpsilent MAP_ASTRAL_CITY, 19, 20
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_AstralStay::
+	msgbox EasternAurelia_Hall_Text_AstralStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_DrakeDone::
@@ -92,21 +118,28 @@ EasternAurelia_Hall_EventScript_DrakeDone::
 	release
 	end
 
+@ Badge 13 battle lives in TidymoonCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Luna::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_12_GET, EasternAurelia_Hall_EventScript_NeedDrake
 	goto_if_set FLAG_GENESIS_BADGE_13_GET, EasternAurelia_Hall_EventScript_LunaDone
-	msgbox EasternAurelia_Hall_Text_LunaIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_LUNA, EasternAurelia_Hall_Text_LunaDefeat
-	message EasternAurelia_Hall_Text_GotMoonBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_13_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_LunaAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_LunaRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_TidymoonWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_TidymoonWarpAsk::
+	msgbox EasternAurelia_Hall_Text_TidymoonWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_TidymoonStay
+	msgbox EasternAurelia_Hall_Text_TidymoonWarp, MSGBOX_DEFAULT
+	warpsilent MAP_TIDYMOON_CITY, 28, 17
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_TidymoonStay::
+	msgbox EasternAurelia_Hall_Text_TidymoonStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_LunaDone::
@@ -114,21 +147,28 @@ EasternAurelia_Hall_EventScript_LunaDone::
 	release
 	end
 
+@ Badge 14 battle lives in EonCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Morrigan::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_13_GET, EasternAurelia_Hall_EventScript_NeedLuna
 	goto_if_set FLAG_GENESIS_BADGE_14_GET, EasternAurelia_Hall_EventScript_MorriganDone
-	msgbox EasternAurelia_Hall_Text_MorriganIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_MORRIGAN, EasternAurelia_Hall_Text_MorriganDefeat
-	message EasternAurelia_Hall_Text_GotEonBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_14_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_MorriganAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_MorriganRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_EonWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_EonWarpAsk::
+	msgbox EasternAurelia_Hall_Text_EonWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_EonStay
+	msgbox EasternAurelia_Hall_Text_EonWarp, MSGBOX_DEFAULT
+	warpsilent MAP_EON_CITY, 22, 6
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_EonStay::
+	msgbox EasternAurelia_Hall_Text_EonStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_MorriganDone::
@@ -136,21 +176,28 @@ EasternAurelia_Hall_EventScript_MorriganDone::
 	release
 	end
 
+@ Badge 15 battle lives in GenesisCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Colleague::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_14_GET, EasternAurelia_Hall_EventScript_NeedMorrigan
 	goto_if_set FLAG_GENESIS_BADGE_15_GET, EasternAurelia_Hall_EventScript_ColleagueDone
-	msgbox EasternAurelia_Hall_Text_ColleagueIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_COLLEAGUE, EasternAurelia_Hall_Text_ColleagueDefeat
-	message EasternAurelia_Hall_Text_GotGenesisBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_15_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_ColleagueAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_ColleagueRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_GenesisWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_GenesisWarpAsk::
+	msgbox EasternAurelia_Hall_Text_GenesisWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_GenesisStay
+	msgbox EasternAurelia_Hall_Text_GenesisWarp, MSGBOX_DEFAULT
+	warpsilent MAP_GENESIS_CITY, 20, 17
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_GenesisStay::
+	msgbox EasternAurelia_Hall_Text_GenesisStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_ColleagueDone::
@@ -158,22 +205,28 @@ EasternAurelia_Hall_EventScript_ColleagueDone::
 	release
 	end
 
+@ Badge 16 battle lives in SummitCity_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Mentor::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_15_GET, EasternAurelia_Hall_EventScript_NeedColleague
 	goto_if_set FLAG_GENESIS_BADGE_16_GET, EasternAurelia_Hall_EventScript_MentorDone
-	msgbox EasternAurelia_Hall_Text_MentorIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_MENTOR, EasternAurelia_Hall_Text_MentorDefeat
-	message EasternAurelia_Hall_Text_GotAscensionBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_16_GET
-	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_EASTERN_DONE
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_MentorAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_MentorRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_SummitWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_SummitWarpAsk::
+	msgbox EasternAurelia_Hall_Text_SummitWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_SummitStay
+	msgbox EasternAurelia_Hall_Text_SummitWarp, MSGBOX_DEFAULT
+	warpsilent MAP_SUMMIT_CITY, 16, 39
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_SummitStay::
+	msgbox EasternAurelia_Hall_Text_SummitStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_MentorDone::
@@ -181,21 +234,28 @@ EasternAurelia_Hall_EventScript_MentorDone::
 	release
 	end
 
+@ Badge 17 battle lives in VenomHollow_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Vesper::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_16_GET, EasternAurelia_Hall_EventScript_NeedMentor
 	goto_if_set FLAG_GENESIS_BADGE_17_GET, EasternAurelia_Hall_EventScript_VesperDone
-	msgbox EasternAurelia_Hall_Text_VesperIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_VESPER, EasternAurelia_Hall_Text_VesperDefeat
-	message EasternAurelia_Hall_Text_GotVenomBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_17_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_VesperAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_VesperRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_VenomWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_VenomWarpAsk::
+	msgbox EasternAurelia_Hall_Text_VenomWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_VenomStay
+	msgbox EasternAurelia_Hall_Text_VenomWarp, MSGBOX_DEFAULT
+	warpsilent MAP_VENOM_HOLLOW, 14, 8
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_VenomStay::
+	msgbox EasternAurelia_Hall_Text_VenomStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_VesperDone::
@@ -203,21 +263,28 @@ EasternAurelia_Hall_EventScript_VesperDone::
 	release
 	end
 
+@ Badge 18 battle lives in TerracottaMesa_Gym; the Hall NPC + desk just warp there.
 EasternAurelia_Hall_EventScript_Terra::
 	lock
 	faceplayer
 	goto_if_unset FLAG_GENESIS_BADGE_17_GET, EasternAurelia_Hall_EventScript_NeedVesper
 	goto_if_set FLAG_GENESIS_BADGE_18_GET, EasternAurelia_Hall_EventScript_TerraDone
-	msgbox EasternAurelia_Hall_Text_TerraIntro, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_TERRA, EasternAurelia_Hall_Text_TerraDefeat
-	message EasternAurelia_Hall_Text_GotTerraBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_18_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_TerraAfter, MSGBOX_DEFAULT
-	release
+	msgbox EasternAurelia_Hall_Text_TerraRedirect, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_TerracottaWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_TerracottaWarpAsk::
+	msgbox EasternAurelia_Hall_Text_TerracottaWarpAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_TerracottaStay
+	msgbox EasternAurelia_Hall_Text_TerracottaWarp, MSGBOX_DEFAULT
+	warpsilent MAP_TERRACOTTA_MESA, 16, 4
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_TerracottaStay::
+	msgbox EasternAurelia_Hall_Text_TerracottaStay, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_TerraDone::
@@ -375,55 +442,121 @@ EasternAurelia_Hall_EventScript_ClerkStayQuiet::
 	release
 	end
 
-@ Desk plaques (bg signs) — stand-in city labels until full maps exist
+@ Desk plaques (bg signs) — read the blurb, then offer the warp once the previous badge is held.
 EasternAurelia_Hall_EventScript_DeskMirage::
-	goto_if_set FLAG_GENESIS_BADGE_09_GET, Genesis_EventScript_TownMon_Mirage
-	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_MirageWarpAsk
 	end
 
+@ Verdantis / Obsidian plaques: read the blurb, then offer the warp once the previous badge is held.
+@ (Town totems live in the cities themselves now, like Mirage.)
 EasternAurelia_Hall_EventScript_DeskVerdantis::
-	goto_if_set FLAG_GENESIS_BADGE_10_GET, Genesis_EventScript_TownMon_Verdantis
-	msgbox EasternAurelia_Hall_Text_DeskVerdantis, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskVerdantis, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_09_GET, EasternAurelia_Hall_EventScript_DeskNeedIris
+	goto EasternAurelia_Hall_EventScript_VerdantisWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskObsidian::
-	goto_if_set FLAG_GENESIS_BADGE_11_GET, Genesis_EventScript_TownMon_Obsidian
-	msgbox EasternAurelia_Hall_Text_DeskObsidian, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskObsidian, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_10_GET, EasternAurelia_Hall_EventScript_DeskNeedCelia
+	goto EasternAurelia_Hall_EventScript_ObsidianWarpAsk
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedIris::
+	msgbox EasternAurelia_Hall_Text_NeedIris, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedCelia::
+	msgbox EasternAurelia_Hall_Text_NeedCelia, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedNoctis::
+	msgbox EasternAurelia_Hall_Text_NeedNoctis, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedDrake::
+	msgbox EasternAurelia_Hall_Text_NeedDrake, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedLuna::
+	msgbox EasternAurelia_Hall_Text_NeedLuna, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedMorrigan::
+	msgbox EasternAurelia_Hall_Text_NeedMorrigan, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedColleague::
+	msgbox EasternAurelia_Hall_Text_NeedColleague, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedMentor::
+	msgbox EasternAurelia_Hall_Text_NeedMentor, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskNeedVesper::
+	msgbox EasternAurelia_Hall_Text_NeedVesper, MSGBOX_DEFAULT
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_DeskAstral::
-	goto_if_set FLAG_GENESIS_BADGE_12_GET, Genesis_EventScript_TownMon_Astral
-	msgbox EasternAurelia_Hall_Text_DeskAstral, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskAstral, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_11_GET, EasternAurelia_Hall_EventScript_DeskNeedNoctis
+	goto EasternAurelia_Hall_EventScript_AstralWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskTidymoon::
-	goto_if_set FLAG_GENESIS_BADGE_13_GET, Genesis_EventScript_TownMon_Tidymoon
-	msgbox EasternAurelia_Hall_Text_DeskTidymoon, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskTidymoon, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_12_GET, EasternAurelia_Hall_EventScript_DeskNeedDrake
+	goto EasternAurelia_Hall_EventScript_TidymoonWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskEon::
-	goto_if_set FLAG_GENESIS_BADGE_14_GET, Genesis_EventScript_TownMon_Eon
-	msgbox EasternAurelia_Hall_Text_DeskEon, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskEon, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_13_GET, EasternAurelia_Hall_EventScript_DeskNeedLuna
+	goto EasternAurelia_Hall_EventScript_EonWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskGenesis::
-	goto_if_set FLAG_GENESIS_BADGE_15_GET, Genesis_EventScript_TownMon_GenesisCity
-	msgbox EasternAurelia_Hall_Text_DeskGenesis, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskGenesis, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_14_GET, EasternAurelia_Hall_EventScript_DeskNeedMorrigan
+	goto EasternAurelia_Hall_EventScript_GenesisWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskSummit::
-	goto_if_set FLAG_GENESIS_BADGE_16_GET, Genesis_EventScript_TownMon_Summit
-	msgbox EasternAurelia_Hall_Text_DeskSummit, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskSummit, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_15_GET, EasternAurelia_Hall_EventScript_DeskNeedColleague
+	goto EasternAurelia_Hall_EventScript_SummitWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskVenom::
-	goto_if_set FLAG_GENESIS_BADGE_17_GET, Genesis_EventScript_TownMon_Venom
-	msgbox EasternAurelia_Hall_Text_DeskVenom, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskVenom, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_16_GET, EasternAurelia_Hall_EventScript_DeskNeedMentor
+	goto EasternAurelia_Hall_EventScript_VenomWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_DeskTerracotta::
-	goto_if_set FLAG_GENESIS_BADGE_18_GET, Genesis_EventScript_TownMon_Terracotta
-	msgbox EasternAurelia_Hall_Text_DeskTerracotta, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskTerracotta, MSGBOX_DEFAULT
+	goto_if_unset FLAG_GENESIS_BADGE_17_GET, EasternAurelia_Hall_EventScript_DeskNeedVesper
+	goto EasternAurelia_Hall_EventScript_TerracottaWarpAsk
 	end
 
 EasternAurelia_Hall_EventScript_HallDirectory::
@@ -435,7 +568,7 @@ EasternAurelia_Hall_Text_Decline:
 
 EasternAurelia_Hall_Text_NeedIris:
 	.string "CELIA: Verdantis waits its turn.\n"
-	.string "Clear IRIS's Mirage desk first.$"
+	.string "Clear IRIS's MIRAGE CITY gym first.$"
 
 EasternAurelia_Hall_Text_NeedCelia:
 	.string "NOCTIS: Obsidian stays sealed until\n"
@@ -461,202 +594,202 @@ EasternAurelia_Hall_Text_NeedColleague:
 	.string "MENTOR: The Summit desk opens after\n"
 	.string "you claim the GENESIS BADGE.$"
 
-EasternAurelia_Hall_Text_IrisIntro:
-	.string "IRIS: Welcome to the MIRAGE CITY desk.\n"
+EasternAurelia_Hall_Text_IrisRedirect:
+	.string "IRIS: My GYM stands in MIRAGE CITY.\n"
 	.string "Our streets fold light into riddles.\p"
-	.string "I am the PSYCHIC LEADER of Mirage.\n"
-	.string "See through the veil--shall we begin?$"
+	.string "The teleport net can take you there.$"
 
-EasternAurelia_Hall_Text_IrisDefeat:
-	.string "The mirage clears… Well fought!$"
+EasternAurelia_Hall_Text_MirageWarpAsk:
+	.string "Travel to MIRAGE CITY?$"
 
-EasternAurelia_Hall_Text_GotMirageBadge:
-	.string "{PLAYER} received the MIRAGE BADGE!$"
+EasternAurelia_Hall_Text_MirageWarp:
+	.string "The teleport net hums…\n"
+	.string "Step into the haze.$"
 
-EasternAurelia_Hall_Text_IrisAfter:
-	.string "IRIS: Mirage City stamps your path.\n"
-	.string "Next desk: VERDANTIS--CELIA awaits.$"
+EasternAurelia_Hall_Text_MirageStay:
+	.string "The mirage will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_IrisDone:
 	.string "IRIS: Mirage City's teleport net still\n"
 	.string "hums for you. Trust what you perceive.$"
 
-EasternAurelia_Hall_Text_CeliaIntro:
-	.string "CELIA: VERDANTIS CITY desk, reporting!\n"
+EasternAurelia_Hall_Text_CeliaRedirect:
+	.string "CELIA: My GYM stands in VERDANTIS CITY.\n"
 	.string "Rainforest canopies, buzzing trails…\p"
-	.string "My BUG swarm thrives on motion.\n"
-	.string "Ready for the jungle challenge?$"
+	.string "The canopy lift can take you there.$"
 
-EasternAurelia_Hall_Text_CeliaDefeat:
-	.string "My swarm fell… Take this!$"
+EasternAurelia_Hall_Text_VerdantisWarpAsk:
+	.string "Travel to VERDANTIS CITY?$"
 
-EasternAurelia_Hall_Text_GotJungleBadge:
-	.string "{PLAYER} received the JUNGLE BADGE!$"
+EasternAurelia_Hall_Text_VerdantisWarp:
+	.string "The canopy lift hums…\n"
+	.string "Hold on to the rail.$"
 
-EasternAurelia_Hall_Text_CeliaAfter:
-	.string "CELIA: Grow wild like Verdantis vines.\n"
-	.string "Next: OBSIDIAN CITY--NOCTIS waits.$"
+EasternAurelia_Hall_Text_VerdantisStay:
+	.string "The jungle will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_CeliaDone:
 	.string "CELIA: Verdantis keeps blooming.\n"
 	.string "Come back when you need green noise.$"
 
-EasternAurelia_Hall_Text_NoctisIntro:
-	.string "NOCTIS: OBSIDIAN CITY desk.\n"
+EasternAurelia_Hall_Text_NoctisRedirect:
+	.string "NOCTIS: My GYM stands in OBSIDIAN CITY.\n"
 	.string "Volcanic glass. Quiet streets. Night.\p"
-	.string "DARK POKéMON answer only the bold.\n"
-	.string "Step into the ash--or walk away.$"
+	.string "The ash-gate can take you there.$"
 
-EasternAurelia_Hall_Text_NoctisDefeat:
-	.string "The night yields…$"
+EasternAurelia_Hall_Text_ObsidianWarpAsk:
+	.string "Travel to OBSIDIAN CITY?$"
 
-EasternAurelia_Hall_Text_GotObsidianBadge:
-	.string "{PLAYER} received the OBSIDIAN BADGE!$"
+EasternAurelia_Hall_Text_ObsidianWarp:
+	.string "The ash-gate opens…\n"
+	.string "Step through the dark.$"
 
-EasternAurelia_Hall_Text_NoctisAfter:
-	.string "NOCTIS: Carry Obsidian's calm into light.\n"
-	.string "ASTRAL CITY--DRAKE--is next.$"
+EasternAurelia_Hall_Text_ObsidianStay:
+	.string "The night will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_NoctisDone:
 	.string "NOCTIS: Obsidian's vents still glow.\n"
 	.string "Walk unafraid of your own shadow.$"
 
-EasternAurelia_Hall_Text_DrakeIntro:
-	.string "DRAKE: ASTRAL CITY desk--observatory\n"
-	.string "of Eastern AURELIA.\p"
-	.string "My DRAGONS chart the sky.\n"
-	.string "Win, and TERA energy crystallizes!$"
+EasternAurelia_Hall_Text_DrakeRedirect:
+	.string "DRAKE: My GYM is in ASTRAL CITY.\n"
+	.string "Cliff spires under aurora fire.\p"
+	.string "The star-lift can take you there.$"
 
-EasternAurelia_Hall_Text_DrakeDefeat:
-	.string "The stars align for you…$"
+EasternAurelia_Hall_Text_AstralWarpAsk:
+	.string "Travel to ASTRAL CITY?$"
 
-EasternAurelia_Hall_Text_GotAstralBadge:
-	.string "{PLAYER} received the ASTRAL BADGE!$"
+EasternAurelia_Hall_Text_AstralWarp:
+	.string "The star-lift hums…\n"
+	.string "Rise toward the aurora.$"
 
-EasternAurelia_Hall_Text_DrakeAfter:
-	.string "DRAKE: Feel GENESIS ENERGY crystallize.\n"
-	.string "TERASTALLIZATION answers you now.\p"
-	.string "Next desk: TIDYMOON CITY--LUNA.$"
+EasternAurelia_Hall_Text_AstralStay:
+	.string "The stars will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_DrakeDone:
 	.string "DRAKE: Astral's scopes still track you.\n"
 	.string "Shape the battlefield as you will.$"
 
-EasternAurelia_Hall_Text_LunaIntro:
-	.string "LUNA: TIDYMOON CITY desk--tide pools,\n"
-	.string "island lights, soft FAIRY glow.\p"
-	.string "Dance with me under the moon?$"
+EasternAurelia_Hall_Text_LunaRedirect:
+	.string "LUNA: My GYM is in TIDYMOON CITY.\n"
+	.string "Tide gardens lit by pale moons.\p"
+	.string "The moon-ferry can take you there.$"
 
-EasternAurelia_Hall_Text_LunaDefeat:
-	.string "The moon sets… Beautiful battle.$"
+EasternAurelia_Hall_Text_TidymoonWarpAsk:
+	.string "Travel to TIDYMOON CITY?$"
 
-EasternAurelia_Hall_Text_GotMoonBadge:
-	.string "{PLAYER} received the MOON BADGE!$"
+EasternAurelia_Hall_Text_TidymoonWarp:
+	.string "The moon-ferry glides in…\n"
+	.string "Step aboard.$"
 
-EasternAurelia_Hall_Text_LunaAfter:
-	.string "LUNA: Soft power still wins wars.\n"
-	.string "EON CITY's desk--MORRIGAN--is next.$"
+EasternAurelia_Hall_Text_TidymoonStay:
+	.string "The tide will wait.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_LunaDone:
 	.string "LUNA: Tidymoon's waves remember you.\n"
 	.string "Kindness is not weakness, Champion.$"
 
-EasternAurelia_Hall_Text_MorriganIntro:
-	.string "MORRIGAN: EON CITY desk.\n"
-	.string "Where spirits linger between eras…\p"
-	.string "Face my GHOSTS, if you dare.$"
+EasternAurelia_Hall_Text_MorriganRedirect:
+	.string "MORRIGAN: My GYM is in EON CITY.\n"
+	.string "Clocktower streets between eras.\p"
+	.string "The echo-gate can take you there.$"
 
-EasternAurelia_Hall_Text_MorriganDefeat:
-	.string "Even spirits bow to you…$"
+EasternAurelia_Hall_Text_EonWarpAsk:
+	.string "Travel to EON CITY?$"
 
-EasternAurelia_Hall_Text_GotEonBadge:
-	.string "{PLAYER} received the EON BADGE!$"
+EasternAurelia_Hall_Text_EonWarp:
+	.string "The echo-gate chimes…\n"
+	.string "Step between the hours.$"
 
-EasternAurelia_Hall_Text_MorriganAfter:
-	.string "MORRIGAN: Honor what lingers in Eon.\n"
-	.string "GENESIS CITY--the Colleague--awaits.$"
+EasternAurelia_Hall_Text_EonStay:
+	.string "The past will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_MorriganDone:
 	.string "MORRIGAN: Eon's bells still toll for you.\n"
 	.string "Listen when the past whispers.$"
 
-EasternAurelia_Hall_Text_ColleagueIntro:
-	.string "COLLEAGUE: GENESIS CITY desk--\n"
-	.string "NORMAL-type specialist of the hub.\p"
-	.string "Adaptability is our creed.\n"
-	.string "Show me a Champion's toolkit!$"
+EasternAurelia_Hall_Text_ColleagueRedirect:
+	.string "COLLEAGUE: My GYM is in GENESIS CITY.\n"
+	.string "The Colleague's lab-city hub.\p"
+	.string "The hub shuttle can take you there.$"
 
-EasternAurelia_Hall_Text_ColleagueDefeat:
-	.string "Preparation meets destiny…$"
+EasternAurelia_Hall_Text_GenesisWarpAsk:
+	.string "Travel to GENESIS CITY?$"
 
-EasternAurelia_Hall_Text_GotGenesisBadge:
-	.string "{PLAYER} received the GENESIS BADGE!$"
+EasternAurelia_Hall_Text_GenesisWarp:
+	.string "The hub shuttle spins up…\n"
+	.string "Mind the gap.$"
 
-EasternAurelia_Hall_Text_ColleagueAfter:
-	.string "COLLEAGUE: Genesis City clears you.\n"
-	.string "Next: AURELIA SUMMIT--Mentor's ROCK.$"
+EasternAurelia_Hall_Text_GenesisStay:
+	.string "The lab will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_ColleagueDone:
 	.string "COLLEAGUE: Ask our plaque about\n"
 	.string "SLAKING--lazy power, NORMAL force.$"
 
-EasternAurelia_Hall_Text_MentorIntro:
-	.string "MENTOR: AURELIA SUMMIT--ROCK desk.\n"
-	.string "Not a throne. A threshold of stone.\p"
-	.string "Ascension is the bond you forged.\n"
-	.string "Show me your bedrock!$"
+EasternAurelia_Hall_Text_MentorRedirect:
+	.string "MENTOR: My GYM is in SUMMIT CITY.\n"
+	.string "Eastern peak of the old road.\p"
+	.string "The cliff-lift can take you there.$"
 
-EasternAurelia_Hall_Text_MentorDefeat:
-	.string "You have ascended…$"
+EasternAurelia_Hall_Text_SummitWarpAsk:
+	.string "Travel to SUMMIT CITY?$"
 
-EasternAurelia_Hall_Text_GotAscensionBadge:
-	.string "{PLAYER} received the ASCENSION BADGE!$"
+EasternAurelia_Hall_Text_SummitWarp:
+	.string "The cliff-lift grinds upward…\n"
+	.string "Hold fast.$"
 
-EasternAurelia_Hall_Text_MentorAfter:
-	.string "MENTOR: Stone yields to you.\n"
-	.string "Two desks remain--VESPER's POISON\l"
-	.string "in Venom Hollow, then TERRA's GROUND.$"
+EasternAurelia_Hall_Text_SummitStay:
+	.string "The mountain will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_MentorDone:
 	.string "MENTOR: The Summit watches your path.\n"
 	.string "VENOM HOLLOW and TERRACOTTA await.\p"
 	.string "Also seek TYRANITAR at our plaque.$"
 
-EasternAurelia_Hall_Text_VesperIntro:
-	.string "VESPER: VENOM HOLLOW desk.\n"
-	.string "POISON is honesty--it shows the wound.\p"
-	.string "Can you endure my toxins?$"
+EasternAurelia_Hall_Text_VesperRedirect:
+	.string "VESPER: My GYM is in VENOM HOLLOW.\n"
+	.string "Marsh lanterns over toxic bloom.\p"
+	.string "The lantern-boat can take you there.$"
 
-EasternAurelia_Hall_Text_VesperDefeat:
-	.string "Your immunity… impressive.$"
+EasternAurelia_Hall_Text_VenomWarpAsk:
+	.string "Travel to VENOM HOLLOW?$"
 
-EasternAurelia_Hall_Text_GotVenomBadge:
-	.string "{PLAYER} received the VENOM BADGE!$"
+EasternAurelia_Hall_Text_VenomWarp:
+	.string "The lantern-boat drifts in…\n"
+	.string "Mind the fumes.$"
 
-EasternAurelia_Hall_Text_VesperAfter:
-	.string "VESPER: Hollow clears you.\n"
-	.string "Final desk--TERRA of Terracotta Mesa.\p"
-	.string "A cunning GENGAR still haunts the mist.$"
+EasternAurelia_Hall_Text_VenomStay:
+	.string "The mist will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_VesperDone:
 	.string "VESPER: Read the Venom plaque for\n"
 	.string "GENGAR's story, Champion.$"
 
-EasternAurelia_Hall_Text_TerraIntro:
-	.string "TERRA: TERRACOTTA MESA desk.\n"
-	.string "GROUND endures when empires fall.\p"
-	.string "Stand firm--or be buried!$"
+EasternAurelia_Hall_Text_TerraRedirect:
+	.string "TERRA: My GYM is in TERRACOTTA MESA.\n"
+	.string "Red clay mesas and buried ruins.\p"
+	.string "The dune-runner can take you there.$"
 
-EasternAurelia_Hall_Text_TerraDefeat:
-	.string "The land… accepts you.$"
+EasternAurelia_Hall_Text_TerracottaWarpAsk:
+	.string "Travel to TERRACOTTA MESA?$"
 
-EasternAurelia_Hall_Text_GotTerraBadge:
-	.string "{PLAYER} received the TERRA BADGE!$"
+EasternAurelia_Hall_Text_TerracottaWarp:
+	.string "The dune-runner kicks up dust…\n"
+	.string "Hold your hat.$"
 
-EasternAurelia_Hall_Text_TerraAfter:
-	.string "TERRA: All eighteen types answered.\n"
-	.string "AURELIA's gym circuit is complete!\p"
-	.string "GARCHOMP still patrols the mesa dunes.$"
+EasternAurelia_Hall_Text_TerracottaStay:
+	.string "The mesa will keep.\n"
+	.string "Return when you're ready.$"
 
 EasternAurelia_Hall_Text_TerraDone:
 	.string "TERRA: Eighteen badges. Full spectrum.\n"

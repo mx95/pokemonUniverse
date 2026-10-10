@@ -74,7 +74,17 @@
     "gMapGroup_IndoorFiveIslandRoute_Frlg",
     "gMapGroup_IndoorTwoIslandRoute_Frlg",
     "gMapGroup_IndoorSixIslandRoute_Frlg",
-    "gMapGroup_IndoorSevenIslandRoute_Frlg"
+    "gMapGroup_IndoorSevenIslandRoute_Frlg",
+    "gMapGroup_IndoorMirage",
+    "gMapGroup_IndoorVerdantis",
+    "gMapGroup_IndoorObsidian",
+    "gMapGroup_IndoorAstralCity",
+    "gMapGroup_IndoorTidymoonCity",
+    "gMapGroup_IndoorEonCity",
+    "gMapGroup_IndoorGenesisCity",
+    "gMapGroup_IndoorSummitCity",
+    "gMapGroup_IndoorVenomHollow",
+    "gMapGroup_IndoorTerracottaMesa"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -133,7 +143,17 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "MirageCity",
+    "VerdantisCity",
+    "ObsidianCity",
+    "AstralCity",
+    "TidymoonCity",
+    "EonCity",
+    "GenesisCity",
+    "SummitCity",
+    "VenomHollow",
+    "TerracottaMesa"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -1164,5 +1184,65 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute_Frlg": [
     "SevenIsland_SevaultCanyon_House_Frlg"
+  ],
+  "gMapGroup_IndoorMirage": [
+    "MirageCity_PokemonCenter_1F",
+    "MirageCity_PokemonCenter_2F",
+    "MirageCity_Mart",
+    "MirageCity_Gym"
+  ],
+  "gMapGroup_IndoorVerdantis": [
+    "VerdantisCity_PokemonCenter_1F",
+    "VerdantisCity_PokemonCenter_2F",
+    "VerdantisCity_Mart",
+    "VerdantisCity_Gym"
+  ],
+  "gMapGroup_IndoorObsidian": [
+    "ObsidianCity_PokemonCenter_1F",
+    "ObsidianCity_PokemonCenter_2F",
+    "ObsidianCity_Mart",
+    "ObsidianCity_Gym"
+  ],
+  "gMapGroup_IndoorAstralCity": [
+    "AstralCity_PokemonCenter_1F",
+    "AstralCity_PokemonCenter_2F",
+    "AstralCity_Mart",
+    "AstralCity_Gym"
+  ],
+  "gMapGroup_IndoorTidymoonCity": [
+    "TidymoonCity_PokemonCenter_1F",
+    "TidymoonCity_PokemonCenter_2F",
+    "TidymoonCity_Mart",
+    "TidymoonCity_Gym"
+  ],
+  "gMapGroup_IndoorEonCity": [
+    "EonCity_PokemonCenter_1F",
+    "EonCity_PokemonCenter_2F",
+    "EonCity_Mart",
+    "EonCity_Gym"
+  ],
+  "gMapGroup_IndoorGenesisCity": [
+    "GenesisCity_PokemonCenter_1F",
+    "GenesisCity_PokemonCenter_2F",
+    "GenesisCity_Mart",
+    "GenesisCity_Gym"
+  ],
+  "gMapGroup_IndoorSummitCity": [
+    "SummitCity_PokemonCenter_1F",
+    "SummitCity_PokemonCenter_2F",
+    "SummitCity_Mart",
+    "SummitCity_Gym"
+  ],
+  "gMapGroup_IndoorVenomHollow": [
+    "VenomHollow_PokemonCenter_1F",
+    "VenomHollow_PokemonCenter_2F",
+    "VenomHollow_Mart",
+    "VenomHollow_Gym"
+  ],
+  "gMapGroup_IndoorTerracottaMesa": [
+    "TerracottaMesa_PokemonCenter_1F",
+    "TerracottaMesa_PokemonCenter_2F",
+    "TerracottaMesa_Mart",
+    "TerracottaMesa_Gym"
   ]
 }

@@ -27500,6 +27500,20 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_PECHARUNT
 
+// GENESIS: Unique recolor palettes for Aurelia legendaries (geometry still DS stand-ins)
+    const u16 gMonPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/normal.pal", ".gbapal");
+    const u16 gMonShinyPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/shiny.pal", ".gbapal");
+    const u16 gOverworldPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/overworld_normal.pal", ".gbapal");
+    const u16 gShinyOverworldPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/overworld_shiny.pal", ".gbapal");
+    const u16 gMonPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/normal.pal", ".gbapal");
+    const u16 gMonShinyPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/shiny.pal", ".gbapal");
+    const u16 gOverworldPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/overworld_normal.pal", ".gbapal");
+    const u16 gShinyOverworldPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/overworld_shiny.pal", ".gbapal");
+    const u16 gMonPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/normal.pal", ".gbapal");
+    const u16 gMonShinyPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/shiny.pal", ".gbapal");
+    const u16 gOverworldPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/overworld_normal.pal", ".gbapal");
+    const u16 gShinyOverworldPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/overworld_shiny.pal", ".gbapal");
+
     const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
     const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp");

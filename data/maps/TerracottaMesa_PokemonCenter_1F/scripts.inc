@@ -1,0 +1,25 @@
+TerracottaMesa_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, TerracottaMesa_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+TerracottaMesa_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_TERRACOTTA_MESA
+	call Common_EventScript_UpdateBrineyLocation
+	end
+
+TerracottaMesa_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_TERRACOTTA_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+TerracottaMesa_PokemonCenter_1F_EventScript_Boy::
+	goto Genesis_EventScript_QuestBoard
+	end
+
+TerracottaMesa_PokemonCenter_1F_EventScript_Girl::
+	goto Genesis_EventScript_AchievementBoard
+	end

@@ -111,26 +111,130 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Mats:
 	.2byte DECOR_SPIN_MAT
 	pokemartlistend
 
-@ GENESIS: clothing boutique stub (OW outfit art not yet authored)
+@ GENESIS: Boutique Aurelia — contest scarves as fashion looks (OW sprite kits still deferred)
 LilycoveCity_DepartmentStore_5F_EventScript_PokefanF::
 	lock
 	faceplayer
 	setflag FLAG_GENESIS_CLOTHING_STUB_SEEN
-	goto_if_set FLAG_BADGE03_GET, LilycoveCity_DepartmentStore_5F_EventScript_ClothingGym4
+	goto_if_set FLAG_BADGE03_GET, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueOpen
 	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubEarly, MSGBOX_DEFAULT
 	release
 	end
 
-LilycoveCity_DepartmentStore_5F_EventScript_ClothingGym4::
-	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_DepartmentStore_5F_EventScript_ClothingPostgame
-	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubMid, MSGBOX_DEFAULT
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueOpen::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueWelcome, MSGBOX_DEFAULT
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu::
+	message LilycoveCity_DepartmentStore_5F_Text_BoutiqueAsk
+	waitmessage
+	multichoice 0, 0, MULTI_YESNOINFO, FALSE
+	switch VAR_RESULT
+	case 0, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBuy
+	case 1, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueWear
+	case 2, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueInfo
+	case MULTI_B_PRESSED, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBye
+	end
+
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueInfo::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueInfo, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBye::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueBye, MSGBOX_DEFAULT
 	release
 	end
 
-LilycoveCity_DepartmentStore_5F_EventScript_ClothingPostgame::
-	msgbox LilycoveCity_DepartmentStore_5F_Text_ClothingStubPost, MSGBOX_DEFAULT
-	release
-	end
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBuy::
+	goto_if_unset FLAG_GENESIS_OUTFIT_RED, LilycoveCity_DepartmentStore_5F_EventScript_BuyRed
+	goto_if_unset FLAG_GENESIS_OUTFIT_BLUE, LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue
+	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueOwnedBasic, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck::
+	goto_if_set FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueComplete
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyChampion, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	checkmoney 10000
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney
+	removemoney 10000
+	setflag FLAG_GENESIS_OUTFIT_CHAMPION
+	setflag FLAG_GENESIS_ACHIEVEMENT_FASHION
+	giveitem ITEM_PINK_SCARF
+	setvar VAR_GENESIS_OUTFIT, 3
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueComplete::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueComplete, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BuyRed::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyRed, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	checkmoney 3000
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney
+	removemoney 3000
+	setflag FLAG_GENESIS_OUTFIT_RED
+	giveitem ITEM_RED_SCARF
+	setvar VAR_GENESIS_OUTFIT, 1
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue::
+	goto_if_unset FLAG_BADGE06_GET, LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge6
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyBlue, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	checkmoney 5000
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney
+	removemoney 5000
+	setflag FLAG_GENESIS_OUTFIT_BLUE
+	giveitem ITEM_BLUE_SCARF
+	setvar VAR_GENESIS_OUTFIT, 2
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge6::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_NeedBadge6, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_NoMoney, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueWear::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearDefaultQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear0
+	goto_if_unset FLAG_GENESIS_OUTFIT_RED, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearRedQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear1
+	goto_if_unset FLAG_GENESIS_OUTFIT_BLUE, LilycoveCity_DepartmentStore_5F_EventScript_WearChampAsk
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearBlueQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear2
+LilycoveCity_DepartmentStore_5F_EventScript_WearChampAsk::
+	goto_if_unset FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearChampQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear3
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear0::
+	setvar VAR_GENESIS_OUTFIT, 0
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear1::
+	setvar VAR_GENESIS_OUTFIT, 1
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear2::
+	setvar VAR_GENESIS_OUTFIT, 2
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear3::
+	setvar VAR_GENESIS_OUTFIT, 3
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_Woman::
 	lockall
@@ -161,21 +265,72 @@ LilycoveCity_DepartmentStore_5F_EventScript_LittleGirl::
 
 LilycoveCity_DepartmentStore_5F_Text_ClothingStubEarly:
 	.string "BOUTIQUE AURELIA--opening soon!\p"
-	.string "We're stitching TRAINER outfits that\n"
+	.string "We're stitching TRAINER looks that\n"
 	.string "unlock with GYM BADGES.\p"
 	.string "Come back after Celestia's badge!$"
 
-LilycoveCity_DepartmentStore_5F_Text_ClothingStubMid:
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueWelcome:
 	.string "Welcome to BOUTIQUE AURELIA!\p"
-	.string "Outfit catalogs are still being fitted.\n"
-	.string "Badge perks will unlock here later.\p"
-	.string "For now, enjoy the dolls upstairs!$"
+	.string "Scarves mark your look for Contests\n"
+	.string "and style notes. Full overworld kits\l"
+	.string "arrive when the tailor finishes sprites.$"
 
-LilycoveCity_DepartmentStore_5F_Text_ClothingStubPost:
-	.string "Champion couture is next on the rack!\p"
-	.string "Overworld outfit sprites are still on\n"
-	.string "the tailor's desk--dialogue only for now.\p"
-	.string "Until then, battle fashion is your team!$"
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueAsk:
+	.string "Buy a look, wear one, or hear more?\n"
+	.string "(YES=Buy / NO=Wear / INFO)$"
+
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueInfo:
+	.string "Badge 3: Verdant Red Scarf.\n"
+	.string "Badge 6: Azure Blue Scarf.\l"
+	.string "Champion: Pink Champion look.\p"
+	.string "Looks are tracked as fashion unlocks.\n"
+	.string "OW sprite swaps need future art.$"
+
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueBye:
+	.string "Come back when your style evolves!$"
+
+LilycoveCity_DepartmentStore_5F_Text_BuyRed:
+	.string "Verdant Red Scarf look--¥3000?\n"
+	.string "Includes a RED SCARF for Contests.$"
+
+LilycoveCity_DepartmentStore_5F_Text_BuyBlue:
+	.string "Azure Blue Scarf look--¥5000?\n"
+	.string "Includes a BLUE SCARF for Contests.$"
+
+LilycoveCity_DepartmentStore_5F_Text_BuyChampion:
+	.string "Champion Pink look--¥10000?\n"
+	.string "Includes a PINK SCARF. Prestige only!$"
+
+LilycoveCity_DepartmentStore_5F_Text_NeedBadge6:
+	.string "The Azure look unlocks after badge 6.\n"
+	.string "Come back after Stormbreak's badge.$"
+
+LilycoveCity_DepartmentStore_5F_Text_NoMoney:
+	.string "You don't have enough money…$"
+
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueOwnedBasic:
+	.string "You own the early looks.\n"
+	.string "Champion couture waits after the League!$"
+
+LilycoveCity_DepartmentStore_5F_Text_BoutiqueComplete:
+	.string "Your wardrobe is complete!\n"
+	.string "Fashion Master of AURELIA--for now.$"
+
+LilycoveCity_DepartmentStore_5F_Text_WearDefaultQ:
+	.string "Wear the default Traveler look?$"
+
+LilycoveCity_DepartmentStore_5F_Text_WearRedQ:
+	.string "Wear Verdant Red?$"
+
+LilycoveCity_DepartmentStore_5F_Text_WearBlueQ:
+	.string "Wear Azure Blue?$"
+
+LilycoveCity_DepartmentStore_5F_Text_WearChampQ:
+	.string "Wear Champion Pink?$"
+
+LilycoveCity_DepartmentStore_5F_Text_WearSet:
+	.string "Look selected! Scarves are in your bag.\n"
+	.string "Overworld sprite kits still pending art.$"
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
 	.string "This place is full of cute DOLLS.\p"

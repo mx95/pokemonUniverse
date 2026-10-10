@@ -349,6 +349,86 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_SIX_ISLAND_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MIRAGE_CITY",
+      "map": "MAP_MIRAGE_CITY",
+      "x": 6,
+      "y": 17,
+      "respawn_map": "MAP_MIRAGE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_MIRAGE_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VERDANTIS_CITY",
+      "map": "MAP_VERDANTIS_CITY",
+      "x": 5,
+      "y": 7,
+      "respawn_map": "MAP_VERDANTIS_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_VERDANTIS_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_OBSIDIAN_CITY",
+      "map": "MAP_OBSIDIAN_CITY",
+      "x": 9,
+      "y": 7,
+      "respawn_map": "MAP_OBSIDIAN_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_OBSIDIAN_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_ASTRAL_CITY",
+      "map": "MAP_ASTRAL_CITY",
+      "x": 19,
+      "y": 20,
+      "respawn_map": "MAP_ASTRAL_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_ASTRAL_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_TIDYMOON_CITY",
+      "map": "MAP_TIDYMOON_CITY",
+      "x": 28,
+      "y": 17,
+      "respawn_map": "MAP_TIDYMOON_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_TIDYMOON_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_EON_CITY",
+      "map": "MAP_EON_CITY",
+      "x": 22,
+      "y": 6,
+      "respawn_map": "MAP_EON_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_EON_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_GENESIS_CITY",
+      "map": "MAP_GENESIS_CITY",
+      "x": 20,
+      "y": 17,
+      "respawn_map": "MAP_GENESIS_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_GENESIS_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_SUMMIT_CITY",
+      "map": "MAP_SUMMIT_CITY",
+      "x": 16,
+      "y": 39,
+      "respawn_map": "MAP_SUMMIT_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_SUMMIT_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_VENOM_HOLLOW",
+      "map": "MAP_VENOM_HOLLOW",
+      "x": 14,
+      "y": 8,
+      "respawn_map": "MAP_VENOM_HOLLOW_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_VENOM_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_TERRACOTTA_MESA",
+      "map": "MAP_TERRACOTTA_MESA",
+      "x": 16,
+      "y": 4,
+      "respawn_map": "MAP_TERRACOTTA_MESA_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_TERRACOTTA_NURSE"
     }
   ]
 }

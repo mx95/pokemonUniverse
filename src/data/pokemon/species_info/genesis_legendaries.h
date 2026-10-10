@@ -37,7 +37,7 @@
         .pokemonOffset = 0,
         .trainerScale = 387,
         .trainerOffset = 6,
-        // Stand-in: DS-style Giratina Origin (distinct from Altered for chaos motif)
+        // Geometry: DS Giratina Origin; palette: Genesis Aethernox recolor
         .frontPic = gMonFrontPic_GiratinaOrigin,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
@@ -51,8 +51,8 @@
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
-        .palette = gMonPalette_GiratinaOrigin,
-        .shinyPalette = gMonShinyPalette_GiratinaOrigin,
+        .palette = gMonPalette_Aethernox,
+        .shinyPalette = gMonShinyPalette_Aethernox,
         .iconSprite = gMonIcon_GiratinaOrigin,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
@@ -64,8 +64,8 @@
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_GiratinaOrigin,
-            gShinyOverworldPalette_GiratinaOrigin
+            gOverworldPalette_Aethernox,
+            gShinyOverworldPalette_Aethernox
         )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,
@@ -107,7 +107,7 @@
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        // Stand-in: DS-style Reshiram
+        // Geometry: DS Reshiram; palette: Genesis Solara recolor
         .frontPic = gMonFrontPic_Reshiram,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 1,
@@ -120,8 +120,8 @@
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
         .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
-        .palette = gMonPalette_Reshiram,
-        .shinyPalette = gMonShinyPalette_Reshiram,
+        .palette = gMonPalette_Solara,
+        .shinyPalette = gMonShinyPalette_Solara,
         .iconSprite = gMonIcon_Reshiram,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
@@ -133,8 +133,8 @@
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_Reshiram,
-            gShinyOverworldPalette_Reshiram
+            gOverworldPalette_Solara,
+            gShinyOverworldPalette_Solara
         )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,
@@ -177,7 +177,7 @@
         .pokemonOffset = 0,
         .trainerScale = 455,
         .trainerOffset = 8,
-        // Stand-in: DS-style Arceus
+        // Geometry: DS Arceus; palette: Genesis aurora recolor
         .frontPic = gMonFrontPic_Arceus,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
@@ -187,8 +187,8 @@
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         .backAnimId = BACK_ANIM_GROW_STUTTER,
-        .palette = gMonPalette_ArceusNormal,
-        .shinyPalette = gMonShinyPalette_ArceusNormal,
+        .palette = gMonPalette_Genesis,
+        .shinyPalette = gMonShinyPalette_Genesis,
         .iconSprite = gMonIcon_ArceusNormal,
         .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
@@ -200,8 +200,8 @@
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_ArceusNormal,
-            gShinyOverworldPalette_ArceusNormal
+            gOverworldPalette_Genesis,
+            gShinyOverworldPalette_Genesis
         )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,

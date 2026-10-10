@@ -1630,6 +1630,46 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_MIRAGE_CITY",
+      "name": "MIRAGE CITY"
+    },
+    {
+      "id": "MAPSEC_VERDANTIS_CITY",
+      "name": "VERDANTIS CITY"
+    },
+    {
+      "id": "MAPSEC_OBSIDIAN_CITY",
+      "name": "OBSIDIAN CITY"
+    },
+    {
+      "id": "MAPSEC_ASTRAL_CITY",
+      "name": "ASTRAL CITY"
+    },
+    {
+      "id": "MAPSEC_TIDYMOON_CITY",
+      "name": "TIDYMOON CITY"
+    },
+    {
+      "id": "MAPSEC_EON_CITY",
+      "name": "EON CITY"
+    },
+    {
+      "id": "MAPSEC_GENESIS_CITY",
+      "name": "GENESIS CITY"
+    },
+    {
+      "id": "MAPSEC_SUMMIT_CITY",
+      "name": "SUMMIT CITY"
+    },
+    {
+      "id": "MAPSEC_VENOM_HOLLOW",
+      "name": "VENOM HOLLOW"
+    },
+    {
+      "id": "MAPSEC_TERRACOTTA_MESA",
+      "name": "TERRACOTTA MESA"
     }
   ]
 }

@@ -30,6 +30,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Gym 3 Marina (Port Azure stand-in) | IMPLEMENTED | Petalburg Gym Water rebrand; Tidal Badge |
 | Gyms 2/4–8 stand-in path | IMPLEMENTED | Bran/Volt/Glacia/Ra/Skye/Titan on Hoenn gyms; Mega/Z/Dynamax items |
 | Elite Four + Champion | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Champion Astra; Tera on clear |
+| Mirage City (Gym 9 Iris) stand-in maps | IMPLEMENTED | Oldale-layout clone: city + Center 1F/2F + Mart + Gym; Hall desk warps in; Iris battle moved to `MirageCity_Gym`; `docs/MAP_STUBS.md` |
+| Verdantis (Gym 10 Celia) + Obsidian (Gym 11 Noctis) stand-in maps | IMPLEMENTED | Fortree / Lavaridge-layout clones: city + Center 1F/2F + Mart + Gym each; Hall desks warp in; battles moved to `VerdantisCity_Gym` / `ObsidianCity_Gym`; `docs/MAP_STUBS.md` |
 | Postgame Frontier hooks | IMPLEMENTED | Aurelia Frontier branding; Eastern Hall city desks + clerk QoL; WT Tower bout; legend seeker |
 | DS-style / “3D” presentation | IMPLEMENTED | Gen4/5 sprites, Gen5 pop-ups, shadows, modern particles |
 | Title / opening branding | IMPLEMENTED | GENESIS VERSION banner, teal title grade, RG title theme; Birch speech skipped; Corviknight taxi intro (no truck) |
@@ -44,11 +46,11 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins; Sanctum heal + held items + completion gifts; Form announce |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
-| Custom legendary battle sprites | — | DEFERRED | Needs authored GBA sprite pipeline; DS stand-ins remain |
+| Custom legendary battle sprites | — | IMPLEMENTED (v1) | Unique recolor palettes on DS geometry (`graphics/pokemon/{aethernox,solara,genesis}`); full redraws still later |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | DEFERRED (stand-in) | Eastern Hall desks + city lore plaques; full geometry needs Porymap — `MAP_STUBS.md` |
+| Aurelia maps (custom geometry) | 3–4 | IMPLEMENTED (layout clones) | All 10 eastern cities enterable (Center/Mart/Gym) via reused LAYOUT_*; unique outdoor geometry still needs Porymap |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 + 4 puzzles with item rewards + master Bottle Caps + Kai |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
@@ -63,8 +65,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Feature group | Spec §§ | Status | Notes |
 |---------------|---------|--------|-------|
 | Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT, Chaos |
-| DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; search levels still off (saveblock) |
-| Character customization | 57–58 | IMPLEMENTED (stub) | Lilycove Boutique Aurelia dialogue; needs OW outfit art |
+| DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; `USE_DEXNAV_SEARCH_LEVELS` on (SaveBlock3 via ALWAYS item desc) |
+| Character customization | 57–58 | IMPLEMENTED (v1) | Boutique Aurelia buys/wears contest-scarf looks; OW sprite kits still deferred |
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
@@ -126,13 +128,13 @@ Story battles: one gimmick type per battle for the player (`GENESIS_ONE_GIMMICK_
 
 ## Next recommended feature group
 
-Discussed systems polish for this phase is **complete** (Corviknight intro, puzzles/rewards, catch filters, Genesis Form UX, Chaos Battles, Aurelia BGM remap, Hall/Sanctum depth).
+Code-deliverable backlog from prior discussion is **complete** (including layout-clone eastern cities, legend recolor palettes, DexNav search levels, boutique fashion unlocks).
 
-Art/map backlog (needs external tools, not code-only):
-1. **In-emulator playtest** checklist of the above.
-2. **`genesis/maps`:** real eastern city geometry (Porymap).
-3. Unique legendary GBA sprites (replace DS stand-ins).
-4. Outfit OW art; optional DexNav search levels if saveblock budget allows.
+Still needs external art / Porymap / playtest:
+1. **In-emulator playtest** of eastern city warps, DexNav levels, legend recolors, boutique.
+2. **Unique outdoor geometry** for eastern cities (Porymap) — clones reuse Hoenn layouts.
+3. **Full legendary redraws** (replace DS silhouettes; palettes already unique).
+4. **OW outfit sprite kits** wired to `VAR_GENESIS_OUTFIT` (boutique unlocks exist).
 
 ---
 

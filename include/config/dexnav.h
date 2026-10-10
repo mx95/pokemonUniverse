@@ -2,7 +2,7 @@
 #define GUARD_CONFIG_DEXNAV_H
 
 #define DEXNAV_ENABLED                TRUE   // GENESIS: DexNav enabled
-#define USE_DEXNAV_SEARCH_LEVELS      FALSE  /* WARNING: POSSIBLY EXCEEDS SAVEBLOCK SPACE! REQUIRES 1 BYTE PER SPECIES */
+#define USE_DEXNAV_SEARCH_LEVELS      TRUE   // GENESIS: enabled; SaveBlock3 fits with OW_ITEM_DESCRIPTIONS_ALWAYS (no itemFlags)
 
 // Flag/var defines
 #define DN_FLAG_SEARCHING             FLAG_DEXNAV_SEARCHING // Searching for mon

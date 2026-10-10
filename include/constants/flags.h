@@ -753,10 +753,14 @@
 #define FLAG_UNUSED_0x2B6  FLAG_GENESIS_TYPE_MASTER_REWARD // alias
 #define FLAG_GENESIS_CHAOS_BATTLES            0x2B7 // Postgame: Chaos Battles ON (multi-gimmick per battle)
 #define FLAG_UNUSED_0x2B7  FLAG_GENESIS_CHAOS_BATTLES // alias
-#define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
-#define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
+#define FLAG_GENESIS_OUTFIT_RED               0x2B8 // Boutique: Red Scarf look unlocked
+#define FLAG_GENESIS_OUTFIT_BLUE              0x2B9 // Boutique: Blue Scarf look unlocked
+#define FLAG_GENESIS_OUTFIT_CHAMPION          0x2BA // Boutique: Champion Pink look unlocked
+#define FLAG_GENESIS_ACHIEVEMENT_FASHION      0x2BB // Achievement: collected boutique looks
+#define FLAG_UNUSED_0x2B8  FLAG_GENESIS_OUTFIT_RED // alias
+#define FLAG_UNUSED_0x2B9  FLAG_GENESIS_OUTFIT_BLUE // alias
+#define FLAG_UNUSED_0x2BA  FLAG_GENESIS_OUTFIT_CHAMPION // alias
+#define FLAG_UNUSED_0x2BB  FLAG_GENESIS_ACHIEVEMENT_FASHION // alias
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
