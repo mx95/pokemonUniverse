@@ -23,7 +23,24 @@ MauvilleCity_EventScript_Boy::
 	end
 
 MauvilleCity_EventScript_Maniac::
-	msgbox MauvilleCity_Text_AllSortsOfPeopleComeThrough, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_GENESIS_METAGROSS_CAUGHT, MauvilleCity_EventScript_ManiacMetagrossDone
+	goto_if_set FLAG_GENESIS_METAGROSS_QUEST_INTRO, MauvilleCity_EventScript_ManiacMetagrossHint
+	msgbox MauvilleCity_Text_AllSortsOfPeopleComeThrough, MSGBOX_DEFAULT
+	msgbox MauvilleCity_Text_MetagrossRumor, MSGBOX_DEFAULT
+	setflag FLAG_GENESIS_METAGROSS_QUEST_INTRO
+	release
+	end
+
+MauvilleCity_EventScript_ManiacMetagrossHint::
+	msgbox MauvilleCity_Text_MetagrossRumor, MSGBOX_DEFAULT
+	release
+	end
+
+MauvilleCity_EventScript_ManiacMetagrossDone::
+	msgbox MauvilleCity_Text_AllSortsOfPeopleComeThrough, MSGBOX_DEFAULT
+	release
 	end
 
 MauvilleCity_EventScript_Woman::
@@ -620,6 +637,14 @@ MauvilleCity_Text_AllSortsOfPeopleComeThrough:
 	.string "and south, and east and west.\p"
 	.string "Because of that, we get all sorts of\n"
 	.string "people coming through.$"
+
+MauvilleCity_Text_MetagrossRumor:
+	.string "Lately scientists keep sneaking toward\n"
+	.string "NEW MAUVILLE under the city.\p"
+	.string "They say a METAGROSS wired into the\n"
+	.string "old AI Mega Evolved and went berserk.\p"
+	.string "Shiny armor, Totem-level pressure…\n"
+	.string "If you're curious, talk to them inside.$"
 
 MauvilleCity_Text_RydelVeryGenerous:
 	.string "Have you been to RYDEL'S CYCLES yet?\p"

@@ -732,10 +732,10 @@
 #define FLAG_GENESIS_ACHIEVEMENT_CHAMPION     0x2A4 // Achievement: became Champion
 #define FLAG_GENESIS_CLOTHING_STUB_SEEN       0x2A5 // Clothing boutique stub visited
 #define FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN     0x2A6 // Post-Eclipse archive wing unlocked
-#define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
+#define FLAG_GENESIS_METAGROSS_QUEST_INTRO    0x2A7 // Heard New Mauville AI Metagross rumor
+#define FLAG_GENESIS_METAGROSS_DEFEATED       0x2A8 // Defeated rampage Mega Metagross
+#define FLAG_GENESIS_METAGROSS_CAUGHT         0x2A9 // Caught / claimed the Metagross
+#define FLAG_HIDE_GENESIS_RAMPAGE_METAGROSS   0x2AA // Hide rampage encounter object
 #define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
 #define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
 #define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag

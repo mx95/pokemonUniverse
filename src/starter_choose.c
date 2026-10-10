@@ -25,6 +25,7 @@
 #include "constants/rgb.h"
 
 #define STARTER_MON_COUNT   3
+#define MEGA_STARTERS_PER_TYPE 4
 
 // Position of the sprite of the selected starter Pokémon
 #define STARTER_PKMN_POS_X (DISPLAY_WIDTH / 2)
@@ -43,13 +44,19 @@ static void Task_HandleConfirmStarterInput(u8 taskId);
 static void Task_DeclineStarter(u8 taskId);
 static void Task_MoveStarterChooseCursor(u8 taskId);
 static void Task_CreateStarterLabel(u8 taskId);
+static void Task_AskMegaStarterVariant(u8 taskId);
+static void Task_HandleMegaStarterVariantInput(u8 taskId);
+static void RefreshMegaStarterPreview(u8 taskId);
 static void CreateStarterPokemonLabel(u8 selection);
 static u8 CreatePokemonFrontSprite(enum Species species, u8 x, u8 y);
 static void SpriteCB_SelectionHand(struct Sprite *sprite);
 static void SpriteCB_Pokeball(struct Sprite *sprite);
 static void SpriteCB_StarterPokemon(struct Sprite *sprite);
+static u16 GetMegaStarterSpecies(u8 typeId, u8 variantId);
 
 static u16 sStarterLabelWindowId;
+static EWRAM_DATA u16 sChosenStarterSpecies = SPECIES_NONE;
+static EWRAM_DATA u8 sMegaStarterVariant = 0;
 
 const u16 gBirchBagGrass_Pal[] = INCGFX_U16("graphics/starter_choose/tiles.png", ".gbapal");
 static const u16 sPokeballSelection_Pal[] = INCGFX_U16("graphics/starter_choose/pokeball_selection.png", ".gbapal");
@@ -110,16 +117,16 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
     {8, 4},
 };
 
-#define GRASS_STARTER (IS_FRLG ? SPECIES_BULBASAUR  : SPECIES_TREECKO)
-#define FIRE_STARTER  (IS_FRLG ? SPECIES_CHARMANDER : SPECIES_TORCHIC)
-#define WATER_STARTER (IS_FRLG ? SPECIES_SQUIRTLE   : SPECIES_MUDKIP )
-
-static const u16 sStarterMon[STARTER_MON_COUNT] =
+// GENESIS: every starter line that can Mega Evolve (classic ORAS + Gen 9 Z-A megas).
+// Ball pick = type (0 Grass / 1 Fire / 2 Water); then pick a mega-capable line.
+static const u16 sMegaStarterSpecies[STARTER_MON_COUNT][MEGA_STARTERS_PER_TYPE] =
 {
-    GRASS_STARTER,
-    FIRE_STARTER,
-    WATER_STARTER,
+    { SPECIES_BULBASAUR, SPECIES_TREECKO, SPECIES_CHIKORITA, SPECIES_CHESPIN },
+    { SPECIES_CHARMANDER, SPECIES_TORCHIC, SPECIES_TEPIG, SPECIES_FENNEKIN },
+    { SPECIES_SQUIRTLE, SPECIES_MUDKIP, SPECIES_TOTODILE, SPECIES_FROAKIE },
 };
+
+static const u8 sText_ChooseMegaStarter[] = _("Choose a Mega-capable starter!\n{DPAD_LEFTRIGHT}: browse  {A_BUTTON}: OK  {B_BUTTON}: back");
 
 static const struct BgTemplate sBgTemplates[3] =
 {
@@ -347,11 +354,23 @@ static const struct SpriteTemplate sSpriteTemplate_StarterCircle =
 };
 
 // .text
+static u16 GetMegaStarterSpecies(u8 typeId, u8 variantId)
+{
+    if (typeId >= STARTER_MON_COUNT)
+        typeId = 0;
+    if (variantId >= MEGA_STARTERS_PER_TYPE)
+        variantId = 0;
+    return sMegaStarterSpecies[typeId][variantId];
+}
+
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (chosenStarterId > STARTER_MON_COUNT)
+    if (sChosenStarterSpecies != SPECIES_NONE)
+        return sChosenStarterSpecies;
+    if (chosenStarterId >= STARTER_MON_COUNT)
         chosenStarterId = 0;
-    return sStarterMon[chosenStarterId];
+    // Default preview for type ball = Hoenn mega starter of that type
+    return GetMegaStarterSpecies(chosenStarterId, 1);
 }
 
 static void VblankCB_StarterChoose(void)
@@ -374,6 +393,9 @@ void CB2_ChooseStarter(void)
 {
     u8 taskId;
     u8 spriteId;
+
+    sChosenStarterSpecies = SPECIES_NONE;
+    sMegaStarterVariant = 1;
 
     SetVBlankCallback(NULL);
 
@@ -540,11 +562,10 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
 
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
-    case 0:  // YES
-        // Return the starter choice and exit.
-        gSpecialVar_Result = gTasks[taskId].tStarterSelection;
-        ResetAllPicSprites();
-        SetMainCallback2(gMain.savedCallback);
+    case 0:  // YES — pick which mega-capable starter of this type
+        PlaySE(SE_SELECT);
+        sMegaStarterVariant = 1; // default to Hoenn line
+        gTasks[taskId].func = Task_AskMegaStarterVariant;
         break;
     case 1:  // NO
     case MENU_B_PRESSED:
@@ -558,6 +579,84 @@ static void Task_HandleConfirmStarterInput(u8 taskId)
         DestroySprite(&gSprites[spriteId]);
         gTasks[taskId].func = Task_DeclineStarter;
         break;
+    }
+}
+
+static void RefreshMegaStarterPreview(u8 taskId)
+{
+    u8 spriteId = gTasks[taskId].tPkmnSpriteId;
+    u8 typeId = gTasks[taskId].tStarterSelection;
+    u16 species = GetMegaStarterSpecies(typeId, sMegaStarterVariant);
+
+    FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
+    FreeAndDestroyMonPicSprite(spriteId);
+    spriteId = CreatePokemonFrontSprite(species, STARTER_PKMN_POS_X, STARTER_PKMN_POS_Y);
+    gSprites[spriteId].affineAnims = &sAffineAnims_StarterPokemon;
+    gSprites[spriteId].callback = SpriteCallbackDummy;
+    gTasks[taskId].tPkmnSpriteId = spriteId;
+    PlayCry_Normal(species, 0);
+}
+
+static void Task_AskMegaStarterVariant(u8 taskId)
+{
+    FillWindowPixelBuffer(0, PIXEL_FILL(1));
+    AddTextPrinterParameterized(0, FONT_NORMAL, sText_ChooseMegaStarter, 0, 1, 0, NULL);
+    ScheduleBgCopyTilemapToVram(0);
+    RefreshMegaStarterPreview(taskId);
+    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
+    // Override label species name with selected mega-capable starter
+    ClearStarterLabel();
+    {
+        u16 species = GetMegaStarterSpecies(gTasks[taskId].tStarterSelection, sMegaStarterVariant);
+        sChosenStarterSpecies = species;
+        CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
+        sChosenStarterSpecies = SPECIES_NONE;
+    }
+    gTasks[taskId].func = Task_HandleMegaStarterVariantInput;
+}
+
+static void Task_HandleMegaStarterVariantInput(u8 taskId)
+{
+    u8 typeId = gTasks[taskId].tStarterSelection;
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        sChosenStarterSpecies = GetMegaStarterSpecies(typeId, sMegaStarterVariant);
+        gSpecialVar_Result = typeId; // keep 0/1/2 for rival type advantage
+        ResetAllPicSprites();
+        SetMainCallback2(gMain.savedCallback);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        u8 spriteId;
+        PlaySE(SE_SELECT);
+        sChosenStarterSpecies = SPECIES_NONE;
+        ClearStarterLabel();
+        spriteId = gTasks[taskId].tPkmnSpriteId;
+        FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
+        FreeAndDestroyMonPicSprite(spriteId);
+        spriteId = gTasks[taskId].tCircleSpriteId;
+        FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
+        DestroySprite(&gSprites[spriteId]);
+        gTasks[taskId].func = Task_DeclineStarter;
+    }
+    else if (JOY_NEW(DPAD_LEFT))
+    {
+        PlaySE(SE_SELECT);
+        if (sMegaStarterVariant == 0)
+            sMegaStarterVariant = MEGA_STARTERS_PER_TYPE - 1;
+        else
+            sMegaStarterVariant--;
+        ClearStarterLabel();
+        gTasks[taskId].func = Task_AskMegaStarterVariant;
+    }
+    else if (JOY_NEW(DPAD_RIGHT))
+    {
+        PlaySE(SE_SELECT);
+        sMegaStarterVariant = (sMegaStarterVariant + 1) % MEGA_STARTERS_PER_TYPE;
+        ClearStarterLabel();
+        gTasks[taskId].func = Task_AskMegaStarterVariant;
     }
 }
 

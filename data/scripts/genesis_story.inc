@@ -20,10 +20,20 @@ Genesis_EventScript_QuestBoard::
 	msgbox Genesis_Text_QuestBoardHeader, MSGBOX_DEFAULT
 	call Genesis_EventScript_QuestBoard_PrintActs
 	call Genesis_EventScript_QuestBoard_PrintPuzzles
+	call Genesis_EventScript_QuestBoard_PrintSide
 	call Genesis_EventScript_QuestBoard_PrintPostgame
 	msgbox Genesis_Text_QuestBoardFooter, MSGBOX_DEFAULT
 	release
 	end
+
+Genesis_EventScript_QuestBoard_PrintSide::
+	goto_if_unset FLAG_GENESIS_METAGROSS_QUEST_INTRO, Genesis_EventScript_QuestBoard_SideSkip
+	msgbox Genesis_Text_Quest_SideHeader, MSGBOX_DEFAULT
+	goto_if_set FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_QuestBoard_MetagrossDone
+	msgbox Genesis_Text_Quest_MetagrossOpen, MSGBOX_DEFAULT
+	return
+Genesis_EventScript_QuestBoard_SideSkip::
+	return
 
 Genesis_EventScript_AchievementBoard::
 	lock
@@ -197,6 +207,9 @@ Genesis_EventScript_QuestBoard_WT::
 Genesis_EventScript_QuestBoard_WTDone::
 	msgbox Genesis_Text_Quest_WTDone, MSGBOX_DEFAULT
 	return
+Genesis_EventScript_QuestBoard_MetagrossDone::
+	msgbox Genesis_Text_Quest_MetagrossDone, MSGBOX_DEFAULT
+	return
 Genesis_EventScript_QuestBoard_PostSkip::
 	return
 
@@ -306,6 +319,15 @@ Genesis_Text_Quest_WTOpen:
 
 Genesis_Text_Quest_WTDone:
 	.string "- WORLD TOURNAMENT bracket: cleared.$"
+
+Genesis_Text_Quest_SideHeader:
+	.string "Side missions:$"
+
+Genesis_Text_Quest_MetagrossOpen:
+	.string "- New Mauville: stop the AI Mega METAGROSS.$"
+
+Genesis_Text_Quest_MetagrossDone:
+	.string "- AI Mega METAGROSS rampage: resolved.$"
 
 Genesis_Text_QuestBoardFooter:
 	.string "Check back as your journey continues.$"
