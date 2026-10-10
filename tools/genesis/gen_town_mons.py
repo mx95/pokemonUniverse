@@ -2,48 +2,50 @@
 """Generate data/scripts/genesis_town_mons.inc — non-legendary / pseudo-tier town quests."""
 from pathlib import Path
 
-# Prefer true pseudos (BST ~600) when the type matches; else high-BST specialists.
+# Totem-style town quests: NEVER starter lines (gym specialists may use starters).
+# Prefer type-fitting pseudos / high-BST specialists.
+# Early badges (1-5): mid-stage / pre-evolutions scaled to story timing.
 QUESTS = [
-    (0, "Lumen", "SPECIES_RILLABOOM", 30, "ITEM_MIRACLE_SEED",
-     "LUMEN's drum circle woke a wild RILLABOOM--\\nthe Drummer Pokémon of the forests.\\p"
-     "Its grassy beat keeps the meadow healthy.\\nWill you face its rhythm?",
-     "Challenge the grove's RILLABOOM?",
-     "The drums fall quiet…",
-     "Invite RILLABOOM to your party?",
-     "RILLABOOM taps a welcoming beat.",
-     "LUMEN's grove still echoes its drum."),
-    (1, "Ironridge", "SPECIES_KOMMO_O", 28, "ITEM_NONE",
-     "Ironridge caves temper more than ore.\\nA KOMMO-O--Clangorous Pokémon--trains\\p"
-     "there, scales ringing like iron fists.\\nFIGHTING spirit in dragon armor.",
-     "Spar with KOMMO-O?",
+    (0, "Lumen", "SPECIES_TANGELA", 18, "ITEM_MIRACLE_SEED",
+     "LUMEN vines tangled around a wild TANGELA--\\nthe Vine Pokémon that drinks dew.\\p"
+     "Grow it well and it may become TANGROWTH.\\nWill you face its coils?",
+     "Challenge the grove's TANGELA?",
+     "The vines go slack…",
+     "Invite TANGELA to your party?",
+     "TANGELA's vines loosen--friendship.",
+     "LUMEN's grove still smells of sap."),
+    (1, "Ironridge", "SPECIES_HAKAMO_O", 22, "ITEM_NONE",
+     "Ironridge caves temper more than ore.\\nA HAKAMO-O--Scaly Pokémon--trains\\p"
+     "there, shedding for stronger armor.\\nOne day it may become KOMMO-O.",
+     "Spar with HAKAMO-O?",
      "The clanging ceases…",
-     "Travel with KOMMO-O?",
-     "KOMMO-O bows--scales still humming.",
+     "Travel with HAKAMO-O?",
+     "HAKAMO-O bows--scales still humming.",
      "Cave walls still ring at dawn."),
-    (2, "PortAzure", "SPECIES_MILOTIC", 35, "ITEM_MYSTIC_WATER",
-     "Port Azure fishers speak of a Tender\\nPokémon born from an ugly FEEBAS.\\p"
-     "MILOTIC calms furious seas with beauty\\nand stubborn grace.",
-     "Face MILOTIC on the pier?",
+    (2, "PortAzure", "SPECIES_SEADRA", 28, "ITEM_MYSTIC_WATER",
+     "Port Azure reefs hide a proud SEADRA--\\nthe Dragon Pokémon of the currents.\\p"
+     "Trade it a DREAM SCALE someday and it\\nmay become KINGDRA of the deep.",
+     "Face SEADRA on the pier?",
      "The tide goes glass-smooth…",
-     "Ask MILOTIC to sail with you?",
-     "MILOTIC coils beside you, serene.",
+     "Ask SEADRA to sail with you?",
+     "SEADRA spirals beside you, calm.",
      "Harbor waters stay kinder now."),
-    (4, "Frostveil", "SPECIES_BAXCALIBUR", 40, "ITEM_NEVER_MELT_ICE",
-     "Frostveil's paradox springs hid a nest.\\nBAXCALIBUR--Ice Dragon Pokémon--guards\\p"
-     "the cold vault under the hot rocks,\\na true pseudo-legend of ice and fang.",
-     "Challenge BAXCALIBUR?",
+    (4, "Frostveil", "SPECIES_ARCTIBAX", 34, "ITEM_NEVER_MELT_ICE",
+     "Frostveil's paradox springs hid a nest.\\nARCTIBAX--Ice Fighter Pokémon--guards\\p"
+     "the cold vault. Keep training it and\\nit may become BAXCALIBUR.",
+     "Challenge ARCTIBAX?",
      "Frost settles on the stone…",
-     "Partner with BAXCALIBUR?",
-     "BAXCALIBUR sheaths its blade-crest.",
+     "Partner with ARCTIBAX?",
+     "ARCTIBAX sheaths its icy crest.",
      "The vault ice stays unbroken."),
-    (5, "Solaris", "SPECIES_BLAZIKEN", 42, "ITEM_CHARCOAL",
-     "Solaris sun-dojos raised a BLAZIKEN\\nwhose kicks scorch training posts.\\p"
-     "The Blaze Pokémon of this city fights\\nwith solar heat in every strike.",
-     "Trade blows with BLAZIKEN?",
-     "Embers cool on the wood…",
-     "Train under BLAZIKEN's wing?",
-     "BLAZIKEN nods through the haze.",
-     "Dojo ash still marks its stance."),
+    (5, "Solaris", "SPECIES_HOUNDOOM", 38, "ITEM_CHARCOAL",
+     "Solaris sun-ridges raised a HOUNDOOM\\nwhose howls scorch the night air.\\p"
+     "The Dark Pokémon of flame--no starter\\nstock, only volcanic hunting packs.",
+     "Face HOUNDOOM's heat?",
+     "Embers cool on the rock…",
+     "Hunt with HOUNDOOM?",
+     "HOUNDOOM pads into your shadow.",
+     "Ridge ash still marks its path."),
     (6, "Stormbreak", "SPECIES_SALAMENCE", 48, "ITEM_NONE",
      "Stormbreak cliffs hatch dreamers.\\nSALAMENCE--Dragon Pokémon--finally\\p"
      "earned its wings here. Wind and fang\\nrival any gale legend.",
