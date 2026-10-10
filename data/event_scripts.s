@@ -1251,6 +1251,13 @@ Common_EventScript_GenesisGiveMegaRing::
 	setflag FLAG_GENESIS_MEGA_UNLOCKED
 	setvar VAR_GENESIS_STORY_STATE, GENESIS_STORY_GYM4_DONE
 	msgbox Common_Text_GenesisMegaUnlock, MSGBOX_DEFAULT
+	callnative Genesis_GiveStarterMegaStone
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_NopReturn
+	bufferitemname STR_VAR_1, VAR_0x8004
+	playfanfare MUS_OBTAIN_ITEM
+	message Common_Text_GenesisStarterMegaStone
+	waitmessage
+	waitfanfare
 	return
 
 Common_EventScript_GenesisGiveZRing::
@@ -1273,6 +1280,10 @@ Common_EventScript_GenesisGiveDynamaxBand::
 Common_Text_GenesisMegaUnlock:
 	.string "You can feel GENESIS ENERGY stir…\n"
 	.string "MEGA EVOLUTION is now yours to command!$"
+
+Common_Text_GenesisStarterMegaStone:
+	.string "And for the partner who started your\n"
+	.string "journey--a matching {STR_VAR_1}!$"
 
 Common_Text_GenesisZUnlock:
 	.string "A surge of GENESIS ENERGY answers you!\n"

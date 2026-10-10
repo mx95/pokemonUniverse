@@ -72,9 +72,15 @@ Genesis_EventScript_Ach_WTDone::
 Genesis_EventScript_Ach_Legends::
 	goto_if_set FLAG_GENESIS_ACHIEVEMENT_LEGENDS, Genesis_EventScript_Ach_LegendsDone
 	msgbox Genesis_Text_Ach_LegendsOpen, MSGBOX_DEFAULT
-	goto Genesis_EventScript_Ach_Footer
+	goto Genesis_EventScript_Ach_Metagross
 Genesis_EventScript_Ach_LegendsDone::
 	msgbox Genesis_Text_Ach_LegendsDone, MSGBOX_DEFAULT
+Genesis_EventScript_Ach_Metagross::
+	goto_if_set FLAG_GENESIS_ACHIEVEMENT_METAGROSS, Genesis_EventScript_Ach_MetagrossDone
+	msgbox Genesis_Text_Ach_MetagrossOpen, MSGBOX_DEFAULT
+	goto Genesis_EventScript_Ach_Footer
+Genesis_EventScript_Ach_MetagrossDone::
+	msgbox Genesis_Text_Ach_MetagrossDone, MSGBOX_DEFAULT
 Genesis_EventScript_Ach_Footer::
 	msgbox Genesis_Text_AchievementFooter, MSGBOX_DEFAULT
 	release
@@ -95,8 +101,11 @@ Genesis_EventScript_SyncAch_WT::
 	goto_if_unset FLAG_GENESIS_WT_CLEARED, Genesis_EventScript_SyncAch_Legends
 	setflag FLAG_GENESIS_ACHIEVEMENT_WT
 Genesis_EventScript_SyncAch_Legends::
-	goto_if_unset FLAG_GENESIS_FORM_UNLOCKED, Genesis_EventScript_SyncAch_Return
+	goto_if_unset FLAG_GENESIS_FORM_UNLOCKED, Genesis_EventScript_SyncAch_Metagross
 	setflag FLAG_GENESIS_ACHIEVEMENT_LEGENDS
+Genesis_EventScript_SyncAch_Metagross::
+	goto_if_unset FLAG_GENESIS_METAGROSS_CAUGHT, Genesis_EventScript_SyncAch_Return
+	setflag FLAG_GENESIS_ACHIEVEMENT_METAGROSS
 Genesis_EventScript_SyncAch_Return::
 	return
 
@@ -371,6 +380,12 @@ Genesis_Text_Ach_LegendsOpen:
 
 Genesis_Text_Ach_LegendsDone:
 	.string "- Legend Keeper: unlocked.$"
+
+Genesis_Text_Ach_MetagrossOpen:
+	.string "- AI Breaker: calm New Mauville METAGROSS.$"
+
+Genesis_Text_Ach_MetagrossDone:
+	.string "- AI Breaker: unlocked.$"
 
 Genesis_Text_AchievementFooter:
 	.string "More titles will appear as AURELIA\n"

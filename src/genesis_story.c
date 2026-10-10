@@ -5,8 +5,10 @@
 #include "constants/flags.h"
 #include "constants/vars.h"
 #include "constants/items.h"
+#include "constants/species.h"
 #include "event_data.h"
 #include "item.h"
+#include "starter_choose.h"
 
 // GENESIS: Story helper specials (expand as acts are authored).
 // Keep story logic out of upstream battle systems.
@@ -111,6 +113,46 @@ void Genesis_TryUnlockGenesisForm(void)
 void Genesis_GetWTRuleIndex(void)
 {
     gSpecialVar_Result = VarGet(VAR_DAYS) % 3;
+}
+
+void Genesis_GiveStarterMegaStone(void)
+{
+    u16 species;
+    enum Item stone = ITEM_NONE;
+
+    if (FlagGet(FLAG_GENESIS_STARTER_MEGA_STONE))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    species = GetStarterPokemon(VarGet(VAR_STARTER_MON));
+    switch (species)
+    {
+    case SPECIES_BULBASAUR:  stone = ITEM_VENUSAURITE; break;
+    case SPECIES_CHARMANDER: stone = ITEM_CHARIZARDITE_X; break;
+    case SPECIES_SQUIRTLE:   stone = ITEM_BLASTOISINITE; break;
+    case SPECIES_TREECKO:    stone = ITEM_SCEPTILITE; break;
+    case SPECIES_TORCHIC:    stone = ITEM_BLAZIKENITE; break;
+    case SPECIES_MUDKIP:     stone = ITEM_SWAMPERTITE; break;
+    case SPECIES_CHIKORITA:  stone = ITEM_MEGANIUMITE; break;
+    case SPECIES_TOTODILE:   stone = ITEM_FERALIGITE; break;
+    case SPECIES_TEPIG:      stone = ITEM_EMBOARITE; break;
+    case SPECIES_CHESPIN:    stone = ITEM_CHESNAUGHTITE; break;
+    case SPECIES_FENNEKIN:   stone = ITEM_DELPHOXITE; break;
+    case SPECIES_FROAKIE:    stone = ITEM_GRENINJITE; break;
+    default:                 stone = ITEM_NONE; break;
+    }
+
+    if (stone == ITEM_NONE || !AddBagItem(stone, 1))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    FlagSet(FLAG_GENESIS_STARTER_MEGA_STONE);
+    gSpecialVar_0x8004 = stone;
+    gSpecialVar_Result = TRUE;
 }
 
 void Genesis_OnGameClear(void)

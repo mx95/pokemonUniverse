@@ -39,10 +39,10 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Feature group | Spec §§ | Status | Expansion reuse |
 |---------------|---------|--------|-----------------|
 | Pokémon / forms / moves DB | — | COMPLETE | Expansion Gen 1–9 + forms all enabled; see `docs/POKEMON_ROSTER.md` |
-| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS-style Expansion stand-ins (Giratina/Reshiram/Arceus); unique art planned |
+| Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins (Giratina Origin / Reshiram / Arceus); Sanctum lore polish |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
-| Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique art |
+| Custom legendary battle sprites | — | PLANNED | Replace DS stand-ins with unique authored art |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
@@ -66,11 +66,13 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
-| World Tournament | 135 | IMPLEMENTED (lobby v2) | 3-round Tower lobby bracket + rematch BP |
+| World Tournament | 135 | IMPLEMENTED (lobby v3) | 4-round bracket + day-rotating rematch opponents + attendant rules |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
-| HM field-move rework | 19–20 | IN DEVELOPMENT | `OW_DEFOG_FIELD_MOVE` + `OW_ROCK_CLIMB_FIELD_MOVE` enabled; more HM QoL later |
+| HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
 | Universal bike Mach/Acro | 21 | IMPLEMENTED | Rydel gives both; R+SELECT toggles while riding |
+| Mega-capable starters | — | IMPLEMENTED | All 12 mega starter lines after bag type pick; matching stone at Gym 4 |
+| AI Metagross side quest | — | IMPLEMENTED | New Mauville Totem shiny Mega Metagross; catch after defeat |
 
 ---
 
@@ -120,10 +122,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of Acts 1–8 + puzzles + Eastern Hall desks + Legend Sanctum + WT bracket + Smart Fly / dual bike / Defog / Rock Climb.
+1. **In-emulator playtest** of mega starters, Metagross quest, Gym 4 mega stone gift, WT 4-round bracket.
 2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
 3. Unique legendary battle sprites (replace DS stand-ins).
-4. Full World Tournament facility map (beyond Tower lobby bracket).
+4. Dedicated World Tournament facility map (beyond Tower lobby bracket).
 
 ---
 

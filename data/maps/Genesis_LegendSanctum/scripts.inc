@@ -95,23 +95,30 @@ Genesis_LegendSanctum_EventScript_Decline::
 Genesis_LegendSanctum_Text_Guide:
 	.string "This is the LEGEND SANCTUM.\n"
 	.string "Three foci answer CHAMPIONS only.\p"
-	.string "Touch a statue to call AETHERNOX,\n"
-	.string "SOLARA, or GENESIS.$"
+	.string "AETHERNOX--chaos after fracture.\n"
+	.string "SOLARA--creation's first dawn.\l"
+	.string "GENESIS--potential unbound.\p"
+	.string "Best them all to awaken GENESIS FORM.\n"
+	.string "Touch a statue when you are ready.$"
 
 Genesis_LegendSanctum_Text_Aethernox:
 	.string "Chaos coils in the dark stone…\n"
+	.string "Wings of broken worlds stir.\p"
 	.string "Call AETHERNOX?$"
 
 Genesis_LegendSanctum_Text_Solara:
 	.string "Creation light gathers…\n"
+	.string "A sun that remembers the first day.\p"
 	.string "Call SOLARA?$"
 
 Genesis_LegendSanctum_Text_Genesis:
 	.string "Potential itself awakens…\n"
+	.string "Every possible form waits in the stone.\p"
 	.string "Call GENESIS?$"
 
 Genesis_LegendSanctum_Text_Done:
-	.string "The focus dims… for now.$"
+	.string "The focus dims… for now.\n"
+	.string "Its power has marked your journey.$"
 
 Genesis_LegendSanctum_Text_Already:
 	.string "That legend has already answered you.$"
@@ -121,4 +128,6 @@ Genesis_LegendSanctum_Text_Decline:
 
 Genesis_LegendSanctum_Text_AllDone:
 	.string "All three legends answered.\n"
-	.string "GENESIS FORM stirs in your partnership!$"
+	.string "GENESIS FORM stirs in your partnership!\p"
+	.string "When the bonded mon enters battle,\n"
+	.string "potential itself may reshape it.$"

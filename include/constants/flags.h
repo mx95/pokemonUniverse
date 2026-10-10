@@ -736,9 +736,9 @@
 #define FLAG_GENESIS_METAGROSS_DEFEATED       0x2A8 // Defeated rampage Mega Metagross
 #define FLAG_GENESIS_METAGROSS_CAUGHT         0x2A9 // Caught / claimed the Metagross
 #define FLAG_HIDE_GENESIS_RAMPAGE_METAGROSS   0x2AA // Hide rampage encounter object
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
+#define FLAG_GENESIS_STARTER_MEGA_STONE       0x2AB // Received matching starter Mega Stone
+#define FLAG_GENESIS_HM_GUIDE_SEEN            0x2AC // Defog/Rock Climb field-move guide seen
+#define FLAG_GENESIS_ACHIEVEMENT_METAGROSS    0x2AD // Achievement: resolved AI Metagross
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
 #define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
 #define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag

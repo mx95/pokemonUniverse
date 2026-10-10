@@ -10,5 +10,6 @@ void Genesis_InitSave(void);
 void Genesis_UpdateLevelCap(void);
 void Genesis_TryUnlockGenesisForm(void);
 void Genesis_GetWTRuleIndex(void);
+void Genesis_GiveStarterMegaStone(void);
 
 #endif // GUARD_GENESIS_STORY_H

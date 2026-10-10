@@ -37,7 +37,17 @@ FortreeCity_EventScript_OldMan::
 	end
 
 FortreeCity_EventScript_Boy::
-	msgbox FortreeCity_Text_BugPokemonComeThroughWindow, MSGBOX_NPC
+	lock
+	faceplayer
+	goto_if_set FLAG_GENESIS_HM_GUIDE_SEEN, FortreeCity_EventScript_BoyHmDone
+	setflag FLAG_GENESIS_HM_GUIDE_SEEN
+	msgbox FortreeCity_Text_HmFieldGuide, MSGBOX_DEFAULT
+	release
+	end
+
+FortreeCity_EventScript_BoyHmDone::
+	msgbox FortreeCity_Text_BugPokemonComeThroughWindow, MSGBOX_DEFAULT
+	release
 	end
 
 FortreeCity_EventScript_GameboyKid::
@@ -119,6 +129,13 @@ FortreeCity_Text_EveryoneHealthyAndLively:
 	.string "everyone is healthy and lively.\p"
 	.string "Why, even myself--I feel as if I've\n"
 	.string "grown thirty years younger.$"
+
+FortreeCity_Text_HmFieldGuide:
+	.string "Field moves got smarter in AURELIA!\p"
+	.string "DEFOG clears foggy weather on routes.\n"
+	.string "ROCK CLIMB scales marked cliff faces.\p"
+	.string "Teach them, then use them from the\n"
+	.string "party menu when the terrain calls.$"
 
 FortreeCity_Text_BugPokemonComeThroughWindow:
 	.string "Living on top of trees is okay.\p"

@@ -37,8 +37,8 @@
         .pokemonOffset = 0,
         .trainerScale = 387,
         .trainerOffset = 6,
-        // Stand-in: DS-style Giratina (Altered)
-        .frontPic = gMonFrontPic_GiratinaAltered,
+        // Stand-in: DS-style Giratina Origin (distinct from Altered for chaos motif)
+        .frontPic = gMonFrontPic_GiratinaOrigin,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = ANIM_FRAMES(
@@ -47,25 +47,25 @@
             ANIMCMD_FRAME(0, 15),
         ),
         .frontAnimId = ANIM_GROW_VIBRATE,
-        .backPic = gMonBackPic_GiratinaAltered,
+        .backPic = gMonBackPic_GiratinaOrigin,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
-        .palette = gMonPalette_GiratinaAltered,
-        .shinyPalette = gMonShinyPalette_GiratinaAltered,
-        .iconSprite = gMonIcon_GiratinaAltered,
+        .palette = gMonPalette_GiratinaOrigin,
+        .shinyPalette = gMonShinyPalette_GiratinaOrigin,
+        .iconSprite = gMonIcon_GiratinaOrigin,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(3, 11, SHADOW_SIZE_L)
-        FOOTPRINT(GiratinaAltered)
+        FOOTPRINT(GiratinaOrigin)
         OVERWORLD(
-            sPicTable_GiratinaAltered,
+            sPicTable_GiratinaOrigin,
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_GiratinaAltered,
-            gShinyOverworldPalette_GiratinaAltered
+            gOverworldPalette_GiratinaOrigin,
+            gShinyOverworldPalette_GiratinaOrigin
         )
         .isRestrictedLegendary = TRUE,
         .isFrontierBanned = TRUE,

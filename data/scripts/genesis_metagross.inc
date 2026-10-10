@@ -91,6 +91,7 @@ Genesis_EventScript_RampageMetagrossCatchLater::
 Genesis_EventScript_RampageMetagrossCaughtInBattle::
 	setflag FLAG_GENESIS_METAGROSS_DEFEATED
 	setflag FLAG_GENESIS_METAGROSS_CAUGHT
+	setflag FLAG_GENESIS_ACHIEVEMENT_METAGROSS
 	setflag FLAG_HIDE_GENESIS_RAMPAGE_METAGROSS
 	msgbox Genesis_Text_RampageMetagrossCaught, MSGBOX_DEFAULT
 	giveitem ITEM_METAGROSSITE

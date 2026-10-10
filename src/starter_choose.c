@@ -55,7 +55,6 @@ static void SpriteCB_StarterPokemon(struct Sprite *sprite);
 static u16 GetMegaStarterSpecies(u8 typeId, u8 variantId);
 
 static u16 sStarterLabelWindowId;
-static EWRAM_DATA u16 sChosenStarterSpecies = SPECIES_NONE;
 static EWRAM_DATA u8 sMegaStarterVariant = 0;
 
 const u16 gBirchBagGrass_Pal[] = INCGFX_U16("graphics/starter_choose/tiles.png", ".gbapal");
@@ -365,8 +364,8 @@ static u16 GetMegaStarterSpecies(u8 typeId, u8 variantId)
 
 u16 GetStarterPokemon(u16 chosenStarterId)
 {
-    if (sChosenStarterSpecies != SPECIES_NONE)
-        return sChosenStarterSpecies;
+    if (gSaveBlock2Ptr != NULL && gSaveBlock2Ptr->frontier.genesisStarterSpecies != SPECIES_NONE)
+        return gSaveBlock2Ptr->frontier.genesisStarterSpecies;
     if (chosenStarterId >= STARTER_MON_COUNT)
         chosenStarterId = 0;
     // Default preview for type ball = Hoenn mega starter of that type
@@ -394,7 +393,8 @@ void CB2_ChooseStarter(void)
     u8 taskId;
     u8 spriteId;
 
-    sChosenStarterSpecies = SPECIES_NONE;
+    if (gSaveBlock2Ptr != NULL)
+        gSaveBlock2Ptr->frontier.genesisStarterSpecies = SPECIES_NONE;
     sMegaStarterVariant = 1;
 
     SetVBlankCallback(NULL);
@@ -599,19 +599,17 @@ static void RefreshMegaStarterPreview(u8 taskId)
 
 static void Task_AskMegaStarterVariant(u8 taskId)
 {
+    u16 species = GetMegaStarterSpecies(gTasks[taskId].tStarterSelection, sMegaStarterVariant);
+
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
     AddTextPrinterParameterized(0, FONT_NORMAL, sText_ChooseMegaStarter, 0, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
     RefreshMegaStarterPreview(taskId);
-    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
-    // Override label species name with selected mega-capable starter
+    // Temporarily persist for label helper, then clear until confirmed
+    gSaveBlock2Ptr->frontier.genesisStarterSpecies = species;
     ClearStarterLabel();
-    {
-        u16 species = GetMegaStarterSpecies(gTasks[taskId].tStarterSelection, sMegaStarterVariant);
-        sChosenStarterSpecies = species;
-        CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
-        sChosenStarterSpecies = SPECIES_NONE;
-    }
+    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
+    gSaveBlock2Ptr->frontier.genesisStarterSpecies = SPECIES_NONE;
     gTasks[taskId].func = Task_HandleMegaStarterVariantInput;
 }
 
@@ -622,7 +620,7 @@ static void Task_HandleMegaStarterVariantInput(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        sChosenStarterSpecies = GetMegaStarterSpecies(typeId, sMegaStarterVariant);
+        gSaveBlock2Ptr->frontier.genesisStarterSpecies = GetMegaStarterSpecies(typeId, sMegaStarterVariant);
         gSpecialVar_Result = typeId; // keep 0/1/2 for rival type advantage
         ResetAllPicSprites();
         SetMainCallback2(gMain.savedCallback);
@@ -631,7 +629,7 @@ static void Task_HandleMegaStarterVariantInput(u8 taskId)
     {
         u8 spriteId;
         PlaySE(SE_SELECT);
-        sChosenStarterSpecies = SPECIES_NONE;
+        gSaveBlock2Ptr->frontier.genesisStarterSpecies = SPECIES_NONE;
         ClearStarterLabel();
         spriteId = gTasks[taskId].tPkmnSpriteId;
         FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
