@@ -23,6 +23,7 @@
 #include "window.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "string_util.h"
 
 #define STARTER_MON_COUNT   3
 #define MEGA_STARTERS_PER_TYPE 4
@@ -39,15 +40,14 @@ static void ClearStarterLabel(void);
 static void Task_StarterChoose(u8 taskId);
 static void Task_HandleStarterChooseInput(u8 taskId);
 static void Task_WaitForStarterSprite(u8 taskId);
-static void Task_AskConfirmStarter(u8 taskId);
-static void Task_HandleConfirmStarterInput(u8 taskId);
 static void Task_DeclineStarter(u8 taskId);
 static void Task_MoveStarterChooseCursor(u8 taskId);
 static void Task_CreateStarterLabel(u8 taskId);
 static void Task_AskMegaStarterVariant(u8 taskId);
 static void Task_HandleMegaStarterVariantInput(u8 taskId);
 static void RefreshMegaStarterPreview(u8 taskId);
-static void CreateStarterPokemonLabel(u8 selection);
+static void CreateTypeBagLabel(u8 selection);
+static void CreateMegaStarterLabel(u8 typeId, u8 variantId);
 static u8 CreatePokemonFrontSprite(enum Species species, u8 x, u8 y);
 static void SpriteCB_SelectionHand(struct Sprite *sprite);
 static void SpriteCB_Pokeball(struct Sprite *sprite);
@@ -78,17 +78,6 @@ static const struct WindowTemplate sWindowTemplates[] =
         .baseBlock = 0x0200
     },
     DUMMY_WIN_TEMPLATE,
-};
-
-static const struct WindowTemplate sWindowTemplate_ConfirmStarter =
-{
-    .bg = 0,
-    .tilemapLeft = 24,
-    .tilemapTop = 9,
-    .width = 5,
-    .height = 4,
-    .paletteNum = 14,
-    .baseBlock = 0x0260
 };
 
 static const struct WindowTemplate sWindowTemplate_StarterLabel =
@@ -125,7 +114,26 @@ static const u16 sMegaStarterSpecies[STARTER_MON_COUNT][MEGA_STARTERS_PER_TYPE] 
     { SPECIES_SQUIRTLE, SPECIES_MUDKIP, SPECIES_TOTODILE, SPECIES_FROAKIE },
 };
 
-static const u8 sText_ChooseMegaStarter[] = _("Choose a Mega-capable starter!\n{DPAD_LEFTRIGHT}: browse  {A_BUTTON}: OK  {B_BUTTON}: back");
+static const u8 sText_ChooseTypeBag[] = _("12 Mega starters! Pick a TYPE bag,\nthen {DPAD_LEFTRIGHT} through all 4 inside.");
+static const u8 sText_ChooseMegaStarter[] = _("{STR_VAR_1}/4: {STR_VAR_3}\n{DPAD_LEFTRIGHT} browse   {A_BUTTON} take it");
+static const u8 sText_TypeBagGrass[] = _("GRASS x4");
+static const u8 sText_TypeBagFire[] = _("FIRE x4");
+static const u8 sText_TypeBagWater[] = _("WATER x4");
+static const u8 sText_GrassRoster[] = _("Bulba/Tree/Chiko/Chespin");
+static const u8 sText_FireRoster[] = _("Char/Torch/Tepig/Fennekin");
+static const u8 sText_WaterRoster[] = _("Squirt/Mudkip/Toto/Froakie");
+static const u8 *const sTypeBagNames[STARTER_MON_COUNT] =
+{
+    sText_TypeBagGrass,
+    sText_TypeBagFire,
+    sText_TypeBagWater,
+};
+static const u8 *const sTypeBagRosters[STARTER_MON_COUNT] =
+{
+    sText_GrassRoster,
+    sText_FireRoster,
+    sText_WaterRoster,
+};
 
 static const struct BgTemplate sBgTemplates[3] =
 {
@@ -494,9 +502,9 @@ static void CB2_StarterChoose(void)
 
 static void Task_StarterChoose(u8 taskId)
 {
-    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
+    CreateTypeBagLabel(gTasks[taskId].tStarterSelection);
     DrawStdFrameWithCustomTileAndPalette(0, FALSE, 0x2A8, 0xD);
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_BirchInTrouble, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(0, FONT_NORMAL, sText_ChooseTypeBag, 0, 1, 0, NULL);
     PutWindowTilemap(0);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = Task_HandleStarterChooseInput;
@@ -511,13 +519,13 @@ static void Task_HandleStarterChooseInput(u8 taskId)
         u8 spriteId;
 
         ClearStarterLabel();
+        PlaySE(SE_SELECT);
 
-        // Create white circle background
+        // Create white circle background, then browse all 4 mega starters in this type bag.
         spriteId = CreateSprite(&sSpriteTemplate_StarterCircle, sPokeballCoords[selection][0], sPokeballCoords[selection][1], 1);
         gTasks[taskId].tCircleSpriteId = spriteId;
 
-        // Create Pokémon sprite
-        spriteId = CreatePokemonFrontSprite(GetStarterPokemon(gTasks[taskId].tStarterSelection), sPokeballCoords[selection][0], sPokeballCoords[selection][1]);
+        spriteId = CreatePokemonFrontSprite(GetMegaStarterSpecies(selection, 1), sPokeballCoords[selection][0], sPokeballCoords[selection][1]);
         gSprites[spriteId].affineAnims = &sAffineAnims_StarterPokemon;
         gSprites[spriteId].callback = SpriteCB_StarterPokemon;
 
@@ -542,43 +550,8 @@ static void Task_WaitForStarterSprite(u8 taskId)
         gSprites[gTasks[taskId].tCircleSpriteId].x == STARTER_PKMN_POS_X &&
         gSprites[gTasks[taskId].tCircleSpriteId].y == STARTER_PKMN_POS_Y)
     {
-        gTasks[taskId].func = Task_AskConfirmStarter;
-    }
-}
-
-static void Task_AskConfirmStarter(u8 taskId)
-{
-    PlayCry_Normal(GetStarterPokemon(gTasks[taskId].tStarterSelection), 0);
-    FillWindowPixelBuffer(0, PIXEL_FILL(1));
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_ConfirmStarterChoice, 0, 1, 0, NULL);
-    ScheduleBgCopyTilemapToVram(0);
-    CreateYesNoMenu(&sWindowTemplate_ConfirmStarter, 0x2A8, 0xD, 0);
-    gTasks[taskId].func = Task_HandleConfirmStarterInput;
-}
-
-static void Task_HandleConfirmStarterInput(u8 taskId)
-{
-    u8 spriteId;
-
-    switch (Menu_ProcessInputNoWrapClearOnChoose())
-    {
-    case 0:  // YES — pick which mega-capable starter of this type
-        PlaySE(SE_SELECT);
-        sMegaStarterVariant = 1; // default to Hoenn line
+        sMegaStarterVariant = 1; // Hoenn line first, then ←/→ for the other three
         gTasks[taskId].func = Task_AskMegaStarterVariant;
-        break;
-    case 1:  // NO
-    case MENU_B_PRESSED:
-        PlaySE(SE_SELECT);
-        spriteId = gTasks[taskId].tPkmnSpriteId;
-        FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
-        FreeAndDestroyMonPicSprite(spriteId);
-
-        spriteId = gTasks[taskId].tCircleSpriteId;
-        FreeOamMatrix(gSprites[spriteId].oam.matrixNum);
-        DestroySprite(&gSprites[spriteId]);
-        gTasks[taskId].func = Task_DeclineStarter;
-        break;
     }
 }
 
@@ -599,17 +572,19 @@ static void RefreshMegaStarterPreview(u8 taskId)
 
 static void Task_AskMegaStarterVariant(u8 taskId)
 {
-    u16 species = GetMegaStarterSpecies(gTasks[taskId].tStarterSelection, sMegaStarterVariant);
+    u8 typeId = gTasks[taskId].tStarterSelection;
+    u16 species = GetMegaStarterSpecies(typeId, sMegaStarterVariant);
+
+    ConvertIntToDecimalStringN(gStringVar1, sMegaStarterVariant + 1, STR_CONV_MODE_LEFT_ALIGN, 1);
+    StringCopy(gStringVar3, GetSpeciesName(species));
+    StringExpandPlaceholders(gStringVar4, sText_ChooseMegaStarter);
 
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
-    AddTextPrinterParameterized(0, FONT_NORMAL, sText_ChooseMegaStarter, 0, 1, 0, NULL);
+    AddTextPrinterParameterized(0, FONT_NORMAL, gStringVar4, 0, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
     RefreshMegaStarterPreview(taskId);
-    // Temporarily persist for label helper, then clear until confirmed
-    gSaveBlock2Ptr->frontier.genesisStarterSpecies = species;
     ClearStarterLabel();
-    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
-    gSaveBlock2Ptr->frontier.genesisStarterSpecies = SPECIES_NONE;
+    CreateMegaStarterLabel(typeId, sMegaStarterVariant);
     gTasks[taskId].func = Task_HandleMegaStarterVariantInput;
 }
 
@@ -663,44 +638,63 @@ static void Task_DeclineStarter(u8 taskId)
     gTasks[taskId].func = Task_StarterChoose;
 }
 
-static void CreateStarterPokemonLabel(u8 selection)
+static void PlaceStarterLabelWindow(u8 tilemapLeft, u8 tilemapTop, const u8 *line1, const u8 *line2)
 {
-    u8 categoryText[32];
     struct WindowTemplate winTemplate;
-    const u8 *speciesName;
     s32 width;
     u8 labelLeft, labelRight, labelTop, labelBottom;
 
-    enum Species species = GetStarterPokemon(selection);
-    CopyMonCategoryText(species, categoryText);
-    speciesName = GetSpeciesName(species);
-
     winTemplate = sWindowTemplate_StarterLabel;
-    winTemplate.tilemapLeft = sStarterLabelCoords[selection][0];
-    winTemplate.tilemapTop = sStarterLabelCoords[selection][1];
+    winTemplate.tilemapLeft = tilemapLeft;
+    winTemplate.tilemapTop = tilemapTop;
 
     sStarterLabelWindowId = AddWindow(&winTemplate);
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
 
-    width = GetStringCenterAlignXOffset(FONT_NARROW, categoryText, 0x68);
-    AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NARROW, width, 1, sTextColors, 0, categoryText);
+    width = GetStringCenterAlignXOffset(FONT_NARROW, line1, 0x68);
+    AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NARROW, width, 1, sTextColors, 0, line1);
 
-    width = GetStringCenterAlignXOffset(FONT_NORMAL, speciesName, 0x68);
-    AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NORMAL, width, 17, sTextColors, 0, speciesName);
+    width = GetStringCenterAlignXOffset(FONT_NORMAL, line2, 0x68);
+    AddTextPrinterParameterized3(sStarterLabelWindowId, FONT_NORMAL, width, 17, sTextColors, 0, line2);
 
     PutWindowTilemap(sStarterLabelWindowId);
     ScheduleBgCopyTilemapToVram(0);
 
-    labelLeft = sStarterLabelCoords[selection][0] * 8 - 4;
-    labelRight = (sStarterLabelCoords[selection][0] + 13) * 8 + 4;
-    labelTop = sStarterLabelCoords[selection][1] * 8;
-    labelBottom = (sStarterLabelCoords[selection][1] + 4) * 8;
+    labelLeft = tilemapLeft * 8 - 4;
+    labelRight = (tilemapLeft + 13) * 8 + 4;
+    labelTop = tilemapTop * 8;
+    labelBottom = (tilemapTop + 4) * 8;
     SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(labelLeft, labelRight));
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(labelTop, labelBottom));
 }
 
+static void CreateTypeBagLabel(u8 selection)
+{
+    if (selection >= STARTER_MON_COUNT)
+        selection = 0;
+
+    // Short abbreviations fit the 13-tile label; full names appear after opening the bag.
+    PlaceStarterLabelWindow(
+        sStarterLabelCoords[selection][0],
+        sStarterLabelCoords[selection][1],
+        sTypeBagNames[selection],
+        sTypeBagRosters[selection]);
+}
+
+static void CreateMegaStarterLabel(u8 typeId, u8 variantId)
+{
+    u16 species = GetMegaStarterSpecies(typeId, variantId);
+    u8 categoryText[32];
+
+    CopyMonCategoryText(species, categoryText);
+    // Centered over the preview sprite
+    PlaceStarterLabelWindow(8, 0, categoryText, GetSpeciesName(species));
+}
+
 static void ClearStarterLabel(void)
 {
+    if (sStarterLabelWindowId == WINDOW_NONE)
+        return;
     FillWindowPixelBuffer(sStarterLabelWindowId, PIXEL_FILL(0));
     ClearWindowTilemap(sStarterLabelWindowId);
     RemoveWindow(sStarterLabelWindowId);
@@ -718,7 +712,7 @@ static void Task_MoveStarterChooseCursor(u8 taskId)
 
 static void Task_CreateStarterLabel(u8 taskId)
 {
-    CreateStarterPokemonLabel(gTasks[taskId].tStarterSelection);
+    CreateTypeBagLabel(gTasks[taskId].tStarterSelection);
     gTasks[taskId].func = Task_HandleStarterChooseInput;
 }
 

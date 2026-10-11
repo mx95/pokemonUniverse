@@ -130,12 +130,10 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	end
 
 LittlerootTown_EventScript_GoInsideWithMom::
-	delay 15
-	playse SE_LEDGE
-	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
-	waitmovement 0
+	@ Landed already beside the Corviknight taxi (new game skips the truck cabin).
+	delay 40
 	playse SE_M_FLY
-	delay 10
+	delay 20
 	call LittlerootTown_EventScript_CorviknightFlyAway
 	delay 20
 	opendoor VAR_0x8004, VAR_0x8005
@@ -990,8 +988,8 @@ LittlerootTown_EventScript_GiveRunningShoes::
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "MOM: {PLAYER}, we're here, honey!\p"
-	.string "That CORVIKNIGHT taxi was smoother than\n"
-	.string "any moving truck--what a way to arrive!\p"
+	.string "That CORVIKNIGHT taxi dropped us right\n"
+	.string "at the door--what a way to arrive!\p"
 	.string "Well, this is VERDANT TOWN.\p"
 	.string "How do you like it?\n"
 	.string "This is our new home!\p"

@@ -52,6 +52,9 @@
 #include "union_room_chat.h"
 #include "constants/map_groups.h"
 #include "constants/items.h"
+#include "constants/flags.h"
+#include "constants/vars.h"
+#include "constants/heal_locations.h"
 #include "difficulty.h"
 #include "follower_npc.h"
 
@@ -138,10 +141,45 @@ static void ClearFrontierRecord(void)
 static void WarpToTruck(void)
 {
     if (IS_FRLG)
+    {
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+    }
+#if GENESIS_PROJECT
     else
-        // GENESIS: reused as Corviknight taxi cabin (see InsideOfTruck scripts)
+    {
+        // GENESIS: skip truck cabin entirely -- land in Verdant Town with Corviknight taxi.
+        FlagSet(FLAG_HIDE_MAP_NAME_POPUP);
+        if (gSaveBlock2Ptr->playerGender == MALE)
+        {
+            SetLastHealLocationWarp(HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F);
+            VarSet(VAR_LITTLEROOT_INTRO_STATE, 1);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MOM);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_MOM);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_SIBLING);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_POKE_BALL);
+            VarSet(VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 1);
+            SetWarpDestination(MAP_GROUP(MAP_LITTLEROOT_TOWN), MAP_NUM(MAP_LITTLEROOT_TOWN), WARP_ID_NONE, 3, 10);
+        }
+        else
+        {
+            SetLastHealLocationWarp(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F);
+            VarSet(VAR_LITTLEROOT_INTRO_STATE, 2);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_MOM);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_MOM);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_SIBLING);
+            FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_POKE_BALL);
+            VarSet(VAR_LITTLEROOT_HOUSES_STATE_MAY, 1);
+            SetWarpDestination(MAP_GROUP(MAP_LITTLEROOT_TOWN), MAP_NUM(MAP_LITTLEROOT_TOWN), WARP_ID_NONE, 12, 10);
+        }
+    }
+#else
+    else
+    {
         SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+    }
+#endif
     WarpIntoMap();
 }
 
