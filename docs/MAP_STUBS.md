@@ -83,4 +83,4 @@ Do not invent map IDs until Porymap entries are created.
 
 ## `genesis/maps` next steps
 
-Prefer script/config polish until Porymap city geometry is ready. Full Mirage→Summit east maps replace Hall desks later; OldaleTown_Gym / EasternAurelia_Hall show the copy-layout stub pattern.
+Eastern cities are on the region map (east of Battle Frontier) with Fly heal destinations. Prefer script/config polish until Porymap city geometry is ready. Full Mirage→Summit east maps replace Hall desks later; OldaleTown_Gym / EasternAurelia_Hall show the copy-layout stub pattern.

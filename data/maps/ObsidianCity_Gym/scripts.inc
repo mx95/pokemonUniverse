@@ -22,6 +22,10 @@ ObsidianCity_Gym_EventScript_Noctis::
 	end
 
 ObsidianCity_Gym_EventScript_NoctisDone::
+	msgbox ObsidianCity_Gym_Text_NoctisRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, ObsidianCity_Gym_EventScript_NoctisDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_NOCTIS, ObsidianCity_Gym_Text_NoctisDefeat
+ObsidianCity_Gym_EventScript_NoctisDoneEnd::
 	msgbox ObsidianCity_Gym_Text_NoctisDone, MSGBOX_DEFAULT
 	release
 	end
@@ -88,6 +92,10 @@ ObsidianCity_Gym_Text_GotObsidianBadge:
 
 ObsidianCity_Gym_Text_NoctisAfter:
 	.string "NOCTIS: Carry Obsidian's calm into light.\nASTRAL CITY--DRAKE--is next.$"
+
+ObsidianCity_Gym_Text_NoctisRematchAsk:
+	.string "NOCTIS: Darkness remembers every fight.\n"
+	.string "Challenge me again?$"
 
 ObsidianCity_Gym_Text_NoctisDone:
 	.string "NOCTIS: Obsidian's vents still glow.\nWalk unafraid of your own shadow.$"

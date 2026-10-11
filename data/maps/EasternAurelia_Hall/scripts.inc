@@ -416,6 +416,62 @@ EasternAurelia_Hall_EventScript_ClerkStay::
 
 EasternAurelia_Hall_EventScript_ClerkDirectory::
 	msgbox EasternAurelia_Hall_Text_ClerkDirectory, MSGBOX_DEFAULT
+	msgbox EasternAurelia_Hall_Text_JukeboxAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, EasternAurelia_Hall_EventScript_Jukebox
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_Jukebox::
+	message EasternAurelia_Hall_Text_JukeboxPick
+	waitmessage
+	dynmultipush EasternAurelia_Hall_Text_TrackVerdant, 0
+	dynmultipush EasternAurelia_Hall_Text_TrackLumen, 1
+	dynmultipush EasternAurelia_Hall_Text_TrackPort, 2
+	dynmultipush EasternAurelia_Hall_Text_TrackCelestia, 3
+	dynmultipush EasternAurelia_Hall_Text_TrackLeague, 4
+	dynmultipush EasternAurelia_Hall_Text_TrackCancel, 5
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	switch VAR_RESULT
+	case 0, EasternAurelia_Hall_EventScript_PlayVerdant
+	case 1, EasternAurelia_Hall_EventScript_PlayLumen
+	case 2, EasternAurelia_Hall_EventScript_PlayPort
+	case 3, EasternAurelia_Hall_EventScript_PlayCelestia
+	case 4, EasternAurelia_Hall_EventScript_PlayLeague
+	case 5, EasternAurelia_Hall_EventScript_ChaosGate
+	case MULTI_B_PRESSED, EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_PlayVerdant::
+	playbgm MUS_LITTLEROOT, FALSE
+	msgbox EasternAurelia_Hall_Text_JukeboxPlaying, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_PlayLumen::
+	playbgm MUS_OLDALE, FALSE
+	msgbox EasternAurelia_Hall_Text_JukeboxPlaying, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_PlayPort::
+	playbgm MUS_PETALBURG, FALSE
+	msgbox EasternAurelia_Hall_Text_JukeboxPlaying, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_PlayCelestia::
+	playbgm MUS_RG_CELADON, FALSE
+	msgbox EasternAurelia_Hall_Text_JukeboxPlaying, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_PlayLeague::
+	playbgm MUS_VICTORY_ROAD, FALSE
+	msgbox EasternAurelia_Hall_Text_JukeboxPlaying, MSGBOX_DEFAULT
+	goto EasternAurelia_Hall_EventScript_ChaosGate
+	end
+
+EasternAurelia_Hall_EventScript_ChaosGate::
 	goto_if_unset FLAG_SYS_GAME_CLEAR, EasternAurelia_Hall_EventScript_ClerkStayQuiet
 	goto_if_set FLAG_GENESIS_CHAOS_BATTLES, EasternAurelia_Hall_EventScript_ChaosIsOn
 	msgbox EasternAurelia_Hall_Text_ChaosOffer, MSGBOX_YESNO
@@ -841,6 +897,34 @@ EasternAurelia_Hall_Text_ClerkWarpOut:
 EasternAurelia_Hall_Text_ClerkStay:
 	.string "Browse the desks when you're ready.\n"
 	.string "Plaques name each Eastern city.$"
+
+EasternAurelia_Hall_Text_JukeboxAsk:
+	.string "Want to sample AURELIA town themes\n"
+	.string "on the Hall jukebox first?$"
+
+EasternAurelia_Hall_Text_JukeboxPick:
+	.string "Pick a theme:$"
+
+EasternAurelia_Hall_Text_TrackVerdant:
+	.string "Verdant Town$"
+
+EasternAurelia_Hall_Text_TrackLumen:
+	.string "Lumen City$"
+
+EasternAurelia_Hall_Text_TrackPort:
+	.string "Port Azure$"
+
+EasternAurelia_Hall_Text_TrackCelestia:
+	.string "Celestia City$"
+
+EasternAurelia_Hall_Text_TrackLeague:
+	.string "Aurelia Summit$"
+
+EasternAurelia_Hall_Text_TrackCancel:
+	.string "Cancel$"
+
+EasternAurelia_Hall_Text_JukeboxPlaying:
+	.string "The Hall speakers hum that theme.$"
 
 EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "Back: MIRAGE · VERDANTIS · OBSIDIAN ·\n"

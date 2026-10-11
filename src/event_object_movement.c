@@ -42,6 +42,7 @@
 #include "util.h"
 #include "wild_encounter.h"
 #include "wild_encounter_ow.h"
+#include "genesis_player.h"
 #include "constants/event_object_movement.h"
 #include "constants/abilities.h"
 #include "constants/battle.h"
@@ -3312,6 +3313,7 @@ u8 LoadObjectEventPaletteCopy(u16 originalTag, u16 copyTag)
 u8 LoadPlayerObjectEventPalette(enum Gender gender)
 {
     u16 paletteTag;
+    u8 paletteNum;
     switch (gender)
     {
     default:
@@ -3322,7 +3324,9 @@ u8 LoadPlayerObjectEventPalette(enum Gender gender)
         paletteTag = OBJ_EVENT_PAL_TAG_MAY;
         break;
     }
-    return LoadObjectEventPalette(paletteTag);
+    paletteNum = LoadObjectEventPalette(paletteTag);
+    Genesis_ApplyOutfitToPalette(paletteNum); // GENESIS: boutique scarf looks
+    return paletteNum;
 }
 
 static void UNUSED LoadObjectEventPaletteSet(u16 *paletteTags)

@@ -22,6 +22,10 @@ VenomHollow_Gym_EventScript_Vesper::
 	end
 
 VenomHollow_Gym_EventScript_VesperDone::
+	msgbox VenomHollow_Gym_Text_VesperRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VenomHollow_Gym_EventScript_VesperDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_VESPER, VenomHollow_Gym_Text_VesperDefeat
+VenomHollow_Gym_EventScript_VesperDoneEnd::
 	msgbox VenomHollow_Gym_Text_VesperDone, MSGBOX_DEFAULT
 	release
 	end
@@ -93,6 +97,10 @@ VenomHollow_Gym_Text_VesperAfter:
 	.string "VESPER: Hollow clears you.\n"
 	.string "Final desk--TERRA of Terracotta Mesa.\p"
 	.string "A cunning GENGAR still haunts the mist.$"
+
+VenomHollow_Gym_Text_VesperRematchAsk:
+	.string "VESPER: Venom Hollow never forgets a\n"
+	.string "rival. Challenge me once more?$"
 
 VenomHollow_Gym_Text_VesperDone:
 	.string "VESPER: Read the Venom plaque for\n"

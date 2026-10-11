@@ -22,6 +22,10 @@ VerdantisCity_Gym_EventScript_Celia::
 	end
 
 VerdantisCity_Gym_EventScript_CeliaDone::
+	msgbox VerdantisCity_Gym_Text_CeliaRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VerdantisCity_Gym_EventScript_CeliaDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_CELIA, VerdantisCity_Gym_Text_CeliaDefeat
+VerdantisCity_Gym_EventScript_CeliaDoneEnd::
 	msgbox VerdantisCity_Gym_Text_CeliaDone, MSGBOX_DEFAULT
 	release
 	end
@@ -88,6 +92,10 @@ VerdantisCity_Gym_Text_GotJungleBadge:
 
 VerdantisCity_Gym_Text_CeliaAfter:
 	.string "CELIA: Grow wild like Verdantis vines.\nNext: OBSIDIAN CITY--NOCTIS waits.$"
+
+VerdantisCity_Gym_Text_CeliaRematchAsk:
+	.string "CELIA: The swarm is still buzzing.\n"
+	.string "Want another rematch?$"
 
 VerdantisCity_Gym_Text_CeliaDone:
 	.string "CELIA: Verdantis keeps blooming.\nCome back when you need green noise.$"

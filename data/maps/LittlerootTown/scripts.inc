@@ -135,6 +135,8 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
 	waitmovement 0
 	playse SE_M_FLY
+	delay 10
+	call LittlerootTown_EventScript_CorviknightFlyAway
 	delay 20
 	opendoor VAR_0x8004, VAR_0x8005
 	waitdooranim
@@ -168,6 +170,26 @@ LittlerootTown_EventScript_GoInsideWithMom::
 LittlerootTown_EventScript_CorviknightTaxi::
 	msgbox LittlerootTown_Text_CorviknightTaxi, MSGBOX_NPC
 	end
+
+LittlerootTown_EventScript_CorviknightFlyAway::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_CorviknightFlyAwayMale
+	applymovement LOCALID_LITTLEROOT_CORVIKNIGHT_F, LittlerootTown_Movement_CorviknightFlyAway
+	waitmovement 0
+	return
+
+LittlerootTown_EventScript_CorviknightFlyAwayMale::
+	applymovement LOCALID_LITTLEROOT_CORVIKNIGHT_M, LittlerootTown_Movement_CorviknightFlyAway
+	waitmovement 0
+	return
+
+LittlerootTown_Movement_CorviknightFlyAway:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	set_invisible
+	step_end
 
 LittlerootTown_Movement_MomExitHouse:
 	walk_down

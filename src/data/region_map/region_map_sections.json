@@ -1633,43 +1633,83 @@
     },
     {
       "id": "MAPSEC_MIRAGE_CITY",
-      "name": "MIRAGE CITY"
+      "name": "MIRAGE CITY",
+      "x": 23,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_VERDANTIS_CITY",
-      "name": "VERDANTIS CITY"
+      "name": "VERDANTIS CITY",
+      "x": 24,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_OBSIDIAN_CITY",
-      "name": "OBSIDIAN CITY"
+      "name": "OBSIDIAN CITY",
+      "x": 25,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_ASTRAL_CITY",
-      "name": "ASTRAL CITY"
+      "name": "ASTRAL CITY",
+      "x": 26,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_TIDYMOON_CITY",
-      "name": "TIDYMOON CITY"
+      "name": "TIDYMOON CITY",
+      "x": 27,
+      "y": 12,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_EON_CITY",
-      "name": "EON CITY"
+      "name": "EON CITY",
+      "x": 23,
+      "y": 13,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_GENESIS_CITY",
-      "name": "GENESIS CITY"
+      "name": "GENESIS CITY",
+      "x": 24,
+      "y": 13,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_SUMMIT_CITY",
-      "name": "SUMMIT CITY"
+      "name": "SUMMIT CITY",
+      "x": 25,
+      "y": 13,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_VENOM_HOLLOW",
-      "name": "VENOM HOLLOW"
+      "name": "VENOM HOLLOW",
+      "x": 26,
+      "y": 13,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_TERRACOTTA_MESA",
-      "name": "TERRACOTTA MESA"
+      "name": "TERRACOTTA MESA",
+      "x": 27,
+      "y": 13,
+      "width": 1,
+      "height": 1
     }
   ]
 }

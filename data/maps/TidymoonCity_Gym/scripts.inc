@@ -22,6 +22,10 @@ TidymoonCity_Gym_EventScript_Luna::
 	end
 
 TidymoonCity_Gym_EventScript_LunaDone::
+	msgbox TidymoonCity_Gym_Text_LunaRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, TidymoonCity_Gym_EventScript_LunaDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_LUNA, TidymoonCity_Gym_Text_LunaDefeat
+TidymoonCity_Gym_EventScript_LunaDoneEnd::
 	msgbox TidymoonCity_Gym_Text_LunaDone, MSGBOX_DEFAULT
 	release
 	end
@@ -92,6 +96,10 @@ TidymoonCity_Gym_Text_GotMoonBadge:
 TidymoonCity_Gym_Text_LunaAfter:
 	.string "LUNA: Soft power still wins wars.\n"
 	.string "EON CITY's desk--MORRIGAN--is next.$"
+
+TidymoonCity_Gym_Text_LunaRematchAsk:
+	.string "LUNA: Moonlight still favors bold trainers.\n"
+	.string "Fight me again?$"
 
 TidymoonCity_Gym_Text_LunaDone:
 	.string "LUNA: Tidymoon's waves remember you.\n"

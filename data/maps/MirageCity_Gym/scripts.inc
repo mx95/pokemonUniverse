@@ -21,6 +21,10 @@ MirageCity_Gym_EventScript_Iris::
 	end
 
 MirageCity_Gym_EventScript_IrisDone::
+	msgbox MirageCity_Gym_Text_IrisRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MirageCity_Gym_EventScript_IrisDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_IRIS, MirageCity_Gym_Text_IrisDefeat
+MirageCity_Gym_EventScript_IrisDoneEnd::
 	msgbox MirageCity_Gym_Text_IrisDone, MSGBOX_DEFAULT
 	release
 	end
@@ -83,6 +87,10 @@ MirageCity_Gym_Text_GotMirageBadge:
 MirageCity_Gym_Text_IrisAfter:
 	.string "IRIS: Mirage City stamps your path.\n"
 	.string "Next desk: VERDANTIS--CELIA awaits.$"
+
+MirageCity_Gym_Text_IrisRematchAsk:
+	.string "IRIS: The MIRAGE CITY challenge never\n"
+	.string "fades. Care for a rematch?$"
 
 MirageCity_Gym_Text_IrisDone:
 	.string "IRIS: Mirage City's teleport net still\n"

@@ -257,11 +257,71 @@ Genesis_EventScript_QuestBoard_PuzzlesSkip::
 Genesis_EventScript_QuestBoard_PrintPostgame::
 	goto_if_unset FLAG_SYS_GAME_CLEAR, Genesis_EventScript_QuestBoard_PostSkip
 	msgbox Genesis_Text_Quest_PostHeader, MSGBOX_DEFAULT
-	goto_if_set FLAG_GENESIS_BADGE_16_GET, Genesis_EventScript_QuestBoard_EasternDone
-	msgbox Genesis_Text_Quest_EasternOpen, MSGBOX_DEFAULT
+	call Genesis_EventScript_QuestBoard_PrintEasternBadges
 	goto Genesis_EventScript_QuestBoard_Legends
-Genesis_EventScript_QuestBoard_EasternDone::
-	msgbox Genesis_Text_Quest_EasternDone, MSGBOX_DEFAULT
+
+Genesis_EventScript_QuestBoard_PrintEasternBadges::
+	goto_if_set FLAG_GENESIS_BADGE_09_GET, Genesis_EventScript_QuestBoard_B09Done
+	msgbox Genesis_Text_Quest_B09Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B10
+Genesis_EventScript_QuestBoard_B09Done::
+	msgbox Genesis_Text_Quest_B09Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B10::
+	goto_if_set FLAG_GENESIS_BADGE_10_GET, Genesis_EventScript_QuestBoard_B10Done
+	msgbox Genesis_Text_Quest_B10Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B11
+Genesis_EventScript_QuestBoard_B10Done::
+	msgbox Genesis_Text_Quest_B10Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B11::
+	goto_if_set FLAG_GENESIS_BADGE_11_GET, Genesis_EventScript_QuestBoard_B11Done
+	msgbox Genesis_Text_Quest_B11Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B12
+Genesis_EventScript_QuestBoard_B11Done::
+	msgbox Genesis_Text_Quest_B11Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B12::
+	goto_if_set FLAG_GENESIS_BADGE_12_GET, Genesis_EventScript_QuestBoard_B12Done
+	msgbox Genesis_Text_Quest_B12Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B13
+Genesis_EventScript_QuestBoard_B12Done::
+	msgbox Genesis_Text_Quest_B12Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B13::
+	goto_if_set FLAG_GENESIS_BADGE_13_GET, Genesis_EventScript_QuestBoard_B13Done
+	msgbox Genesis_Text_Quest_B13Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B14
+Genesis_EventScript_QuestBoard_B13Done::
+	msgbox Genesis_Text_Quest_B13Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B14::
+	goto_if_set FLAG_GENESIS_BADGE_14_GET, Genesis_EventScript_QuestBoard_B14Done
+	msgbox Genesis_Text_Quest_B14Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B15
+Genesis_EventScript_QuestBoard_B14Done::
+	msgbox Genesis_Text_Quest_B14Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B15::
+	goto_if_set FLAG_GENESIS_BADGE_15_GET, Genesis_EventScript_QuestBoard_B15Done
+	msgbox Genesis_Text_Quest_B15Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B16
+Genesis_EventScript_QuestBoard_B15Done::
+	msgbox Genesis_Text_Quest_B15Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B16::
+	goto_if_set FLAG_GENESIS_BADGE_16_GET, Genesis_EventScript_QuestBoard_B16Done
+	msgbox Genesis_Text_Quest_B16Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B17
+Genesis_EventScript_QuestBoard_B16Done::
+	msgbox Genesis_Text_Quest_B16Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B17::
+	goto_if_set FLAG_GENESIS_BADGE_17_GET, Genesis_EventScript_QuestBoard_B17Done
+	msgbox Genesis_Text_Quest_B17Open, MSGBOX_DEFAULT
+	goto Genesis_EventScript_QuestBoard_B18
+Genesis_EventScript_QuestBoard_B17Done::
+	msgbox Genesis_Text_Quest_B17Done, MSGBOX_DEFAULT
+Genesis_EventScript_QuestBoard_B18::
+	goto_if_set FLAG_GENESIS_BADGE_18_GET, Genesis_EventScript_QuestBoard_B18Done
+	msgbox Genesis_Text_Quest_B18Open, MSGBOX_DEFAULT
+	return
+Genesis_EventScript_QuestBoard_B18Done::
+	msgbox Genesis_Text_Quest_B18Done, MSGBOX_DEFAULT
+	return
+
 Genesis_EventScript_QuestBoard_Legends::
 	goto_if_set FLAG_GENESIS_FORM_UNLOCKED, Genesis_EventScript_QuestBoard_LegendsDone
 	msgbox Genesis_Text_Quest_LegendsOpen, MSGBOX_DEFAULT
@@ -372,11 +432,65 @@ Genesis_Text_Quest_Puzzle4Done:
 Genesis_Text_Quest_PostHeader:
 	.string "Postgame:$"
 
-Genesis_Text_Quest_EasternOpen:
-	.string "- Eastern Hall badges 9-16.$"
+Genesis_Text_Quest_B09Open:
+	.string "- Mirage City: beat IRIS (badge 9).$"
 
-Genesis_Text_Quest_EasternDone:
-	.string "- Eastern Hall badges: complete.$"
+Genesis_Text_Quest_B09Done:
+	.string "- Mirage City (IRIS): complete.$"
+
+Genesis_Text_Quest_B10Open:
+	.string "- Verdantis City: beat CELIA (badge 10).$"
+
+Genesis_Text_Quest_B10Done:
+	.string "- Verdantis City (CELIA): complete.$"
+
+Genesis_Text_Quest_B11Open:
+	.string "- Obsidian City: beat NOCTIS (badge 11).$"
+
+Genesis_Text_Quest_B11Done:
+	.string "- Obsidian City (NOCTIS): complete.$"
+
+Genesis_Text_Quest_B12Open:
+	.string "- Astral City: beat DRAKE (badge 12 / Tera).$"
+
+Genesis_Text_Quest_B12Done:
+	.string "- Astral City (DRAKE): complete.$"
+
+Genesis_Text_Quest_B13Open:
+	.string "- Tidymoon City: beat LUNA (badge 13).$"
+
+Genesis_Text_Quest_B13Done:
+	.string "- Tidymoon City (LUNA): complete.$"
+
+Genesis_Text_Quest_B14Open:
+	.string "- Eon City: beat MORRIGAN (badge 14).$"
+
+Genesis_Text_Quest_B14Done:
+	.string "- Eon City (MORRIGAN): complete.$"
+
+Genesis_Text_Quest_B15Open:
+	.string "- Genesis City: beat COLLEAGUE (badge 15).$"
+
+Genesis_Text_Quest_B15Done:
+	.string "- Genesis City (COLLEAGUE): complete.$"
+
+Genesis_Text_Quest_B16Open:
+	.string "- Summit City: beat MENTOR (badge 16).$"
+
+Genesis_Text_Quest_B16Done:
+	.string "- Summit City (MENTOR): complete.$"
+
+Genesis_Text_Quest_B17Open:
+	.string "- Venom Hollow: beat VESPER (badge 17).$"
+
+Genesis_Text_Quest_B17Done:
+	.string "- Venom Hollow (VESPER): complete.$"
+
+Genesis_Text_Quest_B18Open:
+	.string "- Terracotta Mesa: beat TERRA (badge 18).$"
+
+Genesis_Text_Quest_B18Done:
+	.string "- Terracotta Mesa (TERRA): complete.$"
 
 Genesis_Text_Quest_LegendsOpen:
 	.string "- Legend Sanctum (Aethernox / Solara /\l"

@@ -22,6 +22,10 @@ GenesisCity_Gym_EventScript_Colleague::
 	end
 
 GenesisCity_Gym_EventScript_ColleagueDone::
+	msgbox GenesisCity_Gym_Text_ColleagueRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, GenesisCity_Gym_EventScript_ColleagueDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_COLLEAGUE, GenesisCity_Gym_Text_ColleagueDefeat
+GenesisCity_Gym_EventScript_ColleagueDoneEnd::
 	msgbox GenesisCity_Gym_Text_ColleagueDone, MSGBOX_DEFAULT
 	release
 	end
@@ -93,6 +97,10 @@ GenesisCity_Gym_Text_GotGenesisBadge:
 GenesisCity_Gym_Text_ColleagueAfter:
 	.string "COLLEAGUE: Genesis City clears you.\n"
 	.string "Next: AURELIA SUMMIT--Mentor's ROCK.$"
+
+GenesisCity_Gym_Text_ColleagueRematchAsk:
+	.string "COLLEAGUE: GENESIS CITY keeps score.\n"
+	.string "Want another round?$"
 
 GenesisCity_Gym_Text_ColleagueDone:
 	.string "COLLEAGUE: Ask our plaque about\n"

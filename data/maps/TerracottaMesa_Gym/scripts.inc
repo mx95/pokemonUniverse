@@ -22,6 +22,10 @@ TerracottaMesa_Gym_EventScript_Terra::
 	end
 
 TerracottaMesa_Gym_EventScript_TerraDone::
+	msgbox TerracottaMesa_Gym_Text_TerraRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, TerracottaMesa_Gym_EventScript_TerraDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_TERRA, TerracottaMesa_Gym_Text_TerraDefeat
+TerracottaMesa_Gym_EventScript_TerraDoneEnd::
 	msgbox TerracottaMesa_Gym_Text_TerraDone, MSGBOX_DEFAULT
 	release
 	end
@@ -93,6 +97,10 @@ TerracottaMesa_Gym_Text_TerraAfter:
 	.string "TERRA: All eighteen types answered.\n"
 	.string "AURELIA's gym circuit is complete!\p"
 	.string "GARCHOMP still patrols the mesa dunes.$"
+
+TerracottaMesa_Gym_Text_TerraRematchAsk:
+	.string "TERRA: The mesa still shifts underfoot.\n"
+	.string "Care for a rematch?$"
 
 TerracottaMesa_Gym_Text_TerraDone:
 	.string "TERRA: Eighteen badges. Full spectrum.\n"

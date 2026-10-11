@@ -22,6 +22,10 @@ EonCity_Gym_EventScript_Morrigan::
 	end
 
 EonCity_Gym_EventScript_MorriganDone::
+	msgbox EonCity_Gym_Text_MorriganRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EonCity_Gym_EventScript_MorriganDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_MORRIGAN, EonCity_Gym_Text_MorriganDefeat
+EonCity_Gym_EventScript_MorriganDoneEnd::
 	msgbox EonCity_Gym_Text_MorriganDone, MSGBOX_DEFAULT
 	release
 	end
@@ -92,6 +96,10 @@ EonCity_Gym_Text_GotEonBadge:
 EonCity_Gym_Text_MorriganAfter:
 	.string "MORRIGAN: Honor what lingers in Eon.\n"
 	.string "GENESIS CITY--the Colleague--awaits.$"
+
+EonCity_Gym_Text_MorriganRematchAsk:
+	.string "MORRIGAN: Echoes of the lost still linger.\n"
+	.string "Care for a rematch?$"
 
 EonCity_Gym_Text_MorriganDone:
 	.string "MORRIGAN: Eon's bells still toll for you.\n"

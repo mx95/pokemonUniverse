@@ -23,6 +23,10 @@ SummitCity_Gym_EventScript_Mentor::
 	end
 
 SummitCity_Gym_EventScript_MentorDone::
+	msgbox SummitCity_Gym_Text_MentorRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SummitCity_Gym_EventScript_MentorDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_MENTOR, SummitCity_Gym_Text_MentorDefeat
+SummitCity_Gym_EventScript_MentorDoneEnd::
 	msgbox SummitCity_Gym_Text_MentorDone, MSGBOX_DEFAULT
 	release
 	end
@@ -95,6 +99,10 @@ SummitCity_Gym_Text_MentorAfter:
 	.string "MENTOR: Stone yields to you.\n"
 	.string "Two desks remain--VESPER's POISON\l"
 	.string "in Venom Hollow, then TERRA's GROUND.$"
+
+SummitCity_Gym_Text_MentorRematchAsk:
+	.string "MENTOR: The summit tests you again and\n"
+	.string "again. Ready for a rematch?$"
 
 SummitCity_Gym_Text_MentorDone:
 	.string "MENTOR: The Summit watches your path.\n"

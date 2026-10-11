@@ -24,6 +24,10 @@ AstralCity_Gym_EventScript_Drake::
 	end
 
 AstralCity_Gym_EventScript_DrakeDone::
+	msgbox AstralCity_Gym_Text_DrakeRematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, AstralCity_Gym_EventScript_DrakeDoneEnd
+	trainerbattle_no_intro TRAINER_GENESIS_DRAKE_GYM, AstralCity_Gym_Text_DrakeDefeat
+AstralCity_Gym_EventScript_DrakeDoneEnd::
 	msgbox AstralCity_Gym_Text_DrakeDone, MSGBOX_DEFAULT
 	release
 	end
@@ -96,6 +100,10 @@ AstralCity_Gym_Text_DrakeAfter:
 	.string "DRAKE: Feel GENESIS ENERGY crystallize.\n"
 	.string "TERASTALLIZATION answers you now.\p"
 	.string "Next desk: TIDYMOON CITY--LUNA.$"
+
+AstralCity_Gym_Text_DrakeRematchAsk:
+	.string "DRAKE: The dragons still circle the sky.\n"
+	.string "Ready for a rematch?$"
 
 AstralCity_Gym_Text_DrakeDone:
 	.string "DRAKE: Astral's scopes still track you.\n"

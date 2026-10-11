@@ -24,7 +24,7 @@ Genesis_LegendSanctum_EventScript_PrepBattle::
 Genesis_LegendSanctum_EventScript_Aethernox::
 	lock
 	faceplayer
-	goto_if_set FLAG_GENESIS_DEFEATED_AETHERNOX, Genesis_LegendSanctum_EventScript_Already
+	goto_if_set FLAG_GENESIS_DEFEATED_AETHERNOX, Genesis_LegendSanctum_EventScript_RematchAethernox
 	msgbox Genesis_LegendSanctum_Text_Aethernox, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Decline
 	call Genesis_LegendSanctum_EventScript_PrepBattle
@@ -33,6 +33,15 @@ Genesis_LegendSanctum_EventScript_Aethernox::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Genesis_LegendSanctum_EventScript_CaughtAethernox
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Genesis_LegendSanctum_EventScript_CaughtAethernox
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_RematchAethernox::
+	msgbox Genesis_LegendSanctum_Text_RematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Already
+	call Genesis_LegendSanctum_EventScript_PrepBattle
+	setwildbattle SPECIES_AETHERNOX, 75, ITEM_NONE
+	special BattleSetup_StartLegendaryBattle
 	release
 	end
 
@@ -50,7 +59,7 @@ Genesis_LegendSanctum_EventScript_CaughtAethernox::
 Genesis_LegendSanctum_EventScript_Solara::
 	lock
 	faceplayer
-	goto_if_set FLAG_GENESIS_DEFEATED_SOLARA, Genesis_LegendSanctum_EventScript_Already
+	goto_if_set FLAG_GENESIS_DEFEATED_SOLARA, Genesis_LegendSanctum_EventScript_RematchSolara
 	msgbox Genesis_LegendSanctum_Text_Solara, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Decline
 	call Genesis_LegendSanctum_EventScript_PrepBattle
@@ -59,6 +68,15 @@ Genesis_LegendSanctum_EventScript_Solara::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Genesis_LegendSanctum_EventScript_CaughtSolara
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Genesis_LegendSanctum_EventScript_CaughtSolara
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_RematchSolara::
+	msgbox Genesis_LegendSanctum_Text_RematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Already
+	call Genesis_LegendSanctum_EventScript_PrepBattle
+	setwildbattle SPECIES_SOLARA, 75, ITEM_NONE
+	special BattleSetup_StartLegendaryBattle
 	release
 	end
 
@@ -76,7 +94,7 @@ Genesis_LegendSanctum_EventScript_CaughtSolara::
 Genesis_LegendSanctum_EventScript_Genesis::
 	lock
 	faceplayer
-	goto_if_set FLAG_GENESIS_DEFEATED_GENESIS_MON, Genesis_LegendSanctum_EventScript_Already
+	goto_if_set FLAG_GENESIS_DEFEATED_GENESIS_MON, Genesis_LegendSanctum_EventScript_RematchGenesis
 	msgbox Genesis_LegendSanctum_Text_Genesis, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Decline
 	call Genesis_LegendSanctum_EventScript_PrepBattle
@@ -85,6 +103,15 @@ Genesis_LegendSanctum_EventScript_Genesis::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Genesis_LegendSanctum_EventScript_CaughtGenesis
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Genesis_LegendSanctum_EventScript_CaughtGenesis
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_RematchGenesis::
+	msgbox Genesis_LegendSanctum_Text_RematchAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_Already
+	call Genesis_LegendSanctum_EventScript_PrepBattle
+	setwildbattle SPECIES_GENESIS, 80, ITEM_NONE
+	special BattleSetup_StartLegendaryBattle
 	release
 	end
 
@@ -170,6 +197,10 @@ Genesis_LegendSanctum_Text_DoneGenesis:
 
 Genesis_LegendSanctum_Text_Already:
 	.string "That legend has already answered you.$"
+
+Genesis_LegendSanctum_Text_RematchAsk:
+	.string "The focus still hums with that legend.\n"
+	.string "Call it again for a rematch?$"
 
 Genesis_LegendSanctum_Text_Decline:
 	.string "The sanctum waits.$"

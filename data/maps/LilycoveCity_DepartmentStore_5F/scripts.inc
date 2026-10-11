@@ -161,6 +161,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck::
 	setflag FLAG_GENESIS_ACHIEVEMENT_FASHION
 	giveitem ITEM_PINK_SCARF
 	setvar VAR_GENESIS_OUTFIT, 3
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
@@ -177,6 +178,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyRed::
 	setflag FLAG_GENESIS_OUTFIT_RED
 	giveitem ITEM_RED_SCARF
 	setvar VAR_GENESIS_OUTFIT, 1
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
@@ -190,6 +192,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue::
 	setflag FLAG_GENESIS_OUTFIT_BLUE
 	giveitem ITEM_BLUE_SCARF
 	setvar VAR_GENESIS_OUTFIT, 2
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
@@ -218,21 +221,25 @@ LilycoveCity_DepartmentStore_5F_EventScript_WearChampAsk::
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear0::
 	setvar VAR_GENESIS_OUTFIT, 0
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear1::
 	setvar VAR_GENESIS_OUTFIT, 1
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear2::
 	setvar VAR_GENESIS_OUTFIT, 2
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear3::
 	setvar VAR_GENESIS_OUTFIT, 3
+	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
