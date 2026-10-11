@@ -37,8 +37,8 @@
         .pokemonOffset = 0,
         .trainerScale = 387,
         .trainerOffset = 6,
-        // Geometry: DS Giratina Origin; palette: Genesis Aethernox recolor
-        .frontPic = gMonFrontPic_GiratinaOrigin,
+        // Unique SpriteCook front/back; icon/OW still Giratina Origin stand-in
+        .frontPic = gMonFrontPic_Aethernox,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = ANIM_FRAMES(
@@ -47,7 +47,7 @@
             ANIMCMD_FRAME(0, 15),
         ),
         .frontAnimId = ANIM_GROW_VIBRATE,
-        .backPic = gMonBackPic_GiratinaOrigin,
+        .backPic = gMonBackPic_Aethernox,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
@@ -107,8 +107,8 @@
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        // Geometry: DS Reshiram; palette: Genesis Solara recolor
-        .frontPic = gMonFrontPic_Reshiram,
+        // Unique SpriteCook front/back; icon/OW still Reshiram stand-in
+        .frontPic = gMonFrontPic_Solara,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 1,
         .frontAnimFrames = ANIM_FRAMES(
@@ -116,7 +116,7 @@
             ANIMCMD_FRAME(0, 5),
         ),
         .frontAnimId = ANIM_V_SHAKE,
-        .backPic = gMonBackPic_Reshiram,
+        .backPic = gMonBackPic_Solara,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
         .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
@@ -177,13 +177,17 @@
         .pokemonOffset = 0,
         .trainerScale = 455,
         .trainerOffset = 8,
-        // Geometry: DS Arceus; palette: Genesis aurora recolor
-        .frontPic = gMonFrontPic_Arceus,
+        // Unique SpriteCook front/back; icon/OW still Arceus stand-in
+        .frontPic = gMonFrontPic_Genesis,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_Arceus,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 12),
+            ANIMCMD_FRAME(1, 30),
+            ANIMCMD_FRAME(0, 15),
+        ),
         .frontAnimId = ANIM_GROW_VIBRATE,
-        .backPic = gMonBackPic_Arceus,
+        .backPic = gMonBackPic_Genesis,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         .backAnimId = BACK_ANIM_GROW_STUTTER,

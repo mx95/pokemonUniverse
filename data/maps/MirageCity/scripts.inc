@@ -37,6 +37,24 @@ MirageCity_EventScript_AttendantStay::
 	release
 	end
 
+MirageCity_EventScript_HeatNotice::
+	msgbox MirageCity_Text_HeatNotice, MSGBOX_SIGN
+	end
+
+MirageCity_EventScript_HeatShimmer::
+	lock
+	faceplayer
+	msgbox MirageCity_Text_HeatShimmer, MSGBOX_DEFAULT
+	release
+	end
+
+MirageCity_EventScript_PsychicTourist::
+	lock
+	faceplayer
+	msgbox MirageCity_Text_PsychicTourist, MSGBOX_DEFAULT
+	release
+	end
+
 MirageCity_Text_TownSign:
 	.string "MIRAGE CITY\n"
 	.string "“Thought bends like heat-haze glass.”$"
@@ -63,3 +81,17 @@ MirageCity_Text_AttendantWarp:
 MirageCity_Text_AttendantStay:
 	.string "Take your time in MIRAGE CITY.\n"
 	.string "The net will wait.$"
+
+MirageCity_Text_HeatNotice:
+	.string "AURELIA HEAT ADVISORY\n"
+	.string "Drink water. Mirages lie.$"
+
+MirageCity_Text_HeatShimmer:
+	.string "The pavement breathes today.\p"
+	.string "EASTERN AURELIA says the drought\n"
+	.string "makes psychic echoes louder.$"
+
+MirageCity_Text_PsychicTourist:
+	.string "I came for IRIS readings.\p"
+	.string "Instead the heat showed me a city\n"
+	.string "that was not there… then was.$"

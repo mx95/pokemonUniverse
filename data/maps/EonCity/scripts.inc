@@ -37,6 +37,20 @@ EonCity_EventScript_AttendantStay::
 	release
 	end
 
+EonCity_EventScript_FogMedium::
+	lock
+	faceplayer
+	msgbox EonCity_Text_FogMedium, MSGBOX_DEFAULT
+	release
+	end
+
+EonCity_EventScript_EonHistorian::
+	lock
+	faceplayer
+	msgbox EonCity_Text_EonHistorian, MSGBOX_DEFAULT
+	release
+	end
+
 EonCity_Text_TownSign:
 	.string "EON CITY\n"
 	.string "“Hear the bells between hours.”$"
@@ -57,3 +71,14 @@ EonCity_Text_AttendantWarp:
 
 EonCity_Text_AttendantStay:
 	.string "Take your time in EON CITY.\nThe echo-gate will wait.$"
+
+EonCity_Text_FogMedium:
+	.string "The fog carries old bell tones.\p"
+	.string "MORRIGAN says if you listen long\n"
+	.string "enough, an hour will repeat.$"
+
+EonCity_Text_EonHistorian:
+	.string "EASTERN AURELIA archivists copy\n"
+	.string "every fog log from this plaza.\p"
+	.string "Some pages mention twin dragons\n"
+	.string "that never landed here.$"

@@ -37,6 +37,24 @@ SummitCity_EventScript_AttendantStay::
 	release
 	end
 
+SummitCity_EventScript_AvalancheNotice::
+	msgbox SummitCity_Text_AvalancheNotice, MSGBOX_SIGN
+	end
+
+SummitCity_EventScript_SnowHiker::
+	lock
+	faceplayer
+	msgbox SummitCity_Text_SnowHiker, MSGBOX_DEFAULT
+	release
+	end
+
+SummitCity_EventScript_SummitGuide::
+	lock
+	faceplayer
+	msgbox SummitCity_Text_SummitGuide, MSGBOX_DEFAULT
+	release
+	end
+
 SummitCity_Text_TownSign:
 	.string "SUMMIT CITY\n"
 	.string "“Stone remembers every ascent.”$"
@@ -57,3 +75,19 @@ SummitCity_Text_AttendantWarp:
 
 SummitCity_Text_AttendantStay:
 	.string "Take your time in SUMMIT CITY.\nThe cliff-lift will wait.$"
+
+SummitCity_Text_AvalancheNotice:
+	.string "SUMMIT AVALANCHE POST\n"
+	.string "Snow line shifts. Stay on marked\l"
+	.string "stone.$"
+
+SummitCity_Text_SnowHiker:
+	.string "My boots are frozen solid.\p"
+	.string "The MENTOR says only bedrock and\n"
+	.string "patience outlast a whiteout.$"
+
+SummitCity_Text_SummitGuide:
+	.string "I lead AURELIA survey teams up\n"
+	.string "the eastern ridge.\p"
+	.string "When the snow falls, we follow the\n"
+	.string "GYM lanterns back down.$"

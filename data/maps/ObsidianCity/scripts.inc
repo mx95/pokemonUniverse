@@ -37,6 +37,20 @@ ObsidianCity_EventScript_AttendantStay::
 	release
 	end
 
+ObsidianCity_EventScript_AshSampler::
+	lock
+	faceplayer
+	msgbox ObsidianCity_Text_AshSampler, MSGBOX_DEFAULT
+	release
+	end
+
+ObsidianCity_EventScript_NightTrader::
+	lock
+	faceplayer
+	msgbox ObsidianCity_Text_NightTrader, MSGBOX_DEFAULT
+	release
+	end
+
 ObsidianCity_Text_TownSign:
 	.string "OBSIDIAN CITY\n"
 	.string "“Honest deals prefer the dark.”$"
@@ -57,3 +71,14 @@ ObsidianCity_Text_AttendantWarp:
 
 ObsidianCity_Text_AttendantStay:
 	.string "Take your time in OBSIDIAN CITY.\nThe gate will wait.$"
+
+ObsidianCity_Text_AshSampler:
+	.string "The sky stays dim even at noon.\p"
+	.string "We sample ash from NOCTIS vents\n"
+	.string "for AURELIA trade ledgers.$"
+
+ObsidianCity_Text_NightTrader:
+	.string "Honest deals prefer the dark,\n"
+	.string "so they say.\p"
+	.string "I just sell lanterns before the\n"
+	.string "GYM crowd floods the alleys.$"

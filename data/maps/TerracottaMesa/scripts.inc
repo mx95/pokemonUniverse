@@ -37,6 +37,20 @@ TerracottaMesa_EventScript_AttendantStay::
 	release
 	end
 
+TerracottaMesa_EventScript_MesaCamper::
+	lock
+	faceplayer
+	msgbox TerracottaMesa_Text_MesaCamper, MSGBOX_DEFAULT
+	release
+	end
+
+TerracottaMesa_EventScript_ClaySage::
+	lock
+	faceplayer
+	msgbox TerracottaMesa_Text_ClaySage, MSGBOX_DEFAULT
+	release
+	end
+
 TerracottaMesa_Text_TownSign:
 	.string "TERRACOTTA MESA\n"
 	.string "“The last type closes the circle.”$"
@@ -57,3 +71,14 @@ TerracottaMesa_Text_AttendantWarp:
 
 TerracottaMesa_Text_AttendantStay:
 	.string "Take your time in TERRACOTTA MESA.\nThe dune-runner will wait.$"
+
+TerracottaMesa_Text_MesaCamper:
+	.string "Sand gets in everything.\p"
+	.string "TERRA says that is how you know\n"
+	.string "the mesa still owns you.$"
+
+TerracottaMesa_Text_ClaySage:
+	.string "The storm paints the cliffs anew\n"
+	.string "each season.\p"
+	.string "EASTERN AURELIA potters dig clay\n"
+	.string "when the wind finally rests.$"

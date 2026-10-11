@@ -37,6 +37,20 @@ VenomHollow_EventScript_AttendantStay::
 	release
 	end
 
+VenomHollow_EventScript_ToxinFan::
+	lock
+	faceplayer
+	msgbox VenomHollow_Text_ToxinFan, MSGBOX_DEFAULT
+	release
+	end
+
+VenomHollow_EventScript_AntidoteDealer::
+	lock
+	faceplayer
+	msgbox VenomHollow_Text_AntidoteDealer, MSGBOX_DEFAULT
+	release
+	end
+
 VenomHollow_Text_TownSign:
 	.string "VENOM HOLLOW\n"
 	.string "“Antidotes sell better than gold.”$"
@@ -57,3 +71,13 @@ VenomHollow_Text_AttendantWarp:
 
 VenomHollow_Text_AttendantStay:
 	.string "Take your time in VENOM HOLLOW.\nThe lantern-boat will wait.$"
+
+VenomHollow_Text_ToxinFan:
+	.string "VESPER collects rare venoms like\n"
+	.string "other people collect stamps.\p"
+	.string "I am just a fan. Do not tell her.$"
+
+VenomHollow_Text_AntidoteDealer:
+	.string "Dim light keeps the spores calm.\p"
+	.string "I sell antidotes near the AURELIA\n"
+	.string "post before trainers get curious.$"

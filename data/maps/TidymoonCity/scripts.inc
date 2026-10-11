@@ -37,6 +37,24 @@ TidymoonCity_EventScript_AttendantStay::
 	release
 	end
 
+TidymoonCity_EventScript_TideChart::
+	msgbox TidymoonCity_Text_TideChart, MSGBOX_SIGN
+	end
+
+TidymoonCity_EventScript_PierAngler::
+	lock
+	faceplayer
+	msgbox TidymoonCity_Text_PierAngler, MSGBOX_DEFAULT
+	release
+	end
+
+TidymoonCity_EventScript_MoonClerk::
+	lock
+	faceplayer
+	msgbox TidymoonCity_Text_MoonClerk, MSGBOX_DEFAULT
+	release
+	end
+
 TidymoonCity_Text_TownSign:
 	.string "TIDYMOON CITY\n"
 	.string "“Wishes float in on the tide.”$"
@@ -57,3 +75,17 @@ TidymoonCity_Text_AttendantWarp:
 
 TidymoonCity_Text_AttendantStay:
 	.string "Take your time in TIDYMOON CITY.\nThe moon-ferry will wait.$"
+
+TidymoonCity_Text_TideChart:
+	.string "TIDYMOON HARBOR CHART\n"
+	.string "Rain tide. Moor lines tight.$"
+
+TidymoonCity_Text_PierAngler:
+	.string "Fish bite when the rain drums the\n"
+	.string "pier.\p"
+	.string "LUNA says the moon pulls either way.$"
+
+TidymoonCity_Text_MoonClerk:
+	.string "I stamp tide permits for AURELIA\n"
+	.string "ferries.\p"
+	.string "Today every form says: expect spray.$"

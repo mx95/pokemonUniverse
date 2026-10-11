@@ -37,6 +37,20 @@ AstralCity_EventScript_AttendantStay::
 	release
 	end
 
+AstralCity_EventScript_StarCartographer::
+	lock
+	faceplayer
+	msgbox AstralCity_Text_StarCartographer, MSGBOX_DEFAULT
+	release
+	end
+
+AstralCity_EventScript_TideTwin::
+	lock
+	faceplayer
+	msgbox AstralCity_Text_TideTwin, MSGBOX_DEFAULT
+	release
+	end
+
 AstralCity_Text_TownSign:
 	.string "ASTRAL CITY\n"
 	.string "“Where the stars land first.”$"
@@ -57,3 +71,13 @@ AstralCity_Text_AttendantWarp:
 
 AstralCity_Text_AttendantStay:
 	.string "Take your time in ASTRAL CITY.\nThe star-lift will wait.$"
+
+AstralCity_Text_StarCartographer:
+	.string "Clouds part just enough for charts.\p"
+	.string "DRAKE hires us to map where stars\n"
+	.string "touch the harbor first.$"
+
+AstralCity_Text_TideTwin:
+	.string "We count shooting stars for luck.\p"
+	.string "EASTERN AURELIA sailors swear the\n"
+	.string "brightest ones land here.$"

@@ -10,9 +10,14 @@
 #include "palette.h"
 #include "sprite.h"
 
-// Clothing color indices in Brendan/May object event palettes (see *.pal).
+// Clothing / accent indices in Brendan/May object event palettes (see *.pal).
 #define GENESIS_OUTFIT_CLOTH_START 5
 #define GENESIS_OUTFIT_CLOTH_COUNT 4
+#define GENESIS_OUTFIT_ACCENT_A 9   // bag / light trim
+#define GENESIS_OUTFIT_ACCENT_B 10  // secondary accent
+#define GENESIS_OUTFIT_ACCENT_C 11
+#define GENESIS_OUTFIT_ACCENT_D 12
+#define GENESIS_OUTFIT_ACCENT_E 13
 
 enum {
     GENESIS_OUTFIT_DEFAULT = 0,
@@ -40,6 +45,31 @@ static const u16 sOutfitClothes[][GENESIS_OUTFIT_CLOTH_COUNT] = {
         RGB(28, 12, 20),
         RGB(22, 8, 16),
         RGB(14, 4, 10),
+    },
+};
+
+// Accents (hat/bag/trim) for stronger OW read at a glance.
+static const u16 sOutfitAccents[][5] = {
+    [GENESIS_OUTFIT_RED] = {
+        RGB(31, 28, 12), // gold trim
+        RGB(28, 22, 6),
+        RGB(20, 14, 4),
+        RGB(31, 14, 6),
+        RGB(22, 8, 4),
+    },
+    [GENESIS_OUTFIT_BLUE] = {
+        RGB(20, 28, 31), // ice trim
+        RGB(10, 22, 28),
+        RGB(6, 14, 22),
+        RGB(8, 20, 31),
+        RGB(4, 12, 24),
+    },
+    [GENESIS_OUTFIT_CHAMPION] = {
+        RGB(31, 31, 24), // champion gold/white
+        RGB(31, 26, 10),
+        RGB(28, 20, 8),
+        RGB(31, 22, 28),
+        RGB(24, 12, 20),
     },
 };
 
@@ -81,6 +111,17 @@ void Genesis_ApplyOutfitToPalette(u8 paletteNum)
         unfaded[GENESIS_OUTFIT_CLOTH_START + i] = sOutfitClothes[outfit][i];
         faded[GENESIS_OUTFIT_CLOTH_START + i] = sOutfitClothes[outfit][i];
     }
+
+    unfaded[GENESIS_OUTFIT_ACCENT_A] = sOutfitAccents[outfit][0];
+    faded[GENESIS_OUTFIT_ACCENT_A] = sOutfitAccents[outfit][0];
+    unfaded[GENESIS_OUTFIT_ACCENT_B] = sOutfitAccents[outfit][1];
+    faded[GENESIS_OUTFIT_ACCENT_B] = sOutfitAccents[outfit][1];
+    unfaded[GENESIS_OUTFIT_ACCENT_C] = sOutfitAccents[outfit][2];
+    faded[GENESIS_OUTFIT_ACCENT_C] = sOutfitAccents[outfit][2];
+    unfaded[GENESIS_OUTFIT_ACCENT_D] = sOutfitAccents[outfit][3];
+    faded[GENESIS_OUTFIT_ACCENT_D] = sOutfitAccents[outfit][3];
+    unfaded[GENESIS_OUTFIT_ACCENT_E] = sOutfitAccents[outfit][4];
+    faded[GENESIS_OUTFIT_ACCENT_E] = sOutfitAccents[outfit][4];
 }
 
 void Genesis_RefreshPlayerOutfit(void)

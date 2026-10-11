@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                10 // +Eastern Fly; outfit OW tint; rematches; Hall jukebox
+#define GENESIS_SAVE_VERSION                11 // +unique legend fronts; eastern weather/NPCs; stronger outfits
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed

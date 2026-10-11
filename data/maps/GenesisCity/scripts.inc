@@ -37,6 +37,20 @@ GenesisCity_EventScript_AttendantStay::
 	release
 	end
 
+GenesisCity_EventScript_OriginArchivist::
+	lock
+	faceplayer
+	msgbox GenesisCity_Text_OriginArchivist, MSGBOX_DEFAULT
+	release
+	end
+
+GenesisCity_EventScript_RouteDreamer::
+	lock
+	faceplayer
+	msgbox GenesisCity_Text_RouteDreamer, MSGBOX_DEFAULT
+	release
+	end
+
 GenesisCity_Text_TownSign:
 	.string "GENESIS CITY\n"
 	.string "“Potential is measured in battle.”$"
@@ -57,3 +71,14 @@ GenesisCity_Text_AttendantWarp:
 
 GenesisCity_Text_AttendantStay:
 	.string "Take your time in GENESIS CITY.\nThe hub shuttle will wait.$"
+
+GenesisCity_Text_OriginArchivist:
+	.string "Clear skies mean clean records.\p"
+	.string "We catalog how AURELIA routes\n"
+	.string "began right here at genesis.$"
+
+GenesisCity_Text_RouteDreamer:
+	.string "I want to walk every eastern road\n"
+	.string "from this square.\p"
+	.string "The COLLEAGUE says every journey\n"
+	.string "starts with one honest step.$"

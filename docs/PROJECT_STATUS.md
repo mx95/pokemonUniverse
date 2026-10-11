@@ -46,11 +46,11 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins; Sanctum heal + held items + completion gifts; Form announce |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
-| Custom legendary battle sprites | — | IMPLEMENTED (v1) | Unique recolor palettes on DS geometry (`graphics/pokemon/{aethernox,solara,genesis}`); full redraws still later |
+| Custom legendary battle sprites | — | IMPLEMENTED (v2) | Unique SpriteCook fronts/backs in ROM; icon/OW still DS stand-ins |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | IMPLEMENTED (layout clones) | All 10 eastern cities enterable (Center/Mart/Gym); region-map Fly tiles + heal table wired; unique outdoor geometry still needs Porymap |
+| Aurelia maps (custom geometry) | 3–4 | IMPLEMENTED (layout clones + vibe) | Eastern cities: Fly + per-city weather/flavor NPCs; unique outdoor tile geometry still needs Porymap |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 + 4 puzzles with item rewards + master Bottle Caps + Kai |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
@@ -66,7 +66,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 |---------------|---------|--------|-------|
 | Quest system + tracker | 62–64, 120–122 | IMPLEMENTED | Lumen Center board: acts 1–8, puzzles, eastern, legends, WT, Chaos |
 | DexNav polish + encounter search | 47–48 | IMPLEMENTED | Lab grants search + detector; `USE_DEXNAV_SEARCH_LEVELS` on (SaveBlock3 via ALWAYS item desc) |
-| Character customization | 57–58 | IMPLEMENTED (v2) | Boutique Aurelia buys/wears scarf looks; OW clothing palette tint via `VAR_GENESIS_OUTFIT` |
+| Character customization | 57–58 | IMPLEMENTED (v3) | Boutique scarf looks tint OW clothes + accents; dedicated sprite kits still optional |
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
@@ -128,13 +128,13 @@ Story battles: one gimmick type per battle for the player (`GENESIS_ONE_GIMMICK_
 
 ## Next recommended feature group
 
-Latest polish pass: Eastern Fly destinations, boutique OW outfit tint, eastern gym + legend rematches, Corviknight taxi fly-away, quest-board badge checklist, Hall jukebox.
+Latest polish pass: unique legend battle fronts/backs, eastern city weather + flavor NPCs, stronger boutique OW tints, playtest checklist (`docs/PLAYTEST_CHECKLIST.md`).
 
-Still needs external art / Porymap / playtest:
-1. **In-emulator playtest** of Fly, outfits, rematches, jukebox, Corviknight intro.
-2. **Unique outdoor geometry** for eastern cities (Porymap) — clones reuse Hoenn layouts.
-3. **Full legendary redraws** (replace DS silhouettes; palettes already unique).
-4. **Dedicated OW outfit sprite kits** (palette tint is live; unique sheets optional).
+Still open:
+1. **In-emulator playtest** — use `docs/PLAYTEST_CHECKLIST.md` (automated smoke is green).
+2. **Unique outdoor tile geometry** (Porymap) — layouts still cloned; weather/NPCs differentiate vibe.
+3. **Legend icons + OW followers** — battle fronts/backs unique; party icon / follower still stand-in.
+4. **Dedicated OW outfit sprite sheets** — palette tint v3 is live; full kits optional.
 
 ---
 

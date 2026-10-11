@@ -37,6 +37,24 @@ VerdantisCity_EventScript_AttendantStay::
 	release
 	end
 
+VerdantisCity_EventScript_CanopyNotice::
+	msgbox VerdantisCity_Text_CanopyNotice, MSGBOX_SIGN
+	end
+
+VerdantisCity_EventScript_CanopyRanger::
+	lock
+	faceplayer
+	msgbox VerdantisCity_Text_CanopyRanger, MSGBOX_DEFAULT
+	release
+	end
+
+VerdantisCity_EventScript_BugWatcher::
+	lock
+	faceplayer
+	msgbox VerdantisCity_Text_BugWatcher, MSGBOX_DEFAULT
+	release
+	end
+
 VerdantisCity_Text_TownSign:
 	.string "VERDANTIS CITY\n"
 	.string "“Canopy light, a thousand wings.”$"
@@ -57,3 +75,17 @@ VerdantisCity_Text_AttendantWarp:
 
 VerdantisCity_Text_AttendantStay:
 	.string "Take your time in VERDANTIS CITY.\nThe lift will wait.$"
+
+VerdantisCity_Text_CanopyNotice:
+	.string "VERDANTIS CANOPY TRAIL\n"
+	.string "Rain slick. Watch for falling pods.$"
+
+VerdantisCity_Text_CanopyRanger:
+	.string "The rain feeds the canopy.\p"
+	.string "EASTERN AURELIA rangers mark safe\n"
+	.string "paths when the swarm season starts.$"
+
+VerdantisCity_Text_BugWatcher:
+	.string "WINGULL hate this weather, but\n"
+	.string "BUG POKéMON love it.\p"
+	.string "CELIA says every storm is a dance.$"
