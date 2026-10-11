@@ -8,6 +8,10 @@
 #include "constants/species.h"
 #include "event_data.h"
 #include "item.h"
+#include "list_menu.h"
+#include "pokemon.h"
+#include "script_menu.h"
+#include "script_pokemon_util.h"
 #include "starter_choose.h"
 
 // GENESIS: Story helper specials (expand as acts are authored).
@@ -232,4 +236,56 @@ void Genesis_OnGameClear(void)
 
     FlagSet(FLAG_SYS_TERA_ORB_CHARGED);
     FlagSet(FLAG_SYS_TERA_ORB_NO_COST);
+}
+
+static bool32 Genesis_IsLegendClass(enum Species species)
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SanitizeSpeciesId(species)];
+
+    return info->isRestrictedLegendary
+        || info->isSubLegendary
+        || info->isMythical
+        || info->isUltraBeast;
+}
+
+// Build a dynmultistack of every enabled legendary / mythical / Ultra Beast.
+// Option id = species; VAR_RESULT after dynmultistack is that species (or MULTI_B_PRESSED).
+void Genesis_LegendArchive_BuildMenu(void)
+{
+    enum Species species;
+    u32 count = 0;
+
+    // Clear any leftover dynmultistack (PopElement is NULL-safe).
+    while (MultichoiceDynamic_PopElement() != NULL)
+        ;
+
+    for (species = 1; species < NUM_SPECIES; species++)
+    {
+        struct ListMenuItem item;
+
+        if (!IsSpeciesEnabled(species) || !Genesis_IsLegendClass(species))
+            continue;
+
+        item.name = GetSpeciesName(species);
+        item.id = species;
+        MultichoiceDynamic_PushElement(item);
+        count++;
+    }
+
+    gSpecialVar_Result = count != 0;
+}
+
+// VAR_0x8004 = species chosen from the archive menu.
+void Genesis_LegendArchive_PrepBattle(void)
+{
+    enum Species species = gSpecialVar_0x8004;
+
+    if (species == SPECIES_NONE || !IsSpeciesEnabled(species) || !Genesis_IsLegendClass(species))
+    {
+        gSpecialVar_Result = FALSE;
+        return;
+    }
+
+    CreateScriptedWildMon(species, 70, ITEM_NONE);
+    gSpecialVar_Result = TRUE;
 }

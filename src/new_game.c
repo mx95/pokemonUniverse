@@ -275,11 +275,14 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
-    // GENESIS: default QoL on new game
+    // GENESIS: default QoL on new game — key items already in the bag
 #if GENESIS_ENABLE_EXP_SHARE
     FlagSet(FLAG_SYS_EXP_SHARE);
+    AddBagItem(ITEM_EXP_SHARE, 1);
 #endif
-    // GENESIS: DexNav unlock is granted by Prof. Aurelia with the PokÃ©dex
+    AddBagItem(ITEM_VS_SEEKER, 1);
+    AddBagItem(ITEM_SHINY_CHARM, 1);
+    // GENESIS: DexNav unlock is granted by Prof. Aurelia with the Pokédex
     Genesis_InitSave();
 }
 

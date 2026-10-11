@@ -66,6 +66,29 @@ const u16 gTilesetPalettes_Petalburg[][16] =
     INCGFX_U16("data/tilesets/secondary/petalburg/palettes/15.pal", ".gbapal"),
 };
 
+// GENESIS: Verdant Town (Littleroot) — Petalburg geometry with coral roofs / teal trim.
+const u32 gTilesetTiles_VerdantTown[] = INCGFX_U32("data/tilesets/secondary/verdant_town/tiles.png", ".4bpp.fastSmol", "-num_tiles 159 -Wnum_tiles");
+
+const u16 gTilesetPalettes_VerdantTown[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/verdant_town/palettes/15.pal", ".gbapal"),
+};
+
 const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 498 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Rustboro[][16] =

@@ -4,13 +4,50 @@ Genesis_LegendSanctum_MapScripts::
 Genesis_LegendSanctum_EventScript_Guide::
 	lock
 	faceplayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, Genesis_LegendSanctum_EventScript_GuideLocked
 	goto_if_set FLAG_GENESIS_FORM_UNLOCKED, Genesis_LegendSanctum_EventScript_GuideFormOpen
 	msgbox Genesis_LegendSanctum_Text_Guide, MSGBOX_DEFAULT
+	msgbox Genesis_LegendSanctum_Text_ArchiveOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Genesis_LegendSanctum_EventScript_OpenArchive
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_GuideLocked::
+	msgbox Genesis_LegendSanctum_Text_GuideLocked, MSGBOX_DEFAULT
 	release
 	end
 
 Genesis_LegendSanctum_EventScript_GuideFormOpen::
 	msgbox Genesis_LegendSanctum_Text_GuideFormOpen, MSGBOX_DEFAULT
+	msgbox Genesis_LegendSanctum_Text_ArchiveOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Genesis_LegendSanctum_EventScript_OpenArchive
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_OpenArchive::
+	msgbox Genesis_LegendSanctum_Text_ArchiveIntro, MSGBOX_DEFAULT
+	callnative Genesis_LegendArchive_BuildMenu
+	goto_if_eq VAR_RESULT, FALSE, Genesis_LegendSanctum_EventScript_ArchiveEmpty
+	dynmultistack 0, 0, FALSE, 6, TRUE, 0, DYN_MULTICHOICE_CB_SHOW_PKMN
+	goto_if_eq VAR_RESULT, MULTI_B_PRESSED, Genesis_LegendSanctum_EventScript_ArchiveCancel
+	copyvar VAR_0x8004, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox Genesis_LegendSanctum_Text_ArchiveConfirm, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Genesis_LegendSanctum_EventScript_OpenArchive
+	call Genesis_LegendSanctum_EventScript_PrepBattle
+	callnative Genesis_LegendArchive_PrepBattle
+	goto_if_eq VAR_RESULT, FALSE, Genesis_LegendSanctum_EventScript_ArchiveEmpty
+	special BattleSetup_StartLegendaryBattle
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_ArchiveCancel::
+	msgbox Genesis_LegendSanctum_Text_ArchiveCancel, MSGBOX_DEFAULT
+	release
+	end
+
+Genesis_LegendSanctum_EventScript_ArchiveEmpty::
+	msgbox Genesis_LegendSanctum_Text_ArchiveEmpty, MSGBOX_DEFAULT
 	release
 	end
 
@@ -156,14 +193,40 @@ Genesis_LegendSanctum_Text_Guide:
 	.string "GENESIS--potential unbound.\p"
 	.string "The sanctum heals your party before\n"
 	.string "each trial. Best all three to awaken\l"
-	.string "GENESIS FORM on the bonded mon.$"
+	.string "GENESIS FORM on the bonded mon.\p"
+	.string "After that, ask me about the LEGEND\n"
+	.string "ARCHIVE--every legend of every region.$"
+
+Genesis_LegendSanctum_Text_GuideLocked:
+	.string "The LEGEND SANCTUM stays quiet until\n"
+	.string "a CHAMPION stands in AURELIA.\p"
+	.string "Return when the League crowns you.$"
 
 Genesis_LegendSanctum_Text_GuideFormOpen:
 	.string "GENESIS FORM already answers you.\n"
 	.string "The foci keep their silence--unless\l"
 	.string "you seek rematches in memory alone.\p"
 	.string "Mix gimmicks freely if CHAOS BATTLES\n"
-	.string "are on at Eastern AURELIA HALL.$"
+	.string "are on at Eastern AURELIA HALL.\p"
+	.string "Or open the LEGEND ARCHIVE and call\n"
+	.string "any legend the world still remembers.$"
+
+Genesis_LegendSanctum_Text_ArchiveOffer:
+	.string "Open the LEGEND ARCHIVE?$"
+
+Genesis_LegendSanctum_Text_ArchiveIntro:
+	.string "Choose a legend. The sanctum will\n"
+	.string "call it here for a static encounter.$"
+
+Genesis_LegendSanctum_Text_ArchiveConfirm:
+	.string "Call {STR_VAR_1}?$"
+
+Genesis_LegendSanctum_Text_ArchiveCancel:
+	.string "The archive closes for now.$"
+
+Genesis_LegendSanctum_Text_ArchiveEmpty:
+	.string "The archive finds no legends to call.\n"
+	.string "Strange…$"
 
 Genesis_LegendSanctum_Text_Prep:
 	.string "The sanctum steadies your party…$"

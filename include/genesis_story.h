@@ -15,5 +15,7 @@ void Genesis_GetWTRuleIndex(void);
 void Genesis_GiveStarterMegaStone(void);
 void Genesis_TownMonIsDone(void);
 void Genesis_TownMonSetDone(void);
+void Genesis_LegendArchive_BuildMenu(void);
+void Genesis_LegendArchive_PrepBattle(void);
 
 #endif // GUARD_GENESIS_STORY_H

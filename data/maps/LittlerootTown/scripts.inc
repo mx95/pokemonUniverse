@@ -1079,7 +1079,7 @@ LittlerootTown_Text_GoodLuckCatchingPokemon:
 
 LittlerootTown_Text_TownSign:
 	.string "VERDANT TOWN\n"
-	.string "“Where AURELIA's journey begins.”$"
+	.string "“Coral roofs under soft AURELIA skies.”$"
 
 LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. AURELIA'S POKéMON LAB$"
