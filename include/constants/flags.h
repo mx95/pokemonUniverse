@@ -671,8 +671,10 @@
 #define FLAG_SYS_DYNAMAX_BATTLE  0x268 // GENESIS: Dynamax allowed this battle
 #define FLAG_SYS_TERA_ORB_CHARGED  0x269 // GENESIS: Tera Orb charged
 #define FLAG_SYS_TERA_ORB_NO_COST  0x26A // GENESIS: Tera Orb free use
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_GENESIS_OUTFIT_FOREST            0x26B // Boutique: Forest/Verdant look
+#define FLAG_GENESIS_OUTFIT_ECLIPSE           0x26C // Boutique: Eclipse look
+#define FLAG_UNUSED_0x26B  FLAG_GENESIS_OUTFIT_FOREST // alias
+#define FLAG_UNUSED_0x26C  FLAG_GENESIS_OUTFIT_ECLIPSE // alias
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag

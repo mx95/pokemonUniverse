@@ -27500,23 +27500,29 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
 #endif //OW_POKEMON_OBJECT_EVENTS
 #endif //P_FAMILY_PECHARUNT
 
-// GENESIS: Unique battle fronts/backs from art_staging + matching palettes
+// GENESIS: Unique battle / icon / OW art for Aurelia legends
     const u32 gMonFrontPic_Aethernox[] = INCGFX_U32("graphics/pokemon/aethernox/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Aethernox[] = INCGFX_U32("graphics/pokemon/aethernox/back.png", ".4bpp.smol");
     const u16 gMonPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/normal.pal", ".gbapal");
     const u16 gMonShinyPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Aethernox[] = INCGFX_U8("graphics/pokemon/aethernox/icon.png", ".4bpp");
+    const u32 gObjectEventPic_Aethernox[] = INCGFX_COMP("graphics/pokemon/aethernox/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
     const u16 gOverworldPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Aethernox[] = INCGFX_U16("graphics/pokemon/aethernox/overworld_shiny.pal", ".gbapal");
     const u32 gMonFrontPic_Solara[] = INCGFX_U32("graphics/pokemon/solara/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Solara[] = INCGFX_U32("graphics/pokemon/solara/back.png", ".4bpp.smol");
     const u16 gMonPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/normal.pal", ".gbapal");
     const u16 gMonShinyPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Solara[] = INCGFX_U8("graphics/pokemon/solara/icon.png", ".4bpp");
+    const u32 gObjectEventPic_Solara[] = INCGFX_COMP("graphics/pokemon/solara/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
     const u16 gOverworldPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Solara[] = INCGFX_U16("graphics/pokemon/solara/overworld_shiny.pal", ".gbapal");
     const u32 gMonFrontPic_Genesis[] = INCGFX_U32("graphics/pokemon/genesis/anim_front.png", ".4bpp.smol");
     const u32 gMonBackPic_Genesis[] = INCGFX_U32("graphics/pokemon/genesis/back.png", ".4bpp.smol");
     const u16 gMonPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/normal.pal", ".gbapal");
     const u16 gMonShinyPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Genesis[] = INCGFX_U8("graphics/pokemon/genesis/icon.png", ".4bpp");
+    const u32 gObjectEventPic_Genesis[] = INCGFX_COMP("graphics/pokemon/genesis/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
     const u16 gOverworldPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Genesis[] = INCGFX_U16("graphics/pokemon/genesis/overworld_shiny.pal", ".gbapal");
 

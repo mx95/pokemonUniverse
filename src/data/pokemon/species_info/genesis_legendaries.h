@@ -37,7 +37,6 @@
         .pokemonOffset = 0,
         .trainerScale = 387,
         .trainerOffset = 6,
-        // Unique SpriteCook front/back; icon/OW still Giratina Origin stand-in
         .frontPic = gMonFrontPic_Aethernox,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
@@ -53,13 +52,13 @@
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
         .palette = gMonPalette_Aethernox,
         .shinyPalette = gMonShinyPalette_Aethernox,
-        .iconSprite = gMonIcon_GiratinaOrigin,
+        .iconSprite = gMonIcon_Aethernox,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(3, 11, SHADOW_SIZE_L)
         FOOTPRINT(GiratinaOrigin)
         OVERWORLD(
-            sPicTable_GiratinaOrigin,
+            sPicTable_Aethernox,
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
@@ -107,7 +106,6 @@
         .pokemonOffset = 0,
         .trainerScale = 365,
         .trainerOffset = 7,
-        // Unique SpriteCook front/back; icon/OW still Reshiram stand-in
         .frontPic = gMonFrontPic_Solara,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 1,
@@ -122,13 +120,13 @@
         .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
         .palette = gMonPalette_Solara,
         .shinyPalette = gMonShinyPalette_Solara,
-        .iconSprite = gMonIcon_Reshiram,
+        .iconSprite = gMonIcon_Solara,
         .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-2, 12, SHADOW_SIZE_L)
         FOOTPRINT(Reshiram)
         OVERWORLD(
-            sPicTable_Reshiram,
+            sPicTable_Solara,
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
@@ -177,7 +175,6 @@
         .pokemonOffset = 0,
         .trainerScale = 455,
         .trainerOffset = 8,
-        // Unique SpriteCook front/back; icon/OW still Arceus stand-in
         .frontPic = gMonFrontPic_Genesis,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
@@ -193,13 +190,13 @@
         .backAnimId = BACK_ANIM_GROW_STUTTER,
         .palette = gMonPalette_Genesis,
         .shinyPalette = gMonShinyPalette_Genesis,
-        .iconSprite = gMonIcon_ArceusNormal,
-        .iconPalIndex = 1,
+        .iconSprite = gMonIcon_Genesis,
+        .iconPalIndex = 0,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(-1, 13, SHADOW_SIZE_L)
         FOOTPRINT(Arceus)
         OVERWORLD(
-            sPicTable_ArceusNormal,
+            sPicTable_Genesis,
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_FOOT,

@@ -13,6 +13,8 @@ const u16 gMetatiles_Petalburg[] = INCBIN_U16("data/tilesets/secondary/petalburg
 const u16 gMetatileAttributes_Petalburg[] = INCBIN_U16("data/tilesets/secondary/petalburg/metatile_attributes.bin");
 const u16 gMetatiles_VerdantTown[] = INCBIN_U16("data/tilesets/secondary/verdant_town/metatiles.bin");
 const u16 gMetatileAttributes_VerdantTown[] = INCBIN_U16("data/tilesets/secondary/verdant_town/metatile_attributes.bin");
+const u16 gMetatiles_LumenTown[] = INCBIN_U16("data/tilesets/secondary/lumen_town/metatiles.bin");
+const u16 gMetatileAttributes_LumenTown[] = INCBIN_U16("data/tilesets/secondary/lumen_town/metatile_attributes.bin");
 
 const u16 gMetatiles_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatiles.bin");
 const u16 gMetatileAttributes_Rustboro[] = INCBIN_U16("data/tilesets/secondary/rustboro/metatile_attributes.bin");

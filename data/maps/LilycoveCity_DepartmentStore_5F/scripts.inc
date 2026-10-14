@@ -145,13 +145,18 @@ LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBye::
 
 LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueBuy::
 	goto_if_unset FLAG_GENESIS_OUTFIT_RED, LilycoveCity_DepartmentStore_5F_EventScript_BuyRed
+	goto_if_unset FLAG_GENESIS_OUTFIT_FOREST, LilycoveCity_DepartmentStore_5F_EventScript_BuyForest
 	goto_if_unset FLAG_GENESIS_OUTFIT_BLUE, LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue
 	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck
 	msgbox LilycoveCity_DepartmentStore_5F_Text_BoutiqueOwnedBasic, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck::
-	goto_if_set FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueComplete
+	goto_if_unset FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_BuyChampion
+	goto_if_unset FLAG_GENESIS_OUTFIT_ECLIPSE, LilycoveCity_DepartmentStore_5F_EventScript_BuyEclipse
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueComplete
+
+LilycoveCity_DepartmentStore_5F_EventScript_BuyChampion::
 	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyChampion, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 	checkmoney 10000
@@ -161,6 +166,19 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyChampionCheck::
 	setflag FLAG_GENESIS_ACHIEVEMENT_FASHION
 	giveitem ITEM_PINK_SCARF
 	setvar VAR_GENESIS_OUTFIT, 3
+	callnative Genesis_RefreshPlayerOutfit
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_BuyEclipse::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyEclipse, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	checkmoney 12000
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney
+	removemoney 12000
+	setflag FLAG_GENESIS_OUTFIT_ECLIPSE
+	giveitem ITEM_YELLOW_SCARF
+	setvar VAR_GENESIS_OUTFIT, 5
 	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
@@ -182,6 +200,20 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyRed::
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
+LilycoveCity_DepartmentStore_5F_EventScript_BuyForest::
+	goto_if_unset FLAG_BADGE01_GET, LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge1
+	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyForest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	checkmoney 4000
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueNoMoney
+	removemoney 4000
+	setflag FLAG_GENESIS_OUTFIT_FOREST
+	giveitem ITEM_GREEN_SCARF
+	setvar VAR_GENESIS_OUTFIT, 4
+	callnative Genesis_RefreshPlayerOutfit
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
 LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue::
 	goto_if_unset FLAG_BADGE06_GET, LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge6
 	msgbox LilycoveCity_DepartmentStore_5F_Text_BuyBlue, MSGBOX_YESNO
@@ -194,6 +226,10 @@ LilycoveCity_DepartmentStore_5F_EventScript_BuyBlue::
 	setvar VAR_GENESIS_OUTFIT, 2
 	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge1::
+	msgbox LilycoveCity_DepartmentStore_5F_Text_NeedBadge1, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_NeedBadge6::
@@ -210,13 +246,21 @@ LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueWear::
 	goto_if_unset FLAG_GENESIS_OUTFIT_RED, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearRedQ, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear1
+	goto_if_unset FLAG_GENESIS_OUTFIT_FOREST, LilycoveCity_DepartmentStore_5F_EventScript_WearBlueAsk
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearForestQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear4
+LilycoveCity_DepartmentStore_5F_EventScript_WearBlueAsk::
 	goto_if_unset FLAG_GENESIS_OUTFIT_BLUE, LilycoveCity_DepartmentStore_5F_EventScript_WearChampAsk
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearBlueQ, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear2
 LilycoveCity_DepartmentStore_5F_EventScript_WearChampAsk::
-	goto_if_unset FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	goto_if_unset FLAG_GENESIS_OUTFIT_CHAMPION, LilycoveCity_DepartmentStore_5F_EventScript_WearEclipseAsk
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearChampQ, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear3
+LilycoveCity_DepartmentStore_5F_EventScript_WearEclipseAsk::
+	goto_if_unset FLAG_GENESIS_OUTFIT_ECLIPSE, LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearEclipseQ, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, LilycoveCity_DepartmentStore_5F_EventScript_SetWear5
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear0::
@@ -239,6 +283,18 @@ LilycoveCity_DepartmentStore_5F_EventScript_SetWear2::
 
 LilycoveCity_DepartmentStore_5F_EventScript_SetWear3::
 	setvar VAR_GENESIS_OUTFIT, 3
+	callnative Genesis_RefreshPlayerOutfit
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear4::
+	setvar VAR_GENESIS_OUTFIT, 4
+	callnative Genesis_RefreshPlayerOutfit
+	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
+	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
+
+LilycoveCity_DepartmentStore_5F_EventScript_SetWear5::
+	setvar VAR_GENESIS_OUTFIT, 5
 	callnative Genesis_RefreshPlayerOutfit
 	msgbox LilycoveCity_DepartmentStore_5F_Text_WearSet, MSGBOX_DEFAULT
 	goto LilycoveCity_DepartmentStore_5F_EventScript_BoutiqueMenu
@@ -278,20 +334,19 @@ LilycoveCity_DepartmentStore_5F_Text_ClothingStubEarly:
 
 LilycoveCity_DepartmentStore_5F_Text_BoutiqueWelcome:
 	.string "Welcome to BOUTIQUE AURELIA!\p"
-	.string "Scarves mark your look for Contests\n"
-	.string "and style notes. Full overworld kits\l"
-	.string "arrive when the tailor finishes sprites.$"
+	.string "Scarves change your overworld clothes\n"
+	.string "and accents on the spot--five looks!$"
 
 LilycoveCity_DepartmentStore_5F_Text_BoutiqueAsk:
 	.string "Buy a look, wear one, or hear more?\n"
 	.string "(YES=Buy / NO=Wear / INFO)$"
 
 LilycoveCity_DepartmentStore_5F_Text_BoutiqueInfo:
-	.string "Badge 3: Verdant Red Scarf.\n"
-	.string "Badge 6: Azure Blue Scarf.\l"
-	.string "Champion: Pink Champion look.\p"
-	.string "Looks are tracked as fashion unlocks.\n"
-	.string "OW sprite swaps need future art.$"
+	.string "Badge 3 shop: Verdant Red.\n"
+	.string "Badge 1: Forest Green.\l"
+	.string "Badge 6: Azure Blue.\p"
+	.string "Champion: Pink, then Eclipse violet.\n"
+	.string "Wear any unlocked look anytime.$"
 
 LilycoveCity_DepartmentStore_5F_Text_BoutiqueBye:
 	.string "Come back when your style evolves!$"
@@ -300,6 +355,10 @@ LilycoveCity_DepartmentStore_5F_Text_BuyRed:
 	.string "Verdant Red Scarf look--¥3000?\n"
 	.string "Includes a RED SCARF for Contests.$"
 
+LilycoveCity_DepartmentStore_5F_Text_BuyForest:
+	.string "Forest Green look--¥4000?\n"
+	.string "Includes a GREEN SCARF for Contests.$"
+
 LilycoveCity_DepartmentStore_5F_Text_BuyBlue:
 	.string "Azure Blue Scarf look--¥5000?\n"
 	.string "Includes a BLUE SCARF for Contests.$"
@@ -307,6 +366,14 @@ LilycoveCity_DepartmentStore_5F_Text_BuyBlue:
 LilycoveCity_DepartmentStore_5F_Text_BuyChampion:
 	.string "Champion Pink look--¥10000?\n"
 	.string "Includes a PINK SCARF. Prestige only!$"
+
+LilycoveCity_DepartmentStore_5F_Text_BuyEclipse:
+	.string "Eclipse Violet look--¥12000?\n"
+	.string "Includes a YELLOW SCARF. Shadow couture!$"
+
+LilycoveCity_DepartmentStore_5F_Text_NeedBadge1:
+	.string "Forest Green unlocks after badge 1.\n"
+	.string "Clear Lumen's Gym first.$"
 
 LilycoveCity_DepartmentStore_5F_Text_NeedBadge6:
 	.string "The Azure look unlocks after badge 6.\n"
@@ -321,7 +388,7 @@ LilycoveCity_DepartmentStore_5F_Text_BoutiqueOwnedBasic:
 
 LilycoveCity_DepartmentStore_5F_Text_BoutiqueComplete:
 	.string "Your wardrobe is complete!\n"
-	.string "Fashion Master of AURELIA--for now.$"
+	.string "Fashion Master of AURELIA--all five looks.$"
 
 LilycoveCity_DepartmentStore_5F_Text_WearDefaultQ:
 	.string "Wear the default Traveler look?$"
@@ -329,15 +396,21 @@ LilycoveCity_DepartmentStore_5F_Text_WearDefaultQ:
 LilycoveCity_DepartmentStore_5F_Text_WearRedQ:
 	.string "Wear Verdant Red?$"
 
+LilycoveCity_DepartmentStore_5F_Text_WearForestQ:
+	.string "Wear Forest Green?$"
+
 LilycoveCity_DepartmentStore_5F_Text_WearBlueQ:
 	.string "Wear Azure Blue?$"
 
 LilycoveCity_DepartmentStore_5F_Text_WearChampQ:
 	.string "Wear Champion Pink?$"
 
+LilycoveCity_DepartmentStore_5F_Text_WearEclipseQ:
+	.string "Wear Eclipse Violet?$"
+
 LilycoveCity_DepartmentStore_5F_Text_WearSet:
-	.string "Look selected! Scarves are in your bag.\n"
-	.string "Overworld sprite kits still pending art.$"
+	.string "Look selected! Your clothes and accents\n"
+	.string "update on the overworld right away.$"
 
 LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls:
 	.string "This place is full of cute DOLLS.\p"

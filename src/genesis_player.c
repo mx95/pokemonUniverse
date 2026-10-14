@@ -24,6 +24,9 @@ enum {
     GENESIS_OUTFIT_RED = 1,
     GENESIS_OUTFIT_BLUE = 2,
     GENESIS_OUTFIT_CHAMPION = 3,
+    GENESIS_OUTFIT_FOREST = 4,
+    GENESIS_OUTFIT_ECLIPSE = 5,
+    GENESIS_OUTFIT_COUNT
 };
 
 // Fixed clothing shades (GBA 5-bit RGB) swapped onto indices 5-8.
@@ -45,6 +48,18 @@ static const u16 sOutfitClothes[][GENESIS_OUTFIT_CLOTH_COUNT] = {
         RGB(28, 12, 20),
         RGB(22, 8, 16),
         RGB(14, 4, 10),
+    },
+    [GENESIS_OUTFIT_FOREST] = {
+        RGB(8, 26, 12),
+        RGB(5, 20, 8),
+        RGB(3, 14, 5),
+        RGB(2, 8, 3),
+    },
+    [GENESIS_OUTFIT_ECLIPSE] = {
+        RGB(8, 4, 14),
+        RGB(5, 2, 10),
+        RGB(3, 1, 7),
+        RGB(2, 0, 4),
     },
 };
 
@@ -70,6 +85,20 @@ static const u16 sOutfitAccents[][5] = {
         RGB(28, 20, 8),
         RGB(31, 22, 28),
         RGB(24, 12, 20),
+    },
+    [GENESIS_OUTFIT_FOREST] = {
+        RGB(28, 31, 12), // leaf-lime
+        RGB(18, 26, 6),
+        RGB(10, 18, 4),
+        RGB(31, 24, 8),
+        RGB(20, 14, 4),
+    },
+    [GENESIS_OUTFIT_ECLIPSE] = {
+        RGB(28, 8, 24), // violet eclipse
+        RGB(22, 4, 18),
+        RGB(14, 2, 12),
+        RGB(31, 12, 8),
+        RGB(18, 4, 6),
     },
 };
 
@@ -103,7 +132,7 @@ void Genesis_ApplyOutfitToPalette(u8 paletteNum)
     }
 
     outfit = VarGet(VAR_GENESIS_OUTFIT);
-    if (outfit == GENESIS_OUTFIT_DEFAULT || outfit > GENESIS_OUTFIT_CHAMPION)
+    if (outfit == GENESIS_OUTFIT_DEFAULT || outfit >= GENESIS_OUTFIT_COUNT)
         return;
 
     for (i = 0; i < GENESIS_OUTFIT_CLOTH_COUNT; i++)

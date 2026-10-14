@@ -63,6 +63,17 @@ const struct Tileset gTileset_VerdantTown =
     .callback = InitTilesetAnim_Petalburg,
 };
 
+const struct Tileset gTileset_LumenTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LumenTown,
+    .palettes = gTilesetPalettes_LumenTown,
+    .metatiles = gMetatiles_LumenTown,
+    .metatileAttributes = gMetatileAttributes_LumenTown,
+    .callback = InitTilesetAnim_Petalburg,
+};
+
 const struct Tileset gTileset_Rustboro =
 {
     .isCompressed = TRUE,

@@ -12,5 +12,5 @@ Converted into the ROM via `python3 tools/genesis/convert_staged_legend_fronts.p
 → `graphics/pokemon/{species}/anim_front.png` + `back.png` + pals, wired in
 `src/data/graphics/pokemon.h` and `genesis_legendaries.h`.
 
-Party icons and overworld followers still use DS stand-ins until dedicated sheets ship.
-Do not copy third-party Pokémon geometry.
+Party icons + overworld sheets are derived from battle fronts via
+`python3 tools/genesis/make_legend_icon_ow.py` (not third-party geometry).

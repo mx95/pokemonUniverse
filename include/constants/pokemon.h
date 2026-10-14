@@ -104,8 +104,8 @@ enum __attribute__((packed)) Stat
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-// GENESIS: half the modern base rate (4/65536 ≈ 1/16384). Shiny Charm still adds rolls.
-#define SHINY_ODDS 4 // Actual probability is SHINY_ODDS/65536
+// GENESIS: double the modern base rate (16/65536 ≈ 1/4096). Shiny Charm still adds rolls.
+#define SHINY_ODDS 16 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0

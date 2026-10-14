@@ -3599,6 +3599,17 @@ static const struct SpriteFrameImage sPicTable_GiratinaOrigin[] = {
 };
 #endif //P_FAMILY_GIRATINA
 
+// GENESIS: Aurelia original legends (unique OW sheets)
+static const struct SpriteFrameImage sPicTable_Aethernox[] = {
+    overworld_ascending_frames(gObjectEventPic_Aethernox, 8, 8),
+};
+static const struct SpriteFrameImage sPicTable_Solara[] = {
+    overworld_ascending_frames(gObjectEventPic_Solara, 8, 8),
+};
+static const struct SpriteFrameImage sPicTable_Genesis[] = {
+    overworld_ascending_frames(gObjectEventPic_Genesis, 8, 8),
+};
+
 #if P_FAMILY_CRESSELIA
 static const struct SpriteFrameImage sPicTable_Cresselia[] = {
     overworld_ascending_frames(gObjectEventPic_Cresselia, 4, 4),

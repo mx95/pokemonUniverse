@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                12 // +start key items; half shiny odds; legend archive; Verdant tileset
+#define GENESIS_SAVE_VERSION                13 // +2x shiny odds; legend icon/OW; 5 outfits; Lumen tileset
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
