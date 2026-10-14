@@ -223,6 +223,14 @@ PetalburgCity_EventScript_Gentleman::
 	msgbox PetalburgCity_Text_FullPartyExplanation, MSGBOX_NPC
 	end
 
+PetalburgCity_EventScript_HarborFisher::
+	msgbox PetalburgCity_Text_HarborFisher, MSGBOX_NPC
+	end
+
+PetalburgCity_EventScript_DockSailor::
+	msgbox PetalburgCity_Text_DockSailor, MSGBOX_NPC
+	end
+
 PetalburgCity_EventScript_WallyHouseSign::
 	msgbox PetalburgCity_Text_WallyHouseSign, MSGBOX_SIGN
 	end
@@ -719,10 +727,22 @@ PetalburgCity_Text_WaterReflection:
 	.string "What do you see reflected in your face?$"
 
 PetalburgCity_Text_FullPartyExplanation:
-	.string "Let's say you have six POKéMON.\n"
-	.string "If you catch another one…\p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
+	.string "PORT AZURE's ferry net ties every dock\n"
+	.string "PC to the same STORAGE BOXES.\p"
+	.string "Catch a seventh POKéMON and it rides\n"
+	.string "home on the tide--straight into a BOX.$"
+
+PetalburgCity_Text_HarborFisher:
+	.string "Salt wind, soft rain, and MARINA's\n"
+	.string "GYM bells… that's PORT AZURE.\p"
+	.string "If your line goes still, wait.\n"
+	.string "Something big always swims through.$"
+
+PetalburgCity_Text_DockSailor:
+	.string "Ships from LUMEN and beyond unload\n"
+	.string "here before heading east.\p"
+	.string "Watch the clouds--harbor weather turns\n"
+	.string "quick, same as a WATER GYM match.$"
 
 PetalburgCity_Text_GymSign:
 	.string "PORT AZURE POKéMON GYM\n"
@@ -731,7 +751,7 @@ PetalburgCity_Text_GymSign:
 
 PetalburgCity_Text_CitySign:
 	.string "PORT AZURE\n"
-	.string "“Where people mingle with nature.”$"
+	.string "“Harbor roofs under AURELIA mist.”$"
 
 PetalburgCity_Text_WallyHouseSign:
 	.string "WALLY'S HOUSE$"

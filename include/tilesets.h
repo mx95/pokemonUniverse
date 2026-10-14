@@ -15,6 +15,7 @@ extern const struct Tileset gTileset_General;
 extern const struct Tileset gTileset_Petalburg;
 extern const struct Tileset gTileset_VerdantTown;
 extern const struct Tileset gTileset_LumenTown;
+extern const struct Tileset gTileset_PortAzure;
 extern const struct Tileset gTileset_Rustboro;
 extern const struct Tileset gTileset_Fallarbor;
 extern const struct Tileset gTileset_Mauville;

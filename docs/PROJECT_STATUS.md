@@ -46,10 +46,10 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Original legendaries Aethernox/Solara/Genesis | — | IMPLEMENTED | DS stand-ins; Sanctum heal + held items + completion gifts; Form announce |
 | Route 1 multi-gen encounters | — | IMPLEMENTED | Early sample of Gen 2–9 field mons |
 | Route 2 / Lumen Forest encounters | — | IMPLEMENTED | Multi-gen early + forest tables |
-| Custom legendary battle sprites | — | IMPLEMENTED (v2) | Unique SpriteCook fronts/backs in ROM; icon/OW still DS stand-ins |
+| Custom legendary battle sprites | — | IMPLEMENTED (v3) | Unique fronts/backs + party icons + OW followers for Aethernox/Solara/Genesis |
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
-| Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
+| Verdant / Lumen / Port Azure polish | 2–4 | TESTING | Unique secondary tilesets + early-route weather; needs in-emulator checklist |
 | Aurelia maps (custom geometry) | 3–4 | IMPLEMENTED (layout clones + vibe) | Eastern cities: Fly + per-city weather/flavor NPCs; unique outdoor tile geometry still needs Porymap |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in) | Badges 1–8 Hoenn gyms; 9–18 Eastern Hall (all 18 types; Poison/Ground desks added) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 + 4 puzzles with item rewards + master Bottle Caps + Kai |
@@ -128,12 +128,12 @@ Story battles: one gimmick type per battle for the player (`GENESIS_ONE_GIMMICK_
 
 ## Next recommended feature group
 
-Latest polish pass: unique legend battle fronts/backs, eastern city weather + flavor NPCs, stronger boutique OW tints, playtest checklist (`docs/PLAYTEST_CHECKLIST.md`).
+Latest polish pass: Port Azure harbor tileset + dock NPCs, Route 102/103 weather, Genesis City Ever Grande theme, legend icons/OW, Forest/Eclipse outfits, 2× shiny odds (`SHINY_ODDS` 16).
 
 Still open:
 1. **In-emulator playtest** — use `docs/PLAYTEST_CHECKLIST.md` (automated smoke is green).
-2. **Unique outdoor tile geometry** (Porymap) — layouts still cloned; weather/NPCs differentiate vibe.
-3. **Legend icons + OW followers** — battle fronts/backs unique; party icon / follower still stand-in.
+2. **Unique outdoor tile geometry** (Porymap) — layouts still cloned; weather/NPCs/tileset tints differentiate vibe.
+3. **Custom legend cries** — battle + icon/OW unique; cries still stand-in species samples.
 4. **Dedicated OW outfit sprite sheets** — palette tint v3 is live; full kits optional.
 
 ---

@@ -1040,9 +1040,10 @@ LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "Go on, go get them, honey!$"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!$"
+	.string "VERDANT's PCs link straight to PROF.\n"
+	.string "AURELIA's lab network.\p"
+	.string "Store items and POKéMON anytime--\n"
+	.string "science really is staggering!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
 	.string "PROF. AURELIA spends days in his LAB\n"

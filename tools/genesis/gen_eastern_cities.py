@@ -94,7 +94,7 @@ CITIES = [
     ),
     dict(
         name="GenesisCity", const="GENESIS_CITY", disp="GENESIS CITY", short="GenesisCity",
-        layout="LAYOUT_PETALBURG_CITY", src="PetalburgCity", music="MUS_PETALBURG",
+        layout="LAYOUT_PETALBURG_CITY", src="PetalburgCity", music="MUS_EVER_GRANDE",
         theme="BRICK", gym=(15, 8), center=(20, 16), mart=(25, 12),
         gym_sign=(17, 10), town_sign=(17, 16),
         leader="COLLEAGUE", Leader="Colleague", trainer="TRAINER_GENESIS_COLLEAGUE", badge=15,
