@@ -85,6 +85,94 @@ const struct Tileset gTileset_PortAzure =
     .callback = InitTilesetAnim_Petalburg,
 };
 
+const struct Tileset gTileset_Ironridge =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Ironridge,
+    .palettes = gTilesetPalettes_Ironridge,
+    .metatiles = gMetatiles_Ironridge,
+    .metatileAttributes = gMetatileAttributes_Ironridge,
+    .callback = InitTilesetAnim_Dewford,
+};
+
+const struct Tileset gTileset_Celestia =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Celestia,
+    .palettes = gTilesetPalettes_Celestia,
+    .metatiles = gMetatiles_Celestia,
+    .metatileAttributes = gMetatileAttributes_Celestia,
+    .callback = InitTilesetAnim_Mauville,
+};
+
+const struct Tileset gTileset_Frostveil =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Frostveil,
+    .palettes = gTilesetPalettes_Frostveil,
+    .metatiles = gMetatiles_Frostveil,
+    .metatileAttributes = gMetatileAttributes_Frostveil,
+    .callback = InitTilesetAnim_Lavaridge,
+};
+
+const struct Tileset gTileset_Solaris =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Solaris,
+    .palettes = gTilesetPalettes_Solaris,
+    .metatiles = gMetatiles_Solaris,
+    .metatileAttributes = gMetatileAttributes_Solaris,
+    .callback = InitTilesetAnim_Fortree,
+};
+
+const struct Tileset gTileset_Stormbreak =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Stormbreak,
+    .palettes = gTilesetPalettes_Stormbreak,
+    .metatiles = gMetatiles_Stormbreak,
+    .metatileAttributes = gMetatileAttributes_Stormbreak,
+    .callback = InitTilesetAnim_Mossdeep,
+};
+
+const struct Tileset gTileset_Titania =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Titania,
+    .palettes = gTilesetPalettes_Titania,
+    .metatiles = gMetatiles_Titania,
+    .metatileAttributes = gMetatileAttributes_Titania,
+    .callback = InitTilesetAnim_Sootopolis,
+};
+
+const struct Tileset gTileset_MirageCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MirageCity,
+    .palettes = gTilesetPalettes_MirageCity,
+    .metatiles = gMetatiles_MirageCity,
+    .metatileAttributes = gMetatileAttributes_MirageCity,
+    .callback = InitTilesetAnim_Petalburg,
+};
+
+const struct Tileset gTileset_GenesisCityTiles =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GenesisCityTiles,
+    .palettes = gTilesetPalettes_GenesisCityTiles,
+    .metatiles = gMetatiles_GenesisCityTiles,
+    .metatileAttributes = gMetatileAttributes_GenesisCityTiles,
+    .callback = InitTilesetAnim_Petalburg,
+};
+
 const struct Tileset gTileset_Rustboro =
 {
     .isCompressed = TRUE,

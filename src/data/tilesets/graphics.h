@@ -135,6 +135,190 @@ const u16 gTilesetPalettes_PortAzure[][16] =
     INCGFX_U16("data/tilesets/secondary/port_azure/palettes/15.pal", ".gbapal"),
 };
 
+// GENESIS: Ironridge secondary tileset
+const u32 gTilesetTiles_Ironridge[] = INCGFX_U32("data/tilesets/secondary/ironridge/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Ironridge[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ironridge/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: Celestia secondary tileset
+const u32 gTilesetTiles_Celestia[] = INCGFX_U32("data/tilesets/secondary/celestia/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Celestia[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/celestia/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: Frostveil secondary tileset
+const u32 gTilesetTiles_Frostveil[] = INCGFX_U32("data/tilesets/secondary/frostveil/tiles.png", ".4bpp.fastSmol", "-num_tiles 450 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Frostveil[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/frostveil/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: Solaris secondary tileset
+const u32 gTilesetTiles_Solaris[] = INCGFX_U32("data/tilesets/secondary/solaris/tiles.png", ".4bpp.fastSmol", "-num_tiles 493 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Solaris[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/solaris/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: Stormbreak secondary tileset
+const u32 gTilesetTiles_Stormbreak[] = INCGFX_U32("data/tilesets/secondary/stormbreak/tiles.png", ".4bpp.fastSmol");
+
+const u16 gTilesetPalettes_Stormbreak[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/stormbreak/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: Titania secondary tileset
+const u32 gTilesetTiles_Titania[] = INCGFX_U32("data/tilesets/secondary/titania/tiles.png", ".4bpp.fastSmol", "-num_tiles 328 -Wnum_tiles");
+
+const u16 gTilesetPalettes_Titania[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/titania/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: MirageCity secondary tileset
+const u32 gTilesetTiles_MirageCity[] = INCGFX_U32("data/tilesets/secondary/mirage_city/tiles.png", ".4bpp.fastSmol", "-num_tiles 159 -Wnum_tiles");
+
+const u16 gTilesetPalettes_MirageCity[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mirage_city/palettes/15.pal", ".gbapal"),
+};
+
+// GENESIS: GenesisCityTiles secondary tileset
+const u32 gTilesetTiles_GenesisCityTiles[] = INCGFX_U32("data/tilesets/secondary/genesis_city/tiles.png", ".4bpp.fastSmol", "-num_tiles 159 -Wnum_tiles");
+
+const u16 gTilesetPalettes_GenesisCityTiles[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/genesis_city/palettes/15.pal", ".gbapal"),
+};
+
 const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 498 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Rustboro[][16] =

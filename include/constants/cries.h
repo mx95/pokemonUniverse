@@ -2555,6 +2555,10 @@ enum PokemonCry
 #if P_FAMILY_PECHARUNT
     CRY_PECHARUNT,
 #endif //P_FAMILY_PECHARUNT
+    // GENESIS: original legendaries
+    CRY_AETHERNOX,
+    CRY_SOLARA,
+    CRY_GENESIS,
     CRY_COUNT,
 };
 

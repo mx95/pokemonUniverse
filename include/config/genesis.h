@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                14 // Port Azure harbor look; early-route weather; Genesis City BGM
+#define GENESIS_SAVE_VERSION                15 // Full Aurelia vibe: mid/east tilesets, legend cries, Eclipse cast
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
@@ -40,6 +40,9 @@
 #define GENESIS_ENABLE_BATTLE_FRONTIER      TRUE    // Use Expansion Frontier facilities
 #define GENESIS_ENABLE_WORLD_TOURNAMENT     TRUE  // Tower lobby 3-round bracket + rematch
 #define GENESIS_ENABLE_POSTGAME             TRUE
+#define GENESIS_ENABLE_CONTESTS_HOOK        TRUE  // Hall tip + Expansion Lilycove contests
+#define GENESIS_ENABLE_SECRET_BASE_HOOK     TRUE  // Hall tip; vanilla secret bases
+#define GENESIS_ENABLE_SEASON_LITE          TRUE  // RTC month → soft weather bias (OW only)
 
 // --- Gimmick story unlock badges (1-indexed gym badge count) ---------------
 #define GENESIS_BADGE_UNLOCK_MEGA           3  // Volt (Mauville / BADGE03) on 8-badge stand-in

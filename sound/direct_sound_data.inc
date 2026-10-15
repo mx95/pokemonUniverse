@@ -8738,6 +8738,21 @@ Cry_Pecharunt::
 	.incbin "sound/direct_sound_samples/cries/pecharunt.bin"
 .endif
 .endif @ P_FAMILY_PECHARUNT
+	.align 2
+Cry_Aethernox::
+.if TESTING == FALSE
+	.incbin "sound/direct_sound_samples/cries/aethernox.bin"
+.endif
+	.align 2
+Cry_Solara::
+.if TESTING == FALSE
+	.incbin "sound/direct_sound_samples/cries/solara.bin"
+.endif
+	.align 2
+Cry_Genesis::
+.if TESTING == FALSE
+	.incbin "sound/direct_sound_samples/cries/genesis.bin"
+.endif
 .endif @ P_CRIES_ENABLED
 
 .if TESTING == TRUE

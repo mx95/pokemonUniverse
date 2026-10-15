@@ -38,9 +38,26 @@ def main() -> int:
 
     legends = ROOT / "src/data/pokemon/species_info/genesis_legendaries.h"
     text = legends.read_text(encoding="utf-8", errors="replace") if legends.exists() else ""
-    for needle in ("gMonFrontPic_GiratinaOrigin", "gMonFrontPic_Reshiram", "gMonFrontPic_Arceus"):
+    for needle in (
+        "gMonFrontPic_Aethernox",
+        "gMonFrontPic_Solara",
+        "gMonFrontPic_Genesis",
+        "CRY_AETHERNOX",
+        "CRY_SOLARA",
+        "CRY_GENESIS",
+    ):
         if needle not in text:
-            issues.append(f"legendaries missing stand-in gfx ref {needle}")
+            issues.append(f"legendaries missing custom ref {needle}")
+
+    for rel in (
+        "sound/direct_sound_samples/cries/aethernox.wav",
+        "sound/direct_sound_samples/cries/solara.wav",
+        "sound/direct_sound_samples/cries/genesis.wav",
+        "data/tilesets/secondary/ironridge/tiles.png",
+        "data/tilesets/secondary/mirage_city/tiles.png",
+    ):
+        if not (ROOT / rel).exists():
+            issues.append(f"missing Aurelia asset {rel}")
 
     if issues:
         print(f"CONFIG VALIDATION FAILED ({len(issues)}):")

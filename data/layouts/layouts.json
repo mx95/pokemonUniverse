@@ -29,7 +29,7 @@
       "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Celestia",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity/map.bin",
       "layout_version": "emerald"
@@ -51,7 +51,7 @@
       "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_Solaris",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
       "blockdata_filepath": "data/layouts/FortreeCity/map.bin",
       "layout_version": "emerald"
@@ -73,7 +73,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Stormbreak",
       "border_filepath": "data/layouts/MossdeepCity/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity/map.bin",
       "layout_version": "emerald"
@@ -84,7 +84,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Sootopolis",
+      "secondary_tileset": "gTileset_Titania",
       "border_filepath": "data/layouts/SootopolisCity/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity/map.bin",
       "layout_version": "emerald"
@@ -128,7 +128,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Ironridge",
       "border_filepath": "data/layouts/DewfordTown/border.bin",
       "blockdata_filepath": "data/layouts/DewfordTown/map.bin",
       "layout_version": "emerald"
@@ -139,7 +139,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Frostveil",
       "border_filepath": "data/layouts/LavaridgeTown/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown/map.bin",
       "layout_version": "emerald"
@@ -9323,6 +9323,28 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_MIRAGE_CITY",
+      "name": "MirageCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageCity",
+      "border_filepath": "data/layouts/OldaleTown/border.bin",
+      "blockdata_filepath": "data/layouts/OldaleTown/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GENESIS_CITY",
+      "name": "GenesisCity_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenesisCityTiles",
+      "border_filepath": "data/layouts/PetalburgCity/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

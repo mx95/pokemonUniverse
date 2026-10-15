@@ -128,13 +128,13 @@ Story battles: one gimmick type per battle for the player (`GENESIS_ONE_GIMMICK_
 
 ## Next recommended feature group
 
-Latest polish pass: Port Azure harbor tileset + dock NPCs, Route 102/103 weather, Genesis City Ever Grande theme, legend icons/OW, Forest/Eclipse outfits, 2× shiny odds (`SHINY_ODDS` 16).
+Latest pass (Full Aurelia vibe): mid-game city tilesets (Ironridge→Titania), Mirage/Genesis City layout forks, legend pitched cries, Eclipse cast names (Caelum/Nova), expanded Hall jukebox + contest/secret-base tips.
 
 Still open:
 1. **In-emulator playtest** — use `docs/PLAYTEST_CHECKLIST.md` (automated smoke is green).
-2. **Unique outdoor tile geometry** (Porymap) — layouts still cloned; weather/NPCs/tileset tints differentiate vibe.
-3. **Custom legend cries** — battle + icon/OW unique; cries still stand-in species samples.
-4. **Dedicated OW outfit sprite sheets** — palette tint v3 is live; full kits optional.
+2. **Unique outdoor tile geometry** (Porymap) — layouts still cloned; tileset/weather differentiate vibe.
+3. **Dedicated OW outfit sprite sheets** — palette tint v3 is live; full kits optional.
+4. **Cooking / photo / full NG+ / season encounter tables** — deferred engines; hooks/flags only where noted.
 
 ---
 
