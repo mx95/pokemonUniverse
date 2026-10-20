@@ -65,8 +65,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Character customization | 57–58 | IMPLEMENTED (stub) | Lilycove Boutique Aurelia dialogue; needs OW outfit art |
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
-| Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
-| World Tournament | 135 | IMPLEMENTED (lobby v3) | 4-round bracket + day-rotating rematch opponents + attendant rules |
+| Postgame competitive services | 37–46, 139 | IMPLEMENTED (v1) | Lumen Center desk: Hyper Train / Gold Cap full train / supply mart (Caps, Patch, mints); Champion-gated intro kit |
+| World Tournament | 135 | IMPLEMENTED (lobby v4) | 4-round bracket + 4-way day rematch (Mentor/Astra/Astra rematch/Victor) + attendant rules |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
@@ -122,7 +122,7 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of mega starters, Metagross quest, Gym 4 mega stone gift, WT 4-round bracket.
+1. **In-emulator playtest** of competitive Hyper Train desk, mega starters, Metagross quest, Gym 4 mega stone gift, WT 4-round + rematch rotation.
 2. **`genesis/maps`:** first real eastern city (or Lumen/Verdant custom geometry) when Porymap bandwidth allows; Hall desks remain until then.
 3. Unique legendary battle sprites (replace DS stand-ins).
 4. Dedicated World Tournament facility map (beyond Tower lobby bracket).

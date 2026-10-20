@@ -112,7 +112,8 @@ void Genesis_TryUnlockGenesisForm(void)
 
 void Genesis_GetWTRuleIndex(void)
 {
-    gSpecialVar_Result = VarGet(VAR_DAYS) % 3;
+    // 0 Mentor / 1 Astra (Steven) / 2 Astra rematch (Wallace) / 3 Victor
+    gSpecialVar_Result = VarGet(VAR_DAYS) % 4;
 }
 
 void Genesis_GiveStarterMegaStone(void)
