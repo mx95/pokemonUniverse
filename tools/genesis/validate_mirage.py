@@ -93,6 +93,36 @@ def main() -> int:
     if "HEAL_LOCATION_MIRAGE_CITY" not in heals:
         issues.append("heal_locations.json missing HEAL_LOCATION_MIRAGE_CITY")
 
+    # Door metatiles must match map.json warp_events (authored layout, not Fallarbor clone).
+    import struct
+
+    def cell(path: Path, w: int, x: int, y: int) -> int:
+        data = path.read_bytes()
+        return struct.unpack_from("<H", data, 2 * (y * w + x))[0] & 0x3FF
+
+    city_bin = ROOT / "data/layouts/MirageCity/map.bin"
+    door_checks = [
+        (15, 14, 0x041, "mart"),
+        (9, 6, 0x36C, "gym"),
+        (15, 6, 0x061, "center"),
+        (4, 16, 0x2A5, "hall"),
+        (1, 9, 0x2A5, "teleport"),
+    ]
+    for x, y, expect, label in door_checks:
+        got = cell(city_bin, 20, x, y)
+        if got != expect:
+            issues.append(f"MirageCity door {label} ({x},{y}) metatile {got:#x} != {expect:#x}")
+
+    warps = {(w["x"], w["y"]) for w in outdoor.get("warp_events", [])}
+    for x, y, _, label in door_checks:
+        if (x, y) not in warps:
+            issues.append(f"MirageCity map.json missing warp at door {label} ({x},{y})")
+
+    # Unique vs Fallarbor seed (must not be a byte-identical copy).
+    fall = (ROOT / "data/layouts/FallarborTown/map.bin").read_bytes()
+    if city_bin.read_bytes() == fall:
+        issues.append("MirageCity map.bin is still identical to FallarborTown (not authored)")
+
     if issues:
         print(f"MIRAGE VALIDATION FAILED ({len(issues)}):")
         for issue in issues:

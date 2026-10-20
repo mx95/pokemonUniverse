@@ -122,8 +122,8 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **Porymap paint pass** on `LAYOUT_MIRAGE_CITY` / `LAYOUT_MIRAGE_CITY_GYM` (unique Mirage look; keep warp coords aligned).
-2. **In-emulator playtest** of Mirage City (Hall warp → Center/Mart/Gym → Mirage Badge → Celia desk gate).
+1. **In-emulator playtest** of authored Mirage City (Hall warp → plaza/Center/Mart/Gym → Mirage Badge → Celia desk gate).
+2. Optional Porymap polish on Mirage tilesets/decoration.
 3. **`genesis/maps`:** next eastern city (Verdantis) with the same dedicated-layout pattern.
 4. Unique legendary battle sprites (replace DS stand-ins).
 5. Dedicated World Tournament facility map (beyond Tower lobby bracket).

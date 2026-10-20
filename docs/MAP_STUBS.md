@@ -35,7 +35,7 @@ Do not invent map IDs until Porymap entries are created.
 - Battle Frontier (Expansion facilities; Aurelia branding)
 - Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — Mirage City warp desk + stand-ins for gyms 10–16, Hall clerk, Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
 - Mirage City (`MAP_MIRAGE_CITY`) — first real eastern city (Center / Mart / Iris Gym); return via Hall attendant or south/teleport-net warps
-- Mirage Porymap layouts — `data/layouts/MirageCity/{map,border}.bin` and `data/layouts/MirageCity_Gym/{map,border}.bin` registered in `layouts.json`. Open this repo in [Porymap](https://github.com/huderlem/porymap/releases), select **MirageCity** / **MirageCity_Gym**, and paint unique geometry without touching Fallarbor/Rustboro. Keep warp metatile positions in sync with `map.json` warp_events (or update both).
+- Mirage Porymap layouts — authored oasis layout (`LAYOUT_MIRAGE_CITY`: canyon rim, reflective pool plaza, relocated Gym/Center/Mart/Hall/Teleport) plus mirrored-veil gym (`LAYOUT_MIRAGE_CITY_GYM`). Rebuild with `python3 tools/genesis/build_mirage_layouts.py`. Further polish in [Porymap](https://github.com/huderlem/porymap/releases) on **MirageCity** / **MirageCity_Gym**; keep door metatiles aligned with `map.json` warps.
 - Legend Sanctum (`MAP_GENESIS_LEGEND_SANCTUM`) — Aethernox / Solara / Genesis foci
 - World Tournament lobby v2 — Battle Tower 3-round bracket (Mentor → Astra → Victor) + rematch BP
 - Genesis Laboratory (later)
@@ -43,6 +43,6 @@ Do not invent map IDs until Porymap entries are created.
 
 ## `genesis/maps` next steps
 
-1. Author unique Mirage outdoor/gym art in Porymap (tileset swap optional; Fallarbor/Rustboro-gym seed is temporary).
-2. Clone the same dedicated-layout pattern for Verdantis (Bug / Celia): new `LAYOUT_*` bins + map shells + Hall desk warp.
+1. Optional Porymap polish pass on Mirage (tileset swap / decoration) without moving door warps.
+2. Clone the dedicated-layout + builder-script pattern for Verdantis (Bug / Celia).
 3. Unique Center/Mart layouts only if a city needs non-standard interiors.

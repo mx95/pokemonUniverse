@@ -10,7 +10,7 @@ EasternAurelia_Hall_EventScript_Iris::
 	msgbox EasternAurelia_Hall_Text_IrisIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
 	msgbox EasternAurelia_Hall_Text_IrisWarp, MSGBOX_DEFAULT
-	warpsilent MAP_MIRAGE_CITY, 10, 12
+	warpsilent MAP_MIRAGE_CITY, 9, 8
 	waitstate
 	release
 	end
@@ -19,7 +19,7 @@ EasternAurelia_Hall_EventScript_IrisDone::
 	msgbox EasternAurelia_Hall_Text_IrisDone, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
 	msgbox EasternAurelia_Hall_Text_IrisWarp, MSGBOX_DEFAULT
-	warpsilent MAP_MIRAGE_CITY, 10, 12
+	warpsilent MAP_MIRAGE_CITY, 9, 8
 	waitstate
 	release
 	end
@@ -283,7 +283,7 @@ EasternAurelia_Hall_EventScript_DeskMirage::
 	lockall
 	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_DeskMirageCancel
-	warpsilent MAP_MIRAGE_CITY, 10, 12
+	warpsilent MAP_MIRAGE_CITY, 9, 8
 	waitstate
 	releaseall
 	end
