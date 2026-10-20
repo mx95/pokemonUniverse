@@ -9,18 +9,18 @@ EasternAurelia_Hall_EventScript_Iris::
 	goto_if_set FLAG_GENESIS_BADGE_09_GET, EasternAurelia_Hall_EventScript_IrisDone
 	msgbox EasternAurelia_Hall_Text_IrisIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
-	trainerbattle_no_intro TRAINER_GENESIS_IRIS, EasternAurelia_Hall_Text_IrisDefeat
-	message EasternAurelia_Hall_Text_GotMirageBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	setflag FLAG_GENESIS_BADGE_09_GET
-	call Genesis_EventScript_UpdateLevelCap
-	msgbox EasternAurelia_Hall_Text_IrisAfter, MSGBOX_DEFAULT
+	msgbox EasternAurelia_Hall_Text_IrisWarp, MSGBOX_DEFAULT
+	warpsilent MAP_MIRAGE_CITY, 10, 12
+	waitstate
 	release
 	end
 
 EasternAurelia_Hall_EventScript_IrisDone::
-	msgbox EasternAurelia_Hall_Text_IrisDone, MSGBOX_DEFAULT
+	msgbox EasternAurelia_Hall_Text_IrisDone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
+	msgbox EasternAurelia_Hall_Text_IrisWarp, MSGBOX_DEFAULT
+	warpsilent MAP_MIRAGE_CITY, 10, 12
+	waitstate
 	release
 	end
 
@@ -280,7 +280,16 @@ EasternAurelia_Hall_EventScript_ClerkDirectory::
 
 @ Desk plaques (bg signs) — stand-in city labels until full maps exist
 EasternAurelia_Hall_EventScript_DeskMirage::
-	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_SIGN
+	lockall
+	msgbox EasternAurelia_Hall_Text_DeskMirage, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_DeskMirageCancel
+	warpsilent MAP_MIRAGE_CITY, 10, 12
+	waitstate
+	releaseall
+	end
+
+EasternAurelia_Hall_EventScript_DeskMirageCancel::
+	releaseall
 	end
 
 EasternAurelia_Hall_EventScript_DeskVerdantis::
@@ -320,7 +329,7 @@ EasternAurelia_Hall_Text_Decline:
 
 EasternAurelia_Hall_Text_NeedIris:
 	.string "CELIA: Verdantis waits its turn.\n"
-	.string "Clear IRIS's Mirage desk first.$"
+	.string "Earn IRIS's MIRAGE BADGE in the city first.$"
 
 EasternAurelia_Hall_Text_NeedCelia:
 	.string "NOCTIS: Obsidian stays sealed until\n"
@@ -347,24 +356,16 @@ EasternAurelia_Hall_Text_NeedColleague:
 	.string "you claim the GENESIS BADGE.$"
 
 EasternAurelia_Hall_Text_IrisIntro:
-	.string "IRIS: Welcome to the MIRAGE CITY desk.\n"
-	.string "Our streets fold light into riddles.\p"
-	.string "I am the PSYCHIC LEADER of Mirage.\n"
-	.string "See through the veil--shall we begin?$"
+	.string "GUIDE: MIRAGE CITY is open beyond this\n"
+	.string "desk. IRIS waits in her Psychic GYM.\p"
+	.string "Travel to MIRAGE CITY now?$"
 
-EasternAurelia_Hall_Text_IrisDefeat:
-	.string "The mirage clears… Well fought!$"
-
-EasternAurelia_Hall_Text_GotMirageBadge:
-	.string "{PLAYER} received the MIRAGE BADGE!$"
-
-EasternAurelia_Hall_Text_IrisAfter:
-	.string "IRIS: Mirage City stamps your path.\n"
-	.string "Next desk: VERDANTIS--CELIA awaits.$"
+EasternAurelia_Hall_Text_IrisWarp:
+	.string "Stepping through the teleport net…$"
 
 EasternAurelia_Hall_Text_IrisDone:
-	.string "IRIS: Mirage City's teleport net still\n"
-	.string "hums for you. Trust what you perceive.$"
+	.string "GUIDE: You hold the MIRAGE BADGE.\n"
+	.string "Return to MIRAGE CITY?$"
 
 EasternAurelia_Hall_Text_CeliaIntro:
 	.string "CELIA: VERDANTIS CITY desk, reporting!\n"
@@ -540,6 +541,8 @@ EasternAurelia_Hall_Text_ClerkStay:
 	.string "Plaques name each Eastern city.$"
 
 EasternAurelia_Hall_Text_ClerkDirectory:
+	.string "MIRAGE CITY: live map via Iris desk.\n"
+	.string "Other eastern cities still use desks.\p"
 	.string "Back row: MIRAGE · VERDANTIS ·\n"
 	.string "OBSIDIAN · ASTRAL.\p"
 	.string "Front row: TIDYMOON · EON ·\n"
@@ -548,8 +551,9 @@ EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "Exit warps return to Reception Gate.$"
 
 EasternAurelia_Hall_Text_DeskMirage:
-	.string "MIRAGE CITY desk -- Badge 9\n"
-	.string "LEADER IRIS · PSYCHIC · Mirage Badge$"
+	.string "MIRAGE CITY -- Badge 9 (live map)\n"
+	.string "LEADER IRIS · PSYCHIC · Mirage Badge\p"
+	.string "Warp to MIRAGE CITY?$"
 
 EasternAurelia_Hall_Text_DeskVerdantis:
 	.string "VERDANTIS CITY desk -- Badge 10\n"

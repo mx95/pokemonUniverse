@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                4 // mega starters persist + Metagross quest + WT v3
+#define GENESIS_SAVE_VERSION                5 // Mirage City live map + gym trainers
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed

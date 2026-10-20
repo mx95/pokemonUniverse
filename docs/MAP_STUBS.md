@@ -21,7 +21,7 @@ Do not invent map IDs until Porymap entries are created.
 | done (alias) | Stormbreak City | Flying / Skye | MAP_MOSSDEEP_* (+ Z-Power Ring) |
 | done (alias) | Titania City | Steel / Titan | MAP_SOOTOPOLIS_* (+ Dynamax Band) |
 | done (alias) | Aurelia Summit | League | MAP_EVER_GRANDE_* (E4 + Champion Astra) |
-| stand-in | Mirage City | Psychic / Iris | Eastern Hall desk + plaque (badge 9) |
+| live (copy-layout) | Mirage City | Psychic / Iris | `MAP_MIRAGE_CITY*` (Fallarbor outdoor + Rustboro gym layout); Hall desk warps in |
 | stand-in | Verdantis City | Bug / Celia | Eastern Hall desk + plaque (badge 10) |
 | stand-in | Obsidian City | Dark / Noctis | Eastern Hall desk + plaque (badge 11) |
 | stand-in | Astral City | Dragon / Drake | Eastern Hall desk + plaque (badge 12 / Tera) |
@@ -33,7 +33,8 @@ Do not invent map IDs until Porymap entries are created.
 ## Postgame / facilities
 
 - Battle Frontier (Expansion facilities; Aurelia branding)
-- Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — city-desk stand-ins for gyms 9–16 (unique leader dialogue + plaques), Hall clerk (directory / return warp), Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
+- Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — Mirage City warp desk + stand-ins for gyms 10–16, Hall clerk, Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
+- Mirage City (`MAP_MIRAGE_CITY`) — first real eastern city (Center / Mart / Iris Gym); return via Hall attendant or south/teleport-net warps
 - Legend Sanctum (`MAP_GENESIS_LEGEND_SANCTUM`) — Aethernox / Solara / Genesis foci
 - World Tournament lobby v2 — Battle Tower 3-round bracket (Mentor → Astra → Victor) + rematch BP
 - Genesis Laboratory (later)
@@ -41,4 +42,4 @@ Do not invent map IDs until Porymap entries are created.
 
 ## `genesis/maps` next steps
 
-Prefer script/config polish until Porymap city geometry is ready. Full Mirage→Summit east maps replace Hall desks later; OldaleTown_Gym / EasternAurelia_Hall show the copy-layout stub pattern.
+Mirage City is the template for remaining eastern cities (copy-layout outdoor + gym + Center/Mart, Hall desk becomes a warp). Next: Verdantis (Bug / Celia). Prefer that pattern until unique Porymap geometry is authored.

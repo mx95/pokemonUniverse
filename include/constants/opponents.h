@@ -871,11 +871,14 @@
 #define TRAINER_GENESIS_WT_CHAMP            863
 #define TRAINER_GENESIS_ACE_ROOKIE          864 // Verdant Town early singles
 #define TRAINER_GENESIS_ACE_MASTER          865 // Post-League competitive doubles
+#define TRAINER_GENESIS_MIRAGE_A            866 // Mirage City Gym trainer
+#define TRAINER_GENESIS_MIRAGE_B            867
+#define TRAINER_GENESIS_MIRAGE_C            868
 
-// GENESIS: expanded past Emerald 864 for Verdant Ace (+2). Shifts SYSTEM_FLAGS; bump save version.
+// GENESIS: expanded past Emerald for Ace (+2) and Mirage Gym (+3). Shifts SYSTEM_FLAGS; bump save version.
 
-#define TRAINERS_COUNT_EMERALD     866
-#define MAX_TRAINERS_COUNT_EMERALD 866
+#define TRAINERS_COUNT_EMERALD     869
+#define MAX_TRAINERS_COUNT_EMERALD 869
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

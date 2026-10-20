@@ -627,7 +627,12 @@
     "NavelRock_Down10",
     "NavelRock_Down11",
     "NavelRock_Bottom",
-    "TrainerHill_Elevator"
+    "TrainerHill_Elevator",
+    "MirageCity",
+    "MirageCity_Gym",
+    "MirageCity_PokemonCenter_1F",
+    "MirageCity_PokemonCenter_2F",
+    "MirageCity_Mart"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

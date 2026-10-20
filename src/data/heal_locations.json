@@ -349,6 +349,14 @@
       "y": 12,
       "respawn_map": "MAP_SIX_ISLAND_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_SIX_ISLAND_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_MIRAGE_CITY",
+      "map": "MAP_MIRAGE_CITY",
+      "x": 14,
+      "y": 8,
+      "respawn_map": "MAP_MIRAGE_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_MIRAGE_NURSE"
     }
   ]
 }

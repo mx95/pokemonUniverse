@@ -17310,3 +17310,63 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - X-Scissor
 - Dual Wingbeat
 
+
+=== TRAINER_GENESIS_MIRAGE_A ===
+Name: NOEL
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Kirlia
+Level: 52
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Psychic
+- Calm Mind
+- Shadow Ball
+- Thunderbolt
+
+=== TRAINER_GENESIS_MIRAGE_B ===
+Name: LYRA
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Kadabra
+Level: 52
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Psychic
+- Recover
+- Signal Beam
+- Calm Mind
+
+Medicham
+Level: 52
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- High Jump Kick
+- Zen Headbutt
+- Ice Punch
+- Bulk Up
+
+=== TRAINER_GENESIS_MIRAGE_C ===
+Name: ORION
+Class: Psychic
+Pic: Psychic M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Slowbro
+Level: 53
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Psychic
+- Surf
+- Slack Off
+- Calm Mind
+
