@@ -35,7 +35,8 @@ Do not invent map IDs until Porymap entries are created.
 - Battle Frontier (Expansion facilities; Aurelia branding)
 - Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — city-desk stand-ins for gyms 9–16 (unique leader dialogue + plaques), Hall clerk (directory / return warp), Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
 - Legend Sanctum (`MAP_GENESIS_LEGEND_SANCTUM`) — Aethernox / Solara / Genesis foci
-- World Tournament lobby v2 — Battle Tower 3-round bracket (Mentor → Astra → Victor) + rematch BP
+- World Tournament lobby v4 — Battle Tower 4-round bracket (Mentor → Astra → Astra rematch → Victor) + 4-way day rematch BP
+- Competitive prep desk (Lumen Center Gentleman) — Hyper Train + Gold Cap + supply mart (script polish; no unique map)
 - Genesis Laboratory (later)
 - Custom legendary / Mythical outdoor quest maps (later)
 

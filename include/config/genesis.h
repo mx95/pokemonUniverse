@@ -7,7 +7,7 @@
 
 // --- Core identity ---------------------------------------------------------
 #define GENESIS_PROJECT                     TRUE
-#define GENESIS_SAVE_VERSION                4 // mega starters persist + Metagross quest + WT v3
+#define GENESIS_SAVE_VERSION                5 // competitive Hyper Train desk + WT rematch v4
 
 // --- World / progression ---------------------------------------------------
 #define GENESIS_ENABLE_LEVEL_SCALING        FALSE   // Thin wrapper; hand-authored story bosses stay fixed
@@ -38,7 +38,8 @@
 
 // --- Endgame ---------------------------------------------------------------
 #define GENESIS_ENABLE_BATTLE_FRONTIER      TRUE    // Use Expansion Frontier facilities
-#define GENESIS_ENABLE_WORLD_TOURNAMENT     TRUE  // Tower lobby 3-round bracket + rematch
+#define GENESIS_ENABLE_WORLD_TOURNAMENT     TRUE  // Tower lobby 4-round bracket + day rematch
+#define GENESIS_ENABLE_COMPETITIVE_SERVICES TRUE  // Lumen Center Hyper Train + supply mart
 #define GENESIS_ENABLE_POSTGAME             TRUE
 
 // --- Gimmick story unlock badges (1-indexed gym badge count) ---------------
