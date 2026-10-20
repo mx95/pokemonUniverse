@@ -562,6 +562,7 @@ BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch::
 	callnative Genesis_GetWTRuleIndex
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_RematchMentor
 	goto_if_eq VAR_RESULT, 1, BattleFrontier_BattleTowerLobby_EventScript_RematchSteven
+	goto_if_eq VAR_RESULT, 2, BattleFrontier_BattleTowerLobby_EventScript_RematchWallace
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GENESIS_WT_CHAMP, BattleFrontier_BattleTowerLobby_Text_WorldTournamentDefeat
 	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
@@ -574,6 +575,11 @@ BattleFrontier_BattleTowerLobby_EventScript_RematchMentor::
 BattleFrontier_BattleTowerLobby_EventScript_RematchSteven::
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_STEVEN, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
+	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
+
+BattleFrontier_BattleTowerLobby_EventScript_RematchWallace::
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_WALLACE, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
 	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
 
 BattleFrontier_BattleTowerLobby_EventScript_RematchReward::
@@ -1128,8 +1134,8 @@ BattleFrontier_BattleTowerLobby_Text_CanLeaveUntilLossOrSevenWins:
 	.string "to the challenge.$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer:
-	.string "WORLD TOURNAMENT desk--three rounds:\n"
-	.string "Mentor trial, ASTRA, then VICTOR.\p"
+	.string "WORLD TOURNAMENT desk--four rounds:\n"
+	.string "Mentor, ASTRA, ASTRA rematch, VICTOR.\p"
 	.string "Clear the bracket for Battle Points.\n"
 	.string "Enter the WORLD TOURNAMENT?$"
 
@@ -1140,7 +1146,7 @@ BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2:
 	.string "Round 2--CHAMPION ASTRA steps in!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis:
-	.string "Semifinal--WALLACE of the waves!$"
+	.string "Semifinal--ASTRA returns for a rematch!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal:
 	.string "Final--VICTOR claims the Tower crown!$"
@@ -1157,7 +1163,7 @@ BattleFrontier_BattleTowerLobby_Text_WorldTournamentAfter:
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentRematch:
 	.string "WORLD TOURNAMENT exhibition?\n"
-	.string "VICTOR awaits another final!$"
+	.string "Today's rotating opponent awaits!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentBP:
 	.string "{PLAYER} obtained Battle Points!$"

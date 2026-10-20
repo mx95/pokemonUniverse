@@ -65,8 +65,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Character customization | 57–58 | IMPLEMENTED (stub) | Lilycove Boutique Aurelia dialogue; needs OW outfit art |
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
-| Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
-| World Tournament | 135 | IMPLEMENTED (facility v1) | Dedicated `MAP_WORLD_TOURNAMENT_LOBBY`; Tower boy warps in; 4-round bracket + rematch |
+| Postgame competitive services | 37–46, 139 | IMPLEMENTED (v1) | Lumen Center desk: Hyper Train / Gold Cap full train / supply mart (Caps, Patch, mints); Champion-gated intro kit |
+| World Tournament | 135 | IMPLEMENTED (facility v1) | Dedicated `MAP_WORLD_TOURNAMENT_LOBBY`; 4-round bracket + 4-way day rematch |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
@@ -122,10 +122,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of eastern cities 9–16 (Hall warp → plaza/Center/Mart/Gym → badge chain → Summit) and WT lobby from Tower boy.
+1. **In-emulator playtest** of eastern cities 9–16, WT lobby, and Lumen Hyper Train desk.
 2. Optional Porymap polish on Mirage→Summit tilesets/decoration (keep door warps fixed).
 3. Unique legendary battle sprites (replace DS stand-ins).
-4. Competitive Hyper Train desk polish (see branch `cursor/competitive-services-wt-polish-f849` / PR #1) if not yet merged.
+4. Genesis Laboratory / custom legendary outdoor quest maps.
 
 ---
 

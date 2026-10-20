@@ -1431,6 +1431,7 @@ Common_EventScript_FerryDepartIsland::
 	.include "data/scripts/genesis_puzzles.inc"
 	.include "data/scripts/genesis_rival.inc"
 	.include "data/scripts/genesis_metagross.inc"
+	.include "data/scripts/genesis_competitive.inc"
 
 Common_EventScript_NameReceivedPartyMon::
 	fadescreen FADE_TO_BLACK
