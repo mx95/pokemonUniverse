@@ -9323,6 +9323,28 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_MIRAGE_CITY",
+      "name": "MirageCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/MirageCity/border.bin",
+      "blockdata_filepath": "data/layouts/MirageCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MIRAGE_CITY_GYM",
+      "name": "MirageCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/MirageCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/MirageCity_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

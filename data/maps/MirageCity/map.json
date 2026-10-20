@@ -1,7 +1,7 @@
 {
   "id": "MAP_MIRAGE_CITY",
   "name": "MirageCity",
-  "layout": "LAYOUT_FALLARBOR_TOWN",
+  "layout": "LAYOUT_MIRAGE_CITY",
   "music": "MUS_FALLARBOR",
   "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_MIRAGE_CITY",

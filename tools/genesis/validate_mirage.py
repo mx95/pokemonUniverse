@@ -36,12 +36,28 @@ def main() -> int:
     outdoor = json.loads((ROOT / "data/maps/MirageCity/map.json").read_text(encoding="utf-8"))
     if outdoor.get("region_map_section") != "MAPSEC_MIRAGE_CITY":
         issues.append("MirageCity map.json must use MAPSEC_MIRAGE_CITY")
-    if outdoor.get("layout") != "LAYOUT_FALLARBOR_TOWN":
-        issues.append("MirageCity should reuse LAYOUT_FALLARBOR_TOWN")
+    if outdoor.get("layout") != "LAYOUT_MIRAGE_CITY":
+        issues.append("MirageCity must use dedicated LAYOUT_MIRAGE_CITY (Porymap-editable)")
 
     gym = json.loads((ROOT / "data/maps/MirageCity_Gym/map.json").read_text(encoding="utf-8"))
-    if gym.get("layout") != "LAYOUT_RUSTBORO_CITY_GYM":
-        issues.append("MirageCity_Gym should reuse LAYOUT_RUSTBORO_CITY_GYM")
+    if gym.get("layout") != "LAYOUT_MIRAGE_CITY_GYM":
+        issues.append("MirageCity_Gym must use dedicated LAYOUT_MIRAGE_CITY_GYM")
+
+    layouts = json.loads((ROOT / "data/layouts/layouts.json").read_text(encoding="utf-8"))
+    by_id = {L["id"]: L for L in layouts.get("layouts", [])}
+    for layout_id, folder in (
+        ("LAYOUT_MIRAGE_CITY", "MirageCity"),
+        ("LAYOUT_MIRAGE_CITY_GYM", "MirageCity_Gym"),
+    ):
+        if layout_id not in by_id:
+            issues.append(f"layouts.json missing {layout_id}")
+            continue
+        for rel in (f"data/layouts/{folder}/map.bin", f"data/layouts/{folder}/border.bin"):
+            if not (ROOT / rel).exists():
+                issues.append(f"missing Porymap layout file {rel}")
+        entry = by_id[layout_id]
+        if entry.get("blockdata_filepath") != f"data/layouts/{folder}/map.bin":
+            issues.append(f"{layout_id} blockdata_filepath must point at data/layouts/{folder}/map.bin")
 
     event_scripts = (ROOT / "data/event_scripts.s").read_text(encoding="utf-8", errors="replace")
     for name in REQUIRED_MAPS:

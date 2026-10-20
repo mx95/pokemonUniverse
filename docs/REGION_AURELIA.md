@@ -45,7 +45,7 @@ Temporary map aliases reuse Expansion Hoenn layouts until custom Aurelia geometr
 | Titania | `MAP_SOOTOPOLIS_*` | TITANIA CITY | Gym 8 Titan + Dynamax unlock |
 | Aurelia Summit | `MAP_EVER_GRANDE_*` | AURELIA SUMMIT | Elite Four + Champion Astra |
 | Eastern Aurelia Hall | `MAP_EASTERN_AURELIA_HALL` | BATTLE FRONTIER | Hub for Mirage warp + desks 10–16 + legend seeker |
-| Mirage City | `MAP_MIRAGE_CITY*` | MIRAGE CITY | First live eastern city; Gym 9 Iris (Psychic) |
+| Mirage City | `MAP_MIRAGE_CITY*` + `LAYOUT_MIRAGE_CITY*` | MIRAGE CITY | First live eastern city; Gym 9 Iris; Porymap-editable layouts |
 
 **Stand-in note:** Hoenn badge order covers gyms 1–8. Gym 9 is live Mirage City; gyms 10–16 remain Eastern Hall desks (warp from Frontier Reception Gate after Champion). Further custom cities replace remaining desks.
 

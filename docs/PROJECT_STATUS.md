@@ -46,7 +46,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Mirage City live (copy-layout); Hall desks remain for 10–16 — see `MAP_STUBS.md` |
+| Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Mirage City live + dedicated Porymap layouts; Hall desks remain for 10–16 — see `MAP_STUBS.md` |
 | 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in+) | Badges 1–8 Hoenn gyms; 9 Mirage City Gym; 10–16 Eastern Hall desks |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 flags/dialogue + 4 puzzle setpieces + Kai beats |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
@@ -122,10 +122,11 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of Mirage City (Hall warp → Center/Mart/Gym → Mirage Badge → Celia desk gate).
-2. **`genesis/maps`:** next eastern city (Verdantis) or Lumen/Verdant custom geometry when Porymap bandwidth allows.
-3. Unique legendary battle sprites (replace DS stand-ins).
-4. Dedicated World Tournament facility map (beyond Tower lobby bracket).
+1. **Porymap paint pass** on `LAYOUT_MIRAGE_CITY` / `LAYOUT_MIRAGE_CITY_GYM` (unique Mirage look; keep warp coords aligned).
+2. **In-emulator playtest** of Mirage City (Hall warp → Center/Mart/Gym → Mirage Badge → Celia desk gate).
+3. **`genesis/maps`:** next eastern city (Verdantis) with the same dedicated-layout pattern.
+4. Unique legendary battle sprites (replace DS stand-ins).
+5. Dedicated World Tournament facility map (beyond Tower lobby bracket).
 
 ---
 
