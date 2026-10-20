@@ -1638,6 +1638,70 @@
       "y": 12,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_VERDANTIS_CITY",
+      "name": "VERDANTIS CITY",
+      "x": 22,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_OBSIDIAN_CITY",
+      "name": "OBSIDIAN CITY",
+      "x": 23,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ASTRAL_CITY",
+      "name": "ASTRAL CITY",
+      "x": 24,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_TIDYMOON_CITY",
+      "name": "TIDYMOON CITY",
+      "x": 22,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_EON_CITY",
+      "name": "EON CITY",
+      "x": 23,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_GENESIS_CITY",
+      "name": "GENESIS CITY",
+      "x": 24,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_SUMMIT_CITY",
+      "name": "SUMMIT CITY",
+      "x": 25,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_WORLD_TOURNAMENT",
+      "name": "WORLD TOURNAMENT",
+      "x": 26,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
   ]
 }

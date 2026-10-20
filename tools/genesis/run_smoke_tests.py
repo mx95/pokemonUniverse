@@ -22,6 +22,7 @@ STATIC_VALIDATORS = [
     "validate_branding.py",
     "validate_config.py",
     "validate_mirage.py",
+    "validate_eastern.py",
     "validate_rom.py",
 ]
 

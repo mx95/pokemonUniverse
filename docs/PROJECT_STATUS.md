@@ -46,8 +46,8 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Battle engine + gimmicks | 83–85 | IMPLEMENTED (upstream) | Mega/Z/Dynamax/Tera/Primal/Ultra; gate via story flags |
 | Save system / versioning | 103 | IMPLEMENTED | `VAR_GENESIS_SAVE_VERSION` + `Genesis_InitSave` on New Game |
 | Verdant / Lumen playable polish | 2–4 | TESTING | Branding smoke-tested; needs in-emulator checklist |
-| Aurelia maps (custom geometry) | 3–4 | IN DEVELOPMENT | Mirage City live + dedicated Porymap layouts; Hall desks remain for 10–16 — see `MAP_STUBS.md` |
-| 16 Gyms + badges | 5–7 | IMPLEMENTED (stand-in+) | Badges 1–8 Hoenn gyms; 9 Mirage City Gym; 10–16 Eastern Hall desks |
+| Aurelia maps (custom geometry) | 3–4 | IMPLEMENTED (v1) | Eastern cities 9–16 live + dedicated Porymap layouts; Hall desks warp in — see `MAP_STUBS.md` |
+| 16 Gyms + badges | 5–7 | IMPLEMENTED | Badges 1–8 Hoenn gyms; 9–16 live city gyms (Mirage→Summit) |
 | Main story (8 acts) | 65–66, 131–132 | IMPLEMENTED (stand-in) | Acts 1–8 flags/dialogue + 4 puzzle setpieces + Kai beats |
 | Elite Four + Champion | 8–9 | IMPLEMENTED | Umbra/Shade/Boreas/Drake + Astra; rematches via Expansion |
 | Core QoL (already toggled) | 15, 22, 25–26, 52 | IMPLEMENTED | Reusable TMs, Exp Share, followers, DexNav, auto-repel menu, type indicators |
@@ -66,7 +66,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Followers interactions | 52–53 | IMPLEMENTED (v1) | Genesis conditional mood lines (forest/Celestia/rain/League/Sanctum) |
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (stub) | Bottle Cap + Ability Capsule tutor in Lumen Center |
-| World Tournament | 135 | IMPLEMENTED (lobby v3) | 4-round bracket + day-rotating rematch opponents + attendant rules |
+| World Tournament | 135 | IMPLEMENTED (facility v1) | Dedicated `MAP_WORLD_TOURNAMENT_LOBBY`; Tower boy warps in; 4-round bracket + rematch |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
@@ -122,11 +122,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of authored Mirage City (Hall warp → plaza/Center/Mart/Gym → Mirage Badge → Celia desk gate).
-2. Optional Porymap polish on Mirage tilesets/decoration.
-3. **`genesis/maps`:** next eastern city (Verdantis) with the same dedicated-layout pattern.
-4. Unique legendary battle sprites (replace DS stand-ins).
-5. Dedicated World Tournament facility map (beyond Tower lobby bracket).
+1. **In-emulator playtest** of eastern cities 9–16 (Hall warp → plaza/Center/Mart/Gym → badge chain → Summit) and WT lobby from Tower boy.
+2. Optional Porymap polish on Mirage→Summit tilesets/decoration (keep door warps fixed).
+3. Unique legendary battle sprites (replace DS stand-ins).
+4. Competitive Hyper Train desk polish (see branch `cursor/competitive-services-wt-polish-f849` / PR #1) if not yet merged.
 
 ---
 

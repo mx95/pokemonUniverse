@@ -17370,3 +17370,360 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Slack Off
 - Calm Mind
 
+=== TRAINER_GENESIS_VERDANTIS_A ===
+Name: RIVER
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Weedle
+Level: 54
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Poison Sting
+- String Shot
+- Tackle
+- Harden
+
+=== TRAINER_GENESIS_VERDANTIS_B ===
+Name: BLAZE
+Class: Bug Catcher
+Pic: Lass
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Beautifly
+Level: 54
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bug Buzz
+- Giga Drain
+- Quiver Dance
+- Psychic
+
+=== TRAINER_GENESIS_VERDANTIS_C ===
+Name: QUILL
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Heracross
+Level: 55
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Megahorn
+- Brick Break
+- Aerial Ace
+- Swords Dance
+
+=== TRAINER_GENESIS_OBSIDIAN_A ===
+Name: SHADE
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Poochyena
+Level: 55
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Bite
+- Howl
+- Sand Attack
+- Tackle
+
+=== TRAINER_GENESIS_OBSIDIAN_B ===
+Name: VINCE
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Mightyena
+Level: 55
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Crunch
+- Take Down
+- Swagger
+- Scary Face
+
+=== TRAINER_GENESIS_OBSIDIAN_C ===
+Name: NYX
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Absol
+Level: 56
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Night Slash
+- Slash
+- Swords Dance
+- Quick Attack
+
+=== TRAINER_GENESIS_ASTRAL_A ===
+Name: ORION
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Bagon
+Level: 56
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Dragon Breath
+- Headbutt
+- Bite
+- Ember
+
+=== TRAINER_GENESIS_ASTRAL_B ===
+Name: IVY
+Class: Dragon Tamer
+Pic: Cooltrainer F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Shelgon
+Level: 56
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Dragon Claw
+- Zen Headbutt
+- Crunch
+- Protect
+
+=== TRAINER_GENESIS_ASTRAL_C ===
+Name: KAI
+Class: Dragon Tamer
+Pic: Dragon Tamer
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Flygon
+Level: 57
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Dragon Claw
+- Earthquake
+- Rock Slide
+- Crunch
+
+=== TRAINER_GENESIS_TIDYMOON_A ===
+Name: REM
+Class: Lass
+Pic: Lass
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Cleffa
+Level: 57
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Charm
+- Sing
+- Sweet Kiss
+- Magical Leaf
+
+=== TRAINER_GENESIS_TIDYMOON_B ===
+Name: SOL
+Class: Lass
+Pic: Lass
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Clefairy
+Level: 57
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Moonblast
+- Cosmic Power
+- Recover
+- Metronome
+
+=== TRAINER_GENESIS_TIDYMOON_C ===
+Name: ASH
+Class: Lass
+Pic: Lass
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Gardevoir
+Level: 58
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Moonblast
+- Psychic
+- Calm Mind
+- Thunderbolt
+
+=== TRAINER_GENESIS_EON_A ===
+Name: LEX
+Class: Psychic
+Pic: Psychic F
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Gastly
+Level: 58
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Shadow Ball
+- Hypnosis
+- Curse
+- Night Shade
+
+=== TRAINER_GENESIS_EON_B ===
+Name: MIRA
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Haunter
+Level: 58
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Shadow Ball
+- Psychic
+- Curse
+- Confuse Ray
+
+=== TRAINER_GENESIS_EON_C ===
+Name: JON
+Class: Psychic
+Pic: Psychic F
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Banette
+Level: 59
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Shadow Ball
+- Thunderbolt
+- Will-O-Wisp
+- Knock Off
+
+=== TRAINER_GENESIS_GENESISCITY_A ===
+Name: EVA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Magneton
+Level: 59
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Thunderbolt
+- Tri Attack
+- Thunder Wave
+- Supersonic
+
+=== TRAINER_GENESIS_GENESISCITY_B ===
+Name: REX
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Milotic
+Level: 59
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Surf
+- Ice Beam
+- Recover
+- Toxic
+
+=== TRAINER_GENESIS_GENESISCITY_C ===
+Name: UNA
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Garchomp
+Level: 60
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Earthquake
+- Dragon Claw
+- Crunch
+- Swords Dance
+
+=== TRAINER_GENESIS_SUMMIT_A ===
+Name: PIO
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Metang
+Level: 60
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Meteor Mash
+- Psychic
+- Pursuit
+- Agility
+
+=== TRAINER_GENESIS_SUMMIT_B ===
+Name: SKYE
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Aggron
+Level: 60
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Iron Tail
+- Earthquake
+- Rock Slide
+- Protect
+
+=== TRAINER_GENESIS_SUMMIT_C ===
+Name: VAL
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Check Bad Move
+
+Metagross
+Level: 61
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Meteor Mash
+- Earthquake
+- Psychic
+- Agility
+

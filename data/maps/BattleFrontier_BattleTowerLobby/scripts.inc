@@ -507,6 +507,19 @@ BattleFrontier_BattleTowerLobby_EventScript_Boy::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacility, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacilityWarp, MSGBOX_DEFAULT
+	warpsilent MAP_WORLD_TOURNAMENT_LOBBY, 12, 7
+	waitstate
+	release
+	end
+
+@ Legacy inline bracket (unused while facility warp is live)
+BattleFrontier_BattleTowerLobby_EventScript_BoyLegacyWT::
+	lock
+	faceplayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
 	goto_if_set FLAG_GENESIS_WT_CLEARED, BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
@@ -1526,3 +1539,11 @@ BattleFrontier_BattleTowerLobby_Text_ExplainMultiLinkRules:
 	.string "from those of your friend.\p"
 	.string "You may not interrupt this challenge\n"
 	.string "in the middle, unlike other modes.$"
+
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacility:
+	.string "The WORLD TOURNAMENT has a dedicated\n"
+	.string "lobby on the Frontier now.\p"
+	.string "Warp to the WORLD TOURNAMENT lobby?$"
+
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacilityWarp:
+	.string "Right this way--good luck!$"
