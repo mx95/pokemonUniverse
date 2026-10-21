@@ -507,6 +507,19 @@ BattleFrontier_BattleTowerLobby_EventScript_Boy::
 	lock
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacility, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacilityWarp, MSGBOX_DEFAULT
+	warpsilent MAP_WORLD_TOURNAMENT_LOBBY, 12, 7
+	waitstate
+	release
+	end
+
+@ Legacy inline bracket (unused while facility warp is live)
+BattleFrontier_BattleTowerLobby_EventScript_BoyLegacyWT::
+	lock
+	faceplayer
+	goto_if_unset FLAG_SYS_GAME_CLEAR, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
 	goto_if_set FLAG_GENESIS_WT_CLEARED, BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, BattleFrontier_BattleTowerLobby_EventScript_BoyNormal
@@ -549,6 +562,7 @@ BattleFrontier_BattleTowerLobby_EventScript_WorldTournamentRematch::
 	callnative Genesis_GetWTRuleIndex
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleTowerLobby_EventScript_RematchMentor
 	goto_if_eq VAR_RESULT, 1, BattleFrontier_BattleTowerLobby_EventScript_RematchSteven
+	goto_if_eq VAR_RESULT, 2, BattleFrontier_BattleTowerLobby_EventScript_RematchWallace
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GENESIS_WT_CHAMP, BattleFrontier_BattleTowerLobby_Text_WorldTournamentDefeat
 	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
@@ -561,6 +575,11 @@ BattleFrontier_BattleTowerLobby_EventScript_RematchMentor::
 BattleFrontier_BattleTowerLobby_EventScript_RematchSteven::
 	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_STEVEN, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
+	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
+
+BattleFrontier_BattleTowerLobby_EventScript_RematchWallace::
+	msgbox BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_WALLACE, BattleFrontier_BattleTowerLobby_Text_WorldTournamentRoundLose
 	goto BattleFrontier_BattleTowerLobby_EventScript_RematchReward
 
 BattleFrontier_BattleTowerLobby_EventScript_RematchReward::
@@ -1115,8 +1134,8 @@ BattleFrontier_BattleTowerLobby_Text_CanLeaveUntilLossOrSevenWins:
 	.string "to the challenge.$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentOffer:
-	.string "WORLD TOURNAMENT desk--three rounds:\n"
-	.string "Mentor trial, ASTRA, then VICTOR.\p"
+	.string "WORLD TOURNAMENT desk--four rounds:\n"
+	.string "Mentor, ASTRA, ASTRA rematch, VICTOR.\p"
 	.string "Clear the bracket for Battle Points.\n"
 	.string "Enter the WORLD TOURNAMENT?$"
 
@@ -1127,7 +1146,7 @@ BattleFrontier_BattleTowerLobby_Text_WorldTournamentRound2:
 	.string "Round 2--CHAMPION ASTRA steps in!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentSemis:
-	.string "Semifinal--WALLACE of the waves!$"
+	.string "Semifinal--ASTRA returns for a rematch!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentFinal:
 	.string "Final--VICTOR claims the Tower crown!$"
@@ -1144,7 +1163,7 @@ BattleFrontier_BattleTowerLobby_Text_WorldTournamentAfter:
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentRematch:
 	.string "WORLD TOURNAMENT exhibition?\n"
-	.string "VICTOR awaits another final!$"
+	.string "Today's rotating opponent awaits!$"
 
 BattleFrontier_BattleTowerLobby_Text_WorldTournamentBP:
 	.string "{PLAYER} obtained Battle Points!$"
@@ -1526,3 +1545,11 @@ BattleFrontier_BattleTowerLobby_Text_ExplainMultiLinkRules:
 	.string "from those of your friend.\p"
 	.string "You may not interrupt this challenge\n"
 	.string "in the middle, unlike other modes.$"
+
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacility:
+	.string "The WORLD TOURNAMENT has a dedicated\n"
+	.string "lobby on the Frontier now.\p"
+	.string "Warp to the WORLD TOURNAMENT lobby?$"
+
+BattleFrontier_BattleTowerLobby_Text_WorldTournamentFacilityWarp:
+	.string "Right this way--good luck!$"

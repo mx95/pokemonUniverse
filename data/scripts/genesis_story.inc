@@ -311,10 +311,10 @@ Genesis_Text_Quest_PostHeader:
 	.string "Postgame:$"
 
 Genesis_Text_Quest_EasternOpen:
-	.string "- Eastern Hall badges 9-16.$"
+	.string "- Eastern cities 9-16 (Hall warps).$"
 
 Genesis_Text_Quest_EasternDone:
-	.string "- Eastern Hall badges: complete.$"
+	.string "- Eastern cities 9-16: complete.$"
 
 Genesis_Text_Quest_LegendsOpen:
 	.string "- Legend Sanctum (Aethernox / Solara /\l"
@@ -324,7 +324,7 @@ Genesis_Text_Quest_LegendsDone:
 	.string "- Legend Sanctum + Genesis Form: done.$"
 
 Genesis_Text_Quest_WTOpen:
-	.string "- WORLD TOURNAMENT (Battle Tower lobby).$"
+	.string "- WORLD TOURNAMENT lobby (Frontier).$"
 
 Genesis_Text_Quest_WTDone:
 	.string "- WORLD TOURNAMENT bracket: cleared.$"

@@ -871,11 +871,35 @@
 #define TRAINER_GENESIS_WT_CHAMP            863
 #define TRAINER_GENESIS_ACE_ROOKIE          864 // Verdant Town early singles
 #define TRAINER_GENESIS_ACE_MASTER          865 // Post-League competitive doubles
+#define TRAINER_GENESIS_MIRAGE_A            866 // Mirage City Gym trainer
+#define TRAINER_GENESIS_MIRAGE_B            867
+#define TRAINER_GENESIS_MIRAGE_C            868
+#define TRAINER_GENESIS_VERDANTIS_A      869 // VerdantisCity Gym trainer
+#define TRAINER_GENESIS_VERDANTIS_B      870 // VerdantisCity Gym trainer
+#define TRAINER_GENESIS_VERDANTIS_C      871 // VerdantisCity Gym trainer
+#define TRAINER_GENESIS_OBSIDIAN_A       872 // ObsidianCity Gym trainer
+#define TRAINER_GENESIS_OBSIDIAN_B       873 // ObsidianCity Gym trainer
+#define TRAINER_GENESIS_OBSIDIAN_C       874 // ObsidianCity Gym trainer
+#define TRAINER_GENESIS_ASTRAL_A         875 // AstralCity Gym trainer
+#define TRAINER_GENESIS_ASTRAL_B         876 // AstralCity Gym trainer
+#define TRAINER_GENESIS_ASTRAL_C         877 // AstralCity Gym trainer
+#define TRAINER_GENESIS_TIDYMOON_A       878 // TidymoonCity Gym trainer
+#define TRAINER_GENESIS_TIDYMOON_B       879 // TidymoonCity Gym trainer
+#define TRAINER_GENESIS_TIDYMOON_C       880 // TidymoonCity Gym trainer
+#define TRAINER_GENESIS_EON_A            881 // EonCity Gym trainer
+#define TRAINER_GENESIS_EON_B            882 // EonCity Gym trainer
+#define TRAINER_GENESIS_EON_C            883 // EonCity Gym trainer
+#define TRAINER_GENESIS_GENESISCITY_A    884 // GenesisCity Gym trainer
+#define TRAINER_GENESIS_GENESISCITY_B    885 // GenesisCity Gym trainer
+#define TRAINER_GENESIS_GENESISCITY_C    886 // GenesisCity Gym trainer
+#define TRAINER_GENESIS_SUMMIT_A         887 // SummitCity Gym trainer
+#define TRAINER_GENESIS_SUMMIT_B         888 // SummitCity Gym trainer
+#define TRAINER_GENESIS_SUMMIT_C         889 // SummitCity Gym trainer
 
-// GENESIS: expanded past Emerald 864 for Verdant Ace (+2). Shifts SYSTEM_FLAGS; bump save version.
+// GENESIS: expanded for Ace, Mirage, and eastern gyms 10-16. Shifts SYSTEM_FLAGS; bump save version.
 
-#define TRAINERS_COUNT_EMERALD     866
-#define MAX_TRAINERS_COUNT_EMERALD 866
+#define TRAINERS_COUNT_EMERALD     890
+#define MAX_TRAINERS_COUNT_EMERALD 890
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

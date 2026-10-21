@@ -21,24 +21,36 @@ Do not invent map IDs until Porymap entries are created.
 | done (alias) | Stormbreak City | Flying / Skye | MAP_MOSSDEEP_* (+ Z-Power Ring) |
 | done (alias) | Titania City | Steel / Titan | MAP_SOOTOPOLIS_* (+ Dynamax Band) |
 | done (alias) | Aurelia Summit | League | MAP_EVER_GRANDE_* (E4 + Champion Astra) |
-| stand-in | Mirage City | Psychic / Iris | Eastern Hall desk + plaque (badge 9) |
-| stand-in | Verdantis City | Bug / Celia | Eastern Hall desk + plaque (badge 10) |
-| stand-in | Obsidian City | Dark / Noctis | Eastern Hall desk + plaque (badge 11) |
-| stand-in | Astral City | Dragon / Drake | Eastern Hall desk + plaque (badge 12 / Tera) |
-| stand-in | Tidymoon City | Fairy / Luna | Eastern Hall desk + plaque (badge 13) |
-| stand-in | Eon City | Ghost / Morrigan | Eastern Hall desk + plaque (badge 14) |
-| stand-in | Genesis City | Mixed / Colleague | Eastern Hall desk + plaque (badge 15) |
-| stand-in | Aurelia Summit (east) | Mixed / Mentor | Eastern Hall desk + plaque (badge 16) |
+| live (Porymap layouts) | Mirage City | Psychic / Iris | `MAP_MIRAGE_CITY*` + `LAYOUT_MIRAGE_CITY` / `_GYM` |
+| live (Porymap layouts) | Verdantis City | Bug / Celia | `MAP_VERDANTIS_CITY*` + dedicated layouts |
+| live (Porymap layouts) | Obsidian City | Dark / Noctis | `MAP_OBSIDIAN_CITY*` + dedicated layouts |
+| live (Porymap layouts) | Astral City | Dragon / Drake | `MAP_ASTRAL_CITY*` + dedicated layouts (Tera unlock) |
+| live (Porymap layouts) | Tidymoon City | Fairy / Luna | `MAP_TIDYMOON_CITY*` + dedicated layouts |
+| live (Porymap layouts) | Eon City | Ghost / Morrigan | `MAP_EON_CITY*` + dedicated layouts |
+| live (Porymap layouts) | Genesis City | Mixed / Colleague | `MAP_GENESIS_CITY*` + dedicated layouts |
+| live (Porymap layouts) | Aurelia Summit (east) | Mixed / Mentor | `MAP_SUMMIT_CITY*` + dedicated layouts |
 
 ## Postgame / facilities
 
 - Battle Frontier (Expansion facilities; Aurelia branding)
-- Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — city-desk stand-ins for gyms 9–16 (unique leader dialogue + plaques), Hall clerk (directory / return warp), Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
+- Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — warp desks for gyms 9–16 (live cities), Hall clerk, Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
+- Eastern cities 9–16 — Center / Mart / Gym each; Hall attendant + teleport net return warps; rebuild outdoor/gym bins with `python3 tools/genesis/build_eastern_layouts.py` (Mirage: `build_mirage_layouts.py`)
 - Legend Sanctum (`MAP_GENESIS_LEGEND_SANCTUM`) — Aethernox / Solara / Genesis foci
-- World Tournament lobby v2 — Battle Tower 3-round bracket (Mentor → Astra → Victor) + rematch BP
-- Genesis Laboratory (later)
+- World Tournament lobby (`MAP_WORLD_TOURNAMENT_LOBBY`) — dedicated facility; Tower boy / Hall clerk warp here; 4-round bracket + 4-way day rematch BP
+- Competitive prep desk (Lumen Center Gentleman) — Hyper Train + Gold Cap + supply mart
+- Genesis Laboratory (`MAP_GENESIS_LABORATORY`) — postgame archive stub via Hall researcher
 - Custom legendary / Mythical outdoor quest maps (later)
 
 ## `genesis/maps` next steps
 
-Prefer script/config polish until Porymap city geometry is ready. Full Mirage→Summit east maps replace Hall desks later; OldaleTown_Gym / EasternAurelia_Hall show the copy-layout stub pattern.
+1. Optional Porymap polish on Mirage→Summit (tileset / decoration) without moving door warps.
+2. Unique Center/Mart layouts only if a city needs non-standard interiors.
+3. Unique legendary battle sprites (replace DS stand-ins).
+
+Scaffold / validate:
+
+```bash
+python3 tools/genesis/scaffold_eastern_cities.py   # idempotent
+python3 tools/genesis/validate_eastern.py
+python3 tools/genesis/validate_mirage.py
+```

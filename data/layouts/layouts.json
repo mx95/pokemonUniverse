@@ -9323,6 +9323,193 @@
       "border_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/border.bin",
       "blockdata_filepath": "data/layouts/OneIsland_KindleRoad_EmberSpa_Frlg/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_MIRAGE_CITY",
+      "name": "MirageCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/MirageCity/border.bin",
+      "blockdata_filepath": "data/layouts/MirageCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MIRAGE_CITY_GYM",
+      "name": "MirageCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/MirageCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/MirageCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VERDANTIS_CITY",
+      "name": "VerdantisCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/VerdantisCity/border.bin",
+      "blockdata_filepath": "data/layouts/VerdantisCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VERDANTIS_CITY_GYM",
+      "name": "VerdantisCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/VerdantisCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/VerdantisCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_OBSIDIAN_CITY",
+      "name": "ObsidianCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/ObsidianCity/border.bin",
+      "blockdata_filepath": "data/layouts/ObsidianCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_OBSIDIAN_CITY_GYM",
+      "name": "ObsidianCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/ObsidianCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/ObsidianCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ASTRAL_CITY",
+      "name": "AstralCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/AstralCity/border.bin",
+      "blockdata_filepath": "data/layouts/AstralCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ASTRAL_CITY_GYM",
+      "name": "AstralCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/AstralCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/AstralCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TIDYMOON_CITY",
+      "name": "TidymoonCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/TidymoonCity/border.bin",
+      "blockdata_filepath": "data/layouts/TidymoonCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_TIDYMOON_CITY_GYM",
+      "name": "TidymoonCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/TidymoonCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/TidymoonCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_EON_CITY",
+      "name": "EonCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/EonCity/border.bin",
+      "blockdata_filepath": "data/layouts/EonCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_EON_CITY_GYM",
+      "name": "EonCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/EonCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/EonCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GENESIS_CITY",
+      "name": "GenesisCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/GenesisCity/border.bin",
+      "blockdata_filepath": "data/layouts/GenesisCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GENESIS_CITY_GYM",
+      "name": "GenesisCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/GenesisCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/GenesisCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SUMMIT_CITY",
+      "name": "SummitCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/SummitCity/border.bin",
+      "blockdata_filepath": "data/layouts/SummitCity/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SUMMIT_CITY_GYM",
+      "name": "SummitCity_Gym_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/SummitCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SummitCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_WORLD_TOURNAMENT_LOBBY",
+      "name": "WorldTournament_Lobby_Layout",
+      "width": 25,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/WorldTournament_Lobby/border.bin",
+      "blockdata_filepath": "data/layouts/WorldTournament_Lobby/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

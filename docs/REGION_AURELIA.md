@@ -44,9 +44,10 @@ Temporary map aliases reuse Expansion Hoenn layouts until custom Aurelia geometr
 | Stormbreak | `MAP_MOSSDEEP_*` | STORMBREAK CITY | Gym 7 Skye + Z unlock |
 | Titania | `MAP_SOOTOPOLIS_*` | TITANIA CITY | Gym 8 Titan + Dynamax unlock |
 | Aurelia Summit | `MAP_EVER_GRANDE_*` | AURELIA SUMMIT | Elite Four + Champion Astra |
-| Eastern Aurelia Hall | `MAP_EASTERN_AURELIA_HALL` | BATTLE FRONTIER | Postgame gyms 9–16 + legend seeker |
+| Eastern Aurelia Hall | `MAP_EASTERN_AURELIA_HALL` | BATTLE FRONTIER | Hub for Mirage warp + desks 10–16 + legend seeker |
+| Mirage City | `MAP_MIRAGE_CITY*` + `LAYOUT_MIRAGE_CITY*` | MIRAGE CITY | First live eastern city; Gym 9 Iris; Porymap-editable layouts |
 
-**Stand-in note:** Hoenn badge order covers gyms 1–8. Gyms 9–16 are sequential challenges in Eastern Aurelia Hall (warp from Frontier Reception Gate after Champion). Custom city geometry replaces the Hall later.
+**Stand-in note:** Hoenn badge order covers gyms 1–8. Gym 9 is live Mirage City; gyms 10–16 remain Eastern Hall desks (warp from Frontier Reception Gate after Champion). Further custom cities replace remaining desks.
 
 Verdant's dedicated small Center/Mart will be added with custom map geometry later; early healing/shopping uses Lumen City.
 

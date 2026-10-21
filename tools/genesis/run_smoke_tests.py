@@ -21,6 +21,9 @@ STATIC_VALIDATORS = [
     "validate_pokedex.py",
     "validate_branding.py",
     "validate_config.py",
+    "validate_mirage.py",
+    "validate_eastern.py",
+    "validate_competitive.py",
     "validate_rom.py",
 ]
 
