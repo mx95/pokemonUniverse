@@ -67,6 +67,7 @@ Status values: `PLANNED` | `DESIGN` | `IN DEVELOPMENT` | `IMPLEMENTED` | `TESTIN
 | Battle Frontier facilities | 73–82 | IMPLEMENTED | Expansion Frontier live post-Champion; Aurelia branding |
 | Postgame competitive services | 37–46, 139 | IMPLEMENTED (v1) | Lumen Center desk: Hyper Train / Gold Cap full train / supply mart (Caps, Patch, mints); Champion-gated intro kit |
 | World Tournament | 135 | IMPLEMENTED (facility v1) | Dedicated `MAP_WORLD_TOURNAMENT_LOBBY`; 4-round bracket + 4-way day rematch |
+| Genesis Laboratory | — | IMPLEMENTED (stub) | `MAP_GENESIS_LABORATORY` archive wing via Hall researcher |
 | Genesis Form (full) | 85 | IMPLEMENTED (v1) | Switch-in type/ability/stat overlay for SPECIES_GENESIS |
 | Fast travel / Smart Fly | 23–24 | IMPLEMENTED | `OW_FLAG_POKE_RIDER` = Fly HM; R on Town Map / PokéNav |
 | HM field-move rework | 19–20 | IMPLEMENTED (v1) | Defog + Rock Climb enabled; Fortree field-move guide NPC |
@@ -100,8 +101,8 @@ Track as maps/story land:
 - [x] Gym 4 → new shops (Mauville Mart + shopCriteria badge gates)
 - [x] Gym 8 → eastern Aurelia opens (post-Champion Reception Gate → Eastern Hall)
 - [x] Eclipse defeated → Legend Sanctum + archive flag open
-- [x] Champion → Frontier + Eastern Hall + WT stub
-- [x] Legendary quests → Eastern Hall seeker (Aethernox/Solara/Genesis)
+- [x] Champion → Frontier + Eastern Hall + WT lobby + Genesis Lab
+- [x] Legendary quests → Eastern Hall seeker (Aethernox/Solara/Genesis + Lab)
 - [x] Weather events → rare encounters (Route 119/120 rain/sun bias)
 
 ---
@@ -122,10 +123,10 @@ Story battles: one gimmick per trainer (`GENESIS_ONE_GIMMICK_PER_STORY_BATTLE`).
 
 ## Next recommended feature group
 
-1. **In-emulator playtest** of eastern cities 9–16, WT lobby, and Lumen Hyper Train desk.
+1. **In-emulator playtest** of eastern cities 9–16, WT lobby, Hyper Train desk, and Genesis Lab.
 2. Optional Porymap polish on Mirage→Summit tilesets/decoration (keep door warps fixed).
 3. Unique legendary battle sprites (replace DS stand-ins).
-4. Genesis Laboratory / custom legendary outdoor quest maps.
+4. Custom legendary outdoor quest maps / Fly destinations for eastern MAPSECs.
 
 ---
 

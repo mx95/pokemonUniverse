@@ -164,8 +164,11 @@ def main() -> int:
             issues.append(f"WT lobby missing {needle}")
 
     save = (ROOT / "include/config/genesis.h").read_text(encoding="utf-8", errors="replace")
-    if "GENESIS_SAVE_VERSION" not in save or "6" not in save.split("GENESIS_SAVE_VERSION", 1)[1][:40]:
-        issues.append("GENESIS_SAVE_VERSION should be 6 for eastern trainer expansion")
+    import re
+
+    m = re.search(r"#define\s+GENESIS_SAVE_VERSION\s+(\d+)", save)
+    if not m or int(m.group(1)) < 6:
+        issues.append("GENESIS_SAVE_VERSION should be >= 6 for eastern trainer expansion")
 
     if issues:
         print(f"EASTERN VALIDATION FAILED ({len(issues)}):")

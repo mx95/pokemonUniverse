@@ -36,9 +36,9 @@ Do not invent map IDs until Porymap entries are created.
 - Eastern Aurelia Hall (`MAP_EASTERN_AURELIA_HALL`) — warp desks for gyms 9–16 (live cities), Hall clerk, Legend Sanctum seeker; enter via Reception Gate greeter after Champion (Fly → Frontier → greeter)
 - Eastern cities 9–16 — Center / Mart / Gym each; Hall attendant + teleport net return warps; rebuild outdoor/gym bins with `python3 tools/genesis/build_eastern_layouts.py` (Mirage: `build_mirage_layouts.py`)
 - Legend Sanctum (`MAP_GENESIS_LEGEND_SANCTUM`) — Aethernox / Solara / Genesis foci
-- World Tournament lobby (`MAP_WORLD_TOURNAMENT_LOBBY`) — dedicated facility; Tower boy warps here; 4-round bracket + 4-way day rematch BP
+- World Tournament lobby (`MAP_WORLD_TOURNAMENT_LOBBY`) — dedicated facility; Tower boy / Hall clerk warp here; 4-round bracket + 4-way day rematch BP
 - Competitive prep desk (Lumen Center Gentleman) — Hyper Train + Gold Cap + supply mart
-- Genesis Laboratory (later)
+- Genesis Laboratory (`MAP_GENESIS_LABORATORY`) — postgame archive stub via Hall researcher
 - Custom legendary / Mythical outdoor quest maps (later)
 
 ## `genesis/maps` next steps

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""GENESIS: Assert competitive prep desk + WT lobby polish are wired."""
+"""GENESIS: Assert competitive prep desk + WT facility polish are wired."""
 
 from __future__ import annotations
 
@@ -38,18 +38,35 @@ CHECKS: list[tuple[str, list[str], str]] = [
         "competitive services flag",
     ),
     (
-        "data/maps/BattleFrontier_BattleTowerLobby/scripts.inc",
+        "data/maps/WorldTournament_Lobby/scripts.inc",
         [
-            "four rounds",
-            "RematchWallace",
             "ASTRA returns for a rematch",
+            "RematchWallace",
+            "Genesis_GetWTRuleIndex",
+            "GiveFrontierBattlePoints",
+            "Rule--Dawn Bracket",
         ],
-        "WT lobby 4-round polish",
+        "WT facility 4-round + day rematch polish",
+    ),
+    (
+        "data/maps/BattleFrontier_BattleTowerLobby/scripts.inc",
+        ["MAP_WORLD_TOURNAMENT_LOBBY"],
+        "Tower boy warps to WT facility",
     ),
     (
         "src/genesis_story.c",
         ["% 4"],
         "WT rematch day rotation is 4-way",
+    ),
+    (
+        "data/maps/Genesis_Laboratory/map.json",
+        ["MAP_GENESIS_LABORATORY", "Genesis_Laboratory_EventScript_Director"],
+        "Genesis Laboratory stub map",
+    ),
+    (
+        "data/maps/EasternAurelia_Hall/scripts.inc",
+        ["MAP_GENESIS_LABORATORY", "MAP_WORLD_TOURNAMENT_LOBBY"],
+        "Hall seeks Lab + clerk WT warp",
     ),
 ]
 

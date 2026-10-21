@@ -25,6 +25,7 @@ make genesis-check-rom
 | `validate_config.py` | DS-style sprites, Gen5 pop-ups, followers, type UI, splash skipped |
 | `validate_mirage.py` | Mirage City live map / gym / Hall warp / doors |
 | `validate_eastern.py` | Eastern cities 10–16 + WT lobby / Hall warps / doors |
+| `validate_competitive.py` | Hyper Train desk + WT facility rematch + Genesis Lab stub |
 | `validate_rom.py` | `pokemonGenesis.gba` header is `POKEMON GENE` / `BPEE` and sized correctly |
 
 ## Expansion ROM tests

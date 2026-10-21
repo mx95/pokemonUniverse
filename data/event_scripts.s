@@ -543,6 +543,7 @@ gStdScripts_End::
 	.include "data/maps/BattleFrontier_ReceptionGate/scripts.inc"
 	.include "data/maps/EasternAurelia_Hall/scripts.inc"
 	.include "data/maps/Genesis_LegendSanctum/scripts.inc"
+	.include "data/maps/Genesis_Laboratory/scripts.inc"
 	.include "data/maps/MirageCity/scripts.inc"
 	.include "data/maps/MirageCity_Gym/scripts.inc"
 	.include "data/maps/MirageCity_PokemonCenter_1F/scripts.inc"

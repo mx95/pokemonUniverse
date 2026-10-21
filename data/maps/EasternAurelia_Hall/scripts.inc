@@ -226,9 +226,18 @@ EasternAurelia_Hall_EventScript_LegendSeeker::
 	setflag FLAG_GENESIS_LEGEND_QUEST_HINT
 	setflag FLAG_GENESIS_ECLIPSE_ARCHIVE_OPEN
 	msgbox EasternAurelia_Hall_Text_SanctumOffer, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_LegendSeekerLabOffer
 	msgbox EasternAurelia_Hall_Text_SanctumWarp, MSGBOX_DEFAULT
 	warpsilent MAP_GENESIS_LEGEND_SANCTUM, 4, 6
+	waitstate
+	release
+	end
+
+EasternAurelia_Hall_EventScript_LegendSeekerLabOffer::
+	msgbox EasternAurelia_Hall_Text_LabOffer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_Decline
+	msgbox EasternAurelia_Hall_Text_LabWarp, MSGBOX_DEFAULT
+	warpsilent MAP_GENESIS_LABORATORY, 4, 6
 	waitstate
 	release
 	end
@@ -271,7 +280,11 @@ EasternAurelia_Hall_EventScript_ClerkStay::
 	end
 
 EasternAurelia_Hall_EventScript_ClerkDirectory::
-	msgbox EasternAurelia_Hall_Text_ClerkDirectory, MSGBOX_DEFAULT
+	msgbox EasternAurelia_Hall_Text_ClerkDirectory, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EasternAurelia_Hall_EventScript_ClerkStay
+	msgbox EasternAurelia_Hall_Text_ClerkWTWarp, MSGBOX_DEFAULT
+	warpsilent MAP_WORLD_TOURNAMENT_LOBBY, 12, 7
+	waitstate
 	release
 	end
 
@@ -513,10 +526,16 @@ EasternAurelia_Hall_Text_SanctumOffer:
 EasternAurelia_Hall_Text_SanctumWarp:
 	.string "This way--tread carefully.$"
 
+EasternAurelia_Hall_Text_LabOffer:
+	.string "Or visit GENESIS LABORATORY?\n"
+	.string "Eastern archives and research notes.$"
+
+EasternAurelia_Hall_Text_LabWarp:
+	.string "The Lab wing is this way.$"
+
 EasternAurelia_Hall_Text_ClerkWelcome:
 	.string "Eastern AURELIA HALL clerk.\n"
 	.string "Eight live cities, one hall.$"
-	.string "Eight city desks, one hall--for now.$"
 
 EasternAurelia_Hall_Text_ClerkAsk:
 	.string "Return to the Reception Gate?\n"
@@ -531,6 +550,10 @@ EasternAurelia_Hall_Text_ClerkStay:
 	.string "Browse the desks when you're ready.\n"
 	.string "Plaques name each Eastern city.$"
 
+EasternAurelia_Hall_Text_ClerkWTWarp:
+	.string "Opening a Frontier link to the\n"
+	.string "WORLD TOURNAMENT lobby.$"
+
 EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "All eight eastern cities are live maps.\n"
 	.string "Desk guides and plaques warp you in.\p"
@@ -538,15 +561,8 @@ EasternAurelia_Hall_Text_ClerkDirectory:
 	.string "OBSIDIAN · ASTRAL.\p"
 	.string "Front row: TIDYMOON · EON ·\n"
 	.string "GENESIS CITY · SUMMIT EAST.\p"
-	.string "Researcher: Legend Sanctum.\n"
-	.string "WORLD TOURNAMENT lobby via Frontier.$"
-	.string "Other eastern cities still use desks.\p"
-	.string "Back row: MIRAGE · VERDANTIS ·\n"
-	.string "OBSIDIAN · ASTRAL.\p"
-	.string "Front row: TIDYMOON · EON ·\n"
-	.string "GENESIS CITY · SUMMIT EAST.\p"
-	.string "Researcher (center): Legend Sanctum.\n"
-	.string "Exit warps return to Reception Gate.$"
+	.string "Researcher: Legend Sanctum / Lab.\n"
+	.string "Visit WORLD TOURNAMENT lobby now?$"
 
 EasternAurelia_Hall_Text_DeskMirage:
 	.string "MIRAGE CITY -- Badge 9 (live map)\n"
@@ -557,43 +573,36 @@ EasternAurelia_Hall_Text_DeskVerdantis:
 	.string "VERDANTIS CITY -- Badge 10 (live map)\n"
 	.string "LEADER CELIA · BUG · Jungle Badge\p"
 	.string "Warp to VERDANTIS CITY?$"
-	.string "LEADER CELIA · BUG · Jungle Badge$"
 
 EasternAurelia_Hall_Text_DeskObsidian:
 	.string "OBSIDIAN CITY -- Badge 11 (live map)\n"
 	.string "LEADER NOCTIS · DARK · Obsidian Badge\p"
 	.string "Warp to OBSIDIAN CITY?$"
-	.string "LEADER NOCTIS · DARK · Obsidian Badge$"
 
 EasternAurelia_Hall_Text_DeskAstral:
 	.string "ASTRAL CITY -- Badge 12 (live map)\n"
 	.string "LEADER DRAKE · DRAGON · Astral / Tera\p"
 	.string "Warp to ASTRAL CITY?$"
-	.string "LEADER DRAKE · DRAGON · Astral / Tera$"
 
 EasternAurelia_Hall_Text_DeskTidymoon:
 	.string "TIDYMOON CITY -- Badge 13 (live map)\n"
 	.string "LEADER LUNA · FAIRY · Moon Badge\p"
 	.string "Warp to TIDYMOON CITY?$"
-	.string "LEADER LUNA · FAIRY · Moon Badge$"
 
 EasternAurelia_Hall_Text_DeskEon:
 	.string "EON CITY -- Badge 14 (live map)\n"
 	.string "LEADER MORRIGAN · GHOST · Eon Badge\p"
 	.string "Warp to EON CITY?$"
-	.string "LEADER MORRIGAN · GHOST · Eon Badge$"
 
 EasternAurelia_Hall_Text_DeskGenesis:
 	.string "GENESIS CITY -- Badge 15 (live map)\n"
 	.string "COLLEAGUE · MIXED · Genesis Badge\p"
 	.string "Warp to GENESIS CITY?$"
-	.string "COLLEAGUE · MIXED · Genesis Badge$"
 
 EasternAurelia_Hall_Text_DeskSummit:
 	.string "AURELIA SUMMIT (east) -- Badge 16 (live map)\n"
 	.string "MENTOR · MIXED · Ascension Badge\p"
 	.string "Warp to AURELIA SUMMIT?$"
-	.string "MENTOR · MIXED · Ascension Badge$"
 
 EasternAurelia_Hall_Text_HallDirectory:
 	.string "EASTERN AURELIA HALL\n"
